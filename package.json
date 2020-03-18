@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/pableco/casa-de-grillos-byb.git"
+    "url": "git+https://gitlab.com/pableco/corona-mood.git"
   },
   "keywords": [
     "website",
@@ -38,7 +38,7 @@
   "author": "fundament",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/pableco/casa-de-grillos-byb/issues"
+    "url": "https://gitlab.com/pableco/corona-mood/-/issues"
   },
   "homepage": "https://corona-mood.firebaseapp.com/",
   "dependencies": {
