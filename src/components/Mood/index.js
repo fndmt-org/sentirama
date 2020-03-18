@@ -5,11 +5,11 @@ import { compose } from 'recompose';
 import { withFirebase } from '../Firebase';
 import MoodList from './moodList';
 import EMOJIS from './emojis';
-
+import { Button, SendCard, Input } from './mood.styles';
+import { ReactComponent as Arrow } from '../Styles/icons/arrow.svg';
 
 const MoodPage = () => (
     <div>
-        <h1>Your mood today</h1>
         <MoodList />
         <Mood />
     </div>
@@ -59,26 +59,29 @@ class AddMessaageBase extends Component {
         const { name, message, emoji, error } = this.state;
         const isInvalid = message === '' || name === '' || emoji === '';
         return (
-            <form onSubmit={this.onSubmit}>
-                <input
-                    name="name"
-                    value={name}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="Your name/nikname please"
-                />
-                <input
-                    name="message"
-                    placeholder="Your mood in one word"
-                    onChange={this.onChange}
-                    value={message}>
-                </input>
-                <EmojiItem value="bad" emoji={EMOJIS.bad} onChange={this.onChange}/>
-                <EmojiItem value="neutral" emoji={EMOJIS.neutral} onChange={this.onChange}/>
-                <EmojiItem value="good" emoji={EMOJIS.good} onChange={this.onChange}/>
-                <button disabled={isInvalid} type="submit">save</button>
-                {error && <p>{error.message}</p>}
-            </form>
+            <SendCard>
+                <form onSubmit={this.onSubmit}>
+                    <h4>Your mood today:</h4>
+                    <Input
+                        name="name"
+                        value={name}
+                        onChange={this.onChange}
+                        type="text"
+                        placeholder="Your name/nikname"
+                    />
+                    <Input
+                        name="message"
+                        placeholder="Your mood in one word"
+                        onChange={this.onChange}
+                        value={message}
+                    />
+                    <EmojiItem value="bad" emoji={EMOJIS.bad} onChange={this.onChange}/>
+                    <EmojiItem value="neutral" emoji={EMOJIS.neutral} onChange={this.onChange}/>
+                    <EmojiItem value="good" emoji={EMOJIS.good} onChange={this.onChange}/>
+                    <Button disabled={isInvalid} type="submit"><Arrow /></Button>
+                    {error && <p>{error.message}</p>}
+                </form>
+            </SendCard>
         );
     }
 }

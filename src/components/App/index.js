@@ -1,13 +1,14 @@
 import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import GlobalStyle from '../Styles/Global.styles';
 import {
     BrowserRouter as Router,
     Route
 } from 'react-router-dom';
 
-import { AuthUserContext } from '../Session';
+
 import Navigation from '../Navigation';
-import LandingPage from '../Landing';
+import LandingPage from '../Mood';
 import SignUpPage from '../SignUp';
 import SignInPage from '../SignIn';
 import PasswordForgetPage from '../PasswordForget';
@@ -17,17 +18,10 @@ import AdminPage from '../Admin';
 import { withAuthentication } from '../Session';
 
 import * as ROUTES from '../../constants/routes';
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    font-family: ${props => props.theme.fontFamily};
-    color: ${props => (props.dark ? 'white' : 'black')};
-    background: ${props => (props.dark ? 'black' : 'white')};
-  }
-`
+import theme from '../Styles/basicVariables.styles'
 
 const App = () => (
-    <ThemeProvider theme={{ fontFamily: 'Helvetica Neue' }}>
+    <ThemeProvider theme={theme}>
         <GlobalStyle />
         <React.Fragment>
             <Router>

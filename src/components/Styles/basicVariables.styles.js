@@ -50,12 +50,12 @@ const colors = {
     neutralOpacity900: 'hsla(0, 0%, 10%, .5)',
     neutralOpacity999: 'hsla(0, 0%, 0%, .5)',
 
-    colorMain: 'hsla(45, 37%, 54%, 1)',
-    colorMain100: 'hsla(45, 37%, 90%, 1)',
-    colorMain300: 'hsla(45, 37%, 70%, 1)',
-    colorMain500: 'hsla(45, 37%, 50%, 1)',
-    colorMain700: 'hsla(45, 37%, 30%, 1)',
-    colorMain900: 'hsla(45, 37%, 10%, 1)',
+    colorMain: 'hsla(214, 96%, 36%, 1)',
+    colorMain100: 'hsla(214, 96%, 90%, 1)',
+    colorMain300: 'hsla(214, 96%, 70%, 1)',
+    colorMain500: 'hsla(214, 96%, 50%, 1)',
+    colorMain700: 'hsla(214, 96%, 30%, 1)',
+    colorMain900: 'hsla(214, 96%, 10%, 1)',
 
     colorCustom: 'hsla(230, 95%, 37%, 1)',
     colorCustom100: 'hsla(230, 95%, 90%, 1)',
@@ -226,7 +226,7 @@ const borders = {
 
 const form = {
     formFieldBackgorund: colors.neutral000,
-    formFieldBorderRadius: '0',
+    formFieldBorderRadius: '3rem',
     formFieldColor: colors.neutral700,
     formFieldColorFocus: colors.colorCustom,
     formFieldBorder: `.1rem solid ${colors.neutral600}`,
