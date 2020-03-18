@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
 import { withFirebase } from '../Firebase';
 
-const MessageItem = ({name, message}) => (
+import EMOJIS from './emojis';
+
+const MoodItem = ({name, message, emoji}) => (
     <div>
-        <label>{name}</label>
-        <span>{message}</span>
+        <span>{name}</span>
+        <br/>
+        <strong>{message}</strong>
+        <br/>
+        <span>{EMOJIS[emoji]}</span>
     </div>
 )
 
-const MessagesList = ({ messages }) => (
+const MoodsList = ({ messages }) => (
     <ul>
         {messages.map(item => (
             <li key={item.uid}>
-                <MessageItem {...item}/>
+                <MoodItem {...item}/>
             </li>
         ))}
     </ul>
 );
 
-class MessagesPage extends Component {
+class MoodPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -54,10 +59,10 @@ class MessagesPage extends Component {
         return (
             <div>
                 {loading && <div>Loading ...</div>}
-                {messages && <MessagesList messages={messages} />}
+                {messages && <MoodsList messages={messages} />}
             </div>
         );
     }
 }
 
-export default withFirebase(MessagesPage);
+export default withFirebase(MoodPage);

@@ -32,13 +32,13 @@ class Firebase {
     doPasswordUpdate = password =>
         this.auth.currentUser.updatePassword(password);
 
-    doAddMessage = (name, message) => {
-        const date = new Date();
+    doAddMood = (name, message, emoji, date) => {
         return this.messages().push().set({
-                        message,
-                        name,
-                        date: date,
-                    });
+            message,
+            name,
+            date,
+            emoji,
+        });
     };
 
     // *** Message API ***

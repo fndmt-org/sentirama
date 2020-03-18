@@ -3,23 +3,31 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 
 import { withFirebase } from '../Firebase';
-import * as ROUTES from '../../constants/routes';
-import MessageList from './messageList';
+import MoodList from './moodList';
+import EMOJIS from './emojis';
 
 
-const LandingPage = () => (
+const MoodPage = () => (
     <div>
         <h1>Your mood today</h1>
-        <Landing />
-        <MessageList />
+        <MoodList />
+        <Mood />
     </div>
 );
 
 const INITIAL_STATE = {
     name: '',
     message: '',
+    emoji: '',
     error: null,
 };
+
+const EmojiItem = ({value, emoji, onChange}) => (
+    <label>
+        <span role="img" aria-label={value}>{emoji}</span>
+        <input type="radio" name="emoji" onChange={onChange} value={value} />
+    </label>
+)
 
 class AddMessaageBase extends Component {
 
@@ -29,26 +37,27 @@ class AddMessaageBase extends Component {
     }
 
     onSubmit = event => {
-        const { name, message } = this.state;
+        const { name, message, emoji } = this.state;
+        const date = Date.now();
         this.props.firebase
-            .doAddMessage(name, message)
+            .doAddMood(name, message, emoji, date)
             .then(() => {
                 this.setState({ ...INITIAL_STATE });
-                // this.props.history.push(ROUTES.HOME);
             })
             .catch(error => {
                 this.setState({ error });
             });
         event.preventDefault();
     };
+
     onChange = event => {
         this.setState({ [event.target.name]: event.target.value });
     };
-    render() {
-        console.log(this.props);
 
-        const { name, message, error } = this.state;
-        const isInvalid = message === '' || name === '';
+    render() {
+
+        const { name, message, emoji, error } = this.state;
+        const isInvalid = message === '' || name === '' || emoji === '';
         return (
             <form onSubmit={this.onSubmit}>
                 <input
@@ -58,25 +67,28 @@ class AddMessaageBase extends Component {
                     type="text"
                     placeholder="Your name/nikname please"
                 />
-            <textarea
-                name="message"
-                placeholder="Your mood today"
-                onChange={this.onChange}
-                value={message}>
-            </textarea>
-                <button disabled={isInvalid} type="submit">add</button>
+                <input
+                    name="message"
+                    placeholder="Your mood in one word"
+                    onChange={this.onChange}
+                    value={message}>
+                </input>
+                <EmojiItem value="bad" emoji={EMOJIS.bad} onChange={this.onChange}/>
+                <EmojiItem value="neutral" emoji={EMOJIS.neutral} onChange={this.onChange}/>
+                <EmojiItem value="good" emoji={EMOJIS.good} onChange={this.onChange}/>
+                <button disabled={isInvalid} type="submit">save</button>
                 {error && <p>{error.message}</p>}
             </form>
         );
     }
 }
 
-const Landing = compose(
+const Mood = compose(
     withRouter,
     withFirebase,
 )(AddMessaageBase);
 
-export default LandingPage;
-export { Landing };
+export default MoodPage;
+export { Mood };
 
 
