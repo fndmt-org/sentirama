@@ -42,7 +42,7 @@ class MoodPage extends Component {
 
     componentDidMount() {
         this.setState({ loading: true });
-        this.props.firebase.messages().on('value', snapshot => {
+        this.props.firebase.messages().orderByChild('date').on('value', snapshot => {
             const messagesObject = snapshot.val();
             let messagesList;
             if (messagesObject){
@@ -52,7 +52,7 @@ class MoodPage extends Component {
                 }));
             }
             this.setState({
-                messages: messagesList,
+                messages: messagesList.reverse(),
                 loading: false,
             });
         });
