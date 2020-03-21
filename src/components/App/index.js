@@ -1,5 +1,5 @@
 import React from 'react';
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import GlobalStyle from '../Styles/Global.styles';
 import {
     BrowserRouter as Router,

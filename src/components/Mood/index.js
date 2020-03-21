@@ -1,34 +1,41 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
+import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 
 import { withFirebase } from '../Firebase';
 import MoodList from './moodList';
 import EMOJIS from './emojis';
-import { Button, SendCard, Input } from './mood.styles';
+import { Button, SendCard, Input, EmojiSet, EmojiSelect } from './mood.styles';
 import { ReactComponent as Arrow } from '../Styles/icons/arrow.svg';
 
 const MoodPage = () => (
-    <div>
+    <Fragment>
         <MoodList />
         <Mood />
-    </div>
+    </Fragment>
 );
+
+const EmojiItem = ({value, onChange, active}) => {
+    const Emoji = EMOJIS[value];
+    const classActive = active === value ? 'active' : '';
+    return (
+        <EmojiSelect className={classActive}>
+            <span role="img" aria-label={value}>
+                <Emoji />
+            </span>
+            <input className="emoji-radio" type="radio" name="emoji" onChange={onChange} value={value} />
+        </EmojiSelect>
+    )
+}
 
 const INITIAL_STATE = {
     name: '',
     message: '',
     emoji: '',
     error: null,
+    style: {},
 };
-
-const EmojiItem = ({value, emoji, onChange}) => (
-    <label>
-        <span role="img" aria-label={value}>{emoji}</span>
-        <input type="radio" name="emoji" onChange={onChange} value={value} />
-    </label>
-)
-
 class AddMessaageBase extends Component {
 
     constructor(props) {
@@ -54,10 +61,21 @@ class AddMessaageBase extends Component {
         this.setState({ [event.target.name]: event.target.value });
     };
 
+    componentDidMount() {
+        this.setState(
+            {
+                height: ReactDOM.findDOMNode(this).offsetHeight,
+            }
+        );
+    }
+
     render() {
 
         const { name, message, emoji, error } = this.state;
         const isInvalid = message === '' || name === '' || emoji === '';
+        const emojis = ['bad','neutral', 'good']
+        document.body.style.marginBottom = `${this.state.height}px`;
+
         return (
             <SendCard>
                 <form onSubmit={this.onSubmit}>
@@ -75,9 +93,18 @@ class AddMessaageBase extends Component {
                         onChange={this.onChange}
                         value={message}
                     />
-                    <EmojiItem value="bad" emoji={EMOJIS.bad} onChange={this.onChange}/>
-                    <EmojiItem value="neutral" emoji={EMOJIS.neutral} onChange={this.onChange}/>
-                    <EmojiItem value="good" emoji={EMOJIS.good} onChange={this.onChange}/>
+                    <label>Select a face:</label>
+                    <EmojiSet>
+                        {emojis.map(
+                            item =>
+                            <EmojiItem
+                                active={this.state.emoji}
+                                value={item}
+                                key={item}
+                                onChange={this.onChange}/>
+                            )
+                        }
+                    </EmojiSet>
                     <Button disabled={isInvalid} type="submit"><Arrow /></Button>
                     {error && <p>{error.message}</p>}
                 </form>

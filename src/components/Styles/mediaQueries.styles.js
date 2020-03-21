@@ -28,5 +28,15 @@ export default {
     (device-height: 1024px) and (orientation:portrait)`,
 
     ipadLandscape: `all and (device-width: 768px) and
-    (device-height: 1024px) and (orientation:landscape)`
+    (device-height: 1024px) and (orientation:landscape)`,
+
+    xs: `only screen and (max-width: 600px)`,
+
+    s: `only screen and (min-width: 600px)`,
+
+    m: `only screen and (min-width: 768px)`,
+
+    l: `only screen and (min-width: 992px)`,
+
+    xl: `only screen and (min-width: 1200px)`,
 };

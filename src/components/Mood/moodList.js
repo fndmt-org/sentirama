@@ -1,24 +1,28 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { withFirebase } from '../Firebase';
+import { CardItem } from './mood.styles';
+import moment from 'moment';
 
 import EMOJIS from './emojis';
 
-const MoodItem = ({name, message, emoji}) => (
-    <div>
-        <span>{name}</span>
-        <br/>
-        <strong>{message}</strong>
-        <br/>
-        <span>{EMOJIS[emoji]}</span>
-    </div>
-)
+const MoodItem = ({name, message, emoji, date}) => {
+    const Emoji = EMOJIS[emoji];
+    const dateTime = moment(date).format();
+    const dateString = moment(date).fromNow();
+    return (
+        <CardItem as="li" kind={emoji}>
+            <time dateTime={dateTime}>{dateString}</time>
+            <Emoji className="emoji" />
+            <span>{name}</span>
+            <strong>{message}</strong>
+        </CardItem>
+    )
+}
 
 const MoodsList = ({ messages }) => (
     <ul>
         {messages.map(item => (
-            <li key={item.uid}>
-                <MoodItem {...item}/>
-            </li>
+            <MoodItem {...item} key={item.uid}/>
         ))}
     </ul>
 );
@@ -57,10 +61,10 @@ class MoodPage extends Component {
     render() {
         const { messages, loading } = this.state;
         return (
-            <div>
+            <Fragment>
                 {loading && <div>Loading ...</div>}
                 {messages && <MoodsList messages={messages} />}
-            </div>
+            </Fragment>
         );
     }
 }
