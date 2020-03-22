@@ -1,7 +1,7 @@
 // Font
 const font = {
-    fontSourceFamilies: ['Lato:300,400,700'],
-    fontSetBase: 'Lato',
+    fontSourceFamilies: ['Poppins:300,400,700'],
+    fontSetBase: 'Poppins',
     fontSizeBase: '62.5%', // default 10px
     fontStyleBase: 'normal',
 

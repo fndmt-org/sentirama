@@ -1,11 +1,11 @@
 import React from 'react';
+import WebFont from 'webfontloader';
 import { ThemeProvider } from 'styled-components'
 import GlobalStyle from '../Styles/Global.styles';
 import {
     BrowserRouter as Router,
     Route
 } from 'react-router-dom';
-
 
 import Navigation from '../Navigation';
 import LandingPage from '../Mood';
@@ -19,6 +19,12 @@ import { withAuthentication } from '../Session';
 
 import * as ROUTES from '../../constants/routes';
 import theme from '../Styles/basicVariables.styles'
+
+WebFont.load({
+    google: {
+        families: theme.fontSourceFamilies,
+    }
+});
 
 const App = () => (
     <ThemeProvider theme={theme}>
