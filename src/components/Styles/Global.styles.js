@@ -70,6 +70,7 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${props => props.theme.colorBg};
         color: ${props => props.theme.colorText};
         height: 100%;
+        overscroll-behavior: none;
     }
 
     html {
@@ -127,6 +128,10 @@ const GlobalStyle = createGlobalStyle`
 
     svg {
         fill: currentColor;
+    }
+
+    #root{
+        height: 100%;
     }
 
 `;

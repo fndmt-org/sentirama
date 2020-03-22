@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { withFirebase } from '../Firebase';
-import { CardItem } from './mood.styles';
+import { CardItem, MoodListStyles } from './mood.styles';
 import moment from 'moment';
 
 import EMOJIS from './emojis';
@@ -10,7 +10,7 @@ const MoodItem = ({name, message, emoji, date}) => {
     const dateTime = moment(date).format();
     const dateString = moment(date).fromNow();
     return (
-        <CardItem as="li" kind={emoji}>
+        <CardItem as="li" kind={emoji} name={date}>
             <time dateTime={dateTime}>{dateString}</time>
             <Emoji className="emoji" />
             <span>{name}</span>
@@ -19,25 +19,26 @@ const MoodItem = ({name, message, emoji, date}) => {
     )
 }
 
-const MoodsList = ({ messages }) => (
-    <ul>
-        {messages.map(item => (
-            <MoodItem {...item} key={item.uid}/>
-        ))}
-    </ul>
-);
-
-class MoodPage extends Component {
+class MoodListController extends Component {
     constructor(props) {
         super(props);
         this.state = {
             loading: false,
             messages: [],
         };
+        this.messagesEndRef = React.createRef();
     }
 
     componentWillUnmount() {
         this.props.firebase.messages().off();
+    }
+
+    scrollToBottom = () => {
+        this.messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+
+    componentDidUpdate() {
+        this.scrollToBottom();
     }
 
     componentDidMount() {
@@ -52,9 +53,10 @@ class MoodPage extends Component {
                 }));
             }
             this.setState({
-                messages: messagesList.reverse(),
+                messages: messagesList,
                 loading: false,
             });
+            this.scrollToBottom();
         });
     }
 
@@ -63,10 +65,17 @@ class MoodPage extends Component {
         return (
             <Fragment>
                 {loading && <div>Loading ...</div>}
-                {messages && <MoodsList messages={messages} />}
+                {messages &&
+                    <MoodListStyles addHeight={this.props.addHeight}>
+                        {messages.map(item => (
+                            <MoodItem {...item} key={item.uid}/>
+                        ))}
+                        <li ref={this.messagesEndRef} />
+                    </MoodListStyles>
+                }
             </Fragment>
         );
     }
 }
 
-export default withFirebase(MoodPage);
+export default withFirebase(MoodListController);

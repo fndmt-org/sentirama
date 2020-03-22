@@ -1,5 +1,4 @@
 import React, { Fragment, Component } from 'react';
-import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 
@@ -8,13 +7,6 @@ import MoodList from './moodList';
 import EMOJIS from './emojis';
 import { Button, SendCard, Input, EmojiSet, EmojiSelect } from './mood.styles';
 import { ReactComponent as Arrow } from '../Styles/icons/arrow.svg';
-
-const MoodPage = () => (
-    <Fragment>
-        <MoodList />
-        <Mood />
-    </Fragment>
-);
 
 const EmojiItem = ({value, onChange, active}) => {
     const Emoji = EMOJIS[value];
@@ -36,6 +28,7 @@ const INITIAL_STATE = {
     error: null,
     style: {},
 };
+
 class AddMessaageBase extends Component {
 
     constructor(props) {
@@ -61,23 +54,13 @@ class AddMessaageBase extends Component {
         this.setState({ [event.target.name]: event.target.value });
     };
 
-    componentDidMount() {
-        this.setState(
-            {
-                height: ReactDOM.findDOMNode(this).offsetHeight,
-            }
-        );
-    }
-
     render() {
 
         const { name, message, emoji, error } = this.state;
         const isInvalid = message === '' || name === '' || emoji === '';
         const emojis = ['bad','neutral', 'good']
-        document.body.style.marginBottom = `${this.state.height}px`;
-
         return (
-            <SendCard>
+            <SendCard ref={this.props.innerRef}>
                 <form onSubmit={this.onSubmit}>
                     <h4>Your mood today:</h4>
                     <Input
@@ -113,12 +96,49 @@ class AddMessaageBase extends Component {
     }
 }
 
-const Mood = compose(
+const AddMood = compose(
     withRouter,
     withFirebase,
 )(AddMessaageBase);
 
+
+const AddModdRef = React.forwardRef((props, ref) =>
+    <AddMood innerRef={ref} {...props}
+/>);
+
+class MoodPage extends Component {
+
+    constructor(props) {
+        super(props);
+        this.addMoodRef = React.createRef();
+        this.state = { height: 0 };
+    }
+
+    componentDidMount() {
+        this.setState(
+            {
+                height: `${this.addMoodRef.current.offsetHeight}px`,
+            }
+        );
+    }
+
+
+    render() {
+        return (
+            <Fragment>
+                <MoodList
+                addHeight={this.state.height} />
+                <AddModdRef
+                    ref={this.addMoodRef}
+                />
+            </Fragment>
+        )
+    }
+
+};
+
+
 export default MoodPage;
-export { Mood };
+export { AddMood };
 
 

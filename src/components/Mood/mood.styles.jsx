@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import PropTypes from 'prop-types';
 
 import responsiveFonts from '../Styles/responsiveFonts.styles';
 import mediaQueries from "../Styles/mediaQueries.styles";
@@ -80,11 +79,17 @@ const CardItem = styled(CardBase)`
     }
 `;
 
+const MoodListStyles= styled.ul`
+    height: ${(props) => `calc(100% - ${props.addHeight})`};
+    overflow: auto;
+    overscroll-behavior-y: contain;
+    list-style: none;
+`;
+
 const SendCard = styled(CardBase)`
     background-color: ${({theme}) => theme.neutral050 };
     bottom: 0;
     padding:${({ theme }) => `${theme.r200}`};
-    position: fixed;
     width: 100%;
 
     label {
@@ -186,4 +191,13 @@ const EmojiSet = styled.div`
     display: flex;
 `;
 
-export { Button, SendCard, Input, CardBase, EmojiSet, CardItem, EmojiSelect };
+export {
+    Button,
+    SendCard,
+    Input,
+    CardBase,
+    EmojiSet,
+    CardItem,
+    EmojiSelect,
+    MoodListStyles
+};
