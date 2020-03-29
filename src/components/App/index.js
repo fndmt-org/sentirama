@@ -23,7 +23,10 @@ import theme from '../Styles/basicVariables.styles'
 WebFont.load({
     google: {
         families: theme.fontSourceFamilies,
-    }
+    },
+    active: function() {
+        console.log('load font');
+    },
 });
 
 const App = () => (
