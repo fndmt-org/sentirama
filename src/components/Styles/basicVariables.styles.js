@@ -1,7 +1,7 @@
 // Font
 const font = {
-    fontSourceFamilies: ['Poppins:300,400,700'],
-    fontSetBase: 'Poppins',
+    fontSourceFamilies: ['Nunito+Sans:300,400,700'],
+    fontSetBase: 'Nunito Sans',
     fontSizeBase: '62.5%', // default 10px
     fontStyleBase: 'normal',
 
@@ -74,26 +74,26 @@ const colors = {
     colorInteraction: 'rgb(131, 203, 196)',
     colorInteractionAlpha: 'rgba(131, 203, 196, .5)',
 
-    colorSuccess: 'hsla(84, 44%, 48%, 1)',
-    colorSuccess100: 'hsla(84, 44%, 90%, 1)',
-    colorSuccess300: 'hsla(84, 44%, 70%, 1)',
-    colorSuccess500: 'hsla(84, 44%, 50%, 1)',
-    colorSuccess700: 'hsla(84, 44%, 30%, 1)',
-    colorSuccess900: 'hsla(84, 44%, 10%, 1)',
+    colorSuccess: 'hsla(145, 100%, 40%, 1)',
+    colorSuccess100: 'hsla(145, 100%, 90%, 1)',
+    colorSuccess300: 'hsla(145, 100%, 70%, 1)',
+    colorSuccess500: 'hsla(145, 100%, 50%, 1)',
+    colorSuccess700: 'hsla(145, 100%, 30%, 1)',
+    colorSuccess900: 'hsla(145, 100%, 10%, 1)',
 
-    colorError: 'hsla(4, 60%, 50%, 1)',
-    colorError100: 'hsla(4, 60%, 90%, 1)',
-    colorError300: 'hsla(4, 60%, 70%, 1)',
-    colorError500: 'hsla(4, 60%, 50%, 1)',
-    colorError700: 'hsla(4, 60%, 30%, 1)',
-    colorError900: 'hsla(4, 60%, 10%, 1)',
+    colorError: 'hsla(312, 100%, 50%, 1)',
+    colorError100: 'hsla(312, 100%, 90%, 1)',
+    colorError300: 'hsla(312, 100%, 70%, 1)',
+    colorError500: 'hsla(312, 100%, 50%, 1)',
+    colorError700: 'hsla(312, 100%, 30%, 1)',
+    colorError900: 'hsla(312, 100%, 10%, 1)',
 
-    colorWarning: 'hsla(54, 100%, 67%, 1)',
-    colorWarning100: 'hsla(54, 100%, 90%, 1)',
-    colorWarning300: 'hsla(54, 100%, 70%, 1)',
-    colorWarning500: 'hsla(54, 100%, 50%, 1)',
-    colorWarning700: 'hsla(54, 100%, 30%, 1)',
-    colorWarning900: 'hsla(54, 100%, 10%, 1)',
+    colorWarning: 'hsla(43, 100%, 40%, 1)',
+    colorWarning100: 'hsla(43, 100%, 90%, 1)',
+    colorWarning300: 'hsla(43, 100%, 70%, 1)',
+    colorWarning500: 'hsla(43, 100%, 53%, 1)',
+    colorWarning700: 'hsla(43, 100%, 30%, 1)',
+    colorWarning900: 'hsla(43, 100%, 10%, 1)',
 };
 
 const layers = {

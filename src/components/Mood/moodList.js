@@ -1,23 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { withFirebase } from '../Firebase';
-import { CardItem, MoodListStyles } from './mood.styles';
-import moment from 'moment';
-
-import EMOJIS from './emojis';
-
-const MoodItem = ({name, message, emoji, date}) => {
-    const Emoji = EMOJIS[emoji];
-    const dateTime = moment(date).format();
-    const dateString = moment(date).fromNow();
-    return (
-        <CardItem as="li" kind={emoji} name={date}>
-            <time dateTime={dateTime}>{dateString}</time>
-            <Emoji className="emoji" />
-            <span>{name}</span>
-            <strong>{message}</strong>
-        </CardItem>
-    )
-}
+import { MoodListStyles } from './mood.styles';
+import { MoodItem } from './moodItem'
 
 class MoodListController extends Component {
     constructor(props) {
@@ -34,7 +18,7 @@ class MoodListController extends Component {
     }
 
     scrollToBottom = () => {
-        this.messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+        this.messagesEndRef.current.scrollIntoView({});
     }
 
     componentDidUpdate() {

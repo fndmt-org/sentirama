@@ -127,7 +127,8 @@ class MoodPage extends Component {
         return (
             <Fragment>
                 <MoodList
-                addHeight={this.state.height} />
+                    addHeight={this.state.height}
+                />
                 <AddModdRef
                     ref={this.addMoodRef}
                 />

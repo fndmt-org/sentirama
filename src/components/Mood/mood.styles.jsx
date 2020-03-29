@@ -1,39 +1,13 @@
 import styled, { css } from 'styled-components';
 
 import responsiveFonts from '../Styles/responsiveFonts.styles';
-import mediaQueries from "../Styles/mediaQueries.styles";
+import mediaQueries from '../Styles/mediaQueries.styles';
+import { svgSizes } from './common.styles';
 
-const moodGama = {
-    good: css`
-        color: ${({theme}) => theme.colorSuccess900};
-        border-color: ${({theme}) => theme.colorSuccess100};
-    `,
-    neutral: css`
-        color: ${({theme}) => theme.colorWarnning900};
-        border-color: ${({theme}) => theme.colorWarning100};
-    `,
-    bad: css`
-        color: ${({theme}) => theme.colorError900};
-        border-color: ${({theme}) => theme.colorError100};
-    `
-}
-
-const svgSizes = {
-    default: css`
-        height: ${({ theme }) => theme.iconsSizeL};
-        width: ${({ theme }) => theme.iconsSizeL};
-    `,
-    big: css`
-        height: ${({ theme }) => theme.iconDefaultSize};
-        width: ${({ theme }) => theme.iconDefaultSize};
-    `,
-}
 
 const CardBase = styled.div`
     background-clip: padding-box;
     border: 0;
-    border-radius: ${({theme}) => theme.roundedCard };
-    box-shadow: ${({theme}) => theme.boxShadowBottom2 };
     display: flex;
     ${responsiveFonts.BtoL}
     align-items: center;
@@ -59,24 +33,6 @@ const Input = styled.input`
         margin-left: 0;
     }
     ${responsiveFonts.StoB}
-`;
-
-const CardItem = styled(CardBase)`
-    margin-bottom: ${({ theme }) => theme.r200};
-    border: ${({ theme }) => `${theme.borderWidthM} solid ${theme.neutral100}`};
-    ${(props) => moodGama[props.kind]};
-
-    time {
-        color: ${({ theme }) => theme.neutral700};
-        ${responsiveFonts.XXStoXS}
-    }
-    strong {
-        ::before,
-        ::after {
-            content: '"'
-        }
-        margin-left: ${({ theme }) => theme.r100};
-    }
 `;
 
 const MoodListStyles= styled.ul`
@@ -118,10 +74,13 @@ const SendCard = styled(CardBase)`
         h4 {
             font-weight: ${({ theme }) => theme.fontBold};
             margin-right: ${({ theme }) => theme.r100};
+            margin-bottom: ${({ theme }) => theme.r100};
+
             width: 100%;
 
             @media ${mediaQueries.s} {
                 width: inherit;
+                margin-bottom: 0;
             }
         }
 
@@ -197,7 +156,6 @@ export {
     Input,
     CardBase,
     EmojiSet,
-    CardItem,
     EmojiSelect,
     MoodListStyles
 };
