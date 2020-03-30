@@ -1,0 +1,16 @@
+{
+    "affection": {
+        "es":  "Afecto",
+        "en":  "Affection",
+        "items": [
+            "Afectuosa",
+            "Amorosa",
+            "Cariñosa",
+            "Compasiva",
+            "Comprensiva",
+            "Simpática",
+            "Tierna"
+        ]
+
+    }
+}
