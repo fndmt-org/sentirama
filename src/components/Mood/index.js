@@ -1,7 +1,7 @@
 import React, { Fragment, Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
-
+import { FormattedMessage } from 'react-intl';
 import { withFirebase } from '../Firebase';
 import MoodList from './moodList';
 import EMOJIS from './emojis';
@@ -28,6 +28,7 @@ const INITIAL_STATE = {
     error: null,
     style: {},
 };
+
 
 class AddMessaageBase extends Component {
 
@@ -58,25 +59,47 @@ class AddMessaageBase extends Component {
 
         const { name, message, emoji, error } = this.state;
         const isInvalid = message === '' || name === '' || emoji === '';
-        const emojis = ['bad','neutral', 'good']
+        const emojis = ['bad','neutral', 'good'];
+
         return (
             <SendCard ref={this.props.innerRef}>
                 <form onSubmit={this.onSubmit}>
-                    <h4>Your mood today:</h4>
-                    <Input
-                        name="name"
-                        value={name}
-                        onChange={this.onChange}
-                        type="text"
-                        placeholder="Your name/nikname"
-                    />
-                    <Input
-                        name="message"
-                        placeholder="Your mood in one word"
-                        onChange={this.onChange}
-                        value={message}
-                    />
-                    <label>Select a face:</label>
+                    <h4>
+                    <FormattedMessage
+                        id="yourMood.form.title"
+                        defaultMessage={'Your mood today:'}/>
+                    </h4>
+                    <FormattedMessage
+                        id="yourMood.form.placeholder.name"
+                        defaultMessage={'Your name/nikname'}>
+                            { msg =>
+                                <Input
+                                    name="name"
+                                    value={name}
+                                    onChange={this.onChange}
+                                    type="text"
+                                    placeholder={msg}
+                                />
+                            }
+                    </FormattedMessage>
+                    <FormattedMessage
+                        id="yourMood.form.placeholder.mood"
+                        defaultMessage={'Your mood in one word'}>
+                            { msg =>
+                                <Input
+                                    name="message"
+                                    value={message}
+                                    onChange={this.onChange}
+                                    type="text"
+                                    placeholder={msg}
+                                />
+                            }
+                    </FormattedMessage>
+                    <label>
+                        <FormattedMessage
+                            id="yourMood.form.emoji"
+                            defaultMessage={'Select a face:'}/>
+                    </label>
                     <EmojiSet>
                         {emojis.map(
                             item =>

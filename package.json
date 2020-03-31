@@ -19,7 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "react-scripts build && firebase deploy"
+    "deploy": "react-scripts build && firebase deploy",
+    "manage:translations": "node ./scripts/translationRunner.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -58,5 +59,9 @@
     "recompose": "^0.30.0",
     "styled-components": "^5.0.1",
     "webfontloader": "^1.6.28"
+  },
+  "devDependencies": {
+    "react-intl-cra": "^0.3.4",
+    "react-intl-translations-manager": "^5.0.3"
   }
 }

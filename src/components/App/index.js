@@ -1,6 +1,8 @@
 import React from 'react';
 import WebFont from 'webfontloader';
 import { ThemeProvider } from 'styled-components'
+import { IntlProvider } from 'react-intl';
+
 import GlobalStyle from '../Styles/Global.styles';
 import {
     BrowserRouter as Router,
@@ -29,10 +31,11 @@ WebFont.load({
     },
 });
 
+
 const App = () => (
     <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <React.Fragment>
+        <IntlProvider locale="en">
             <Router>
                 <Navigation />
                 <Route exact path={ROUTES.LANDING} component={LandingPage} />
@@ -43,7 +46,7 @@ const App = () => (
                 <Route path={ROUTES.ACCOUNT} component={AccountPage} />
                 <Route path={ROUTES.ADMIN} component={AdminPage} />
             </Router>
-        </React.Fragment>
+        </IntlProvider>
     </ThemeProvider>
 );
 
