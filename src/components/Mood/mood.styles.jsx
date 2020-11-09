@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Typeahead } from 'react-bootstrap-typeahead'
 
 import responsiveFonts from '../Styles/responsiveFonts.styles';
 import mediaQueries from '../Styles/mediaQueries.styles';
@@ -19,7 +20,7 @@ const CardBase = styled.div`
     }
 `;
 
-const Input = styled.input`
+const InputStyleBase = css`
     background: ${({ theme }) => theme.formFieldBackgorund};
     border: ${({ theme }) => theme.formFieldBorder};
     border-radius: ${({ theme }) => theme.formFieldBorderRadius};
@@ -33,6 +34,20 @@ const Input = styled.input`
         margin-left: 0;
     }
     ${responsiveFonts.StoB}
+`;
+
+const TypeaheadStyled = styled(Typeahead)`
+    input {
+        ${InputStyleBase}
+    }
+    z-index: ${({ theme }) => theme.zBaseTop};
+`;
+
+const TypeaheadMenu = styled.div``;
+const TypeaheadMenuItem = styled.span``;
+
+const Input = styled.input`
+    ${InputStyleBase}
 `;
 
 const MoodListStyles= styled.ul`
@@ -152,10 +167,13 @@ const EmojiSet = styled.div`
 
 export {
     Button,
-    SendCard,
-    Input,
     CardBase,
-    EmojiSet,
     EmojiSelect,
-    MoodListStyles
+    EmojiSet,
+    Input,
+    MoodListStyles,
+    SendCard,
+    TypeaheadMenu,
+    TypeaheadMenuItem,
+    TypeaheadStyled
 };

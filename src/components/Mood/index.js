@@ -2,10 +2,22 @@ import React, { Fragment, Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 import { FormattedMessage } from 'react-intl';
+
+
 import { withFirebase } from '../Firebase';
 import MoodList from './moodList';
 import EMOJIS from './emojis';
-import { Button, SendCard, Input, EmojiSet, EmojiSelect } from './mood.styles';
+import moodsList from './moods.data';
+import {
+    Button,
+    EmojiSelect,
+    EmojiSet,
+    Input,
+    SendCard,
+    TypeaheadMenu,
+    TypeaheadMenuItem,
+    TypeaheadStyled,
+} from './mood.styles';
 import { ReactComponent as Arrow } from '../Styles/icons/arrow.svg';
 
 const EmojiItem = ({value, onChange, active}) => {
@@ -55,12 +67,15 @@ class AddMessaageBase extends Component {
         this.setState({ [event.target.name]: event.target.value });
     };
 
+    onSelect = selectedMood => {
+        this.setState({ 'message': selectedMood.join('') });
+    };
+
     render() {
 
         const { name, message, emoji, error } = this.state;
         const isInvalid = message === '' || name === '' || emoji === '';
         const emojis = ['bad','neutral', 'good'];
-
         return (
             <SendCard ref={this.props.innerRef}>
                 <form onSubmit={this.onSubmit}>
@@ -86,12 +101,27 @@ class AddMessaageBase extends Component {
                         id="yourMood.form.placeholder.mood"
                         defaultMessage={'Your mood in one word'}>
                             { msg =>
-                                <Input
+                                <TypeaheadStyled
+                                    id="select-mood"
                                     name="message"
-                                    value={message}
-                                    onChange={this.onChange}
-                                    type="text"
+                                    // renderInput={(inputProps) => (
+                                    //     <Input {...inputProps} />
+                                    // )}
+                                    // renderMenuItemChildren={(option, props, index) => {
+                                    //     return <span index={index}>{option}</span>
+                                    // }}
+                                    // renderMenu={(results, menuProps) => (
+                                    //     <TypeaheadMenu {...menuProps}>
+                                    //         {results.map((result, index) => (
+                                    //         <TypeaheadMenuItem key={index} option={result} position={index}>
+                                    //             {result.label}
+                                    //         </TypeaheadMenuItem>
+                                    //         ))}
+                                    //     </TypeaheadMenu>
+                                    // )}
+                                    options={moodsList}
                                     placeholder={msg}
+                                    onChange={(selectedMood) => this.onSelect(selectedMood)}
                                 />
                             }
                     </FormattedMessage>

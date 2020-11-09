@@ -3,13 +3,29 @@
         "es":  "Afecto",
         "en":  "Affection",
         "items": [
-            "Afectuosa",
-            "Amorosa",
-            "Cariñosa",
-            "Compasiva",
-            "Comprensiva",
-            "Simpática",
-            "Tierna"
+            {
+                "es": [
+                    "Afectuosa",
+                    "Afectuoso"
+                ],
+                "en": [
+                    "affectionate"
+                ]
+            },
+            {
+                "es":[
+                    "Amorosa",
+                    "Amoroso"
+                ],
+                "en": [
+                    "loving"
+                ]
+            }
+            { "es": "Cariñosa", "en": "Cariñosa" },
+            { "es": "Compasiva", "en": "Compasiva" },
+            { "es": "Comprensiva", "en": "Comprensiva" },
+            { "es": "Simpática", "en": "Simpática" },
+            { "es": "Tierna", "en": "Tierna" }
         ]
 
     }

@@ -52,3 +52,11 @@ Insert the following code in the <head> section of your pages:
 <link rel="shortcut icon" href="/favicon.ico?v=YAXq8EOvyr">
 <meta name="msapplication-TileColor" content="#00aba9">
 <meta name="theme-color" content="#ffffff">
+
+https://itnext.io/firebase-login-functionality-from-scratch-with-react-redux-2bf316e5820f
+
+https://www.codementor.io/@yurio/all-you-need-is-react-firebase-4v7g9p4kf
+
+https://www.freecodecamp.org/news/setting-up-internationalization-in-react-from-start-to-finish-6cb94a7af725/
+
+https://github.com/reactjs/react-autocomplete
