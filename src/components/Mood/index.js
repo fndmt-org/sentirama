@@ -10,7 +10,7 @@ import { ReactComponent as Arrow } from '../Styles/icons/arrow.svg';
 
 const EmojiItem = ({value, onChange, active}) => {
     const Emoji = EMOJIS[value];
-    const classActive = active === value ? 'active' : '';
+    const classActive = active === value && 'active';
     return (
         <EmojiSelect className={classActive}>
             <span role="img" aria-label={value}>
