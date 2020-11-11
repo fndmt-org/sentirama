@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { withFirebase } from '../Firebase';
-import { MoodListStyles } from './mood.styles';
+import { MoodListStyles } from './moodList.styles';
 import { MoodItem } from './moodItem'
 
 class MoodListController extends Component {

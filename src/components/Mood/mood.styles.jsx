@@ -5,7 +5,6 @@ import responsiveFonts from '../Styles/responsiveFonts.styles';
 import mediaQueries from '../Styles/mediaQueries.styles';
 import { svgSizes } from './common.styles';
 
-
 const CardBase = styled.div`
     background-clip: padding-box;
     border: 0;
@@ -20,20 +19,73 @@ const CardBase = styled.div`
     }
 `;
 
+const AddMoodCard = styled(CardBase)`
+    ${({ theme }) => css`
+        background-color: ${theme.neutral050 };
+        bottom: 0;
+        padding: ${theme.r200};
+        width: 100%;
+
+        label {
+            margin-right: ${theme.r100 };
+            color: ${theme.neutral600 };
+        }
+
+        & form {
+            align-items: center;
+            display: flex;
+            flex-flow: column;
+            width: 100%;
+            text-align: center;
+            ${responsiveFonts.BtoL}
+
+            @media ${mediaQueries.s} {
+                flex-flow: row;
+                flex-wrap: wrap;
+                text-align: left;
+            }
+
+            h4 {
+                font-weight: ${theme.fontBold};
+                margin-right: ${theme.r100};
+                margin-bottom: ${theme.r100};
+
+                width: 100%;
+
+                @media ${mediaQueries.s} {
+                    width: inherit;
+                    margin-bottom: 0;
+                }
+            }
+
+            button {
+                @media ${mediaQueries.xs} {
+                    width: 21rem;
+                }
+                @media ${mediaQueries.s} {
+                    margin-left: ${theme.r100};
+                }
+            }
+        }
+    `}
+`;
+
 const InputStyleBase = css`
-    background: ${({ theme }) => theme.formFieldBackgorund};
-    border: ${({ theme }) => theme.formFieldBorder};
-    border-radius: ${({ theme }) => theme.formFieldBorderRadius};
-    background-color: transparent;
-    color: ${({ theme }) => theme.formFieldColor};
-    outline: ${({ theme }) => theme.outline};
-    padding: ${({ theme }) => `${theme.r100} ${theme.r200}`};
-    text-align: start;
-    margin: ${({ theme }) => `${theme.r100}`};
-    @media ${mediaQueries.s} {
-        margin-left: 0;
-    }
-    ${responsiveFonts.StoB}
+    ${({ theme }) => css`
+        background: ${theme.formFieldBackgorund};
+        border: ${theme.formFieldBorder};
+        border-radius: ${theme.formFieldBorderRadius};
+        background-color: transparent;
+        color: ${theme.formFieldColor};
+        outline: ${theme.outline};
+        padding: ${theme.r100} ${theme.r200};
+        text-align: start;
+        margin: ${theme.r100};
+        @media ${mediaQueries.s} {
+            margin-left: 0;
+        }
+        ${responsiveFonts.StoB}
+    `}
 `;
 
 const TypeaheadStyled = styled(Typeahead)`
@@ -48,66 +100,6 @@ const TypeaheadMenuItem = styled.span``;
 
 const Input = styled.input`
     ${InputStyleBase}
-`;
-
-const MoodListStyles= styled.ul`
-    height: ${(props) => `calc(100% - ${props.addHeight})`};
-    overflow: auto;
-    overscroll-behavior-y: contain;
-    list-style: none;
-`;
-
-const SendCard = styled(CardBase)`
-    background-color: ${({theme}) => theme.neutral050 };
-    bottom: 0;
-    padding:${({ theme }) => `${theme.r200}`};
-    width: 100%;
-
-    label {
-        margin-right: ${({theme}) => theme.r100 };
-        color: ${({theme}) => theme.neutral600 };
-    }
-
-    & form {
-        align-items: center;
-        display: flex;
-        flex-flow: column;
-        width: 100%;
-        text-align: center;
-        ${responsiveFonts.BtoL}
-
-        @media ${mediaQueries.s} {
-            flex-flow: row;
-            flex-wrap: wrap;
-            text-align: left;
-
-            input {
-
-            }
-        }
-
-        h4 {
-            font-weight: ${({ theme }) => theme.fontBold};
-            margin-right: ${({ theme }) => theme.r100};
-            margin-bottom: ${({ theme }) => theme.r100};
-
-            width: 100%;
-
-            @media ${mediaQueries.s} {
-                width: inherit;
-                margin-bottom: 0;
-            }
-        }
-
-        button {
-            @media ${mediaQueries.xs} {
-                width: 21rem;
-            }
-            @media ${mediaQueries.s} {
-                margin-left: ${({ theme }) => theme.r100};
-            }
-        }
-    }
 `;
 
 const buttonsMods = {
@@ -171,8 +163,7 @@ export {
     EmojiSelect,
     EmojiSet,
     Input,
-    MoodListStyles,
-    SendCard,
+    AddMoodCard,
     TypeaheadMenu,
     TypeaheadMenuItem,
     TypeaheadStyled
