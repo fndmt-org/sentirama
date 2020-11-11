@@ -59,4 +59,7 @@ https://www.codementor.io/@yurio/all-you-need-is-react-firebase-4v7g9p4kf
 
 https://www.freecodecamp.org/news/setting-up-internationalization-in-react-from-start-to-finish-6cb94a7af725/
 
-https://github.com/reactjs/react-autocomplete
+
+
+
+para revisar http://react-redux-firebase.com/

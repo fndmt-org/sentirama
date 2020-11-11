@@ -22,7 +22,7 @@ class MoodListController extends Component {
     }
 
     componentDidUpdate() {
-        this.scrollToBottom();
+        // this.scrollToBottom();
     }
 
     componentDidMount() {
@@ -40,7 +40,7 @@ class MoodListController extends Component {
                 messages: messagesList,
                 loading: false,
             });
-            this.scrollToBottom();
+            // this.scrollToBottom();
         });
     }
 
@@ -50,7 +50,7 @@ class MoodListController extends Component {
             <Fragment>
                 {loading && <div>Loading ...</div>}
                 {messages &&
-                    <MoodListStyles addHeight={this.props.addHeight}>
+                    <MoodListStyles>
                         {messages.map(item => (
                             <MoodItem {...item} key={item.uid}/>
                         ))}

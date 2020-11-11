@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 import { FormattedMessage } from 'react-intl';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
 import { withFirebase } from '../Firebase';
 import EmojiItem from './emojis';
 import moodsList from './moods.data';
 import Button from '../Styles/buttons.styles';
 import {
+    AddMoodCard,
+    AddMoodWrapper,
     EmojiSet,
     Input,
-    AddMoodCard,
-    TypeaheadMenu,
-    TypeaheadMenuItem,
-    TypeaheadStyled,
 } from './addMood.styles';
 import { ReactComponent as Arrow } from '../Styles/icons/arrow.svg';
 
@@ -52,7 +52,7 @@ class AddMoodBase extends Component {
     };
 
     onSelect = selectedMood => {
-        this.setState({ 'message': selectedMood.join('') });
+        this.setState({ 'message': selectedMood });
     };
 
     render() {
@@ -61,7 +61,8 @@ class AddMoodBase extends Component {
         const isInvalid = message === '' || name === '' || emoji === '';
         const emojis = ['bad','neutral', 'good'];
         return (
-            <AddMoodCard ref={this.props.innerRef}>
+            <AddMoodWrapper>
+                <AddMoodCard ref={this.props.innerRef}>
                 <form onSubmit={this.onSubmit}>
                     <h4>
                     <FormattedMessage
@@ -85,27 +86,15 @@ class AddMoodBase extends Component {
                         id="yourMood.form.placeholder.mood"
                         defaultMessage={'Your mood in one word'}>
                             { msg =>
-                                <TypeaheadStyled
-                                    id="select-mood"
+                                <Autocomplete
                                     name="message"
-                                    // renderInput={(inputProps) => (
-                                    //     <Input {...inputProps} />
-                                    // )}
-                                    // renderMenuItemChildren={(option, props, index) => {
-                                    //     return <span index={index}>{option}</span>
-                                    // }}
-                                    // renderMenu={(results, menuProps) => (
-                                    //     <TypeaheadMenu {...menuProps}>
-                                    //         {results.map((result, index) => (
-                                    //         <TypeaheadMenuItem key={index} option={result} position={index}>
-                                    //             {result.label}
-                                    //         </TypeaheadMenuItem>
-                                    //         ))}
-                                    //     </TypeaheadMenu>
-                                    // )}
+                                    id="select-mood"
                                     options={moodsList}
-                                    placeholder={msg}
-                                    onChange={(selectedMood) => this.onSelect(selectedMood)}
+                                    getOptionLabel={(mood) => mood}
+                                    onChange={(event, newValue) => {
+                                        this.onSelect(newValue);
+                                    }}
+                                    renderInput={(params) => <TextField {...params} label={msg}/>}
                                 />
                             }
                     </FormattedMessage>
@@ -128,7 +117,9 @@ class AddMoodBase extends Component {
                     <Button disabled={isInvalid} type="submit"><Arrow /></Button>
                     {error && <p>{error.message}</p>}
                 </form>
-            </AddMoodCard>
+                </AddMoodCard>
+            </AddMoodWrapper>
+
         );
     }
 }

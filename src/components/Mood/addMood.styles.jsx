@@ -6,10 +6,23 @@ import mediaQueries from '../Styles/mediaQueries.styles';
 import { svgSizes } from '../Styles/svgSizes.styles';
 import { InputStyleBase } from '../Styles/form.styles';
 
+const AddMoodWrapper = styled.div`
+    ${({ theme }) => css`
+        align-items: center;
+        background-color: ${theme.neutralOpacity900 };
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    `}
+`;
+
 const AddMoodCard = styled.div`
     ${({ theme }) => css`
         background-color: ${theme.neutral050 };
-        bottom: 0;
         padding: ${theme.r200};
         width: 100%;
 
@@ -77,23 +90,11 @@ const EmojiSet = styled.div`
     display: flex;
 `;
 
-const TypeaheadMenu = styled.div``;
-const TypeaheadMenuItem = styled.span``;
-
-const TypeaheadStyled = styled(Typeahead)`
-    input {
-        ${InputStyleBase}
-    }
-    z-index: ${({ theme }) => theme.zBaseTop};
-`;
-
 
 export {
     AddMoodCard,
+    AddMoodWrapper,
     EmojiSelect,
     EmojiSet,
     Input,
-    TypeaheadMenu,
-    TypeaheadMenuItem,
-    TypeaheadStyled
-};
+}
