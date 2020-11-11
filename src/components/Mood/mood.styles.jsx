@@ -3,7 +3,8 @@ import { Typeahead } from 'react-bootstrap-typeahead'
 
 import responsiveFonts from '../Styles/responsiveFonts.styles';
 import mediaQueries from '../Styles/mediaQueries.styles';
-import { svgSizes } from './common.styles';
+import { svgSizes } from '../Styles/svgSizes.styles';
+import { InputStyleBase } from '../Styles/form.styles';
 
 const CardBase = styled.div`
     background-clip: padding-box;
@@ -70,75 +71,8 @@ const AddMoodCard = styled(CardBase)`
     `}
 `;
 
-const InputStyleBase = css`
-    ${({ theme }) => css`
-        background: ${theme.formFieldBackgorund};
-        border: ${theme.formFieldBorder};
-        border-radius: ${theme.formFieldBorderRadius};
-        background-color: transparent;
-        color: ${theme.formFieldColor};
-        outline: ${theme.outline};
-        padding: ${theme.r100} ${theme.r200};
-        text-align: start;
-        margin: ${theme.r100};
-        @media ${mediaQueries.s} {
-            margin-left: 0;
-        }
-        ${responsiveFonts.StoB}
-    `}
-`;
-
-const TypeaheadStyled = styled(Typeahead)`
-    input {
-        ${InputStyleBase}
-    }
-    z-index: ${({ theme }) => theme.zBaseTop};
-`;
-
-const TypeaheadMenu = styled.div``;
-const TypeaheadMenuItem = styled.span``;
-
 const Input = styled.input`
     ${InputStyleBase}
-`;
-
-const buttonsMods = {
-    enabled: css`
-        background-color: ${({theme}) => theme.buttonPrimaryBgColor
-            || theme.colorMain};
-        color: ${({theme}) => theme.buttonPrimaryTextColor
-            || theme.neutral000};
-        :hover {
-            opacity: 0.8;
-        }
-    `,
-    disabled: css`
-        background-color: ${({theme}) => theme.buttonDisabledBgColor
-            || theme.neutral400};
-        color: ${({theme}) => theme.buttonDisabledTextColor
-            || theme.neutral800};
-        opacity: 0.5;
-    `,
-}
-
-const Button = styled.button`
-    background-clip: padding-box;
-    border: 0;
-    border-radius: ${({theme}) => theme.buttonRounded || theme.round};
-    display: inline-block;
-    font-size: 0;
-    letter-spacing: inherit;
-    padding:${({ theme }) => `${theme.r050}`};
-    text-align: center;
-    text-decoration: none;
-    text-transform: inherit;
-    ${(props) => props.disabled
-        ? buttonsMods.disabled
-        : buttonsMods.enabled
-    }
-    svg {
-        ${svgSizes.default}
-    }
 `;
 
 const EmojiSelect = styled.label`
@@ -157,13 +91,23 @@ const EmojiSet = styled.div`
     display: flex;
 `;
 
+const TypeaheadMenu = styled.div``;
+const TypeaheadMenuItem = styled.span``;
+
+const TypeaheadStyled = styled(Typeahead)`
+    input {
+        ${InputStyleBase}
+    }
+    z-index: ${({ theme }) => theme.zBaseTop};
+`;
+
+
 export {
-    Button,
+    AddMoodCard,
     CardBase,
     EmojiSelect,
     EmojiSet,
     Input,
-    AddMoodCard,
     TypeaheadMenu,
     TypeaheadMenuItem,
     TypeaheadStyled

@@ -3,12 +3,11 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 import { FormattedMessage } from 'react-intl';
 
-
 import { withFirebase } from '../Firebase';
 import EMOJIS from './emojis';
 import moodsList from './moods.data';
+import Button from '../Styles/buttons.styles';
 import {
-    Button,
     EmojiSelect,
     EmojiSet,
     Input,
