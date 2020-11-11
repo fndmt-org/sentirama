@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
+import { svgSizes } from '../Styles/svgSizes.styles';
 import responsiveFonts from '../Styles/responsiveFonts.styles';
-import { CardBase } from './mood.styles';
 
 const moodGama = {
     baloons: {
@@ -25,7 +25,20 @@ const moodGama = {
     }
 }
 
-const MoodItemStyles = styled(CardBase)`
+const MoodItemStyles = styled.div`
+    background-clip: padding-box;
+    border: 0;
+    display: flex;
+    ${responsiveFonts.BtoL}
+    align-items: center;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    padding:${({ theme }) => `${theme.r100}`};
+
+    svg {
+        ${svgSizes.default}
+    }
+
     margin: ${({ theme }) => `0 ${theme.r150}`};
 
     time {

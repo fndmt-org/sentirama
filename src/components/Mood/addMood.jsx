@@ -1,35 +1,21 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 import { FormattedMessage } from 'react-intl';
 
 import { withFirebase } from '../Firebase';
-import EMOJIS from './emojis';
+import EmojiItem from './emojis';
 import moodsList from './moods.data';
 import Button from '../Styles/buttons.styles';
 import {
-    EmojiSelect,
     EmojiSet,
     Input,
     AddMoodCard,
     TypeaheadMenu,
     TypeaheadMenuItem,
     TypeaheadStyled,
-} from './mood.styles';
+} from './addMood.styles';
 import { ReactComponent as Arrow } from '../Styles/icons/arrow.svg';
-
-const EmojiItem = ({value, onChange, active}) => {
-    const Emoji = EMOJIS[value];
-    const classActive = active === value ? 'active' : '';
-    return (
-        <EmojiSelect className={classActive}>
-            <span role="img" aria-label={value}>
-                <Emoji />
-            </span>
-            <input className="emoji-radio" type="radio" name="emoji" onChange={onChange} value={value} />
-        </EmojiSelect>
-    )
-}
 
 const INITIAL_STATE = {
     name: '',

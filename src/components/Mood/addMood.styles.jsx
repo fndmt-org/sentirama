@@ -6,21 +6,7 @@ import mediaQueries from '../Styles/mediaQueries.styles';
 import { svgSizes } from '../Styles/svgSizes.styles';
 import { InputStyleBase } from '../Styles/form.styles';
 
-const CardBase = styled.div`
-    background-clip: padding-box;
-    border: 0;
-    display: flex;
-    ${responsiveFonts.BtoL}
-    align-items: center;
-    letter-spacing: inherit;
-    text-transform: inherit;
-    padding:${({ theme }) => `${theme.r100}`};
-    svg {
-        ${svgSizes.default}
-    }
-`;
-
-const AddMoodCard = styled(CardBase)`
+const AddMoodCard = styled.div`
     ${({ theme }) => css`
         background-color: ${theme.neutral050 };
         bottom: 0;
@@ -104,7 +90,6 @@ const TypeaheadStyled = styled(Typeahead)`
 
 export {
     AddMoodCard,
-    CardBase,
     EmojiSelect,
     EmojiSet,
     Input,
