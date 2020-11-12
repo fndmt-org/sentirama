@@ -31,7 +31,6 @@ WebFont.load({
     },
 });
 
-
 const App = () => (
     <ThemeProvider theme={theme}>
         <GlobalStyle />

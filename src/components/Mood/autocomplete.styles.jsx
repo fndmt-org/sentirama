@@ -20,7 +20,7 @@ const AutcompleteList = styled.ul`
         z-index: 1;
         position: absolute;
         list-style: none;
-        background-color: white;
+        background-color: ${theme.neutral050 };
         overflow: auto;
         max-height: 200px;
         border: 1px solid rgba(0,0,0,.25);
