@@ -1,10 +1,8 @@
 import styled, { css } from 'styled-components';
-import { Typeahead } from 'react-bootstrap-typeahead'
 
 import responsiveFonts from '../Styles/responsiveFonts.styles';
 import mediaQueries from '../Styles/mediaQueries.styles';
 import { svgSizes } from '../Styles/svgSizes.styles';
-import { InputStyleBase } from '../Styles/form.styles';
 
 const AddMoodWrapper = styled.div`
     ${({ theme }) => css`
@@ -60,7 +58,7 @@ const AddMoodCard = styled.div`
 
             button {
                 @media ${mediaQueries.xs} {
-                    width: 21rem;
+                    width: ${theme.r2000};
                 }
                 @media ${mediaQueries.s} {
                     margin-left: ${theme.r100};
@@ -68,10 +66,6 @@ const AddMoodCard = styled.div`
             }
         }
     `}
-`;
-
-const Input = styled.input`
-    ${InputStyleBase}
 `;
 
 const EmojiSelect = styled.label`
@@ -90,11 +84,9 @@ const EmojiSet = styled.div`
     display: flex;
 `;
 
-
 export {
     AddMoodCard,
     AddMoodWrapper,
     EmojiSelect,
     EmojiSet,
-    Input,
 }

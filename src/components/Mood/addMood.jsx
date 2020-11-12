@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 import { FormattedMessage } from 'react-intl';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 
 import { withFirebase } from '../Firebase';
 import EmojiItem from './emojis';
+import UseAutocomplete from './autocomplete';
 import moodsList from './moods.data';
 import Button from '../Styles/buttons.styles';
 import {
     AddMoodCard,
     AddMoodWrapper,
     EmojiSet,
-    Input,
 } from './addMood.styles';
+import { InputStyleBase } from '../Styles/form.styles';
+
 import { ReactComponent as Arrow } from '../Styles/icons/arrow.svg';
 
 const INITIAL_STATE = {
@@ -73,7 +73,7 @@ class AddMoodBase extends Component {
                         id="yourMood.form.placeholder.name"
                         defaultMessage={'Your name/nikname'}>
                             { msg =>
-                                <Input
+                                <InputStyleBase
                                     name="name"
                                     value={name}
                                     onChange={this.onChange}
@@ -86,16 +86,18 @@ class AddMoodBase extends Component {
                         id="yourMood.form.placeholder.mood"
                         defaultMessage={'Your mood in one word'}>
                             { msg =>
-                                <Autocomplete
+                            <Fragment>
+                                <UseAutocomplete
                                     name="message"
                                     id="select-mood"
+                                    label={msg}
                                     options={moodsList}
                                     getOptionLabel={(mood) => mood}
                                     onChange={(event, newValue) => {
                                         this.onSelect(newValue);
                                     }}
-                                    renderInput={(params) => <TextField {...params} label={msg}/>}
                                 />
+                            </Fragment>
                             }
                     </FormattedMessage>
                     <label>

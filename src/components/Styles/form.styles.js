@@ -1,8 +1,8 @@
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import responsiveFonts from './responsiveFonts.styles';
 import mediaQueries from './mediaQueries.styles';
 
-const InputStyleBase = css`
+const InputStyleBase = styled.input`
     ${({ theme }) => css`
         background: ${theme.formFieldBackgorund};
         border: ${theme.formFieldBorder};
