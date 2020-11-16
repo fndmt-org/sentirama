@@ -9,8 +9,8 @@ import {
 } from './moodGrid.styles'
 
 
-const MoodGridItem = ({name}) => (
-    <MoodGridItemStyles>
+const MoodGridItem = ({index, name}) => (
+    <MoodGridItemStyles index={index}>
         {name}
     </MoodGridItemStyles>
 )

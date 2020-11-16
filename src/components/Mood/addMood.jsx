@@ -121,7 +121,6 @@ class AddMoodBase extends Component {
                 </form>
                 </AddMoodCard>
             </AddMoodWrapper>
-
         );
     }
 }

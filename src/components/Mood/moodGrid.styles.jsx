@@ -1,17 +1,19 @@
 import styled, { css } from 'styled-components';
 
 import responsiveFonts from '../Styles/responsiveFonts.styles';
-import mediaQueries from '../Styles/mediaQueries.styles';
-import { svgSizes } from '../Styles/svgSizes.styles';
 
 const MoodGridCellStyles = styled.li`
     ${({ theme }) => css`
     `}
 `;
 
+
 const MoodGridItemStyles = styled.li`
     ${({ theme }) => css`
-        padding: ${theme.r100}
+        background-color: ${theme.colorMain};
+        color: ${theme.neutral000};
+        padding: ${theme.r100};
+        ${responsiveFonts.BtoL}
     `}
 `;
 

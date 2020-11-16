@@ -9,11 +9,11 @@ const AddMoodWrapper = styled.div`
         align-items: center;
         background-color: ${theme.neutralOpacity900 };
         display: flex;
-        height: 100%;
+        /* height: 100%; */
         justify-content: center;
-        left: 0;
+        /* left: 0;
         position: absolute;
-        top: 0;
+        top: 0; */
         width: 100%;
     `}
 `;
