@@ -14,24 +14,23 @@ const AutcompleteInput= styled(InputStyleBase)`
 
 const AutcompleteList = styled.ul`
     ${({ theme }) => css`
-        width: 200px;
+        width: ${theme.r2000};
         margin: 0;
         padding: 0;
         z-index: 1;
         position: absolute;
         list-style: none;
-        background-color: ${theme.neutral050 };
+        background-color: ${theme.neutral050};
         overflow: auto;
-        max-height: 200px;
-        border: 1px solid rgba(0,0,0,.25);
+        max-height: ${theme.r2000};
         & li[data-focus="true"] {
-            background-color: #4a8df6;
-            color: white;
+            background-color: ${theme.colorMain300};
+            color: ${theme.neutral000};
             cursor: pointer;
         }
         & li:active {
-            background-color: #2977f5;
-            color: white;
+            background-color: ${theme.colorMain700};
+            color: ${theme.neutral050};
         }
     `}
 `;
