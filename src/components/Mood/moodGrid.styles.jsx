@@ -7,10 +7,9 @@ const MoodGridCellStyles = styled.li`
     `}
 `;
 
-
 const MoodGridItemStyles = styled.li`
-    ${({ theme }) => css`
-        background-color: ${theme.colorMain};
+    ${({ theme, color }) => css`
+        background-color: ${color};
         color: ${theme.neutral000};
         padding: ${theme.r100};
         ${responsiveFonts.BtoL}

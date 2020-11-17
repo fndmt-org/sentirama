@@ -8,8 +8,8 @@ class MoodPage extends Component {
     render() {
         return (
             <Fragment>
-                <MoodGrid/>
                 <AddModdRef/>
+                <MoodGrid/>
                 <MoodList />
             </Fragment>
         )
