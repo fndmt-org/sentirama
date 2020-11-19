@@ -1,5 +1,5 @@
 import React from 'react';
-import moodsGrid from './moods.grid';
+import moodsGrid from './moods.list';
 import moodsList from './moods.data';
 import {
     MoodGridCellStyles,
@@ -28,7 +28,6 @@ const MoodSheet = () => {
         colorEnd: 'hsla(312, 100%, 50%, 1)',
         steps: moodsGrid.length
     });
-    console.log(colors)
     return (
         <MoodGridWrapper>
             {
