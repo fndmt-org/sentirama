@@ -9,10 +9,18 @@ const MoodGridCellStyles = styled.li`
 
 const MoodGridItemStyles = styled.li`
     ${({ theme, color }) => css`
-        background-color: ${color};
+        text-align: center;
         color: ${theme.neutral000};
-        padding: ${theme.r100};
+        padding: ${theme.r200};
+        flex-grow: 1;
+        min-width: 20%;
         ${responsiveFonts.BtoL}
+    `}
+`;
+
+const ModGridColorStyles =  styled(MoodGridItemStyles)`
+    ${({ theme, color }) => css`
+        background-color: ${color};
     `}
 `;
 
@@ -21,7 +29,7 @@ const MoodGridLine = styled.ul`
         list-style: none;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: stretch;
     `}
 `;
 
@@ -33,7 +41,7 @@ const MoodGridWrapper = styled.div`
 
 export {
     MoodGridCellStyles,
-    MoodGridItemStyles,
+    ModGridColorStyles,
     MoodGridLine,
     MoodGridWrapper,
 }

@@ -1,9 +1,10 @@
 import React from 'react';
 import moodsGrid from './moods.list';
 import moodsList from './moods.data';
+import { gridSatisfied } from './moods.grid'
 import {
     MoodGridCellStyles,
-    MoodGridItemStyles,
+    ModGridColorStyles,
     MoodGridLine,
     MoodGridWrapper,
 } from './moodGrid.styles'
@@ -11,9 +12,9 @@ import { generateColorSteps } from '../Styles/colorSteps'
 
 
 const MoodGridItem = ({index, name, color}) => (
-    <MoodGridItemStyles index={index} color={color}>
+    <ModGridColorStyles index={index} color={color}>
         {name}
-    </MoodGridItemStyles>
+    </ModGridColorStyles>
 )
 
 const MoodGridCell = ({name}) => (
@@ -45,8 +46,8 @@ const MoodSheet = () => {
 
 const MoodGrid = () => {
     const colors = generateColorSteps({
-        colorStart: 'hsla(145, 100%, 40%, 1)',
-        colorEnd: 'hsla(312, 100%, 50%, 1)',
+        colorStart: 'hsla(145, 75%, 40%, 1)',
+        colorEnd: 'hsla(312, 75%, 50%, 1)',
         steps: moodsList.length
     });
 
