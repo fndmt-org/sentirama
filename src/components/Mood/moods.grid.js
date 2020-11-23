@@ -1,32 +1,32 @@
-const gridSatisfiedObject = [
-    {'Afecto': [
-        'Afectuos@',
-        'Amoros@',
-        'Cariños@',
-        'Compasiv@',
-        'Comprensiv@',
-        'Simpátic@',
-        'Tiern@',
-        ]
-    },
-    {'Confianza': [
-        'Capaz',
-        'Confiad@',
-        'Fuerte',
-        'Illusionad@',
-        'Orgullos@',
-        'Recepetiv@',
-        'Segur@',
-        ]
-    },
-    {'Esperanza': [
-        'Alentad@',
-        'Esperanzad@',
-        'Espectante',
-        'Optimist@',
-        ]
-    },
-];
+// const gridSatisfiedObject = [
+//     {'Afecto': [
+//         'Afectuos@',
+//         'Amoros@',
+//         'Cariños@',
+//         'Compasiv@',
+//         'Comprensiv@',
+//         'Simpátic@',
+//         'Tiern@',
+//         ]
+//     },
+//     {'Confianza': [
+//         'Capaz',
+//         'Confiad@',
+//         'Fuerte',
+//         'Illusionad@',
+//         'Orgullos@',
+//         'Recepetiv@',
+//         'Segur@',
+//         ]
+//     },
+//     {'Esperanza': [
+//         'Alentad@',
+//         'Esperanzad@',
+//         'Espectante',
+//         'Optimist@',
+//         ]
+//     },
+// ];
 
 const needsMet = [
     { category: 'Esperanza', name: 'Alentad@' },
@@ -111,10 +111,122 @@ const needsMet = [
     { category: 'Gratitud', name: 'Agradecid@'},
     { category: 'Gratitud', name: 'Conmovid@'},
     { category: 'Gratitud', name: 'Emocionad@'},
-    { category: 'Gratitud', name: 'Generosa'},
+    { category: 'Gratitud', name: 'Generos@'},
 
+];
+
+const unmetMet = [
+    { category:'Anhelo', name:'Añorad@'},
+    { category:'Anhelo', name:'Celos@'},
+    { category:'Anhelo', name:'Deseos@'},
+    { category:'Anhelo', name:'Envidios@'},
+    { category:'Anhelo', name:'Melancólic@'},
+    { category:'Anhelo', name:'Nostálgic@'},
+    { category:'Anhelo', name:'Sol@'},
+
+    { category:'Aversión', name:'Asco'},
+    { category:'Aversión', name:'Horrorizad@'},
+    { category:'Aversión', name:'Desprecio'},
+    { category:'Aversión', name:'Odio'},
+    { category:'Aversión', name:'Repugnad@'},
+
+    { category:'Desconexión', name:'Aburrid@'},
+    { category:'Desconexión', name:'Afectad@'},
+    { category:'Desconexión', name:'Aislad@'},
+    { category:'Desconexión', name:'Apátic@'},
+    { category:'Desconexión', name:'Desconectad@'},
+    { category:'Desconexión', name:'Desidios@'},
+    { category:'Desconexión', name:'Distante'},
+    { category:'Desconexión', name:'Frí@'},
+    { category:'Desconexión', name:'Indiferente'},
+    { category:'Desconexión', name:'Reprochad@'},
+
+    { category:'Enfadado', name:'Disgustad@'},
+    { category:'Enfadado', name:'Enfadad@'},
+    { category:'Enfadado', name:'Furios@'},
+    { category:'Enfadado', name:'Indignad@'},
+    { category:'Enfadado', name:'Molest@'},
+    { category:'Enfadado', name:'Resenti@'},
+    { category:'Tensión', name:'Ansios@'},
+    { category:'Tensión', name:'Conmocionad@'},
+    { category:'Tensión', name:'Desbordad@'},
+    { category:'Tensión', name:'Estresad@'},
+    { category:'Tensión', name:'Irritable'},
+    { category:'Tensión', name:'Nervios@'},
+    { category:'Tensión', name:'Sobrecarg@'},
+    { category:'Tensión', name:'Sobrepasad@'},
+    { category:'Tensión', name:'Tens@'},
+
+    { category:'Miedo', name:'Acongojad@'},
+    { category:'Miedo', name:'Asustad@'},
+    { category:'Miedo', name:'Atemorizad@'},
+    { category:'Miedo', name:'Aterrorizad@'},
+    { category:'Miedo', name:'Desconfiad@'},
+    { category:'Miedo', name:'Preocupad@'},
+
+    { category:'Cansancio', name:'Abatid@'},
+    { category:'Cansancio', name:'Agotad@'},
+    { category:'Cansancio', name:'Cansad@'},
+    { category:'Cansancio', name:'Débil'},
+    { category:'Cansancio', name:'Dolorid@'},
+    { category:'Cansancio', name:'Fatigad@'},
+    { category:'Cansancio', name:'Afligad@'},
+    { category:'Cansancio', name:'Angustiad@'},
+    { category:'Cansancio', name:'Desconsolad@'},
+    { category:'Cansancio', name:'Deshech@'},
+
+    { category:'Confusión', name:'Bloquead@'},
+    { category:'Confusión', name:'Confus@'},
+    { category:'Confusión', name:'Desorientad@'},
+    { category:'Confusión', name:'Dividid@'},
+    { category:'Confusión', name:'Dudos@'},
+    { category:'Confusión', name:'Escéptic@'},
+    { category:'Confusión', name:'Indescis@'},
+    { category:'Confusión', name:'Pensativ@'},
+    { category:'Confusión', name:'Perdid@'},
+    { category:'Confusión', name:'Perplej@'},
+    { category:'Confusión', name:'Vacilante'},
+
+    { category:'Inquietud', name:'Agitad@'},
+    { category:'Inquietud', name:'Agobiad@'},
+    { category:'Inquietud', name:'Alarmad@'},
+    { category:'Inquietud', name:'Arrepetid@'},
+    { category:'Inquietud', name:'Avergonzad@'},
+    { category:'Inquietud', name:'Desconcertad@'},
+    { category:'Inquietud', name:'Escandalizad@'},
+    { category:'Inquietud', name:'Incómod@'},
+    { category:'Inquietud', name:'Inquiet@'},
+    { category:'Inquietud', name:'Intranquil@'},
+    { category:'Inquietud', name:'Preocupad@'},
+    { category:'Inquietud', name:'Sobresaltad@'},
+    { category:'Inquietud', name:'Sorprendid@'},
+
+    { category:'Irritación', name:'Consternad@'},
+    { category:'Irritación', name:'Frustrad@'},
+    { category:'Irritación', name:'Impaciente'},
+    { category:'Irritación', name:'Irritad@'},
+    { category:'Irritación', name:'Malhumorad@'},
+    { category:'Irritación', name:'Molest@'},
+
+    { category:'Vulnerabilidad', name:'Frágil'},
+    { category:'Vulnerabilidad', name:'Impotente'},
+    { category:'Vulnerabilidad', name:'Insegur@'},
+    { category:'Vulnerabilidad', name:'Sensible'},
+    { category:'Vulnerabilidad', name:'Tímid@'},
+    { category:'Vulnerabilidad', name:'Vulnerable'},
+
+    { category:'Tristeza', name:'Decepcionad@'},
+    { category:'Tristeza', name:'Deprimid@'},
+    { category:'Tristeza', name:'Desanimad@'},
+    { category:'Tristeza', name:'Desgraciad@'},
+    { category:'Tristeza', name:'Desilusionad@'},
+    { category:'Tristeza', name:'Infeliz'},
+    { category:'Tristeza', name:'Triste'},
 ]
 
-export {
-    needsMet
-}
+const moods = [
+    ...needsMet,
+    ...unmetMet,
+];
+
+export default moods;

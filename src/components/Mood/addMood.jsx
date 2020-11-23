@@ -6,8 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import { withFirebase } from '../Firebase';
 import EmojiItem from './emojis';
 import UseAutocomplete from './autocomplete';
-// import moodsList from './moods.data';
-import { needsMet as moodsList } from './moods.grid';
+import moods from './moods.grid';
 import Button from '../Styles/buttons.styles';
 import {
     AddMoodCard,
@@ -93,7 +92,7 @@ class AddMoodBase extends Component {
                                     name="message"
                                     id="select-mood"
                                     label={msg}
-                                    options={moodsList}
+                                    options={moods}
                                     getOptionLabel={(mood) => mood.name}
                                     onChange={(event, newValue) => {
                                         this.onSelect(newValue);
