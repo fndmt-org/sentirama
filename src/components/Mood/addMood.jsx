@@ -6,16 +6,18 @@ import { FormattedMessage } from 'react-intl';
 import { withFirebase } from '../Firebase';
 import EmojiItem from './emojis';
 import UseAutocomplete from './autocomplete';
-import moodsList from './moods.data';
+// import moodsList from './moods.data';
+import { needsMet as moodsList } from './moods.grid';
 import Button from '../Styles/buttons.styles';
 import {
     AddMoodCard,
     AddMoodWrapper,
     EmojiSet,
 } from './addMood.styles';
-import { InputStyleBase } from '../Styles/form.styles';
 
 import { ReactComponent as Arrow } from '../Styles/icons/arrow.svg';
+import { InputStyleBase } from '../Styles/form.styles';
+
 
 const INITIAL_STATE = {
     name: '',
@@ -92,7 +94,7 @@ class AddMoodBase extends Component {
                                     id="select-mood"
                                     label={msg}
                                     options={moodsList}
-                                    getOptionLabel={(mood) => mood}
+                                    getOptionLabel={(mood) => mood.name}
                                     onChange={(event, newValue) => {
                                         this.onSelect(newValue);
                                     }}

@@ -9,7 +9,6 @@ const AutcompleteField= styled.div`
 `;
 
 const AutcompleteInput= styled(InputStyleBase)`
-
 `;
 
 const AutcompleteList = styled.ul`
@@ -23,12 +22,17 @@ const AutcompleteList = styled.ul`
         background-color: ${theme.neutral050};
         overflow: auto;
         max-height: ${theme.r2000};
-        & li[data-focus="true"] {
+    `}
+`;
+
+const AutocompleteItemListBase = styled.li`
+    ${({ theme }) => css`
+        &[data-focus="true"] {
             background-color: ${theme.colorMain300};
             color: ${theme.neutral000};
             cursor: pointer;
         }
-        & li:active {
+        &:active {
             background-color: ${theme.colorMain700};
             color: ${theme.neutral050};
         }
@@ -38,5 +42,6 @@ const AutcompleteList = styled.ul`
 export {
     AutcompleteField,
     AutcompleteInput,
+    AutocompleteItemListBase,
     AutcompleteList,
 }

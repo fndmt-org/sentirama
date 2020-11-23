@@ -4,12 +4,20 @@ import useAutocomplete from '@material-ui/lab/useAutocomplete';
 import {
     AutcompleteField,
     AutcompleteInput,
+    AutocompleteItemListBase,
     AutcompleteList,
 } from './autocomplete.styles';
 
 
 export default function UseAutocomplete(
-    {id, options, label, onChange = () => {}, getOptionLabel = () => {} }
+    {
+        id,
+        options,
+        label,
+        groupBy = () => {},
+        onChange = () => {},
+        getOptionLabel = () => {}
+    }
 ) {
     const {
         getRootProps,
@@ -34,7 +42,7 @@ export default function UseAutocomplete(
         {groupedOptions.length > 0 ? (
             <AutcompleteList {...getListboxProps()}>
             {groupedOptions.map((option, index) => (
-                <li {...getOptionProps({ option, index })}>{option}</li>
+                <AutocompleteItemListBase {...getOptionProps({ option, index })}>{option.name}</AutocompleteItemListBase>
             ))}
             </AutcompleteList>
         ) : null}
