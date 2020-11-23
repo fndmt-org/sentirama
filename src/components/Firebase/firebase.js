@@ -11,7 +11,7 @@ const config = {
     messagingSenderId: "915912794570",
     appId: "1:915912794570:web:ba18ea9f96b8ea0981af33",
     measurementId: "G-PKF0ZEL622"
-  };
+};
 
 class Firebase {
     constructor() {
@@ -32,12 +32,14 @@ class Firebase {
     doPasswordUpdate = password =>
         this.auth.currentUser.updatePassword(password);
 
-    doAddMood = (name, message, emoji, date) => {
+    doAddMood = (name, message, emoji, date, category, set) => {
         return this.messages().push().set({
             message,
             name,
             date,
             emoji,
+            category,
+            set,
         });
     };
 
