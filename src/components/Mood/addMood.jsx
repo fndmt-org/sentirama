@@ -4,9 +4,11 @@ import { compose } from 'recompose';
 import { FormattedMessage } from 'react-intl';
 
 import { withFirebase } from '../Firebase';
+import MoodGrid from './moodGrid';
 import EmojiItem from './emojis';
 import UseAutocomplete from './autocomplete';
 import moods from './moods.grid';
+
 import Button from '../Styles/buttons.styles';
 import {
     AddMoodCard,
@@ -26,6 +28,7 @@ const INITIAL_STATE = {
     set: '',
     error: null,
     style: {},
+    filteredMoods: moods,
 };
 
 
@@ -59,16 +62,19 @@ class AddMoodBase extends Component {
             'message': selectedMood.name,
             'category': selectedMood.category,
             'set': selectedMood.set,
+            'filteredMoods' : moods.filter(mood => mood.category === selectedMood.category)
         });
     };
 
     render() {
 
-        const { name, message, emoji, error } = this.state;
+        const { name, message, emoji, error, filteredMoods } = this.state;
         const isInvalid = message === '' || name === '' || emoji === '';
         const emojis = ['bad','neutral', 'good'];
+
         return (
-            <AddMoodWrapper>
+            <Fragment>
+                <AddMoodWrapper>
                 <AddMoodCard ref={this.props.innerRef}>
                     <form onSubmit={this.onSubmit}>
                         <h4>
@@ -127,7 +133,9 @@ class AddMoodBase extends Component {
                         {error && <p>{error.message}</p>}
                     </form>
                 </AddMoodCard>
-            </AddMoodWrapper>
+                </AddMoodWrapper>
+                <MoodGrid moods={filteredMoods} />
+            </Fragment>
         );
     }
 }

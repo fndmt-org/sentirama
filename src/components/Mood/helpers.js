@@ -1,12 +1,11 @@
 
 function addCategoriesToItem(categoryItem) {
-
+    const categorizedItems =[]
     return categorizedItems
 }
 
-function buildGroupedItemLists(cotegoriesList) {
-
-    const addCategoriesToItem = categoriesList.map((categoryItem) => addCategoriesToItem());
+function buildGroupedItemLists(categoriesList) {
+    const categorizedList = categoriesList.map((categoryItem) => addCategoriesToItem());
     return categorizedList
 }
 

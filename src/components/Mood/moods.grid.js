@@ -1,33 +1,3 @@
-// const gridSatisfiedObject = [
-//     {'Afecto': [
-//         'Afectuos@',
-//         'Amoros@',
-//         'Cariños@',
-//         'Compasiv@',
-//         'Comprensiv@',
-//         'Simpátic@',
-//         'Tiern@',
-//         ]
-//     },
-//     {'Confianza': [
-//         'Capaz',
-//         'Confiad@',
-//         'Fuerte',
-//         'Illusionad@',
-//         'Orgullos@',
-//         'Recepetiv@',
-//         'Segur@',
-//         ]
-//     },
-//     {'Esperanza': [
-//         'Alentad@',
-//         'Esperanzad@',
-//         'Espectante',
-//         'Optimist@',
-//         ]
-//     },
-// ];
-
 const metNeeds = [
     { set:'met', category: 'Esperanza', name: 'Alentad@' },
     { set:'met', category: 'Esperanza', name: 'Esperanzad@' },

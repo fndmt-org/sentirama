@@ -27,7 +27,7 @@ WebFont.load({
         families: theme.fontSourceFamilies,
     },
     active: function() {
-        console.log('load font');
+        console.log('load font active');
     },
 });
 

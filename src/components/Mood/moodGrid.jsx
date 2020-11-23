@@ -1,7 +1,5 @@
 import React from 'react';
-import moodsGrid from './moods.list';
-import moodsList from './moods.data';
-import { gridSatisfied } from './moods.grid'
+import moodsGrid from './moods.grid';
 import {
     MoodGridCellStyles,
     ModGridColorStyles,
@@ -44,17 +42,17 @@ const MoodSheet = () => {
     )
 }
 
-const MoodGrid = () => {
+const MoodGrid = ({moods}) => {
     const colors = generateColorSteps({
         colorStart: 'hsla(145, 75%, 40%, 1)',
         colorEnd: 'hsla(312, 75%, 50%, 1)',
-        steps: moodsList.length
+        steps: moods.length
     });
 
     return (
         <MoodGridLine>
-            {moodsList.map((item, index) => (
-                <MoodGridItem key={index} color={colors[index]} name={item} />
+            {moods.map((item, index) => (
+                <MoodGridItem key={index} color={colors[index]} name={item.name} />
             ))}
         </MoodGridLine>
     )
