@@ -68,9 +68,20 @@ class AddMoodBase extends Component {
 
     render() {
 
-        const { name, message, emoji, error, filteredMoods } = this.state;
+        const {
+            name,
+            message,
+            emoji,
+            error,
+            filteredMoods,
+            category,
+        } = this.state;
         const isInvalid = message === '' || name === '' || emoji === '';
-        const emojis = ['bad','neutral', 'good'];
+        const emojis = [
+            'bad',
+            'neutral',
+            'good'
+        ];
 
         return (
             <Fragment>
@@ -129,11 +140,16 @@ class AddMoodBase extends Component {
                                 )
                             }
                         </EmojiSet>
-                        <Button disabled={isInvalid} type="submit"><Arrow /></Button>
+                        <Button disabled={isInvalid} type="submit">
+                            <Arrow />
+                        </Button>
                         {error && <p>{error.message}</p>}
                     </form>
                 </AddMoodCard>
                 </AddMoodWrapper>
+                    {category
+                    ? <h4>Suggested moods related to "{category}"</h4>
+                    : null}
                 <MoodGrid moods={filteredMoods} />
             </Fragment>
         );
