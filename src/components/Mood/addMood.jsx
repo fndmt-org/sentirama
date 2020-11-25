@@ -57,12 +57,12 @@ class AddMoodBase extends Component {
         this.setState({ [event.target.name]: event.target.value });
     };
 
-    onSelect = selectedMood => {
+    onSelect = (selectedMood) => {
         this.setState({
-            'message': selectedMood.name,
-            'category': selectedMood.category,
-            'set': selectedMood.set,
-            'filteredMoods' : moods.filter(mood => mood.category === selectedMood.category)
+            'message': selectedMood?.name,
+            'category': selectedMood?.category,
+            'set': selectedMood?.set,
+            'filteredMoods' : selectedMood?.category ? moods.filter(mood => mood.category === selectedMood.category) : moods,
         });
     };
 
@@ -150,7 +150,7 @@ class AddMoodBase extends Component {
                     {category
                     ? <h4>Suggested moods related to "{category}"</h4>
                     : null}
-                <MoodGrid moods={filteredMoods} />
+                <MoodGrid moods={filteredMoods || moods} />
             </Fragment>
         );
     }
