@@ -9,11 +9,13 @@ import EmojiItem from './emojis';
 import UseAutocomplete from './autocomplete';
 import { getMoodsColor } from './moodsProps';
 
-import Button from '../Styles/simple.buttons.styles';
+import Button, { Send } from '../Styles/Buttons.styles';
 import {
     AddMoodStyles,
     AddMoodWrapper,
     EmojiSet,
+    TitleFormStyles,
+    SuggestedMoodsStyles,
 } from './addMood.styles';
 
 import { ReactComponent as Arrow } from '../Styles/icons/arrow.svg';
@@ -62,6 +64,7 @@ class AddMoodBase extends Component {
 
     onSelect = (selectedMood) => {
         this.setState({
+            'indexSelected': selectedMood?.index,
             'message': selectedMood?.name,
             'category': selectedMood?.category,
             'set': selectedMood?.set,
@@ -97,11 +100,11 @@ class AddMoodBase extends Component {
             <Fragment>
                 <AddMoodWrapper>
                 <AddMoodStyles ref={this.props.innerRef} onSubmit={this.onSubmit}>
-                        <h4>
+                        <TitleFormStyles>
                         <FormattedMessage
                             id="yourMood.form.title"
                             defaultMessage={'Your mood today:'}/>
-                        </h4>
+                        </TitleFormStyles>
                         <FormattedMessage
                             id="yourMood.form.placeholder.name"
                             defaultMessage={'Your name/nikname'}>
@@ -119,26 +122,25 @@ class AddMoodBase extends Component {
                             id="yourMood.form.placeholder.mood"
                             defaultMessage={'Your mood in one word'}>
                                 { msg =>
-                                <Fragment>
                                     <UseAutocomplete
                                         name="message"
                                         id="select-mood"
                                         label={msg}
+                                        value={this.state.indexSelected ? MOODS[this.state.indexSelected] : null }
                                         options={MOODS}
                                         getOptionLabel={(mood) => mood.name}
                                         onChange={(event, newValue) => {
                                             this.onSelect(newValue);
                                         }}
                                     />
-                                </Fragment>
                                 }
                         </FormattedMessage>
+                        <EmojiSet>
                         <label>
                             <FormattedMessage
                                 id="yourMood.form.emoji"
                                 defaultMessage={'Select a face:'}/>
                         </label>
-                        <EmojiSet>
                             {emojis.map(
                                 item =>
                                 <EmojiItem
@@ -149,9 +151,9 @@ class AddMoodBase extends Component {
                                 )
                             }
                         </EmojiSet>
-                        <Button disabled={isInvalid} type="submit">
+                        <Send disabled={isInvalid} type="submit">
                             <Arrow />
-                        </Button>
+                        </Send>
                         {error && <p>{error.message}</p>}
                     </AddMoodStyles>
                 </AddMoodWrapper>
@@ -165,10 +167,9 @@ class AddMoodBase extends Component {
 }
 
 const SuggestedMoodsMessage = ({category, onReset}) =>(
-    <Fragment>
-        <h4>Suggested moods related to "{category}"</h4>
-        <button onClick={() =>onReset()}>See all</button>
-    </Fragment>
+    <SuggestedMoodsStyles>
+        Suggested moods related to "{category}" <Button onClick={() =>onReset()}>See all</Button>
+    </SuggestedMoodsStyles>
 )
 
 const AddMood = compose(

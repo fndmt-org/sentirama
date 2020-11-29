@@ -9,7 +9,7 @@ const getMoodsColor = () => {
         steps: moods.length
     });
 
-    return moods.map((mood, index) => ({color: colors[index], ...mood}))
+    return moods.map((mood, index) => ({color: colors[index], index: index, ...mood}))
 }
 
 export {

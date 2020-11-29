@@ -1,12 +1,30 @@
 import styled, { css } from 'styled-components';
 
 import responsiveFonts from '../Styles/responsiveFonts.styles';
+import mediaQueries from '../Styles/mediaQueries.styles';
+
 
 const MoodGridItemStyles = styled.li`
     ${({ theme, color }) => css`
-        text-align: center;
+        flex-grow: 1;
         font-weight: ${theme.fontBold};
-        min-width: 20%;
+        min-width: 50%;
+        text-align: center;
+        @media ${mediaQueries.phonesLargeW} {
+            min-width: 33.33%;
+        }
+        @media ${mediaQueries.s} {
+            min-width: 25%;
+        }
+        @media ${mediaQueries.m} {
+            min-width: 20%;
+        }
+        @media ${mediaQueries.l} {
+            min-width: 10%;
+        }
+        @media ${mediaQueries.xl} {
+            min-width: 5%;
+        }
         ${responsiveFonts.BtoL}
     `}
 `;

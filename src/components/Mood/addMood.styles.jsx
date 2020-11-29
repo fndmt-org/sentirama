@@ -7,18 +7,44 @@ import { svgSizes } from '../Styles/svgSizes.styles';
 const AddMoodWrapper = styled.div`
     ${({ theme }) => css`
         align-items: center;
-        background-color: ${theme.neutralOpacity900 };
         display: flex;
         justify-content: center;
     `}
 `;
 
+const TitleBase = css`
+    ${({ theme }) => css`
+        font-weight: ${theme.fontBold};
+    `}
+`;
+
+const TitleFormStyles = styled.h4`
+    ${TitleBase}
+    ${({ theme }) => css`
+        margin-right: ${theme.r100};
+        margin-bottom: ${theme.r100};
+    `}
+
+    @media ${mediaQueries.s} {
+        width: inherit;
+        margin-bottom: 0;
+    }
+`;
+
+const SuggestedMoodsStyles = styled.h4`
+    ${({ theme }) => css`
+        ${TitleBase}
+        text-align: center;
+        margin: ${theme.r300};
+    `}
+`;
+
 const AddMoodStyles = styled.form`
     ${({ theme }) => css`
-        background-color: ${theme.neutral050 };
         padding: ${theme.r200};
         align-items: center;
         display: flex;
+        justify-content: center;
         flex-flow: column;
         text-align: center;
         ${responsiveFonts.BtoL}
@@ -27,19 +53,6 @@ const AddMoodStyles = styled.form`
             flex-flow: row;
             flex-wrap: wrap;
             text-align: left;
-        }
-
-        h4 {
-            font-weight: ${theme.fontBold};
-            margin-right: ${theme.r100};
-            margin-bottom: ${theme.r100};
-
-            width: 100%;
-
-            @media ${mediaQueries.s} {
-                width: inherit;
-                margin-bottom: 0;
-            }
         }
 
         button {
@@ -59,7 +72,6 @@ const AddMoodStyles = styled.form`
 
 const EmojiSelect = styled.label`
     display: flex;
-    position: relative;
     svg {
         ${svgSizes.big}
         ${(props) => props.className === 'active' && `fill: ${props.theme.colorMain}`}
@@ -70,6 +82,7 @@ const EmojiSelect = styled.label`
 `;
 
 const EmojiSet = styled.div`
+    align-items: center;
     display: flex;
 `;
 
@@ -78,4 +91,6 @@ export {
     AddMoodWrapper,
     EmojiSelect,
     EmojiSet,
+    TitleFormStyles,
+    SuggestedMoodsStyles,
 }

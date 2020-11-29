@@ -16,9 +16,7 @@ const EmojiItem = ({value, onChange, active}) => {
     const classActive = !!(active === value) && 'active';
     return (
         <EmojiSelect className={classActive}>
-            <span role="img" aria-label={value}>
-                <Emoji />
-            </span>
+            <Emoji role="img" aria-label={value}/>
             <input className="emoji-radio" type="radio" name="emoji" onChange={onChange} value={value} />
         </EmojiSelect>
     )

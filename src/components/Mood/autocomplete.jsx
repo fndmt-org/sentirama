@@ -11,33 +11,37 @@ import {
 
 export default function UseAutocomplete(
     {
-        id,
-        options,
-        label,
+        defaultValue,
+        getOptionLabel = () => {},
         groupBy = () => {},
+        id,
+        value,
+        label,
         onChange = () => {},
-        getOptionLabel = () => {}
+        options,
     }
 ) {
     const {
-        getRootProps,
         getInputLabelProps,
         getInputProps,
         getListboxProps,
         getOptionProps,
+        getRootProps,
         groupedOptions,
     } = useAutocomplete({
-        id,
-        options,
-        onChange,
+        defaultValue,
         getOptionLabel,
+        id,
+        value,
+        onChange,
+        options,
     });
 
     return (
         <AutcompleteField>
         <div {...getRootProps()}>
             <label {...getInputLabelProps()}>{label}</label>
-            <AutcompleteInput placeholder={label} {...getInputProps()} />
+            <AutcompleteInput placeholder={label} value={value} {...getInputProps()} />
         </div>
         {groupedOptions.length > 0 ? (
             <AutcompleteList {...getListboxProps()}>
