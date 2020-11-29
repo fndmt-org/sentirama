@@ -4,7 +4,6 @@
 
 import React from 'react';
 import renderer from 'react-test-renderer';
-// import 'jest-styled-components';
 
 import GlobalStyle from '../global.styles';
 import themeDefaultImport from '../basicVariables.styles';
