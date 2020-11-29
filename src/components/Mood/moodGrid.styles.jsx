@@ -5,8 +5,6 @@ import responsiveFonts from '../Styles/responsiveFonts.styles';
 const MoodGridItemStyles = styled.li`
     ${({ theme, color }) => css`
         text-align: center;
-        color: ${theme.neutral000};
-        padding: ${theme.r200};
         font-weight: ${theme.fontBold};
         min-width: 20%;
         ${responsiveFonts.BtoL}
@@ -19,6 +17,16 @@ const ModGridColorStyles =  styled(MoodGridItemStyles)`
     `}
 `;
 
+const ModButtonStyles =  styled.button`
+    ${({ theme, color }) => css`
+        padding: ${theme.r200};
+        background-color: transparent;
+        color: ${theme.neutral000};
+        width: 100%;
+        height: 100%;
+    `}
+`;
+
 const MoodGridLine = styled.ul`
     ${({ theme }) => css`
         list-style: none;
@@ -28,7 +36,9 @@ const MoodGridLine = styled.ul`
     `}
 `;
 
+
 export {
+    ModButtonStyles,
     ModGridColorStyles,
     MoodGridLine,
 }

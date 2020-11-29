@@ -7,11 +7,11 @@ import { withFirebase } from '../Firebase';
 import MoodGrid from './moodGrid';
 import EmojiItem from './emojis';
 import UseAutocomplete from './autocomplete';
-import moods from './moods.grid';
+import { getMoodsColor } from './moodsProps';
 
-import Button from '../Styles/buttons.styles';
+import Button from '../Styles/simple.buttons.styles';
 import {
-    AddMoodCard,
+    AddMoodStyles,
     AddMoodWrapper,
     EmojiSet,
 } from './addMood.styles';
@@ -19,6 +19,7 @@ import {
 import { ReactComponent as Arrow } from '../Styles/icons/arrow.svg';
 import { InputStyleBase } from '../Styles/form.styles';
 
+const MOODS = getMoodsColor();
 
 const INITIAL_STATE = {
     name: '',
@@ -28,15 +29,17 @@ const INITIAL_STATE = {
     set: '',
     error: null,
     style: {},
-    filteredMoods: moods,
+    moods: MOODS,
+    filteredMoods: MOODS,
 };
-
 
 class AddMoodBase extends Component {
 
     constructor(props) {
         super(props);
         this.state = { ...INITIAL_STATE };
+        this.onSelect = this.onSelect.bind(this);
+        this.onReset = this.onReset.bind(this);
     }
 
     onSubmit = event => {
@@ -62,7 +65,14 @@ class AddMoodBase extends Component {
             'message': selectedMood?.name,
             'category': selectedMood?.category,
             'set': selectedMood?.set,
-            'filteredMoods' : selectedMood?.category ? moods.filter(mood => mood.category === selectedMood.category) : moods,
+            'filteredMoods' : selectedMood?.category ? MOODS.filter(mood => mood.category === selectedMood.category) : MOODS,
+        });
+    };
+
+    onReset = () => {
+        this.setState({
+            'category': '',
+            'filteredMoods' : MOODS,
         });
     };
 
@@ -86,8 +96,7 @@ class AddMoodBase extends Component {
         return (
             <Fragment>
                 <AddMoodWrapper>
-                <AddMoodCard ref={this.props.innerRef}>
-                    <form onSubmit={this.onSubmit}>
+                <AddMoodStyles ref={this.props.innerRef} onSubmit={this.onSubmit}>
                         <h4>
                         <FormattedMessage
                             id="yourMood.form.title"
@@ -115,7 +124,7 @@ class AddMoodBase extends Component {
                                         name="message"
                                         id="select-mood"
                                         label={msg}
-                                        options={moods}
+                                        options={MOODS}
                                         getOptionLabel={(mood) => mood.name}
                                         onChange={(event, newValue) => {
                                             this.onSelect(newValue);
@@ -144,17 +153,23 @@ class AddMoodBase extends Component {
                             <Arrow />
                         </Button>
                         {error && <p>{error.message}</p>}
-                    </form>
-                </AddMoodCard>
+                    </AddMoodStyles>
                 </AddMoodWrapper>
                     {category
-                    ? <h4>Suggested moods related to "{category}"</h4>
+                    ? <SuggestedMoodsMessage category={category} onReset={this.onReset}/>
                     : null}
-                <MoodGrid moods={filteredMoods || moods} />
+                <MoodGrid onClickCallback={this.onSelect} moods={filteredMoods || MOODS} />
             </Fragment>
         );
     }
 }
+
+const SuggestedMoodsMessage = ({category, onReset}) =>(
+    <Fragment>
+        <h4>Suggested moods related to "{category}"</h4>
+        <button onClick={() =>onReset()}>See all</button>
+    </Fragment>
+)
 
 const AddMood = compose(
     withRouter,

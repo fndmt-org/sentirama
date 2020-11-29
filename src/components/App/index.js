@@ -3,7 +3,7 @@ import WebFont from 'webfontloader';
 import { ThemeProvider } from 'styled-components'
 import { IntlProvider } from 'react-intl';
 
-import GlobalStyle from '../Styles/Global.styles';
+import GlobalStyle from '../Styles/global.styles';
 import {
     BrowserRouter as Router,
     Route

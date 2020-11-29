@@ -43,26 +43,29 @@
   },
   "homepage": "https://corona-mood.firebaseapp.com/",
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
+    "@material-ui/core": "^4.11.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
-    "@testing-library/jest-dom": "^5.11.5",
-    "@testing-library/react": "^11.1.1",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.0",
     "babel-plugin-react-intl": "^7.1.0",
-    "firebase": "^8.0.1",
+    "firebase": "^8.1.1",
     "i18next-browser-languagedetector": "^6.0.1",
     "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-intl": "^4.3.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.0",
+    "react-scripts": "^4.0.1",
     "recompose": "^0.30.0",
     "styled-components": "^5.2.1",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
+    "jest-styled-components": "^7.0.3",
+    "match-media-mock": "^0.1.1",
     "react-intl-cra": "^0.3.4",
-    "react-intl-translations-manager": "^5.0.3"
+    "react-intl-translations-manager": "^5.0.3",
+    "react-test-renderer": "^17.0.1"
   }
 }

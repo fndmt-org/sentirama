@@ -1,32 +1,25 @@
 import React from 'react';
 import {
+    ModButtonStyles,
     ModGridColorStyles,
     MoodGridLine,
 } from './moodGrid.styles'
-import { generateColorSteps } from '../Styles/colorSteps'
 
 
-const MoodGridItem = ({index, name, color}) => (
-    <ModGridColorStyles index={index} color={color}>
-        {name}
+const MoodGridItem = ({index, item, onClickCallback}) => (
+    <ModGridColorStyles index={index} color={item.color}>
+        <ModButtonStyles onClick={() => onClickCallback(item)}>{item.name}</ModButtonStyles>
     </ModGridColorStyles>
 )
 
-const MoodGrid = ({moods}) => {
-    const colors = generateColorSteps({
-        colorStart: 'hsla(145, 75%, 40%, 1)',
-        colorEnd: 'hsla(312, 75%, 50%, 1)',
-        steps: moods.length
-    });
+const MoodGrid = ({moods, onClickCallback}) => (
+    <MoodGridLine>
+        {moods.map((item, index) => (
+            <MoodGridItem key={index} onClickCallback={onClickCallback} item={item} />
+        ))}
+    </MoodGridLine>
+);
 
-    return (
-        <MoodGridLine>
-            {moods.map((item, index) => (
-                <MoodGridItem key={index} color={colors[index]} name={item.name} />
-            ))}
-        </MoodGridLine>
-    )
-}
 
 export default MoodGrid;
  
