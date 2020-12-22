@@ -1,16 +1,4 @@
-# casadegrillos
-A serverless hotel website
 
-
-const firebaseConfig = {
-    apiKey: "AIzaSyDvPThRhEbDoTMgly7d4ffGkq__hv6xIQg",
-    authDomain: "casa-de-grillos-byb.firebaseapp.com",
-    databaseURL: "https://casa-de-grillos-byb.firebaseio.com",
-    projectId: "casa-de-grillos-byb",
-    storageBucket: "",
-    messagingSenderId: "708060813101",
-    appId: "1:708060813101:web:6dac8b03d29a3886"
-  };
 // Initialize Firebase
 const defaultProject = firebase.initializeApp(firebaseConfig);
 console.log(defaultProject.name)
