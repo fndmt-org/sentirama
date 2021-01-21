@@ -33,8 +33,6 @@ WebFont.load({
     },
 });
 
-const Context = React.createContext();
-
 const local = navigator.language;
 let lang;
 if (local==="es") {
@@ -61,12 +59,11 @@ const App = () => {
     return (
         <ThemeProvider theme={theme}>
             <GlobalStyle />
-            <Context.Provider value={{locale, selectLanguage}}>
                 <IntlProvider messages={messages} locale={locale}>
                     <Router>
                     <select value = {locale} onChange={selectLanguage}>
-                        <option value= 'en'>English</option>
-                        <option value= 'es'>Español</option>
+                        <option value='en'>English</option>
+                        <option value='es'>Español</option>
                     </select>
                     <Navigation />
                     <Route exact path={ROUTES.LANDING} component={LandingPage} />
@@ -78,7 +75,6 @@ const App = () => {
                     <Route path={ROUTES.ADMIN} component={AdminPage} />
                     </Router>
                 </IntlProvider>
-            </Context.Provider>
         </ThemeProvider>
     );
 };

@@ -1,15 +1,6 @@
 {
-  "yourMood.form.emoji": {
-    "defaultMessage": "Select a face:"
-  },
-  "yourMood.form.placeholder.mood": {
-    "defaultMessage": "Your mood in one word"
-  },
-  "yourMood.form.placeholder.name": {
-    "defaultMessage": "Your name/nikname"
-  },
-  "yourMood.form.title": {
-    "defaultMessage": "Your mood today:",
-    "description": "Add your mood form title"
-  }
+  "yourMood.form.emoji": "Select a face:",
+  "yourMood.form.placeholder.mood": "Your mood in one word",
+  "yourMood.form.placeholder.name": "Your name/nikname",
+  "yourMood.form.title": "Your mood today:"
 }
