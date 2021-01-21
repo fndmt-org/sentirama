@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import WebFont from 'webfontloader';
 import { ThemeProvider } from 'styled-components'
 import { IntlProvider } from 'react-intl';
-
-import GlobalStyle from '../Styles/global.styles';
 import {
     BrowserRouter as Router,
     Route
@@ -19,7 +17,11 @@ import AccountPage from '../Account';
 import AdminPage from '../Admin';
 import { withAuthentication } from '../Session';
 
+import English from '../../lang/en';
+import Spanish from '../../lang/es';
+
 import * as ROUTES from '../../constants/routes';
+import GlobalStyle from '../Styles/global.styles';
 import theme from '../Styles/basicVariables.styles'
 
 WebFont.load({
@@ -31,22 +33,54 @@ WebFont.load({
     },
 });
 
-const App = () => (
-    <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <IntlProvider locale="en">
-            <Router>
-                {/* <Navigation /> */}
-                <Route exact path={ROUTES.LANDING} component={LandingPage} />
-                <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
-                <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-                <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-                <Route path={ROUTES.HOME} component={HomePage} />
-                <Route path={ROUTES.ACCOUNT} component={AccountPage} />
-                <Route path={ROUTES.ADMIN} component={AdminPage} />
-            </Router>
-        </IntlProvider>
-    </ThemeProvider>
-);
+const Context = React.createContext();
+
+const local = navigator.language;
+let lang;
+if (local==="es") {
+    lang = Spanish;
+    } else {
+    lang = English;
+}
+
+
+const App = () => {
+    const [locale, setLocale] = useState(local);
+    const [messages, setMessages] = useState(lang);
+
+    function selectLanguage(e) {
+        const newLocale = e.target.value;
+        setLocale(newLocale);
+        if (newLocale === 'es') {
+            setMessages(Spanish);
+        } else {
+            setMessages(English);
+        }
+    }
+
+    return (
+        <ThemeProvider theme={theme}>
+            <GlobalStyle />
+            <Context.Provider value={{locale, selectLanguage}}>
+                <IntlProvider messages={messages} locale={locale}>
+                    <Router>
+                    <select value = {locale} onChange={selectLanguage}>
+                        <option value= 'en'>English</option>
+                        <option value= 'es'>Español</option>
+                    </select>
+                    <Navigation />
+                    <Route exact path={ROUTES.LANDING} component={LandingPage} />
+                    <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+                    <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+                    <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
+                    <Route path={ROUTES.HOME} component={HomePage} />
+                    <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+                    <Route path={ROUTES.ADMIN} component={AdminPage} />
+                    </Router>
+                </IntlProvider>
+            </Context.Provider>
+        </ThemeProvider>
+    );
+};
 
 export default withAuthentication(App);

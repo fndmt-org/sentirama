@@ -1,53 +1,68 @@
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-// Initialize Firebase
-const defaultProject = firebase.initializeApp(firebaseConfig);
-console.log(defaultProject.name)
-const defaultDatabase = defaultProject.database();
+## Available Scripts
 
-https://github.com/muhajirdev/gatsby-starter-redux-firebase/tree/master/src
+In the project directory, you can run:
 
-NOTAS
-deteccion de idioma del navegador
-https://github.com/i18next/i18next-browser-languageDetector
+### `npm start`
 
-firebase serve --only hosting
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial
+### `npm test`
 
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-https://github.com/the-road-to-react-with-firebase/react-gatsby-firebase-authentication
+### `npm run build`
 
-https://medium.com/@UnicornAgency/jamstack-pwa-lets-build-a-polling-app-with-gatsby-js-firebase-and-styled-components-pt-2-9044534ea6bc
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-https://medium.com/@UnicornAgency/jamstack-pwa-lets-build-a-polling-app-with-gatsby-js-firebase-and-styled-components-pt-3-89fa499534fd
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-https://invertase.io/blog/firebase-with-gatsby
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-https://github.com/muhajirdev/gatsby-starter-firebase
+### `npm run eject`
 
-https://kyleshevlin.com/firebase-and-gatsby-together-at-last
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-https://github.com/the-road-to-react-with-firebase/react-gatsby-firebase-authentication
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Extract this package in the root of your web site. If your site is http://www.example.com, you should be able to access a file named http://www.example.com/favicon.ico.
-Insert the following code in the <head> section of your pages:
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=YAXq8EOvyr">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=YAXq8EOvyr">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=YAXq8EOvyr">
-<link rel="manifest" href="/site.webmanifest?v=YAXq8EOvyr">
-<link rel="mask-icon" href="/safari-pinned-tab.svg?v=YAXq8EOvyr" color="#c28223">
-<link rel="shortcut icon" href="/favicon.ico?v=YAXq8EOvyr">
-<meta name="msapplication-TileColor" content="#00aba9">
-<meta name="theme-color" content="#ffffff">
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-https://itnext.io/firebase-login-functionality-from-scratch-with-react-redux-2bf316e5820f
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-https://www.codementor.io/@yurio/all-you-need-is-react-firebase-4v7g9p4kf
+## Learn More
 
-https://www.freecodecamp.org/news/setting-up-internationalization-in-react-from-start-to-finish-6cb94a7af725/
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
+To learn React, check out the [React documentation](https://reactjs.org/).
 
+### Code Splitting
 
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-para revisar http://react-redux-firebase.com/
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

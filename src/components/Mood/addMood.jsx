@@ -103,11 +103,12 @@ class AddMoodBase extends Component {
                         <TitleFormStyles>
                         <FormattedMessage
                             id="yourMood.form.title"
-                            defaultMessage={'Your mood today:'}/>
+                            description="Add your mood form title"
+                            defaultMessage="Your mood today:"/>
                         </TitleFormStyles>
                         <FormattedMessage
                             id="yourMood.form.placeholder.name"
-                            defaultMessage={'Your name/nikname'}>
+                            defaultMessage="Your name/nikname">
                                 { msg =>
                                     <InputStyleBase
                                         name="name"
@@ -120,7 +121,7 @@ class AddMoodBase extends Component {
                         </FormattedMessage>
                         <FormattedMessage
                             id="yourMood.form.placeholder.mood"
-                            defaultMessage={'Your mood in one word'}>
+                            defaultMessage="Your mood in one word">
                                 { msg =>
                                     <UseAutocomplete
                                         name="message"
@@ -139,7 +140,7 @@ class AddMoodBase extends Component {
                         <label>
                             <FormattedMessage
                                 id="yourMood.form.emoji"
-                                defaultMessage={'Select a face:'}/>
+                                defaultMessage="Select a face:"/>
                         </label>
                             {emojis.map(
                                 item =>
