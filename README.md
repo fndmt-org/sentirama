@@ -1,54 +1,126 @@
-# casadegrillos
-A serverless hotel website
+# SENTIRAMA
+A serverless app to share your mood with your teammates made with firebase and react
+
+## Requirements ##
+
+* Node version >= 10
 
 
-const firebaseConfig = {
-    apiKey: "AIzaSyDvPThRhEbDoTMgly7d4ffGkq__hv6xIQg",
-    authDomain: "casa-de-grillos-byb.firebaseapp.com",
-    databaseURL: "https://casa-de-grillos-byb.firebaseio.com",
-    projectId: "casa-de-grillos-byb",
-    storageBucket: "",
-    messagingSenderId: "708060813101",
-    appId: "1:708060813101:web:6dac8b03d29a3886"
-  };
-// Initialize Firebase
-const defaultProject = firebase.initializeApp(firebaseConfig);
-console.log(defaultProject.name)
-const defaultDatabase = defaultProject.database();
-
-https://github.com/muhajirdev/gatsby-starter-redux-firebase/tree/master/src
-
-NOTAS
-deteccion de idioma del navegador
-https://github.com/i18next/i18next-browser-languageDetector
-
-firebase serve --only hosting
+## Install ##
 
 
-https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial
+* Install the dependencies
+```
+$ npm ci
+```
+
+## Commands usage ##
+
+## Available Scripts
+
+In the project directory, you can run:
+### `npm start`
+To launch local development server
+
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
 
-https://github.com/the-road-to-react-with-firebase/react-gatsby-firebase-authentication
+## Contribution ##
 
-https://medium.com/@UnicornAgency/jamstack-pwa-lets-build-a-polling-app-with-gatsby-js-firebase-and-styled-components-pt-2-9044534ea6bc
+* Clone this repo.
+* Install dependencies
 
-https://medium.com/@UnicornAgency/jamstack-pwa-lets-build-a-polling-app-with-gatsby-js-firebase-and-styled-components-pt-3-89fa499534fd
+```
+npm i
+```
 
-https://invertase.io/blog/firebase-with-gatsby
+* Start the development. This will command will start the development server builds, automatic testing and linting.
 
-https://github.com/muhajirdev/gatsby-starter-firebase
+```
+npm start
+```
 
-https://kyleshevlin.com/firebase-and-gatsby-together-at-last
+## Unit testing ##
 
-https://github.com/the-road-to-react-with-firebase/react-gatsby-firebase-authentication
+How to execute a single test:
 
-Extract this package in the root of your web site. If your site is http://www.example.com, you should be able to access a file named http://www.example.com/favicon.ico.
-Insert the following code in the <head> section of your pages:
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=YAXq8EOvyr">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=YAXq8EOvyr">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=YAXq8EOvyr">
-<link rel="manifest" href="/site.webmanifest?v=YAXq8EOvyr">
-<link rel="mask-icon" href="/safari-pinned-tab.svg?v=YAXq8EOvyr" color="#c28223">
-<link rel="shortcut icon" href="/favicon.ico?v=YAXq8EOvyr">
-<meta name="msapplication-TileColor" content="#00aba9">
-<meta name="theme-color" content="#ffffff">
+```
+npm run test
+```
+
+### Publish the release of changed packages ###
+
+Release a new version of changed packages:
+
+```
+npm release:patch
+```
+or
+
+```
+npm release:minor
+```
+or
+
+```
+npm release:major
+```
