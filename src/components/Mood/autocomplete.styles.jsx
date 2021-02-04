@@ -16,7 +16,7 @@ const AutcompleteList = styled.ul`
         width: ${theme.r2000};
         margin: 0;
         padding: 0;
-        z-index: 1;
+        z-index: ${theme.zBaseTop};
         position: absolute;
         list-style: none;
         background-color: ${theme.neutral050};
