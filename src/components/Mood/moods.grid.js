@@ -2,7 +2,7 @@ const metNeeds = [
     { set:'met', category: 'Esperanza', name: 'Alentad@' },
     { set:'met', category: 'Esperanza', name: 'Esperanzad@' },
     { set:'met', category: 'Esperanza', name: 'Espectante' },
-    { set:'met', category: 'Esperanza', name: 'Optimist@' },
+    { set:'met', category: 'Esperanza', name: 'Optimista' },
 
     { set:'met', category: 'Confianza', name: 'Capaz'},
     { set:'met', category: 'Confianza', name: 'Confiad@'},
