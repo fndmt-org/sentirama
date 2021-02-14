@@ -1,0 +1,11 @@
+coverage
+.firebase
+data
+*.test.js
+.eslintignore
+.eslintrc
+.npmignore
+.npmrc
+.sonar
+.idea
+.vscode

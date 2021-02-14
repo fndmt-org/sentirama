@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-const svgSizes = {
+const iconSizes = {
     default: css`
         height: ${({ theme }) => theme.iconsSizeL};
         width: ${({ theme }) => theme.iconsSizeL};
@@ -12,5 +12,5 @@ const svgSizes = {
 }
 
 export {
-    svgSizes
+    iconSizes
 }

@@ -208,8 +208,11 @@ const rhythm = {
     r400: '4rem',
     r600: '6rem',
     r800: '8rem',
+    r1000: '10rem',
     r1200: '12rem',
     r1600: '16rem',
+    r2000: '20rem',
+    r2500: '25rem',
 };
 
 const animationTime = {

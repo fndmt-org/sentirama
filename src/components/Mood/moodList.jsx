@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { withFirebase } from '../Firebase';
-import { MoodListStyles } from './mood.styles';
+import { MoodListStyles } from './moodList.styles';
 import { MoodItem } from './moodItem'
 
 class MoodListController extends Component {
@@ -22,7 +22,7 @@ class MoodListController extends Component {
     }
 
     componentDidUpdate() {
-        this.scrollToBottom();
+        // this.scrollToBottom();
     }
 
     componentDidMount() {
@@ -40,7 +40,7 @@ class MoodListController extends Component {
                 messages: messagesList,
                 loading: false,
             });
-            this.scrollToBottom();
+            // this.scrollToBottom();
         });
     }
 
@@ -50,7 +50,7 @@ class MoodListController extends Component {
             <Fragment>
                 {loading && <div>Loading ...</div>}
                 {messages &&
-                    <MoodListStyles addHeight={this.props.addHeight}>
+                    <MoodListStyles>
                         {messages.map(item => (
                             <MoodItem {...item} key={item.uid}/>
                         ))}

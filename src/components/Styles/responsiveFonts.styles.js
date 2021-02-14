@@ -44,6 +44,13 @@ const responsiveFonts = {
             font-size: ${({ theme }) => theme.fontXXL};
         }
     `,
+    XXLtoXXXL: css`
+        font-size: ${({ theme }) => theme.fontXXL};
+
+        @media ${mediaQueries.phonesLargeW} {
+            font-size: ${({ theme }) => theme.fontXXXL};
+        }
+    `,
 };
 
 export default responsiveFonts;

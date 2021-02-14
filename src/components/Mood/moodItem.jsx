@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { MoodItemStyles, Balloon } from './moodItem.styles';
-import EMOJIS from './emojis';
+import { EMOJIS } from './emojis';
 
 const MoodItem = ({name, message, emoji, date}) => {
     const Emoji = EMOJIS[emoji];

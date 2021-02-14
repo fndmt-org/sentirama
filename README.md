@@ -106,21 +106,3 @@ How to execute a single test:
 ```
 npm run test
 ```
-
-### Publish the release of changed packages ###
-
-Release a new version of changed packages:
-
-```
-npm release:patch
-```
-or
-
-```
-npm release:minor
-```
-or
-
-```
-npm release:major
-```

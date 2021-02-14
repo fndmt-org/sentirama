@@ -1,0 +1,470 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buttons - Classic Theme: Buttons - first set: check default 1`] = `
+.c0 {
+  background-clip: padding-box;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  margin: unset;
+  outline-offset: 0;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition-delay: 0;
+  transition-delay: 0;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  padding: .6em 1.2em;
+}
+
+.c1,
+.c1:hover,
+.c1:visited,
+.c1:active {
+  background-color: transparent;
+  border: undefined solid undefined;
+}
+
+.c1:disabled,
+.c1[disabled] {
+  border: 1px solid undefined;
+}
+
+.c1:focus {
+  outline-offset: 0;
+}
+
+@media only screen and (min-width:400px) {
+
+}
+
+<button
+  className="c0 c1"
+>
+  Default
+</button>
+`;
+
+exports[`Buttons - Classic Theme: Buttons - first set: checks Rounded Button\`s screenshot 1`] = `
+.c0 {
+  background-clip: padding-box;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  margin: unset;
+  outline-offset: 0;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition-delay: 0;
+  transition-delay: 0;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  padding: .6em 1.2em;
+}
+
+.c1,
+.c1:hover,
+.c1:visited,
+.c1:active {
+  background-color: transparent;
+  border: undefined solid undefined;
+}
+
+.c1:disabled,
+.c1[disabled] {
+  border: 1px solid undefined;
+}
+
+.c1:focus {
+  outline-offset: 0;
+}
+
+.c2,
+.c2:hover,
+.c2:visited,
+.c2:active {
+  border: undefined solid transparent;
+}
+
+.c2:disabled,
+.c2[disabled] {
+  border: 1px solid undefined;
+}
+
+.c2:focus {
+  outline-offset: 0;
+}
+
+@media only screen and (min-width:400px) {
+
+}
+
+<button
+  className="c0 c1 c2"
+>
+  Rounded
+</button>
+`;
+
+exports[`Buttons - Classic Theme: Buttons - first set: checks screenshot of Action Button 1`] = `
+.c0 {
+  display: inline-block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0 svg {
+  fill: currentColor;
+}
+
+.c1,
+.c1:visited {
+  border: 1px solid undefined;
+}
+
+.c1:hover,
+.c1:active {
+  border: 1px solid undefined;
+}
+
+.c1:disabled,
+.c1[disabled] {
+  border: 1px solid undefined;
+}
+
+.c1:focus {
+  outline-offset: 0;
+}
+
+<button
+  className="c0 c1"
+>
+  Action
+</button>
+`;
+
+exports[`Buttons - Classic Theme: Buttons - first set: checks screenshot of ActionAlt Button 1`] = `
+.c0 {
+  display: inline-block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0 svg {
+  fill: currentColor;
+}
+
+.c1,
+.c1:hover,
+.c1:visited,
+.c1:active {
+  border: 1px solid undefined;
+}
+
+.c1:disabled,
+.c1[disabled] {
+  border: 1px solid undefined;
+}
+
+.c1:focus {
+  outline-offset: 0;
+}
+
+<button
+  className="c0 c1"
+>
+  ActionAlt
+</button>
+`;
+
+exports[`Buttons - Classic Theme: Buttons - first set: checks screenshot of ActionDefault Button 1`] = `
+.c0 {
+  display: inline-block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0 svg {
+  fill: currentColor;
+}
+
+<button
+  className="c0"
+>
+  ActionDefault
+</button>
+`;
+
+exports[`Buttons - Classic Theme: Buttons - first set: checks screenshot of Booking Button 1`] = `
+.c0 {
+  background-clip: padding-box;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  margin: unset;
+  outline-offset: 0;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition-delay: 0;
+  transition-delay: 0;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  padding: .6em 1.2em;
+}
+
+.c1,
+.c1:hover,
+.c1:visited,
+.c1:active {
+  background-color: transparent;
+  border: undefined solid undefined;
+}
+
+.c1:disabled,
+.c1[disabled] {
+  border: 1px solid undefined;
+}
+
+.c1:focus {
+  outline-offset: 0;
+}
+
+.c2,
+.c2:hover,
+.c2:visited,
+.c2:active {
+  border: undefined solid transparent;
+}
+
+.c2:disabled,
+.c2[disabled] {
+  border: 1px solid undefined;
+}
+
+.c2:focus {
+  outline-offset: 0;
+}
+
+.c2:hover,
+.c2:active {
+  border: undefined solid transparent;
+}
+
+.c3 {
+  padding: .9em 1.6em;
+  width: 100%;
+}
+
+@media only screen and (min-width:400px) {
+
+}
+
+@media only screen and (min-width:400px) {
+
+}
+
+<button
+  className="c0 c1 c2 c3"
+>
+  Book
+</button>
+`;
+
+exports[`Buttons - Classic Theme: Buttons - first set: checks screenshot of Common Alt Button 1`] = `
+.c0 {
+  background-clip: padding-box;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  margin: unset;
+  outline-offset: 0;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition-delay: 0;
+  transition-delay: 0;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  padding: .6em 1.2em;
+}
+
+.c1,
+.c1:hover,
+.c1:visited,
+.c1:active {
+  background-color: transparent;
+  border: undefined solid undefined;
+}
+
+.c1:disabled,
+.c1[disabled] {
+  border: 1px solid undefined;
+}
+
+.c1:focus {
+  outline-offset: 0;
+}
+
+.c2 {
+  padding: .9em 1.6em;
+  width: 100%;
+}
+
+.c2,
+.c2:hover,
+.c2:visited,
+.c2:active {
+  border: 1px solid undefined;
+}
+
+.c2:disabled,
+.c2[disabled] {
+  border: 1px solid undefined;
+}
+
+.c2:focus {
+  outline-offset: 0;
+}
+
+@media only screen and (min-width:400px) {
+
+}
+
+@media only screen and (min-width:400px) {
+
+}
+
+<button
+  className="c0 c1 c2"
+>
+  Common
+</button>
+`;
+
+exports[`Buttons - Classic Theme: Buttons - first set: checks screenshot of Common Button 1`] = `
+.c0 {
+  background-clip: padding-box;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  margin: unset;
+  outline-offset: 0;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition-delay: 0;
+  transition-delay: 0;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  padding: .6em 1.2em;
+}
+
+.c1,
+.c1:hover,
+.c1:visited,
+.c1:active {
+  background-color: transparent;
+  border: undefined solid undefined;
+}
+
+.c1:disabled,
+.c1[disabled] {
+  border: 1px solid undefined;
+}
+
+.c1:focus {
+  outline-offset: 0;
+}
+
+.c2 {
+  padding: .9em 1.6em;
+  width: 100%;
+}
+
+.c2,
+.c2:hover,
+.c2:visited,
+.c2:active {
+  border: undefined solid transparent;
+}
+
+.c2:disabled,
+.c2[disabled] {
+  border: 1px solid undefined;
+}
+
+.c2:focus {
+  outline-offset: 0;
+}
+
+@media only screen and (min-width:400px) {
+
+}
+
+@media only screen and (min-width:400px) {
+
+}
+
+<button
+  className="c0 c1 c2"
+>
+  Common
+</button>
+`;
+
+exports[`Buttons - Classic Theme: Buttons - second set: checks disabled Button\`s screenshot 1`] = `
+.c0 {
+  background-clip: padding-box;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  margin: unset;
+  outline-offset: 0;
+  text-align: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition-delay: 0;
+  transition-delay: 0;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  padding: .6em 1.2em;
+}
+
+.c1,
+.c1:hover,
+.c1:visited,
+.c1:active {
+  border: 1px solid undefined;
+}
+
+@media only screen and (min-width:400px) {
+
+}
+
+<button
+  className="c0 c1"
+>
+  Disabled button
+</button>
+`;
