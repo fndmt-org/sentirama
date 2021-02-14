@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 
 import responsiveFonts from './responsiveFonts.styles';
-import { svgSizes } from './svgSizes.styles';
+import { iconSizes } from './iconSizes.styles';
 
 const SendMods = {
     enabled: css`
@@ -44,7 +44,7 @@ const Send = styled.button`
             : SendMods.enabled
         }
         svg {
-            ${svgSizes.default}
+            ${iconSizes.default}
         }
     `}
 

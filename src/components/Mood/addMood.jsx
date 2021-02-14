@@ -9,7 +9,7 @@ import EmojiItem from './emojis';
 import UseAutocomplete from './autocomplete';
 import { getMoodsColor } from './moodsProps';
 
-import Button, { Send } from '../Styles/Buttons.styles';
+import Button, { Send } from '../Styles/buttons.styles';
 import {
     AddMoodStyles,
     AddMoodWrapper,

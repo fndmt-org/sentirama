@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { svgSizes } from '../Styles/svgSizes.styles';
+import { iconSizes } from '../Styles/iconSizes.styles';
 import responsiveFonts from '../Styles/responsiveFonts.styles';
 
 const moodGama = {
@@ -36,7 +36,7 @@ const MoodItemStyles = styled.div`
     padding:${({ theme }) => `${theme.r100}`};
 
     svg {
-        ${svgSizes.default}
+        ${iconSizes.default}
     }
 
     margin: ${({ theme }) => `0 ${theme.r150}`};

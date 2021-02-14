@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import responsiveFonts from '../Styles/responsiveFonts.styles';
 import mediaQueries from '../Styles/mediaQueries.styles';
-import { svgSizes } from '../Styles/svgSizes.styles';
+import { iconSizes } from '../Styles/iconSizes.styles';
 
 const AddMoodWrapper = styled.div`
     ${({ theme }) => css`
@@ -73,7 +73,7 @@ const AddMoodStyles = styled.form`
 const EmojiSelect = styled.label`
     display: flex;
     svg {
-        ${svgSizes.big}
+        ${iconSizes.big}
         ${(props) => props.className === 'active' && `fill: ${props.theme.colorMain}`}
     }
     .emoji-radio{

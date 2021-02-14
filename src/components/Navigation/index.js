@@ -14,58 +14,33 @@ import * as ROUTES from '../../constants/routes';
 
 const Navigation = () => (
     <AuthUserContext.Consumer>
-        {authUser => authUser ? <NavigationAuth /> : <NavigationNonAuth />}
+        {authUser => authUser ? <NavigationAuth /> : null}
     </AuthUserContext.Consumer>
 );
 
-const NavigationNonAuth = () => {
-
-    return (
-        <AppBar position="static">
-            <Toolbar>
-            <IconButton edge="start" color="inherit" aria-label="menu">
-                <MenuIcon />
-            </IconButton>
-            <Button component={RouterLink}to={ROUTES.SIGN_IN} color="inherit">Login</Button>
-            <Button component={RouterLink} to={ROUTES.LANDING} color="inherit">Landing</Button>
-            </Toolbar>
-            <SimpleMenu />
-        </AppBar>
-    );
-}
 
 const NavigationAuth = () => (
-    <ul>
-        {/* <li>
-            <Link to={ROUTES.LANDING}>Landing</Link>
-        </li>
-        <li>
-            <Link to={ROUTES.HOME}>Home</Link>
-        </li>
-        <li>
-            <Link to={ROUTES.ACCOUNT}>Account</Link>
-        </li>
-        <li>
-            <Link to={ROUTES.ADMIN}>Admin</Link>
-        </li> */}
-        <li>
-            <SimpleMenu />
-        </li>
-        <li>
-            <SignOutButton />
-        </li>
-    </ul>
+    <AppBar position="static">
+        <Toolbar>
+        <IconButton edge="start" color="inherit" aria-label="menu">
+            <MenuIcon />
+        </IconButton>
+        <Button component={RouterLink} to={ROUTES.LANDING} color="inherit">Landing</Button>
+        <Button component={RouterLink} to={ROUTES.ACCOUNT} color="inherit">Account</Button>
+        <Button component={RouterLink} to={ROUTES.HOME} color="inherit">Home</Button>
+        <SignOutButton />
+        </Toolbar>
+        <SimpleMenu />
+    </AppBar>
+    // <ul>
+    //     <li>
+    //         <SimpleMenu />
+    //     </li>
+    //     <li>
+    //         <Button component={RouterLink} to={ROUTES.SIGN_IN} color="inherit">Login</Button>
+    //         <SignOutButton />
+    //     </li>
+    // </ul>
 );
-
-// const NavigationNonAuth2 = () => (
-//     <ul>
-//         <li>
-//             <Link to={ROUTES.LANDING}>Landing</Link>
-//         </li>
-//         <li>
-//             <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-//         </li>
-//     </ul>
-// );
 
 export default Navigation;
