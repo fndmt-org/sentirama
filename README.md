@@ -1,10 +1,26 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SENTIRAMA
+A serverless app to share your mood with your teammates made with firebase and react
+
+## Requirements ##
+
+* Node version >= 10
+
+
+## Install ##
+
+
+* Install the dependencies
+```
+$ npm ci
+```
+
+## Commands usage ##
 
 ## Available Scripts
 
 In the project directory, you can run:
-
 ### `npm start`
+To launch local development server
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -66,3 +82,27 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+## Contribution ##
+
+* Clone this repo.
+* Install dependencies
+
+```
+npm i
+```
+
+* Start the development. This will command will start the development server builds, automatic testing and linting.
+
+```
+npm start
+```
+
+## Unit testing ##
+
+How to execute a single test:
+
+```
+npm run test
+```
