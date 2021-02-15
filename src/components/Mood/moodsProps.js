@@ -1,15 +1,15 @@
-import moods from './moods.grid';
 import { generateColorSteps } from '../Styles/colorSteps'
 
 
-const getMoodsColor = () => {
+const getMoodsColor = (list) => {
+
     const colors = generateColorSteps({
         colorStart: 'hsla(145, 75%, 40%, 1)',
         colorEnd: 'hsla(312, 75%, 50%, 1)',
-        steps: moods.length
+        steps: list.length
     });
 
-    return moods.map((mood, index) => ({color: colors[index], index: index, ...mood}))
+    return list.map((item, index) => ({color: colors[index], index: index, ...item}))
 }
 
 export {

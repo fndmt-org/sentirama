@@ -6,10 +6,10 @@ import mediaQueries from '../Styles/mediaQueries.styles';
 
 const MoodGridItemStyles = styled.li`
     ${({ theme, color }) => css`
-        flex-grow: 1;
+        /* flex-grow: 1; */
         font-weight: ${theme.fontBold};
-        min-width: 50%;
-        text-align: center;
+        /* min-width: 50%; */
+        /* text-align: center; */
         @media ${mediaQueries.phonesLargeW} {
             min-width: 33.33%;
         }
@@ -48,9 +48,9 @@ const ModButtonStyles =  styled.button`
 const MoodGridLine = styled.ul`
     ${({ theme }) => css`
         list-style: none;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: stretch;
+        /* display: flex; */
+        /* flex-wrap: wrap; */
+        /* justify-content: stretch; */
     `}
 `;
 

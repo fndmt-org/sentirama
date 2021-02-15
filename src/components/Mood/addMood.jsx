@@ -3,6 +3,10 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 import { FormattedMessage } from 'react-intl';
 
+
+import moods from './moods.grid';
+
+
 import { withFirebase } from '../Firebase';
 import MoodGrid from './moodGrid';
 import EmojiItem from './emojis';
@@ -21,7 +25,7 @@ import {
 import { ReactComponent as Arrow } from '../Styles/icons/arrow.svg';
 import { InputStyleBase } from '../Styles/form.styles';
 
-const MOODS = getMoodsColor();
+const MOODS = getMoodsColor(moods);
 
 const INITIAL_STATE = {
     name: '',
@@ -98,7 +102,7 @@ class AddMoodBase extends Component {
 
         return (
             <Fragment>
-                <AddMoodWrapper>
+                {/* <AddMoodWrapper>
                 <AddMoodStyles ref={this.props.innerRef} onSubmit={this.onSubmit}>
                         <TitleFormStyles>
                         <FormattedMessage
@@ -157,8 +161,8 @@ class AddMoodBase extends Component {
                         </Send>
                         {error && <p>{error.message}</p>}
                     </AddMoodStyles>
-                </AddMoodWrapper>
-                    {category
+                </AddMoodWrapper> */}
+                    { category
                     ? <SuggestedMoodsMessage category={category} onReset={this.onReset}/>
                     : null}
                 <MoodGrid onClickCallback={this.onSelect} moods={filteredMoods || MOODS} />
