@@ -9,15 +9,12 @@ import moods from './moods.grid';
 
 import { withFirebase } from '../Firebase';
 import MoodGrid from './moodGrid';
-import EmojiItem from './emojis';
-import UseAutocomplete from './autocomplete';
 import { getMoodsColor } from './moodsProps';
 
 import Button, { Send } from '../Styles/buttons.styles';
 import {
     AddMoodStyles,
     AddMoodWrapper,
-    EmojiSet,
     TitleFormStyles,
     SuggestedMoodsStyles,
 } from './addMood.styles';
@@ -55,6 +52,7 @@ class AddMoodBase extends Component {
             .doAddMood(name, message, emoji, date, category, set)
             .then(() => {
                 this.setState({ ...INITIAL_STATE });
+                
             })
             .catch(error => {
                 this.setState({ error });
@@ -72,15 +70,10 @@ class AddMoodBase extends Component {
             'message': selectedMood?.name,
             'category': selectedMood?.category,
             'set': selectedMood?.set,
-            'filteredMoods' : selectedMood?.category ? MOODS.filter(mood => mood.category === selectedMood.category) : MOODS,
         });
     };
 
     onReset = () => {
-        this.setState({
-            'category': '',
-            'filteredMoods' : MOODS,
-        });
     };
 
     render() {
@@ -88,21 +81,14 @@ class AddMoodBase extends Component {
         const {
             name,
             message,
-            emoji,
             error,
-            filteredMoods,
-            category,
         } = this.state;
-        const isInvalid = message === '' || name === '' || emoji === '';
-        const emojis = [
-            'bad',
-            'neutral',
-            'good'
-        ];
+        const isInvalid = message === '' || name === '';
+
 
         return (
             <Fragment>
-                {/* <AddMoodWrapper>
+                <AddMoodWrapper>
                 <AddMoodStyles ref={this.props.innerRef} onSubmit={this.onSubmit}>
                         <TitleFormStyles>
                         <FormattedMessage
@@ -123,59 +109,17 @@ class AddMoodBase extends Component {
                                     />
                                 }
                         </FormattedMessage>
-                        <FormattedMessage
-                            id="yourMood.form.placeholder.mood"
-                            defaultMessage="Your mood in one word">
-                                { msg =>
-                                    <UseAutocomplete
-                                        name="message"
-                                        id="select-mood"
-                                        label={msg}
-                                        value={this.state.indexSelected ? MOODS[this.state.indexSelected] : null }
-                                        options={MOODS}
-                                        getOptionLabel={(mood) => mood.name}
-                                        onChange={(event, newValue) => {
-                                            this.onSelect(newValue);
-                                        }}
-                                    />
-                                }
-                        </FormattedMessage>
-                        <EmojiSet>
-                        <label>
-                            <FormattedMessage
-                                id="yourMood.form.emoji"
-                                defaultMessage="Select a face:"/>
-                        </label>
-                            {emojis.map(
-                                item =>
-                                <EmojiItem
-                                    active={this.state.emoji}
-                                    value={item}
-                                    key={item}
-                                    onChange={this.onChange}/>
-                                )
-                            }
-                        </EmojiSet>
                         <Send disabled={isInvalid} type="submit">
                             <Arrow />
                         </Send>
                         {error && <p>{error.message}</p>}
                     </AddMoodStyles>
-                </AddMoodWrapper> */}
-                    { category
-                    ? <SuggestedMoodsMessage category={category} onReset={this.onReset}/>
-                    : null}
-                <MoodGrid onClickCallback={this.onSelect} moods={filteredMoods || MOODS} />
+                </AddMoodWrapper>
+                <MoodGrid onClickCallback={this.onSelect} moods={MOODS} />
             </Fragment>
         );
     }
 }
-
-const SuggestedMoodsMessage = ({category, onReset}) =>(
-    <SuggestedMoodsStyles>
-        Suggested moods related to "{category}" <Button onClick={() =>onReset()}>See all</Button>
-    </SuggestedMoodsStyles>
-)
 
 const AddMood = compose(
     withRouter,

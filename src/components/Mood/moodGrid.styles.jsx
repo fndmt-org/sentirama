@@ -6,57 +6,70 @@ import mediaQueries from '../Styles/mediaQueries.styles';
 
 const MoodGridItemStyles = styled.li`
     ${({ theme, color }) => css`
-        /* flex-grow: 1; */
         font-weight: ${theme.fontBold};
-        /* min-width: 50%; */
-        /* text-align: center; */
-        @media ${mediaQueries.phonesLargeW} {
-            min-width: 33.33%;
+
+        /* @media ${mediaQueries.phonesLargeW} {
+
         }
         @media ${mediaQueries.s} {
-            min-width: 25%;
+
         }
         @media ${mediaQueries.m} {
-            min-width: 20%;
+
         }
         @media ${mediaQueries.l} {
-            min-width: 10%;
+
         }
         @media ${mediaQueries.xl} {
-            min-width: 5%;
-        }
+
+        } */
         ${responsiveFonts.BtoL}
     `}
 `;
 
-const ModGridColorStyles =  styled(MoodGridItemStyles)`
+const MoodColorSc = styled(MoodGridItemStyles)`
     ${({ theme, color }) => css`
         background-color: ${color};
     `}
 `;
 
-const ModButtonStyles =  styled.button`
+const MoodItemSc = styled(MoodColorSc)`
+    flex-grow: 1;
+`;
+
+const MoodCategorySc = styled(MoodColorSc)`
+    display: flex;
+`;
+
+const MoodButtonSc = styled.button`
     ${({ theme, color }) => css`
         padding: ${theme.r200};
         background-color: transparent;
         color: ${theme.neutral000};
-        width: 100%;
-        height: 100%;
+        align-self: baseline;
+        text-align: initial;
     `}
 `;
 
-const MoodGridLine = styled.ul`
+const CategoryButtonSc = styled(MoodButtonSc)`
+    flex-basis: 100%;
+`;
+const CategoryButtonActiveSc = styled(MoodButtonSc)`
+    flex-basis: 50%;
+`;
+
+const MoodGridSc = styled.ul`
     ${({ theme }) => css`
         list-style: none;
-        /* display: flex; */
-        /* flex-wrap: wrap; */
-        /* justify-content: stretch; */
     `}
 `;
 
 
 export {
-    ModButtonStyles,
-    ModGridColorStyles,
-    MoodGridLine,
+    CategoryButtonSc,
+    CategoryButtonActiveSc,
+    MoodButtonSc,
+    MoodItemSc,
+    MoodCategorySc,
+    MoodGridSc,
 }

@@ -1,32 +1,44 @@
 import React, { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
+
 import { getMoodCategories } from './helpers';
 import { getMoodsColor } from './moodsProps';
 
 import {
-    ModButtonStyles,
-    ModGridColorStyles,
-    MoodGridLine,
+    CategoryButtonSc,
+    CategoryButtonActiveSc,
+    MoodButtonSc,
+    MoodCategorySc,
+    MoodGridSc,
+    MoodItemSc,
 } from './moodGrid.styles'
+
+import {
+    TitleFormStyles,
+} from './addMood.styles';
 
 
 const MoodGridItems = ({color, moods, onClickCallback, category}) => (
-    moods.filter(mood => mood.category === category).map((mood, index) =>
-        <ModGridColorStyles index={index} color={color}>
-            <ModButtonStyles key={index} onClick={() => onClickCallback(mood)}>{mood.name}</ModButtonStyles>
-        </ModGridColorStyles>
-    )
+    <ul>
+        {moods.filter(mood => mood.category === category).map((mood, index) =>
+            <MoodItemSc key={index} color={color}>
+                <MoodButtonSc index={index} onClick={() => onClickCallback(mood)}>{mood.name}</MoodButtonSc>
+            </MoodItemSc>
+        )}
+    </ul>
 );
 
 const CategoryMoodGridItem = ({index, item, onClickCallback, moods}) => {
     const [showCategories, setShowCategories] = useState(false);
 
+    const CompoenntButtonSc = showCategories ? CategoryButtonActiveSc : CategoryButtonSc;
     return (
-        <ModGridColorStyles index={index} color={item.color}>
-            <ModButtonStyles onClick={() => setShowCategories(!showCategories)}>{item.category}</ModButtonStyles>
+        <MoodCategorySc index={index} color={item.color}>
+            <CompoenntButtonSc onClick={() => setShowCategories(!showCategories)}>{item.category}</CompoenntButtonSc>
             {showCategories &&
                 <MoodGridItems category={item.category} onClickCallback={onClickCallback} moods={moods}/>
             }
-        </ModGridColorStyles>
+        </MoodCategorySc>
     )
 }
 
@@ -35,16 +47,26 @@ const MoodGrid = ({moods, onClickCallback}) => {
     const CATEGORIES = getMoodsColor(moodCategories);
 
     return (
-        <MoodGridLine>
-            <h4>Categorías de Necesidades Satisfechas</h4>
+        <MoodGridSc>
+            <TitleFormStyles>
+                <FormattedMessage
+                    id="yourMood.met.title"
+                    description="met title"
+                    defaultMessage="when your needs are satisfied"/>
+            </TitleFormStyles>
             {CATEGORIES.filter(category => category.set === 'met').map((item, index) => (
                 <CategoryMoodGridItem key={index} onClickCallback={onClickCallback} item={item} moods={moods}/>
             ))}
-            <h4>Categorías de Necesidades No Satisfechas</h4>
+            <TitleFormStyles>
+                <FormattedMessage
+                    id="yourMood.unmet.title"
+                    description="unmet title"
+                    defaultMessage="when your needs are not satisfied"/>
+            </TitleFormStyles>
             {CATEGORIES.filter(category => category.set === 'unmet').map((item, index) => (
                 <CategoryMoodGridItem key={index} onClickCallback={onClickCallback} item={item} moods={moods} />
             ))}
-        </MoodGridLine>
+        </MoodGridSc>
     )
 };
 

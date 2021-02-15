@@ -5,6 +5,10 @@ import responsiveFonts from '../Styles/responsiveFonts.styles';
 
 const moodGama = {
     baloons: {
+        default: css`
+            color: ${({theme}) => theme.neutral100};
+            background-color: ${({theme}) => theme.neutral700};
+        `,
         good: css`
             color: ${({theme}) => theme.colorSuccess100};
             background-color: ${({theme}) => theme.colorSuccess700};
@@ -19,6 +23,7 @@ const moodGama = {
         `
     },
     triangles: {
+        default: css`${({theme}) => theme.neutral700};`,
         good: css`${({theme}) => theme.colorSuccess700};`,
         neutral: css`${({theme}) => theme.colorWarning};`,
         bad: css`${({theme}) => theme.colorError700};`
@@ -53,15 +58,15 @@ const Balloon =  styled.strong`
     align-items: center;
     border-radius: ${({theme}) => theme.roundedCard};
     margin-left: ${({ theme }) => theme.r300};
-    padding: ${({theme}) => `${theme.r100} ${theme.r150} ${theme.r100} ${theme.r050}`};
+    padding: ${({theme}) => `${theme.r100} ${theme.r150} ${theme.r100} ${theme.r200}`};
     position: relative;
 
-    ${(props) => moodGama.baloons[props.kind]};
+    ${(props) => props.kind ? moodGama.baloons[props.kind] : moodGama.baloons.default};
 
     ::before {
         content: '';
         border: ${({theme}) => `${theme.r200} solid transparent`}; ;
-        border-right-color: ${(props) => moodGama.triangles[props.kind]};
+        border-right-color: ${(props) => props.kind ? moodGama.triangles[props.kind] : moodGama.triangles.default};
         border-left: 0;
         border-bottom: 0;
         height: 0;
