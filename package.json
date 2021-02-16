@@ -1,7 +1,7 @@
 {
-  "name": "corona-mood",
+  "name": "sentirama",
   "version": "0.0.0",
-  "description": "corona mood",
+  "description": "No violent comunication feelings catalog",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -18,7 +18,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "react-scripts build && firebase deploy",
+    "deploy:production": "npm run build && firebase deploy",
+    "deploy:test": "GIT_SHA=$(git rev-parse --short HEAD) && npm run build && firebase hosting:channel:deploy $GIT_SHA",
     "translate": "npm run extract -- 'src/**/*.js*' --out-file src/lang/en.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'",
     "extract": "formatjs extract"
   },

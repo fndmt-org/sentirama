@@ -52,7 +52,7 @@ class AddMoodBase extends Component {
             .doAddMood(name, message, emoji, date, category, set)
             .then(() => {
                 this.setState({ ...INITIAL_STATE });
-                
+
             })
             .catch(error => {
                 this.setState({ error });
