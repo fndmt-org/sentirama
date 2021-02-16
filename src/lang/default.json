@@ -1,0 +1,17 @@
+{
+  "yourMood.form.placeholder.name": {
+    "defaultMessage": "Your name/nikname"
+  },
+  "yourMood.form.title": {
+    "defaultMessage": "Your mood today:",
+    "description": "Add your mood form title"
+  },
+  "yourMood.met.title": {
+    "defaultMessage": "when your needs are satisfied",
+    "description": "met title"
+  },
+  "yourMood.unmet.title": {
+    "defaultMessage": "when your needs are not satisfied",
+    "description": "unmet title"
+  }
+}

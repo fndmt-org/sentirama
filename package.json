@@ -20,8 +20,14 @@
     "eject": "react-scripts eject",
     "deploy:production": "npm run build && firebase deploy",
     "deploy:test": "GIT_SHA=$(git rev-parse --short HEAD) && npm run build && firebase hosting:channel:deploy $GIT_SHA",
-    "translate": "npm run extract -- 'src/**/*.js*' --out-file src/lang/en.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'",
-    "extract": "formatjs extract"
+    "translate": "npm run extract -- 'src/**/*.js*' --out-file src/lang/default.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'",
+    "extract": "formatjs extract",
+    "check-master": "git symbolic-ref --short HEAD | grep ^master$ > /dev/null || (echo \"Not in 'master' branch. Aborting release\"; return 1)",
+    "prerelease": "npm ci && npm run lint && npm run check-master && npm run test:ci",
+    "changelog": "npm run prerelease && changelog -p && git add CHANGELOG.md && git commit -m 'updated CHANGELOG.md'",
+    "release:patch": "npm run changelog && npm version patch",
+    "release:minor": "npm run changelog && npm version minor",
+    "release:major": "npm run changelog && npm version major"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,10 +44,10 @@
       "last 1 safari version"
     ]
   },
-  "author": "fundament",
+  "author": "fundament.es",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/pableco/corona-mood/-/issues"
+    "url": "https://github.com/fndmt-org/sentirama/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc"
   },
   "homepage": "https://corona-mood.firebaseapp.com/",
   "dependencies": {
@@ -66,9 +72,10 @@
   },
   "devDependencies": {
     "@formatjs/cli": "^3.1.0",
+    "generate-changelog": "^1.8.0",
     "jest-styled-components": "^7.0.3",
     "match-media-mock": "^0.1.1",
-    "react-intl-cra": "^0.3.4",
+    "react-intl-cra": "^0.2.12",
     "react-intl-translations-manager": "^5.0.3",
     "react-test-renderer": "^17.0.1"
   }

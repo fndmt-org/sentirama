@@ -1,6 +1,6 @@
 {
-  "yourMood.form.emoji": "Select a face:",
-  "yourMood.form.placeholder.mood": "Your mood in one word",
-  "yourMood.form.placeholder.name": "Your name/nikname",
-  "yourMood.form.title": "Your mood today:"
+    "yourMood.form.placeholder.name": "Your name/nikname",
+    "yourMood.form.title": "Your mood today:",
+    "yourMood.met.title": "when your needs are satisfied",
+    "yourMood.unmet.title": "when your needs are not satisfied"
 }

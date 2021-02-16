@@ -2,5 +2,7 @@
     "yourMood.form.emoji": "Selecciona un emoji",
     "yourMood.form.placeholder.mood": "Tu estado de animo",
     "yourMood.form.placeholder.name": "tu nombre",
-    "yourMood.form.title": "Catálogo de emociones"
+    "yourMood.form.title": "Catálogo de emociones",
+    "yourMood.met.title": "Cuando tienes tu necesidades satisfechas",
+    "yourMood.unmet.title": "Cuando NO tienes tu necesidades satisfechas"
 }
