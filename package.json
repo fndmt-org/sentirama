@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/pableco/corona-mood.git"
+    "url": "git@github.com:fndmt-org/sentirama.git"
   },
   "keywords": [
     "website",
