@@ -3,8 +3,8 @@
     "defaultMessage": "Your name/nikname"
   },
   "yourMood.form.title": {
-    "defaultMessage": "Your mood today:",
-    "description": "Add your mood form title"
+    "defaultMessage": "How Do You Feel?",
+    "description": "How Do You Feel title"
   },
   "yourMood.met.title": {
     "defaultMessage": "when your needs are satisfied",

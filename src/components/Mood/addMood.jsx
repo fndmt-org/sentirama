@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 
 
 import moods from './moods.grid';
-
+import AddName from './addName.jsx'
 
 import { withFirebase } from '../Firebase';
 import MoodGrid from './moodGrid';
@@ -27,13 +27,11 @@ const MOODS = getMoodsColor(moods);
 const INITIAL_STATE = {
     name: '',
     message: '',
-    emoji: '',
     category: '',
     set: '',
     error: null,
     style: {},
     moods: MOODS,
-    filteredMoods: MOODS,
 };
 
 class AddMoodBase extends Component {
@@ -41,81 +39,63 @@ class AddMoodBase extends Component {
     constructor(props) {
         super(props);
         this.state = { ...INITIAL_STATE };
-        this.onSelect = this.onSelect.bind(this);
         this.onReset = this.onReset.bind(this);
     }
 
-    onSubmit = event => {
-        const { name, message, emoji, category, set } = this.state;
+    onPressFeeling = (selectedFeeling) => {
+        const { name } = this.state;
+        const message = selectedFeeling.name;
+        const { category, set, color } = selectedFeeling;
         const date = Date.now();
+        const emoji = 'neutral';
         this.props.firebase
-            .doAddMood(name, message, emoji, date, category, set)
+            .doAddMood(message,
+                name,
+                date,
+                emoji,
+                category,
+                set,
+                color)
             .then(() => {
                 this.setState({ ...INITIAL_STATE });
-
+                // redirect to messages view
             })
             .catch(error => {
                 this.setState({ error });
             });
-        event.preventDefault();
     };
 
-    onChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
-    };
-
-    onSelect = (selectedMood) => {
-        this.setState({
-            'indexSelected': selectedMood?.index,
-            'message': selectedMood?.name,
-            'category': selectedMood?.category,
-            'set': selectedMood?.set,
-        });
-    };
 
     onReset = () => {
+    };
+
+    onNextStep = name => {
+        this.setState({
+            'name' : name,
+        });
     };
 
     render() {
 
         const {
             name,
-            message,
             error,
         } = this.state;
-        const isInvalid = message === '' || name === '';
 
 
         return (
             <Fragment>
-                <AddMoodWrapper>
-                <AddMoodStyles ref={this.props.innerRef} onSubmit={this.onSubmit}>
-                        <TitleFormStyles>
-                        <FormattedMessage
-                            id="yourMood.form.title"
-                            description="Add your mood form title"
-                            defaultMessage="Your mood today:"/>
-                        </TitleFormStyles>
-                        <FormattedMessage
-                            id="yourMood.form.placeholder.name"
-                            defaultMessage="Your name/nikname">
-                                { msg =>
-                                    <InputStyleBase
-                                        name="name"
-                                        value={name}
-                                        onChange={this.onChange}
-                                        type="text"
-                                        placeholder={msg}
-                                    />
-                                }
-                        </FormattedMessage>
-                        <Send disabled={isInvalid} type="submit">
-                            <Arrow />
-                        </Send>
-                        {error && <p>{error.message}</p>}
-                    </AddMoodStyles>
-                </AddMoodWrapper>
-                <MoodGrid onClickCallback={this.onSelect} moods={MOODS} />
+                <TitleFormStyles>
+                    <FormattedMessage
+                        id="yourMood.form.title"
+                        description="Add your mood form title"
+                        defaultMessage="How Do You Feel?"/>
+                </TitleFormStyles>
+                { name
+                    ? <MoodGrid onClickCallback={this.onPressFeeling} moods={MOODS} />
+                    : <AddName onNextStep={this.onNextStep}/>
+                }
+                {error && <p>{error.message}</p>}
             </Fragment>
         );
     }

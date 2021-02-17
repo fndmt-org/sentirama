@@ -1,6 +1,8 @@
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+// Add the Performance Monitoring library
+import "firebase/performance";
 
 const firebaseConfigDev = {
     apiKey: "AIzaSyBz9WIj8SHoc9F2l9Uz2BipbTbM_iGRY4w",
@@ -30,6 +32,8 @@ const config = isProduction ? firebaseConfigProd : firebaseConfigDev;
 class Firebase {
     constructor() {
         app.initializeApp(config);
+        // Initialize Performance Monitoring and get a reference to the service
+        this.perf = app.performance();
         this.auth = app.auth();
         this.db = app.database();
     }
@@ -46,7 +50,7 @@ class Firebase {
     doPasswordUpdate = password =>
         this.auth.currentUser.updatePassword(password);
 
-    doAddMood = (name, message, emoji, date, category, set) => {
+    doAddMood = (message, name, date, emoji = 'neutral', category, set, color) => {
         return this.messages().push().set({
             message,
             name,
@@ -54,6 +58,7 @@ class Firebase {
             emoji,
             category,
             set,
+            color,
         });
     };
 

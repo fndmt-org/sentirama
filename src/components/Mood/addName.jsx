@@ -1,7 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import { Send } from '../Styles/buttons.styles';
+import {
+    AddMoodStyles,
+} from './addMood.styles';
 
 import { ReactComponent as Arrow } from '../Styles/icons/arrow.svg';
 import { ReactComponent as Logo } from '../Styles/brand/header-logo.svg';
@@ -9,10 +12,22 @@ import { ReactComponent as Logo } from '../Styles/brand/header-logo.svg';
 import { InputStyleBase } from '../Styles/form.styles';
 
 
-const AddName = (onPushNext, name, onChange) => {
+
+const AddName = ({onNextStep}) => {
+
+    const [localName, onChangeName] = useState('');
+    const isInvalid = localName === '';
+    const handleChange = (event) => {
+        onChangeName(event.target.value);
+    }
+
+    const handleSubmit = (event) => {
+        onNextStep(localName);
+        event.preventDefault();
+    }
 
     return (
-        <Fragment>
+        <AddMoodStyles onSubmit={handleSubmit}>
             <Logo />
             <FormattedMessage
                 id="yourMood.form.placeholder.name"
@@ -20,22 +35,20 @@ const AddName = (onPushNext, name, onChange) => {
                     { msg =>
                         <InputStyleBase
                             name="name"
-                            value={name}
-                            onChange={onChange}
+                            value={localName}
+                            onChange={handleChange}
                             type="text"
                             placeholder={msg}
                         />
                     }
             </FormattedMessage>
-            {/* <Send disabled={isInvalid} type="submit">
+            <Send disabled={isInvalid} type="submit">
                 <Arrow />
             </Send>
-            {error && <p>{error.message}</p>} */}
-
-        </Fragment>
+        </AddMoodStyles>
     );
 }
 
-export {  AddName };
+export default AddName;
 
 

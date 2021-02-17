@@ -6,6 +6,7 @@ import {
     BrowserRouter as Router,
     Route
 } from 'react-router-dom';
+import {getCLS, getFID, getLCP} from 'web-vitals';
 
 import Navigation from '../Navigation';
 import LandingPage from '../Mood';
@@ -41,6 +42,10 @@ if (local==="es") {
     lang = English;
 }
 
+
+getCLS(console.log);
+getFID(console.log);
+getLCP(console.log);
 
 const App = () => {
     const [locale, setLocale] = useState(local);
