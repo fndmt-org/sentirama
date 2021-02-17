@@ -31,7 +31,7 @@ const config = isProduction ? firebaseConfigProd : firebaseConfigDev;
 
 class Firebase {
     constructor() {
-        app.initializeApp(config);
+        app.initializeApp(firebaseConfigDev);
         // Initialize Performance Monitoring and get a reference to the service
         this.perf = app.performance();
         this.auth = app.auth();
