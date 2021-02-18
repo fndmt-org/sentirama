@@ -3,6 +3,7 @@ import 'firebase/auth';
 import 'firebase/database';
 // Add the Performance Monitoring library
 import "firebase/performance";
+import "firebase/analytics";
 
 const firebaseConfigDev = {
     apiKey: "AIzaSyBz9WIj8SHoc9F2l9Uz2BipbTbM_iGRY4w",
@@ -15,20 +16,6 @@ const firebaseConfigDev = {
     measurementId: "G-PKF0ZEL622"
 };
 
-const firebaseConfigProd = {
-    apiKey: "AIzaSyCBFwQPjyZSPKAmYP1QhoRcBbj1_ft2xyk",
-    authDomain: "sentirama-2e79b.firebaseapp.com",
-    projectId: "sentirama-2e79b",
-    storageBucket: "sentirama-2e79b.appspot.com",
-    messagingSenderId: "1045798979793",
-    appId: "1:1045798979793:web:34057c4c256092af5e9df0",
-    measurementId: "G-J5TSPJ1G8M"
-};
-
-const isProduction = process.env.NODE_ENV === 'production'
-
-const config = isProduction ? firebaseConfigProd : firebaseConfigDev;
-
 class Firebase {
     constructor() {
         app.initializeApp(firebaseConfigDev);
@@ -36,6 +23,7 @@ class Firebase {
         this.perf = app.performance();
         this.auth = app.auth();
         this.db = app.database();
+        this.analytics = app.analytics();
     }
     // *** Auth API ***
     doCreateUserWithEmailAndPassword = (email, password) =>

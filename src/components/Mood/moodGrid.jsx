@@ -52,7 +52,7 @@ const MoodGrid = ({moods, onClickCallback}) => {
                 <FormattedMessage
                     id="yourMood.met.title"
                     description="met title"
-                    defaultMessage="when your needs are satisfied"/>
+                    defaultMessage="When your needs are satisfied"/>
             </TitleFormStyles>
             {CATEGORIES.filter(category => category.set === 'met').map((item, index) => (
                 <CategoryMoodGridItem key={index} onClickCallback={onClickCallback} item={item} moods={moods}/>
@@ -61,7 +61,7 @@ const MoodGrid = ({moods, onClickCallback}) => {
                 <FormattedMessage
                     id="yourMood.unmet.title"
                     description="unmet title"
-                    defaultMessage="when your needs are not satisfied"/>
+                    defaultMessage="When your needs are not satisfied"/>
             </TitleFormStyles>
             {CATEGORIES.filter(category => category.set === 'unmet').map((item, index) => (
                 <CategoryMoodGridItem key={index} onClickCallback={onClickCallback} item={item} moods={moods} />
