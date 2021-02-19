@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import { Send } from '../Styles/buttons.styles';
@@ -13,10 +13,15 @@ import { InputStyleBase } from '../Styles/form.styles';
 
 
 
-const AddName = ({onNextStep}) => {
+const AddName = ({ onNextStep, name }) => {
 
     const [localName, onChangeName] = useState('');
     const isInvalid = localName === '';
+
+    useEffect(() => {
+        onChangeName(name)
+    }, [name]);
+
     const handleChange = (event) => {
         onChangeName(event.target.value);
     }

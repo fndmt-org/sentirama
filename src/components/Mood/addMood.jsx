@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
-import { compose } from 'recompose';
 import { FormattedMessage } from 'react-intl';
 
 
@@ -101,11 +100,7 @@ class AddMoodBase extends Component {
     }
 }
 
-const AddMood = compose(
-    withRouter,
-    withFirebase,
-)(AddMoodBase);
-
+const AddMood = withRouter(withFirebase(AddMoodBase));
 
 const AddModdRef = React.forwardRef((props, ref) =>
     <AddMood innerRef={ref} {...props}

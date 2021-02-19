@@ -6,6 +6,7 @@ import {
     BrowserRouter as Router,
     Route
 } from 'react-router-dom';
+
 import {getCLS, getFID, getLCP} from 'web-vitals';
 
 import Navigation from '../Navigation';
@@ -33,6 +34,9 @@ WebFont.load({
         console.log('load font active');
     },
 });
+getCLS(console.log);
+getFID(console.log);
+getLCP(console.log);
 
 const local = navigator.language;
 let lang;
@@ -41,11 +45,6 @@ if (local==="es") {
     } else {
     lang = English;
 }
-
-
-getCLS(console.log);
-getFID(console.log);
-getLCP(console.log);
 
 const App = () => {
     const [locale, setLocale] = useState(local);
@@ -67,8 +66,8 @@ const App = () => {
                 <IntlProvider messages={messages} locale={locale}>
                     <Router>
                         <select value = {locale} onChange={selectLanguage}>
-                            <option value='en'>English</option>
-                            <option value='es'>Español</option>
+                            <option value='en'>EN</option>
+                            <option value='es'>ES</option>
                         </select>
                         <Navigation />
                         <Route exact path={ROUTES.LANDING} component={LandingPage} />
