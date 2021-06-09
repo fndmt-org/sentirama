@@ -2,7 +2,6 @@
 
 
 const metNeeds = [
-
 { set:'met', category: 'Peaceful', name: 'Content', color: 'hsla(122, 205, 88, 85)'},
 { set:'met', category: 'Peaceful', name: 'Thoughtful', color: 'hsla(122, 205, 88, 85)'},
 { set:'met', category: 'Peaceful', name: 'Intimate', color: 'hsla(122, 205, 88, 85)'},
@@ -15,8 +14,6 @@ const metNeeds = [
 { set:'met', category: 'Peaceful', name: 'Responsive', color: 'hsla(122, 205, 88, 85)'},
 { set:'met', category: 'Peaceful', name: 'Relaxed', color: 'hsla(122, 205, 88, 85)'},
 { set:'met', category: 'Peaceful', name: 'Pensive', color: 'hsla(122, 205, 88, 85)'},
-
-
 
 { set:'met', category: 'Powerful', name: 'Hopeful', color: 'hsla(159, 186, 196, 100)'},
 { set:'met', category: 'Powerful', name: 'Faithful', color: 'hsla(159, 186, 196, 100)'},
@@ -32,8 +29,6 @@ const metNeeds = [
 { set:'met', category: 'Powerful', name: 'Cheerful', color: 'hsla(159, 186, 196, 100)'},
 { set:'met', category: 'Powerful', name: 'Proud', color: 'hsla(159, 186, 196, 100)'},
 
-
-
 { set:'met', category: 'Joyful', name: 'Aware', color: 'hsla(243, 153, 169, 85)'},
 { set:'met', category: 'Joyful', name: 'Creative', color: 'hsla(243, 153, 169, 85)'},
 { set:'met', category: 'Joyful', name: 'Playful', color: 'hsla(243, 153, 169, 85)'},
@@ -46,11 +41,9 @@ const metNeeds = [
 { set:'met', category: 'Joyful', name: 'Amused', color: 'hsla(243, 153, 169, 85)'},
 { set:'met', category: 'Joyful', name: 'Extravagant', color: 'hsla(243, 153, 169, 85)'},
 { set:'met', category: 'Joyful', name: 'Delightful', color: 'hsla(243, 153, 169, 85)'},
-
 ];
 
 const unmetNeeds = [
-
 { set:'unmet', category: 'Sad', name: 'Guilty', color: 'hsla(192, 167, 200, 100)'},
 { set:'unmet', category: 'Sad', name: 'Ashamed', color: 'hsla(192, 167, 200, 100)'},
 { set:'unmet', category: 'Sad', name: 'Depressed', color: 'hsla(192, 167, 200, 100)'},
@@ -64,8 +57,6 @@ const unmetNeeds = [
 { set:'unmet', category: 'Sad', name: 'Stupid', color: 'hsla(192, 167, 200, 100)'},
 { set:'unmet', category: 'Sad', name: 'Bashful', color: 'hsla(192, 167, 200, 100)'},
 
-
-
 { set:'unmet', category: 'Mad', name: 'Hurt', color: 'hsla(214, 108, 82, 80)'},
 { set:'unmet', category: 'Mad', name: 'Hostile', color: 'hsla(214, 108, 82, 80)'},
 { set:'unmet', category: 'Mad', name: 'Angry', color: 'hsla(214, 108, 82, 80)'},
@@ -78,8 +69,6 @@ const unmetNeeds = [
 { set:'unmet', category: 'Mad', name: 'Irritated', color: 'hsla(214, 108, 82, 80)'},
 { set:'unmet', category: 'Mad', name: 'Sceptical', color: 'hsla(214, 108, 82, 80)'},
 { set:'unmet', category: 'Mad', name: 'Frustrated', color: 'hsla(214, 108, 82, 80)'},
-
-
 
 { set:'unmet', category: 'Scared', name: 'Rejected', color: 'hsla(194, 146, 80, 80)'},
 { set:'unmet', category: 'Scared', name: 'Confused', color: 'hsla(194, 146, 80, 80)'},
