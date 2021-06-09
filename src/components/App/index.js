@@ -23,7 +23,7 @@ import English from '../../lang/en';
 import Spanish from '../../lang/es';
 
 import * as ROUTES from '../../constants/routes';
-import GlobalStyle from '../Styles/global.styles';
+import GlobalStyle from '../Styles/Global.styles';
 import theme from '../Styles/basicVariables.styles'
 import MoodList from '../Mood/moodList';
 

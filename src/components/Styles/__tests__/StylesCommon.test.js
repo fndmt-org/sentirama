@@ -5,7 +5,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import GlobalStyle from '../global.styles';
+import GlobalStyle from '../Global.styles';
 import themeDefaultImport from '../basicVariables.styles';
 
 // to test global styles in styled components nedd to create a snapshot of head html tag
