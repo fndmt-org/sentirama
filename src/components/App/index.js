@@ -10,7 +10,7 @@ import {
 import {getCLS, getFID, getLCP} from 'web-vitals';
 
 import Navigation from '../Navigation';
-import LandingPage from '../Mood';
+import AddMood from '../Mood';
 import SignUpPage from '../SignUp';
 import SignInPage from '../SignIn';
 import PasswordForgetPage from '../PasswordForget';
@@ -25,6 +25,7 @@ import Spanish from '../../lang/es';
 import * as ROUTES from '../../constants/routes';
 import GlobalStyle from '../Styles/global.styles';
 import theme from '../Styles/basicVariables.styles'
+import MoodList from '../Mood/moodList';
 
 WebFont.load({
     google: {
@@ -70,7 +71,8 @@ const App = () => {
                             <option value='es'>ES</option>
                         </select>
                         <Navigation />
-                        <Route exact path={ROUTES.LANDING} component={LandingPage} />
+                        <Route exact path={ROUTES.LANDING} component={AddMood} />
+                        <Route path={ROUTES.FEELINGS} component={MoodList} />
                         <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
                         <Route path={ROUTES.SIGN_IN} component={SignInPage} />
                         <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />

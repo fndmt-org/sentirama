@@ -8,7 +8,7 @@ class MoodPage extends Component {
         return (
             <Fragment>
                 <AddModdRef />
-                <MoodList />
+                {/* <MoodList /> */}
             </Fragment>
         )
     }
