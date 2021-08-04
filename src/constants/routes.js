@@ -1,4 +1,5 @@
 export const LANDING = '/';
+export const MOOD_CATEGORY_SELECTOR = '/mood-category-selector';
 export const SIGN_UP = '/signup';
 export const SIGN_IN = '/signin';
 export const HOME = '/home';

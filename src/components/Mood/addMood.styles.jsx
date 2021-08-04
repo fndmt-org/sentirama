@@ -6,9 +6,10 @@ import { iconSizes } from '../Styles/iconSizes.styles';
 
 const AddMoodWrapper = styled.div`
     ${({ theme }) => css`
+        padding: ${theme.r400} ${theme.r300};
         align-items: center;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
     `}
 `;
 
@@ -21,7 +22,10 @@ const TitleBase = css`
 const TitleFormStyles = styled.h4`
     ${TitleBase}
     ${({ theme }) => css`
-        margin-right: ${theme.r100};
+        font-weight: ${theme.fontRegular};
+        font-size: ${theme.fontXXL};
+        margin-right: ${theme.r1000};
+        margin-left: ${theme.r1000};
         margin-bottom: ${theme.r100};
     `}
 
@@ -41,7 +45,6 @@ const SuggestedMoodsStyles = styled.h4`
 
 const AddMoodStyles = styled.form`
     ${({ theme }) => css`
-        padding: ${theme.r200};
         align-items: center;
         display: flex;
         justify-content: center;
@@ -64,21 +67,29 @@ const AddMoodStyles = styled.form`
             }
         }
         label {
-            margin-right: ${theme.r100 };
+            margin-right: ${theme.r400 };
             color: ${theme.neutral600 };
         }
     `}
 `;
 
 const EmojiSelect = styled.label`
-    display: flex;
-    svg {
-        ${iconSizes.big}
-        ${(props) => props.className === 'active' && `fill: ${props.theme.colorMain}`}
-    }
-    .emoji-radio{
-        display: none;
-    }
+    ${({ theme }) => css`
+        display: flex;
+        svg {
+            border-radius: 50%;
+            fill: ${theme.neutral000};
+            box-shadow: ${theme.boxShadowBottom2};
+            ${iconSizes.big}
+            ${(props) => props.className === 'active' && `fill: ${props.theme.colorMain}`}
+            ${(props) => {
+                return props.value === 'good' ? `background: ${props.theme.colorGoodMoodIcon}` : `background: ${props.theme.colorBadMoodIcon}`}
+            }
+        }
+        .emoji-radio{
+            display: none;
+        }
+    `}
 `;
 
 const EmojiSet = styled.div`

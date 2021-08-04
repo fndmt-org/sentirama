@@ -94,6 +94,9 @@ const colors = {
     colorWarning500: 'hsla(43, 100%, 53%, 1)',
     colorWarning700: 'hsla(43, 100%, 30%, 1)',
     colorWarning900: 'hsla(43, 100%, 10%, 1)',
+    
+    colorGoodMoodIcon: 'hsla(145, 63%, 35%, 1)',
+    colorBadMoodIcon: 'hsla(28, 86%, 61%, 1)',
 };
 
 const layers = {

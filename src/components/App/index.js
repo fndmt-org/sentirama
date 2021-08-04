@@ -15,6 +15,7 @@ import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
+import MoodCategorySelector from '../MoodCategorySelector';
 import { withAuthentication } from '../Session';
 
 import English from '../../lang/en';
@@ -67,6 +68,7 @@ const App = () => {
                         </select>
                         <Navigation />
                         <Route exact path={ROUTES.LANDING} component={LandingPage} />
+                        <Route path={ROUTES.MOOD_CATEGORY_SELECTOR} component={MoodCategorySelector} />
                         <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
                         <Route path={ROUTES.SIGN_IN} component={SignInPage} />
                         <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />

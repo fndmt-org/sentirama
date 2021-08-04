@@ -1,15 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
+
 import { compose } from 'recompose';
 import { FormattedMessage } from 'react-intl';
 
 import { withFirebase } from '../Firebase';
-import MoodGrid from './moodGrid';
 import EmojiItem from './emojis';
-import UseAutocomplete from './autocomplete';
 import { getMoodsColor } from './moodsProps';
 
-import Button, { Send } from '../Styles/buttons.styles';
+import Button from '../Styles/buttons.styles';
 import {
     AddMoodStyles,
     AddMoodWrapper,
@@ -18,8 +17,8 @@ import {
     SuggestedMoodsStyles,
 } from './addMood.styles';
 
-import { ReactComponent as Arrow } from '../Styles/icons/arrow.svg';
-import { InputStyleBase } from '../Styles/form.styles';
+import * as ROUTES from '../../constants/routes';
+import { ReactComponent as SentiramaLogo }  from '../Styles/icons/sentirama-logo.svg';
 
 const MOODS = getMoodsColor();
 
@@ -59,7 +58,7 @@ class AddMoodBase extends Component {
     };
 
     onChange = event => {
-        this.setState({ [event.target.name]: event.target.value });
+        this.props.history.push(ROUTES.MOOD_CATEGORY_SELECTOR, [event.target.value])
     };
 
     onSelect = (selectedMood) => {
@@ -80,88 +79,42 @@ class AddMoodBase extends Component {
     };
 
     render() {
-
         const {
-            name,
-            message,
-            emoji,
             error,
-            filteredMoods,
             category,
         } = this.state;
-        const isInvalid = message === '' || name === '' || emoji === '';
         const emojis = [
-            'bad',
-            'neutral',
-            'good'
+            'good',
+            'bad'
         ];
 
         return (
             <Fragment>
                 <AddMoodWrapper>
                 <AddMoodStyles ref={this.props.innerRef} onSubmit={this.onSubmit}>
+                        <SentiramaLogo></SentiramaLogo>
                         <TitleFormStyles>
                         <FormattedMessage
                             id="yourMood.form.title"
                             description="Add your mood form title"
-                            defaultMessage="Your mood today:"/>
+                            defaultMessage="¿Cómo te sientes hoy?"/>
                         </TitleFormStyles>
-                        <FormattedMessage
-                            id="yourMood.form.placeholder.name"
-                            defaultMessage="Your name/nikname">
-                                { msg =>
-                                    <InputStyleBase
-                                        name="name"
-                                        value={name}
-                                        onChange={this.onChange}
-                                        type="text"
-                                        placeholder={msg}
-                                    />
-                                }
-                        </FormattedMessage>
-                        <FormattedMessage
-                            id="yourMood.form.placeholder.mood"
-                            defaultMessage="Your mood in one word">
-                                { msg =>
-                                    <UseAutocomplete
-                                        name="message"
-                                        id="select-mood"
-                                        label={msg}
-                                        value={this.state.indexSelected ? MOODS[this.state.indexSelected] : null }
-                                        options={MOODS}
-                                        getOptionLabel={(mood) => mood.name}
-                                        onChange={(event, newValue) => {
-                                            this.onSelect(newValue);
-                                        }}
-                                    />
-                                }
-                        </FormattedMessage>
                         <EmojiSet>
-                        <label>
-                            <FormattedMessage
-                                id="yourMood.form.emoji"
-                                defaultMessage="Select a face:"/>
-                        </label>
                             {emojis.map(
                                 item =>
-                                <EmojiItem
-                                    active={this.state.emoji}
-                                    value={item}
-                                    key={item}
-                                    onChange={this.onChange}/>
-                                )
-                            }
+                                    <EmojiItem
+                                        active={this.state.emoji}
+                                        value={item}
+                                        key={item}
+                                        onChange={this.onChange}/>
+                            )}
                         </EmojiSet>
-                        <Send disabled={isInvalid} type="submit">
-                            <Arrow />
-                        </Send>
                         {error && <p>{error.message}</p>}
                     </AddMoodStyles>
                 </AddMoodWrapper>
                     {category
                     ? <SuggestedMoodsMessage category={category} onReset={this.onReset}/>
                     : null}
-                <MoodGrid onClickCallback={this.onSelect} moods={filteredMoods || MOODS} />
             </Fragment>
         );
     }
