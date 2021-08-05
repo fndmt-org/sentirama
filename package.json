@@ -19,6 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "react-scripts build && firebase deploy",
+    "deploy:branch": "react-scripts build && firebase hosting:channel:deploy $(git symbolic-ref --short HEAD)",
     "translate": "npm run extract -- 'src/**/*.js*' --out-file src/lang/en.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'",
     "extract": "formatjs extract"
   },
