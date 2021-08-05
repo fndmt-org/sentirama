@@ -1,24 +1,27 @@
 {
-  "name": "corona-mood",
+  "name": "sentirama",
   "version": "0.0.0",
-  "description": "corona mood",
+  "description": "A serverless app to share your mood or feelings",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/pableco/corona-mood.git"
+    "url": "git+https://github.com/fndmt-org/sentirama"
   },
   "keywords": [
     "website",
     "firebase",
-    "redux",
     "react"
   ],
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:ci": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
+    "predeploy": "npm run check-master && npm run test:ci",
     "deploy": "react-scripts build && firebase deploy",
+    "check-master": "git symbolic-ref --short HEAD | grep ^master$ > /dev/null || (echo \"Not in 'master' branch. Aborting deploy\"; return 1)",
+    "deploy:branch": "react-scripts build && firebase hosting:channel:deploy $(git symbolic-ref --short HEAD)",
     "translate": "npm run extract -- 'src/**/*.js*' --out-file src/lang/en.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'",
     "extract": "formatjs extract"
   },
@@ -40,7 +43,7 @@
   "author": "fundament",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/pableco/corona-mood/-/issues"
+    "url": "https://github.com/fndmt-org/sentirama/issues"
   },
   "homepage": "https://corona-mood.firebaseapp.com/",
   "dependencies": {
