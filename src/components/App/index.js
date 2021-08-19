@@ -7,16 +7,8 @@ import {
     Route
 } from 'react-router-dom';
 
-import Navigation from '../Navigation';
 import LandingPage from '../Mood';
-import SignUpPage from '../SignUp';
-import SignInPage from '../SignIn';
-import PasswordForgetPage from '../PasswordForget';
-import HomePage from '../Home';
-import AccountPage from '../Account';
-import AdminPage from '../Admin';
 import MoodCategorySelector from '../MoodCategorySelector';
-import { withAuthentication } from '../Session';
 
 import English from '../../lang/en';
 import Spanish from '../../lang/es';
@@ -66,7 +58,6 @@ const App = () => {
                             <option value='en'>English</option>
                             <option value='es'>Español</option>
                         </select>
-                        <Navigation />
                         <Route exact path={ROUTES.LANDING} component={LandingPage} />
                         <Route path={ROUTES.MOOD_CATEGORY_SELECTOR} component={MoodCategorySelector} />
                     </Router>
@@ -75,4 +66,4 @@ const App = () => {
     );
 };
 
-export default withAuthentication(App);
+export default App;
