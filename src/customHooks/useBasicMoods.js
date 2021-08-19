@@ -28,6 +28,6 @@ export const useBasicMoods = (need) => {
         })
         setFilteredMoods([...moodsArray])
     }, [])
-    
+
     return filteredMoods
 }

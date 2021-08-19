@@ -19,19 +19,7 @@ class Firebase {
         this.auth = app.auth();
         this.db = app.database();
     }
-    // *** Auth API ***
-    doCreateUserWithEmailAndPassword = (email, password) =>
-        this.auth.createUserWithEmailAndPassword(email, password);
-
-    doSignInWithEmailAndPassword = (email, password) =>
-        this.auth.signInWithEmailAndPassword(email, password);
-
-    doSignOut = () => this.auth.signOut();
-
-    doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
-    doPasswordUpdate = password =>
-        this.auth.currentUser.updatePassword(password);
-
+    // *** API ***
     doAddMood = (name, message, emoji, date, category, set) => {
         return this.messages().push().set({
             message,
@@ -46,9 +34,5 @@ class Firebase {
     // *** Message API ***
     message = uid => this.db.ref(`message/${uid}`);
     messages = () => this.db.ref('messages');
-
-    // *** User API ***
-    user = uid => this.db.ref(`users/${uid}`);
-    users = () => this.db.ref('users');
 }
 export default Firebase;
