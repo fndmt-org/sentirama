@@ -9,7 +9,7 @@ const MoodSelectorWrapper = styled.div`
     display: flex;
     align-items: center;
     width: 100vw;
-    
+
     > div {
         display: flex;
         align-items: center;
@@ -37,8 +37,8 @@ const MoodSelectorItem = styled.li`
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 170px;
-    height: 119px;
+    min-width: ${themeDefaultImport.r1600};
+    height: ${themeDefaultImport.r1200};
     cursor: pointer;
     background-color: ${props => props.color};
     color: ${themeDefaultImport.neutral050};

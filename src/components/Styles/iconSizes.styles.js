@@ -6,8 +6,8 @@ const iconSizes = {
         width: ${({ theme }) => theme.iconsSizeL};
     `,
     big: css`
-        height: ${({ theme }) => theme.iconDefaultSize};
-        width: ${({ theme }) => theme.iconDefaultSize};
+        height: ${({ theme }) => theme.iconSizeThumb};
+        width: ${({ theme }) => theme.iconSizeThumb};
     `,
 }
 

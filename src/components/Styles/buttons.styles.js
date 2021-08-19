@@ -33,7 +33,7 @@ const Send = styled.button`
         border: 0;
         border-radius: ${theme.buttonRounded || theme.round};
         display: inline-block;
-        font-size: 0;
+        font-size: ${({ theme }) => theme.iconSizeThumb};
         letter-spacing: inherit;
         padding: ${theme.r050};
         text-align: center;
@@ -44,7 +44,8 @@ const Send = styled.button`
             : SendMods.enabled
         }
         svg {
-            ${iconSizes.default}
+            height: 1em;
+            width: 1em;
         }
     `}
 

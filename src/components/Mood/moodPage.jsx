@@ -1,13 +1,10 @@
-import React, { Fragment, Component } from 'react';
-import MoodList from './moodList';
+import React, { Component } from 'react';
 import { AddMood, AddModdRef } from './addMood';
 
 class MoodPage extends Component {
     render() {
         return (
-            <Fragment>
-                <AddModdRef />
-            </Fragment>
+            <AddModdRef />
         )
     }
 };
