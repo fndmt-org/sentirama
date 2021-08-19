@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 
 import responsiveFonts from './responsiveFonts.styles';
-import { iconSizes } from './iconSizes.styles';
 
 const SendMods = {
     enabled: css`
@@ -329,11 +328,11 @@ Button.Invert = styled(ButtonBase)`
 
 Button.ActionDefault = styled.button`
     display: inline-block;
-    height: ${({ theme }) => theme.iconDefaultSize};
+    height: ${({ theme }) => theme.iconSizeThumb};
     text-decoration: none;
     /* stylelint-disable-next-line order/properties-alphabetical-order */
     ${mods.actionRounded}
-    width: ${({ theme }) => theme.iconDefaultSize};
+    width: ${({ theme }) => theme.iconSizeThumb};
     /* stylelint-disable-next-line no-descending-specificity */
     & svg {
         fill: currentColor;

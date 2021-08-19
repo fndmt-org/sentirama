@@ -280,6 +280,8 @@ export const form = {
     ...formSettings,
 };
 
+const defaultThumbSize = '4.4rem';
+
 export const icons = {
     iconsSizeXXS: '1rem',
     iconsSizeXS: '1.4rem',
@@ -289,7 +291,7 @@ export const icons = {
     iconsSizeMM: '2.4rem',
     iconsSizeML: '2.8rem',
     iconsSizeL: '3.6rem',
-    iconSizeThumb: '4.4rem',
+    iconSizeThumb: defaultThumbSize,
 };
 
 export const imageSizes = {
@@ -342,7 +344,7 @@ const base = {
     // outlineLight: `1px solid ${colors.neutral200}`,
     /* DON'T DELETE  optional variables [end] */
     outline: 'none',
-    lineHeightField: icons.iconDefaultSize,
+    lineHeightField: defaultThumbSize,
 };
 
 const themeDefault = {
