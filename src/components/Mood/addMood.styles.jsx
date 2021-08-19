@@ -78,8 +78,8 @@ const EmojiSelect = styled.label`
         display: flex;
         svg {
             border-radius: 50%;
-            fill: ${theme.neutral000};
             box-shadow: ${theme.boxShadowBottom2};
+            fill: ${theme.neutral000};
             ${iconSizes.big}
             ${(props) => props.className === 'active' && `fill: ${props.theme.colorMain}`}
             ${(props) => {

@@ -22,7 +22,7 @@ WebFont.load({
         families: theme.fontSourceFamilies,
     },
     active: function() {
-        console.log('load font active');
+        console.log(`load font/s ${theme.fontSourceFamilies} active`);
     },
 });
 
