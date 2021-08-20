@@ -10,15 +10,6 @@ const MoodCategorySelector = ({need}) => {
     return (
         <Fragment>
             <MoodSelectorWrapper>
-                <div>
-                    <SentiramaLogo></SentiramaLogo>
-                    <EmojiSelected>
-                        <EmojiItem
-                            active="true"
-                            value={need}
-                            key={need}/>
-                    </EmojiSelected>
-                </div>
                 <MoodSelector>
                     {filteredMoods.map(mood => <MoodSelectorItem color={mood.color} key={mood.mood}>{mood.mood}</MoodSelectorItem>)}
                 </MoodSelector>
@@ -27,4 +18,4 @@ const MoodCategorySelector = ({need}) => {
     )
 }
 
-export {MoodCategorySelector};
+export { MoodCategorySelector };
