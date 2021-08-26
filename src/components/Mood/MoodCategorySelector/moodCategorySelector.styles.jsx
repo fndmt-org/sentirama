@@ -1,22 +1,5 @@
 import styled from 'styled-components';
-import themeDefaultImport from '../Styles/basicVariables.styles';
-
-const EmojiSelected = styled.div`
-    margin-left: 18px;
-`;
-
-const MoodSelectorWrapper = styled.div`
-    display: flex;
-    align-items: center;
-    width: 100vw;
-    
-    > div {
-        display: flex;
-        align-items: center;
-        padding-left: 32px;
-        padding-right: 32px;
-    }
-`;
+import themeDefaultImport from '../../Styles/basicVariables.styles';
 
 const MoodSelector = styled.ul`
     display: flex;
@@ -46,8 +29,6 @@ const MoodSelectorItem = styled.li`
 `;
 
 export {
-    MoodSelectorWrapper,
     MoodSelector,
-    MoodSelectorItem,
-    EmojiSelected
+    MoodSelectorItem
 };

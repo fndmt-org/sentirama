@@ -9,13 +9,15 @@ import {
 
 import Navigation from '../Navigation';
 import LandingPage from '../Mood';
+import MoodCategorySelector from '../Mood/MoodCategorySelector';
+import MoodUser from '../Mood/MoodUser';
+import MoodResults from '../Mood/MoodResults';
 import SignUpPage from '../SignUp';
 import SignInPage from '../SignIn';
 import PasswordForgetPage from '../PasswordForget';
 import HomePage from '../Home';
 import AccountPage from '../Account';
 import AdminPage from '../Admin';
-import MoodCategorySelector from '../MoodCategorySelector';
 import { withAuthentication } from '../Session';
 
 import English from '../../lang/en';
@@ -69,6 +71,8 @@ const App = () => {
                         <Navigation />
                         <Route exact path={ROUTES.LANDING} component={LandingPage} />
                         <Route path={ROUTES.MOOD_CATEGORY_SELECTOR} component={MoodCategorySelector} />
+                        <Route path={ROUTES.MOOD_USER} component={MoodUser} />
+                        <Route path={ROUTES.MOOD_RESULTS} component={MoodResults} />
                         <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
                         <Route path={ROUTES.SIGN_IN} component={SignInPage} />
                         <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
