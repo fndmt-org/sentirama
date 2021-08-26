@@ -33,7 +33,7 @@ const local = navigator.language;
 let lang;
 if (local==="es") {
     lang = Spanish;
-    } else {
+} else {
     lang = English;
 }
 
@@ -55,18 +55,18 @@ const App = () => {
     return (
         <ThemeProvider theme={theme}>
             <GlobalStyle />
-                <IntlProvider messages={messages} locale={locale}>
-                    <Router>
-                        <select value = {locale} onChange={selectLanguage}>
-                            <option value='en'>English</option>
-                            <option value='es'>Español</option>
-                        </select>
-                        <Route exact path={ROUTES.LANDING} component={LandingPage} />
-                        <Route path={ROUTES.MOOD_CATEGORY_SELECTOR} component={MoodCategorySelector} />
-                        <Route path={ROUTES.MOOD_USER} component={MoodUser} />
-                        <Route path={ROUTES.MOOD_RESULTS} component={MoodResults} />
-                    </Router>
-                </IntlProvider>
+            <IntlProvider messages={messages} locale={locale}>
+                <Router>
+                    <select value = {locale} onChange={selectLanguage}>
+                        <option value='en'>English</option>
+                        <option value='es'>Español</option>
+                    </select>
+                    <Route exact path={ROUTES.LANDING} component={LandingPage} />
+                    <Route path={ROUTES.MOOD_CATEGORY_SELECTOR} component={MoodCategorySelector} />
+                    <Route path={ROUTES.MOOD_USER} component={MoodUser} />
+                    <Route path={ROUTES.MOOD_RESULTS} component={MoodResults} />
+                </Router>
+            </IntlProvider>
         </ThemeProvider>
     );
 };

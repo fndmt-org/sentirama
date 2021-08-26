@@ -37,8 +37,8 @@ const IconButtons = styled.button`
         text-decoration: none;
         text-transform: inherit;
         ${(props) => props.disabled
-            ? IconButtonsMods.disabled
-            : IconButtonsMods.enabled
+    ? IconButtonsMods.disabled
+    : IconButtonsMods.enabled
         }
         svg {
             height: 1em;

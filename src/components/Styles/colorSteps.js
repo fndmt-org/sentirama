@@ -8,7 +8,7 @@ function splitHLSA(hsla) {
         a = hsla[3];
     // Strip label and convert to degrees (if necessary)
     if (h.indexOf("deg") > -1)
-    h = h.substr(0, h.length - 3);
+        h = h.substr(0, h.length - 3);
     else if (h.indexOf("rad") > -1)
         h = Math.round(h.substr(0, h.length - 3) * (180 / Math.PI));
     else if (h.indexOf("turn") > -1)
