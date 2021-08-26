@@ -2,9 +2,10 @@ import React, { Fragment, useRef } from 'react';
 import { injectIntl } from 'react-intl';
 import { useHistory } from "react-router";
 
-import {MoodWrapper, SentiramaLogoWrapper} from '../LayoutStyles/moodLayout.styles'
-import {MoodUserFormWrapper} from './moodUserForm.styles'
+import { MoodWrapper } from '../LayoutStyles/moodLayout.styles'
+import { MoodUserFormWrapper } from './moodUserForm.styles'
 
+import { SentiramaLogo } from '../../Styles/common.styles';
 import { ReactComponent as Arrow }  from '../../../assets/icons/arrow.svg';
 import * as ROUTES from '../../../constants/routes';
 
@@ -29,9 +30,7 @@ const MoodUserForm = ({selectedMood, intl}) => {
     return (
         <Fragment>
             <MoodWrapper>
-                <SentiramaLogoWrapper>
-                    {/* <SentiramaLogo /> */}
-                </SentiramaLogoWrapper>
+                <SentiramaLogo />
                 <MoodUserFormWrapper
                     color={color}
                     onSubmit={(e) => submitUser(e)}

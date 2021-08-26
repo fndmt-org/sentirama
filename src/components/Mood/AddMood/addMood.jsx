@@ -11,7 +11,6 @@ import { getMoodsColor } from '../moodsProps';
 import Button from '../../Styles/buttons.styles';
 import {
     MoodWrapper,
-    SentiramaLogoWrapper,
     TitleFormStyles
 } from '../LayoutStyles/moodLayout.styles'
 import {
@@ -96,9 +95,7 @@ class AddMoodBase extends Component {
             <Fragment>
                 <MoodWrapper>
                     <AddMoodStyles ref={this.props.innerRef} onSubmit={this.onSubmit}>
-                        <SentiramaLogoWrapper>
-                            <SentiramaLogo></SentiramaLogo>
-                        </SentiramaLogoWrapper>
+                        <SentiramaLogo />
                         <TitleFormStyles>
                         <FormattedMessage
                             id="yourMood.form.title"

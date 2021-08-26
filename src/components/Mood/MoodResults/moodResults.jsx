@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import { useHistory } from "react-router";
 import { FormattedMessage } from 'react-intl';
 
-import {MoodWrapper, SentiramaLogoWrapper} from '../LayoutStyles/moodLayout.styles'
+import {MoodWrapper} from '../LayoutStyles/moodLayout.styles'
 import {MoodResultsWrapper, CustomButton} from './moodResults.styles'
-import { ReactComponent as SentiramaLogo }  from '../../../assets/images/sentirama-logo.svg';
+import { SentiramaLogo } from '../../Styles/common.styles';
 import { ReactComponent as PencilIcon }  from '../../../assets/icons/arrow.svg';
 import * as ROUTES from '../../../constants/routes';
 
@@ -21,9 +21,7 @@ const MoodResults = ({usernameMood}) => {
     return (
         <Fragment>
             <MoodWrapper>
-                <SentiramaLogoWrapper>
-                    <SentiramaLogo></SentiramaLogo>
-                </SentiramaLogoWrapper>
+                <SentiramaLogo/>
                 <MoodResultsWrapper
                     color={color}
                 >

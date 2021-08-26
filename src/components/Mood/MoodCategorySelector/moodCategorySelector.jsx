@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import { useHistory } from "react-router";
 
 import {useBasicMoods} from '../../../customHooks/useBasicMoods'
-import { MoodWrapper, SentiramaLogoWrapper } from '../LayoutStyles/moodLayout.styles'
+import { MoodWrapper } from '../LayoutStyles/moodLayout.styles'
 import { MoodSelector, MoodSelectorItem } from './moodCategorySelector.styles'
-import { ReactComponent as SentiramaLogo }  from '../../../assets/images/sentirama-logo.svg';
+import { SentiramaLogo }  from '../../Styles/common.styles';
 import * as ROUTES from '../../../constants/routes';
 
 const MoodCategorySelector = ({need}) => {
@@ -24,9 +24,7 @@ const MoodCategorySelector = ({need}) => {
     return (
         <Fragment>
             <MoodWrapper>
-                <SentiramaLogoWrapper>
-                    <SentiramaLogo />
-                </SentiramaLogoWrapper>
+                <SentiramaLogo />
                 <MoodSelector>
                     {filteredMoods.map(mood => {
                         return (
