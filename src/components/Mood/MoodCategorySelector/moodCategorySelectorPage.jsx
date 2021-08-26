@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import {MoodCategorySelector} from './moodCategorySelector'
 import { withRouter } from 'react-router-dom';
 
@@ -10,9 +10,7 @@ class MoodCategorySelectorPage extends Component {
 
     render() {
         return (
-            <Fragment>
-                <MoodCategorySelector need={this.need}/>
-            </Fragment>
+            <MoodCategorySelector need={this.need}/>
         )
     }
 };

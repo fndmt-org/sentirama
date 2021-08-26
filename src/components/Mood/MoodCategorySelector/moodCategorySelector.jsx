@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { useHistory } from "react-router";
 
 import {useBasicMoods} from '../../../customHooks/useBasicMoods'
@@ -22,24 +22,22 @@ const MoodCategorySelector = ({need}) => {
     }
 
     return (
-        <Fragment>
-            <MoodWrapper>
-                <SentiramaLogo />
-                <MoodSelector>
-                    {filteredMoods.map(mood => {
-                        return (
-                            <MoodSelectorItem
-                                color={mood.color}
-                                key={mood.mood}
-                                onClick={() => handleClick(mood)}
-                            >
-                                {mood.mood}
-                            </MoodSelectorItem>
-                        )}
+        <MoodWrapper>
+            <SentiramaLogo />
+            <MoodSelector>
+                {filteredMoods.map(mood => {
+                    return (
+                        <MoodSelectorItem
+                            color={mood.color}
+                            key={mood.mood}
+                            onClick={() => handleClick(mood)}
+                        >
+                            {mood.mood}
+                        </MoodSelectorItem>
                     )}
-                </MoodSelector>
-            </MoodWrapper>
-        </Fragment>
+                )}
+            </MoodSelector>
+        </MoodWrapper>
     )
 }
 

@@ -60,7 +60,7 @@ const MoodResultsWrapper = styled.div`
     .good-average{
         background-color: #219653; // HARDCODED
     }
-    
+
     .bad-average{
         background-color: #B43F3D; // HARDCODED
     }
