@@ -1,3 +1,3 @@
-import MoodPage from './moodPage';
+import MoodPage from './AddMood/moodPage';
 
 export default MoodPage;

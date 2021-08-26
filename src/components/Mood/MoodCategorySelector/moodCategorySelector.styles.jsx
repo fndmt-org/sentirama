@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import themeDefaultImport from '../Styles/basicVariables.styles';
+import themeDefaultImport from '../../Styles/basicVariables.styles';
 
 const EmojiSelected = styled.div`
     margin-left: 18px;
@@ -46,7 +46,6 @@ const MoodSelectorItem = styled.li`
 `;
 
 export {
-    MoodSelectorWrapper,
     MoodSelector,
     MoodSelectorItem,
     EmojiSelected

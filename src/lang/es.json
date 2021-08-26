@@ -1,6 +1,9 @@
 {
     "yourMood.form.emoji": "Selecciona un emoji",
     "yourMood.form.placeholder.mood": "Tu estado de animo",
-    "yourMood.form.placeholder.name": "tu nombre",
-    "yourMood.form.title": "¿Cómo te sientes?"
+    "yourMood.form.placeholder.name": "Tu nombre",
+    "yourMood.form.title": "¿Cómo te sientes?",
+    "yourMood.form.resultsMessage": "al leer esta noticia sientes",
+    "yourMood.form.allAnswers": "todas las respuestas",
+    "yourMood.form.edit": "editar"
 }

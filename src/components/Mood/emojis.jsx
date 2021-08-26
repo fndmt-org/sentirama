@@ -1,6 +1,6 @@
 import {
     EmojiSelect,
-} from './addMood.styles';
+} from './AddMood/addMood.styles';
 import { ReactComponent as Bad }  from '../../assets/icons/frown.svg';
 import { ReactComponent as Neutral }  from '../../assets/icons/meh.svg';
 import { ReactComponent as Good }  from '../../assets/icons/smile.svg';

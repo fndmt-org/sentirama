@@ -1,43 +1,11 @@
 import styled, { css } from 'styled-components';
 
-import responsiveFonts from '../Styles/responsiveFonts.styles';
-import mediaQueries from '../Styles/mediaQueries.styles';
-import { iconSizes } from '../Styles/iconSizes.styles';
-
-const AddMoodWrapper = styled.div`
-    ${({ theme }) => css`
-        padding: ${theme.r400} ${theme.r300};
-        align-items: center;
-        display: flex;
-        justify-content: flex-start;
-    `}
-`;
-
-const TitleBase = css`
-    ${({ theme }) => css`
-        font-weight: ${theme.fontBold};
-    `}
-`;
-
-const TitleFormStyles = styled.h4`
-    ${TitleBase}
-    ${({ theme }) => css`
-        font-weight: ${theme.fontRegular};
-        font-size: ${theme.fontXXL};
-        margin-right: ${theme.r1000};
-        margin-left: ${theme.r1000};
-        margin-bottom: ${theme.r100};
-    `}
-
-    @media ${mediaQueries.s} {
-        width: inherit;
-        margin-bottom: 0;
-    }
-`;
+import responsiveFonts from '../../Styles/responsiveFonts.styles';
+import mediaQueries from '../../Styles/mediaQueries.styles';
+import { iconSizes } from '../../Styles/iconSizes.styles';
 
 const SuggestedMoodsStyles = styled.h4`
     ${({ theme }) => css`
-        ${TitleBase}
         text-align: center;
         margin: ${theme.r300};
     `}
@@ -99,9 +67,7 @@ const EmojiSet = styled.div`
 
 export {
     AddMoodStyles,
-    AddMoodWrapper,
     EmojiSelect,
     EmojiSet,
-    TitleFormStyles,
     SuggestedMoodsStyles,
 }

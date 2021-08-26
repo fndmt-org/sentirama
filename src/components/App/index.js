@@ -8,7 +8,10 @@ import {
 } from 'react-router-dom';
 
 import LandingPage from '../Mood';
-import MoodCategorySelector from '../MoodCategorySelector';
+// import MoodCategorySelector from '../MoodCategorySelector';
+import MoodCategorySelector from '../Mood/MoodCategorySelector';
+import MoodUser from '../Mood/MoodUser';
+import MoodResults from '../Mood/MoodResults';
 
 import English from '../../lang/en';
 import Spanish from '../../lang/es';
@@ -60,6 +63,8 @@ const App = () => {
                         </select>
                         <Route exact path={ROUTES.LANDING} component={LandingPage} />
                         <Route path={ROUTES.MOOD_CATEGORY_SELECTOR} component={MoodCategorySelector} />
+                        <Route path={ROUTES.MOOD_USER} component={MoodUser} />
+                        <Route path={ROUTES.MOOD_RESULTS} component={MoodResults} />
                     </Router>
                 </IntlProvider>
         </ThemeProvider>

@@ -4,21 +4,24 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 import { FormattedMessage } from 'react-intl';
 
-import { withFirebase } from '../Firebase';
-import EmojiItem from './emojis';
-import { getMoodsColor } from './moodsProps';
+import { withFirebase } from '../../Firebase';
+import EmojiItem from '../emojis';
+import { getMoodsColor } from '../moodsProps';
 
-import Button from '../Styles/buttons.styles';
+import Button from '../../Styles/buttons.styles';
+import {
+    MoodWrapper,
+    SentiramaLogoWrapper,
+    TitleFormStyles
+} from '../LayoutStyles/moodLayout.styles'
 import {
     AddMoodStyles,
-    AddMoodWrapper,
     EmojiSet,
-    TitleFormStyles,
     SuggestedMoodsStyles,
 } from './addMood.styles';
 
-import * as ROUTES from '../../constants/routes';
-import { SentiramaLogo }  from '../Styles/common.styles';
+import * as ROUTES from '../../../constants/routes';
+import { SentiramaLogo }  from '../../Styles/common.styles';
 
 
 const MOODS = getMoodsColor();
@@ -91,9 +94,11 @@ class AddMoodBase extends Component {
 
         return (
             <Fragment>
-                <AddMoodWrapper>
-                <AddMoodStyles ref={this.props.innerRef} onSubmit={this.onSubmit}>
-                        <SentiramaLogo />
+                <MoodWrapper>
+                    <AddMoodStyles ref={this.props.innerRef} onSubmit={this.onSubmit}>
+                        <SentiramaLogoWrapper>
+                            <SentiramaLogo></SentiramaLogo>
+                        </SentiramaLogoWrapper>
                         <TitleFormStyles>
                         <FormattedMessage
                             id="yourMood.form.title"
@@ -112,7 +117,7 @@ class AddMoodBase extends Component {
                         </EmojiSet>
                         {error && <p>{error.message}</p>}
                     </AddMoodStyles>
-                </AddMoodWrapper>
+                </MoodWrapper>
                     {category
                     ? <SuggestedMoodsMessage category={category} onReset={this.onReset}/>
                     : null}
@@ -133,11 +138,9 @@ const AddMood = compose(
 )(AddMoodBase);
 
 
-const AddModdRef = React.forwardRef((props, ref) =>
+const AddMoodRef = React.forwardRef((props, ref) =>
     <AddMood innerRef={ref} {...props}
 />);
 
 
-export { AddMood, AddModdRef };
-
-
+export { AddMood, AddMoodRef };
