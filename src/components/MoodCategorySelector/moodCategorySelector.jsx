@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react';
-import EmojiItem from './../Mood/emojis';
-import {useBasicMoods} from './../../customHooks/useBasicMoods'
-import {MoodSelectorWrapper, MoodSelector, MoodSelectorItem, EmojiSelected} from './moodCategorySelector.styles'
-import { ReactComponent as SentiramaLogo }  from '../Styles/icons/sentirama-logo.svg';
+import { useBasicMoods } from './../../customHooks/useBasicMoods'
+import { MoodSelectorWrapper, MoodSelector, MoodSelectorItem } from './moodCategorySelector.styles'
+import { SentiramaLogo }  from '../Styles/common.styles';
 
 const MoodCategorySelector = ({need}) => {
     const filteredMoods = useBasicMoods(need)
@@ -10,6 +9,7 @@ const MoodCategorySelector = ({need}) => {
     return (
         <Fragment>
             <MoodSelectorWrapper>
+            <SentiramaLogo />
                 <MoodSelector>
                     {filteredMoods.map(mood => <MoodSelectorItem color={mood.color} key={mood.mood}>{mood.mood}</MoodSelectorItem>)}
                 </MoodSelector>

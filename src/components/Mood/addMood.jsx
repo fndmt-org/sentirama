@@ -18,7 +18,8 @@ import {
 } from './addMood.styles';
 
 import * as ROUTES from '../../constants/routes';
-import { ReactComponent as SentiramaLogo }  from '../Styles/icons/sentirama-logo.svg';
+import { SentiramaLogo }  from '../Styles/common.styles';
+
 
 const MOODS = getMoodsColor();
 
@@ -92,7 +93,7 @@ class AddMoodBase extends Component {
             <Fragment>
                 <AddMoodWrapper>
                 <AddMoodStyles ref={this.props.innerRef} onSubmit={this.onSubmit}>
-                        <SentiramaLogo></SentiramaLogo>
+                        <SentiramaLogo />
                         <TitleFormStyles>
                         <FormattedMessage
                             id="yourMood.form.title"
