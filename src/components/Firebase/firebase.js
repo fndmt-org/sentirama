@@ -19,20 +19,42 @@ class Firebase {
         this.auth = app.auth();
         this.db = app.database();
     }
+
+
     // *** API ***
-    doAddMood = (name, message, emoji, date, category, set) => {
-        return this.messages().push().set({
+    // eslint-disable-next-line max-params
+    doAddMood = (name, message, emoji, date, category, set, color, uuid) => {
+        console.log(
+            "name",name,
+            "message",message,
+            "emoji",emoji,
+            "date",date,
+            "category",category,
+            "set",set,
+            "color",color,
+            "uuid", uuid
+        )
+        return this.messagesRef().push().set({
             message,
             name,
             date,
             emoji,
             category,
             set,
+            color,
+            uuid,
+        }, (error) => {
+            if (error) {
+                console.error(error);
+            } else {
+                console.log('rec ok');
+            }
         });
     };
 
+
     // *** Message API ***
-    message = uid => this.db.ref(`message/${uid}`);
-    messages = () => this.db.ref('messages');
+    messageRef = uuid => this.db.ref(`message/${uuid}`);
+    messagesRef = () => this.db.ref('messages');
 }
 export default Firebase;

@@ -22,12 +22,13 @@ function splitHLSA(hsla) {
 
 
 
+// eslint-disable-next-line max-statements
 function generateColorSteps({
     colorStart,
     colorEnd,
     steps
 }) {
-    const colorArray =[];
+    const colorArray = [];
     colorArray.push(colorStart);
     const [init, s, l, a] = splitHLSA(colorStart);
     const [end] = splitHLSA(colorEnd);

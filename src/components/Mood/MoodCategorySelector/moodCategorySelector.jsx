@@ -1,22 +1,24 @@
 import React from 'react';
 import { useHistory } from "react-router";
 
-import {useBasicMoods} from '../../../customHooks/useBasicMoods'
+import { useBasicMoods } from '../../../customHooks/useBasicMoods'
 import { MoodWrapper } from '../LayoutStyles/moodLayout.styles'
 import { MoodSelector, MoodSelectorItem } from './moodCategorySelector.styles'
 import { SentiramaLogo }  from '../../Styles/common.styles';
 import * as ROUTES from '../../../constants/routes';
 
-const MoodCategorySelector = ({need}) => {
-    const filteredMoods = useBasicMoods(need)
-    const history = useHistory()
+const MoodCategorySelector = ({ uuid, category }) => {
+    const history = useHistory();
+    const filteredMoods = useBasicMoods(category);
 
-    const handleClick = (mood) => {
+    const handleClickMood = (mood) => {
         history.push({
-            pathname:  ROUTES.MOOD_USER,
+            pathname: ROUTES.MOOD_USER,
             state: {
+                category,
+                color: mood.color,
                 mood: mood.mood,
-                color: mood.color
+                uuid,
             }
         });
     }
@@ -30,7 +32,7 @@ const MoodCategorySelector = ({need}) => {
                         <MoodSelectorItem
                             color={mood.color}
                             key={mood.mood}
-                            onClick={() => handleClick(mood)}
+                            onClick={() => handleClickMood(mood)}
                         >
                             {mood.mood}
                         </MoodSelectorItem>

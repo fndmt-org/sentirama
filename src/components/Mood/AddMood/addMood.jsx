@@ -1,14 +1,13 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-
+import { useHistory } from "react-router";
+import { v4 as uuidv4 } from 'uuid';
 import { compose } from 'recompose';
 import { FormattedMessage } from 'react-intl';
 
 import { withFirebase } from '../../Firebase';
 import EmojiItem from '../emojis';
-import { getMoodsColor } from '../moodsProps';
 
-import Button from '../../Styles/buttons.styles';
 import {
     MoodWrapper,
     TitleFormStyles
@@ -16,118 +15,53 @@ import {
 import {
     AddMoodStyles,
     EmojiSet,
-    SuggestedMoodsStyles,
 } from './addMood.styles';
 
 import * as ROUTES from '../../../constants/routes';
 import { SentiramaLogo }  from '../../Styles/common.styles';
 
+const AddMoodBase = (props) => {
+    const history = useHistory();
 
-const MOODS = getMoodsColor();
-
-const INITIAL_STATE = {
-    name: '',
-    message: '',
-    emoji: '',
-    category: '',
-    set: '',
-    error: null,
-    style: {},
-    moods: MOODS,
-    filteredMoods: MOODS,
-};
-
-class AddMoodBase extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = { ...INITIAL_STATE };
-        this.onSelect = this.onSelect.bind(this);
-        this.onReset = this.onReset.bind(this);
-    }
-
-    onSubmit = event => {
-        const { name, message, emoji, category, set } = this.state;
-        const date = Date.now();
-        this.props.firebase
-            .doAddMood(name, message, emoji, date, category, set)
-            .then(() => {
-                this.setState({ ...INITIAL_STATE });
-            })
-            .catch(error => {
-                this.setState({ error });
-            });
-        event.preventDefault();
+    const onChange = event => {
+        const category = event.target.value;
+        // TODO move uuid to session storage
+        const uuid = uuidv4();
+        history.push({
+            pathname: ROUTES.MOOD_CATEGORY_SELECTOR,
+            state: {
+                category,
+                uuid,
+            }
+        })
     };
+    const emojis = [
+        'good',
+        'bad'
+    ];
 
-    onChange = event => {
-        this.props.history.push(ROUTES.MOOD_CATEGORY_SELECTOR, [event.target.value])
-    };
-
-    onSelect = (selectedMood) => {
-        this.setState({
-            'indexSelected': selectedMood?.index,
-            'message': selectedMood?.name,
-            'category': selectedMood?.category,
-            'set': selectedMood?.set,
-            'filteredMoods' : selectedMood?.category ? MOODS.filter(mood => mood.category === selectedMood.category) : MOODS,
-        });
-    };
-
-    onReset = () => {
-        this.setState({
-            'category': '',
-            'filteredMoods' : MOODS,
-        });
-    };
-
-    render() {
-        const {
-            error,
-            category,
-        } = this.state;
-        const emojis = [
-            'good',
-            'bad'
-        ];
-
-        return (
-            <Fragment>
-                <MoodWrapper>
-                    <AddMoodStyles ref={this.props.innerRef} onSubmit={this.onSubmit}>
-                        <SentiramaLogo />
-                        <TitleFormStyles>
-                        <FormattedMessage
-                            id="yourMood.form.title"
-                            description="Add your mood form title"
-                            defaultMessage="¿Cómo te sientes hoy?"/>
-                        </TitleFormStyles>
-                        <EmojiSet>
-                            {emojis.map(
-                                item =>
-                                    <EmojiItem
-                                        active={this.state.emoji}
-                                        value={item}
-                                        key={item}
-                                        onChange={this.onChange}/>
-                            )}
-                        </EmojiSet>
-                        {error && <p>{error.message}</p>}
-                    </AddMoodStyles>
-                </MoodWrapper>
-                    {category
-                    ? <SuggestedMoodsMessage category={category} onReset={this.onReset}/>
-                    : null}
-            </Fragment>
-        );
-    }
+    return (
+        <MoodWrapper>
+            <AddMoodStyles>
+                <SentiramaLogo />
+                <TitleFormStyles>
+                    <FormattedMessage
+                        id="yourMood.form.title"
+                        description="Add your mood form title"
+                        defaultMessage="¿Cómo te sientes hoy?"/>
+                </TitleFormStyles>
+                <EmojiSet>
+                    {emojis.map(item =>
+                        <EmojiItem
+                            value={item}
+                            key={item}
+                            onChange={onChange}/>
+                    )}
+                </EmojiSet>
+            </AddMoodStyles>
+        </MoodWrapper>
+    );
 }
-
-const SuggestedMoodsMessage = ({category, onReset}) =>(
-    <SuggestedMoodsStyles>
-        Suggested moods related to "{category}" <Button onClick={() =>onReset()}>See all</Button>
-    </SuggestedMoodsStyles>
-)
 
 const AddMood = compose(
     withRouter,
@@ -136,8 +70,7 @@ const AddMood = compose(
 
 
 const AddMoodRef = React.forwardRef((props, ref) =>
-    <AddMood innerRef={ref} {...props}
-/>);
+    <AddMood innerRef={ref} {...props}/>);
 
 
 export { AddMood, AddMoodRef };
