@@ -1,6 +1,5 @@
-import app from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
+import { initializeApp } from "firebase/app"
+import { getDatabase, ref, set as dbset, onValue } from "firebase/database";
 
 const config = {
     apiKey: "AIzaSyBz9WIj8SHoc9F2l9Uz2BipbTbM_iGRY4w",
@@ -15,46 +14,29 @@ const config = {
 
 class Firebase {
     constructor() {
-        app.initializeApp(config);
-        this.auth = app.auth();
-        this.db = app.database();
+        this.app = initializeApp(config);
+        this.db = getDatabase();
     }
 
-
     // *** API ***
-    // eslint-disable-next-line max-params
-    doAddMood = (name, message, emoji, date, category, set, color, uuid) => {
-        console.log(
-            "name",name,
-            "message",message,
-            "emoji",emoji,
-            "date",date,
-            "category",category,
-            "set",set,
-            "color",color,
-            "uuid", uuid
-        )
-        return this.messagesRef().push().set({
-            message,
-            name,
-            date,
-            emoji,
-            category,
-            set,
-            color,
+    doAddMood = ({uuid, ...params}) => {
+        dbset(ref(this.db, 'moods/' + uuid), {
             uuid,
-        }, (error) => {
-            if (error) {
-                console.error(error);
-            } else {
-                console.log('rec ok');
-            }
+            ...params
         });
     };
 
+    doUpdateMood = ({uuid, ...params}) => {
+        const starCountRef = ref(this.db, 'moods/' + uuid);
+        onValue(starCountRef, (snapshot) => {
+            if (snapshot.exists()){
+                const data = snapshot.val();
+                console.log(data);
+            } else{
+                doAddMood({uuid, ...params});
+            }
+        });
+    }
 
-    // *** Message API ***
-    messageRef = uuid => this.db.ref(`message/${uuid}`);
-    messagesRef = () => this.db.ref('messages');
 }
 export default Firebase;

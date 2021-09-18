@@ -47,7 +47,7 @@ const AddMoodBase = (props) => {
                 <TitleFormStyles>
                     <FormattedMessage
                         id="yourMood.form.title"
-                        description="Add your mood form title"
+                        description="Add Sentirama first question"
                         defaultMessage="¿Cómo te sientes hoy?"/>
                 </TitleFormStyles>
                 <EmojiSet>

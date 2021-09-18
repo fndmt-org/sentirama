@@ -26,6 +26,7 @@ const MoodResultsBase = (props) => {
             pathname:  ROUTES.LANDING,
         });
     }
+
     const sendNewMood = () => {
         const name = username;
         const message = mood;
@@ -33,8 +34,8 @@ const MoodResultsBase = (props) => {
         const emoji = '';
         const date = Date.now();
 
-        props.firebase
-            .doAddMood(
+        props.firebase.doAddMood(
+            {
                 name,
                 message,
                 emoji,
@@ -43,13 +44,8 @@ const MoodResultsBase = (props) => {
                 set,
                 color,
                 uuid,
-            )
-            .then((e) => {
-                console.log('then doAddMood', e);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+            }
+        )
     };
 
     useEffect(() => {
