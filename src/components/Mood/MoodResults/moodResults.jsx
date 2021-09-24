@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router";
 import { FormattedMessage } from 'react-intl';
 import { compose } from 'recompose';
@@ -48,13 +48,31 @@ const MoodResultsBase = (props) => {
         )
     };
 
+    const [positiveNumberMoods, setPositiveNumberMoods] = useState(0);
+    const [allNumberMoods, setAllNumberMoods] = useState(0);
+
+    const extractNumberMoods = (moods) =>{
+        const positive = moods ? Object.values(moods).filter(mood => mood.category === 'good') : null;
+
+        setAllNumberMoods(Object.values(moods).length)
+        setPositiveNumberMoods(positive.length)
+    }
+
+    const getPercent = () => {
+        props.firebase.getGlobalMood(
+            extractNumberMoods
+        );
+    }
+
     useEffect(() => {
-        sendNewMood()
+        sendNewMood();
+        getPercent();
     }, [mood, username]);
 
     return (
         <MoodWrapper>
             <SentiramaLogo/>
+            <pre>{positiveNumberMoods} | {allNumberMoods}</pre>
             <MoodResultsWrapper
                 color={color}
             >
