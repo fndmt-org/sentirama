@@ -60,7 +60,7 @@ const MoodResultsWrapper = styled.div`
     .good-average{
         background-color: #219653; // HARDCODED
     }
-    
+
     .bad-average{
         background-color: #B43F3D; // HARDCODED
     }
@@ -81,7 +81,24 @@ const CustomButton = styled.button`
     }
 `;
 
+const MoodResultAverageWrapper = styled.div`
+    color: ${themeDefaultImport.neutral000};
+`;
+
+const MoodResultMet = styled.div`
+    width: ${({value}) =>value}%;
+    background-color: #219653; // HARDCODED
+`;
+
+const MoodResultUnMet = styled.div`
+    width: ${({value}) =>value}%;
+    background-color: #B43F3D; // HARDCODED
+`;
+
 export {
+    MoodResultAverageWrapper,
+    MoodResultMet,
+    MoodResultUnMet,
     MoodResultsWrapper,
     CustomButton
 };

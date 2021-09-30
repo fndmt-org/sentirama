@@ -4,13 +4,6 @@ import responsiveFonts from '../../Styles/responsiveFonts.styles';
 import mediaQueries from '../../Styles/mediaQueries.styles';
 import { iconSizes } from '../../Styles/iconSizes.styles';
 
-const SuggestedMoodsStyles = styled.h4`
-    ${({ theme }) => css`
-        text-align: center;
-        margin: ${theme.r300};
-    `}
-`;
-
 const AddMoodStyles = styled.form`
     ${({ theme }) => css`
         align-items: center;
@@ -46,13 +39,15 @@ const EmojiSelect = styled.label`
         display: flex;
         svg {
             border-radius: 50%;
-            fill: ${theme.neutral000};
             box-shadow: ${theme.boxShadowBottom2};
+            fill: ${theme.neutral000};
             ${iconSizes.big}
             ${(props) => props.className === 'active' && `fill: ${props.theme.colorMain}`}
             ${(props) => {
-                return props.value === 'good' ? `background: ${props.theme.colorGoodMoodIcon}` : `background: ${props.theme.colorBadMoodIcon}`}
-            }
+    return props.value === 'good'
+        ? `background: ${props.theme.colorGoodMoodIcon}`
+        : `background: ${props.theme.colorBadMoodIcon}`
+}}
         }
         .emoji-radio{
             display: none;
@@ -69,5 +64,4 @@ export {
     AddMoodStyles,
     EmojiSelect,
     EmojiSet,
-    SuggestedMoodsStyles,
 }

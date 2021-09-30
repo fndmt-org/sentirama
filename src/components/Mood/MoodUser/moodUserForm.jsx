@@ -2,37 +2,43 @@ import React, { Fragment, useRef } from 'react';
 import { injectIntl } from 'react-intl';
 import { useHistory } from "react-router";
 
-import {MoodWrapper, SentiramaLogoWrapper} from '../LayoutStyles/moodLayout.styles'
-import {MoodUserFormWrapper} from './moodUserForm.styles'
-import { ReactComponent as SentiramaLogo }  from '../../Styles/icons/sentirama-logo.svg';
-import { ReactComponent as Arrow }  from '../../Styles/icons/arrow.svg';
+import { MoodWrapper } from '../LayoutStyles/moodLayout.styles'
+import { MoodUserFormWrapper } from './moodUserForm.styles'
+
+import { SentiramaLogo } from '../../Styles/common.styles';
+import { ReactComponent as Arrow }  from '../../../assets/icons/arrow.svg';
 import * as ROUTES from '../../../constants/routes';
 
-const MoodUserForm = ({selectedMood, intl}) => {
+const MoodUserForm = (props) => {
     const usernameRef = useRef('')
     const history = useHistory()
-    
-    const {mood, color} = selectedMood;
+    const {
+        category,
+        mood,
+        color,
+        uuid,
+        intl
+    } = props;
     const placeholder = intl.formatMessage({id: 'yourMood.form.placeholder.name'});
 
     const submitUser = (e) => {
-        e.preventDefault();
         history.push({
             pathname:  ROUTES.MOOD_RESULTS,
             state: {
-              mood: mood,
-              color: color,
-              username: usernameRef.current.value
-            } 
-         });
+                category,
+                mood,
+                color,
+                username: usernameRef.current.value,
+                uuid,
+            }
+        });
+        e.preventDefault();
     }
 
     return (
         <Fragment>
             <MoodWrapper>
-                <SentiramaLogoWrapper>
-                    <SentiramaLogo></SentiramaLogo>
-                </SentiramaLogoWrapper>
+                <SentiramaLogo />
                 <MoodUserFormWrapper
                     color={color}
                     onSubmit={(e) => submitUser(e)}
@@ -40,7 +46,7 @@ const MoodUserForm = ({selectedMood, intl}) => {
                     <h1>{mood}</h1>
                     <input type="text" ref={usernameRef} placeholder={placeholder}></input>
                     <button>
-                        <Arrow></Arrow>
+                        <Arrow/>
                     </button>
                 </MoodUserFormWrapper>
             </MoodWrapper>

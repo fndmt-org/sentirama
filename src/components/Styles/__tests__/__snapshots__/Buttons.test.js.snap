@@ -18,7 +18,11 @@ exports[`Buttons - Classic Theme: Buttons - first set: check default 1`] = `
   transition-property: all;
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
-  padding: .6em 1.2em;
+  -webkit-letter-spacing: inherit;
+  -moz-letter-spacing: inherit;
+  -ms-letter-spacing: inherit;
+  letter-spacing: inherit;
+  padding: .8em;
 }
 
 .c1,
@@ -67,7 +71,11 @@ exports[`Buttons - Classic Theme: Buttons - first set: checks Rounded Button\`s 
   transition-property: all;
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
-  padding: .6em 1.2em;
+  -webkit-letter-spacing: inherit;
+  -moz-letter-spacing: inherit;
+  -ms-letter-spacing: inherit;
+  letter-spacing: inherit;
+  padding: .8em;
 }
 
 .c1,
@@ -221,7 +229,11 @@ exports[`Buttons - Classic Theme: Buttons - first set: checks screenshot of Book
   transition-property: all;
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
-  padding: .6em 1.2em;
+  -webkit-letter-spacing: inherit;
+  -moz-letter-spacing: inherit;
+  -ms-letter-spacing: inherit;
+  letter-spacing: inherit;
+  padding: .8em;
 }
 
 .c1,
@@ -263,12 +275,9 @@ exports[`Buttons - Classic Theme: Buttons - first set: checks screenshot of Book
 }
 
 .c3 {
-  padding: .9em 1.6em;
-  width: 100%;
-}
-
-@media only screen and (min-width:400px) {
-
+  padding: 1.1em;
+  margin: undefined undefined;
+  width: calc(100% - undefined);
 }
 
 @media only screen and (min-width:400px) {
@@ -300,7 +309,11 @@ exports[`Buttons - Classic Theme: Buttons - first set: checks screenshot of Comm
   transition-property: all;
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
-  padding: .6em 1.2em;
+  -webkit-letter-spacing: inherit;
+  -moz-letter-spacing: inherit;
+  -ms-letter-spacing: inherit;
+  letter-spacing: inherit;
+  padding: .8em;
 }
 
 .c1,
@@ -321,8 +334,9 @@ exports[`Buttons - Classic Theme: Buttons - first set: checks screenshot of Comm
 }
 
 .c2 {
-  padding: .9em 1.6em;
-  width: 100%;
+  padding: 1.1em;
+  margin: undefined undefined;
+  width: calc(100% - undefined);
 }
 
 .c2,
@@ -339,10 +353,6 @@ exports[`Buttons - Classic Theme: Buttons - first set: checks screenshot of Comm
 
 .c2:focus {
   outline-offset: 0;
-}
-
-@media only screen and (min-width:400px) {
-
 }
 
 @media only screen and (min-width:400px) {
@@ -374,7 +384,11 @@ exports[`Buttons - Classic Theme: Buttons - first set: checks screenshot of Comm
   transition-property: all;
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
-  padding: .6em 1.2em;
+  -webkit-letter-spacing: inherit;
+  -moz-letter-spacing: inherit;
+  -ms-letter-spacing: inherit;
+  letter-spacing: inherit;
+  padding: .8em;
 }
 
 .c1,
@@ -395,8 +409,9 @@ exports[`Buttons - Classic Theme: Buttons - first set: checks screenshot of Comm
 }
 
 .c2 {
-  padding: .9em 1.6em;
-  width: 100%;
+  padding: 1.1em;
+  margin: undefined undefined;
+  width: calc(100% - undefined);
 }
 
 .c2,
@@ -413,10 +428,6 @@ exports[`Buttons - Classic Theme: Buttons - first set: checks screenshot of Comm
 
 .c2:focus {
   outline-offset: 0;
-}
-
-@media only screen and (min-width:400px) {
-
 }
 
 @media only screen and (min-width:400px) {
@@ -448,7 +459,11 @@ exports[`Buttons - Classic Theme: Buttons - second set: checks disabled Button\`
   transition-property: all;
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
-  padding: .6em 1.2em;
+  -webkit-letter-spacing: inherit;
+  -moz-letter-spacing: inherit;
+  -ms-letter-spacing: inherit;
+  letter-spacing: inherit;
+  padding: .8em;
 }
 
 .c1,

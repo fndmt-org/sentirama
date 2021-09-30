@@ -25,7 +25,7 @@ describe('Buttons - Classic Theme:', () => {
                 <Button.Booking>Book</Button.Booking>,
             ).toJSON();
 
-            expect(wrapper).toHaveStyleRule('padding', '.9em 1.6em');
+            expect(wrapper).toHaveStyleRule('padding', '1.1em');
             expect(wrapper).toMatchSnapshot();
         });
 

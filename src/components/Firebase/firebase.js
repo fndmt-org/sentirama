@@ -1,6 +1,5 @@
-import app from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
+import { initializeApp } from "firebase/app"
+import { getDatabase, ref, query, set as dbset, onValue, equalTo } from "firebase/database";
 
 const config = {
     apiKey: "AIzaSyBz9WIj8SHoc9F2l9Uz2BipbTbM_iGRY4w",
@@ -15,40 +14,46 @@ const config = {
 
 class Firebase {
     constructor() {
-        app.initializeApp(config);
-        this.auth = app.auth();
-        this.db = app.database();
+        this.app = initializeApp(config);
+        this.db = getDatabase();
     }
-    // *** Auth API ***
-    doCreateUserWithEmailAndPassword = (email, password) =>
-        this.auth.createUserWithEmailAndPassword(email, password);
 
-    doSignInWithEmailAndPassword = (email, password) =>
-        this.auth.signInWithEmailAndPassword(email, password);
+    mood = uid => ref(this.db, `mood/${uid}`);
+    moods = () => ref(this.db, 'moods');
 
-    doSignOut = () => this.auth.signOut();
-
-    doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
-    doPasswordUpdate = password =>
-        this.auth.currentUser.updatePassword(password);
-
-    doAddMood = (name, message, emoji, date, category, set) => {
-        return this.messages().push().set({
-            message,
-            name,
-            date,
-            emoji,
-            category,
-            set,
+    // *** API ***
+    doAddMood = ({uuid, ...params}) => {
+        dbset(ref(this.db, 'moods/' + uuid), {
+            uuid,
+            ...params
+        }).then(() => {
+            // Data saved successfully!
+        }).catch((error) => {
+            // The write failed...
         });
     };
 
-    // *** Message API ***
-    message = uid => this.db.ref(`message/${uid}`);
-    messages = () => this.db.ref('messages');
+    doUpdateMood = ({uuid, ...params}) => {
+        const moodRef = ref(this.db, 'moods/' + uuid);
+        onValue(moodRef, (snapshot) => {
+            if (snapshot.exists()){
+                const data = snapshot.val();
+                console.log(data);
+            } else{
+                doAddMood({uuid, ...params});
+            }
+        });
+    }
 
-    // *** User API ***
-    user = uid => this.db.ref(`users/${uid}`);
-    users = () => this.db.ref('users');
+    getGlobalMood = (callback) => {
+
+        const globalMoodRef = ref(this.db, 'moods');
+        onValue(globalMoodRef, (snapshot) => {
+            callback(snapshot.exists() ? snapshot.val() : null);
+        });
+
+
+    }
+
 }
 export default Firebase;

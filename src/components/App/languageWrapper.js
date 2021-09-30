@@ -9,7 +9,7 @@ const local = navigator.language;
 let lang;
 if (local==="es") {
     lang = Spanish;
-    } else {
+} else {
     lang = English;
 }
 

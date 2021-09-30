@@ -8,8 +8,8 @@ const MoodWrapper = styled.div`
         align-items: center;
         display: flex;
         justify-content: flex-start;
-        padding-left: 32px;
-        padding-right: 32px;
+        padding-left: ${theme.r300};
+        padding-right: ${theme.r300};
     `}
 `;
 
@@ -35,15 +35,8 @@ const TitleFormStyles = styled.h4`
     }
 `;
 
-const SentiramaLogoWrapper = styled.div`
-    ${({ theme }) => css`
-        width: 105px;
-        margin-right: ${theme.r300};
-    `}
-`;
 
 export {
     MoodWrapper,
     TitleFormStyles,
-    SentiramaLogoWrapper
 }
