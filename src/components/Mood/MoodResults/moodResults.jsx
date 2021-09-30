@@ -5,7 +5,13 @@ import { compose } from 'recompose';
 import { withFirebase } from '../../Firebase';
 
 import { MoodWrapper } from '../LayoutStyles/moodLayout.styles'
-import { MoodResultsWrapper, CustomButton} from './moodResults.styles'
+import {
+    MoodResultsWrapper,
+    MoodResultAverageWrapper,
+    MoodResultMet,
+    MoodResultUnMet,
+    CustomButton
+} from './moodResults.styles'
 import { SentiramaLogo } from '../../Styles/common.styles';
 import { ReactComponent as PencilIcon }  from '../../../assets/icons/arrow.svg';
 import * as ROUTES from '../../../constants/routes';
@@ -48,14 +54,16 @@ const MoodResultsBase = (props) => {
         )
     };
 
-    const [positiveNumberMoods, setPositiveNumberMoods] = useState(0);
-    const [allNumberMoods, setAllNumberMoods] = useState(0);
+    const [positiveNumberMoodsPercent, setPositiveNumberMoodsPercent] = useState(0);
+    const [negativeNumberMoodsPercent, setNegativeNumberMoodsPercent] = useState(0);
 
     const extractNumberMoods = (moods) =>{
         const positive = moods ? Object.values(moods).filter(mood => mood.category === 'good') : null;
-
-        setAllNumberMoods(Object.values(moods).length)
-        setPositiveNumberMoods(positive.length)
+        const allMoods = Object.values(moods).length
+        const positiveModsPercent = positive.length * 100 / allMoods;
+        setPositiveNumberMoodsPercent(Math.round(positiveModsPercent));
+        const negativeModPercent = (allMoods - positive.length) * 100 / allMoods;
+        setNegativeNumberMoodsPercent(Math.round(negativeModPercent))
     }
 
     const getPercent = () => {
@@ -72,7 +80,6 @@ const MoodResultsBase = (props) => {
     return (
         <MoodWrapper>
             <SentiramaLogo/>
-            <pre>{positiveNumberMoods} | {allNumberMoods}</pre>
             <MoodResultsWrapper
                 color={color}
             >
@@ -99,14 +106,18 @@ const MoodResultsBase = (props) => {
                         description=""
                         defaultMessage=""/>
                 </span>
-                <div className="results-average">
-                    <div className="good-average">55%</div>
-                    <div className="bad-average">45%</div>
-                </div>
+                <MoodResultAverageWrapper className="results-average">
+                    <MoodResultMet value={positiveNumberMoodsPercent}>
+                        {positiveNumberMoodsPercent}%
+                    </MoodResultMet>
+                    <MoodResultUnMet value={negativeNumberMoodsPercent}>
+                        {negativeNumberMoodsPercent}%
+                    </MoodResultUnMet>
+                </MoodResultAverageWrapper>
             </MoodResultsWrapper>
         </MoodWrapper>
     )
-}
+};
 
 const MoodResults = compose(
     withFirebase,
