@@ -25,7 +25,8 @@
     "translate": "npm run extract -- 'src/**/*.js*' --out-file src/lang/en.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'",
     "extract": "formatjs extract",
     "lint": "eslint ./src/",
-    "lint:fix": "eslint ./src/ --fix"
+    "lint:fix": "eslint ./src/ --fix",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": "react-app"
