@@ -2,14 +2,14 @@ import { initializeApp } from "firebase/app"
 import { getDatabase, ref, query, set as dbset, onValue, equalTo } from "firebase/database";
 
 const config = {
-    apiKey: "AIzaSyBz9WIj8SHoc9F2l9Uz2BipbTbM_iGRY4w",
-    authDomain: "corona-mood.firebaseapp.com",
-    databaseURL: "https://corona-mood.firebaseio.com",
-    projectId: "corona-mood",
-    storageBucket: "corona-mood.appspot.com",
-    messagingSenderId: "915912794570",
-    appId: "1:915912794570:web:ba18ea9f96b8ea0981af33",
-    measurementId: "G-PKF0ZEL622"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_FIREBASE_DB_URL,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
+    measurementId: process.env.REACT_APP_FIREBASE_MESUREMENT_ID,
 };
 
 class Firebase {

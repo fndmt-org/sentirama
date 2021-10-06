@@ -8,7 +8,6 @@ import {
 } from 'react-router-dom';
 
 import LandingPage from '../Mood';
-// import MoodCategorySelector from '../MoodCategorySelector';
 import MoodCategorySelector from '../Mood/MoodCategorySelector';
 import MoodUser from '../Mood/MoodUser';
 import MoodResults from '../Mood/MoodResults';
