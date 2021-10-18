@@ -72,8 +72,9 @@ const MoodResultsBase = (props) => {
         );
     }
 
+
     useEffect(() => {
-        sendNewMood();
+        props.firebase.singIn(sendNewMood())
         getPercent();
     }, [mood, username]);
 

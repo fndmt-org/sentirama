@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app"
+import { getAuth, signInAnonymously } from "firebase/auth";
 import { getDatabase, ref, query, set as dbset, onValue, equalTo } from "firebase/database";
 
 const config = {
@@ -12,18 +13,35 @@ const config = {
     measurementId: process.env.REACT_APP_FIREBASE_MESUREMENT_ID,
 };
 
+const MOODS_PATH = "moods";
+const MOOD_PATH = "mood";
+
 class Firebase {
     constructor() {
         this.app = initializeApp(config);
         this.db = getDatabase();
+        this.auth = getAuth();
     }
 
-    mood = uid => ref(this.db, `mood/${uid}`);
-    moods = () => ref(this.db, 'moods');
+    singIn = (callback) =>{
+        signInAnonymously(this.auth)
+            .then(() => {
+                callback();
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.error(errorCode)
+                console.error(errorMessage)
+            });
+    }
+
+    mood = uid => ref(this.db, `${MOOD_PATH}/${uid}`);
+    moods = () => ref(this.db, MOODS_PATH);
 
     // *** API ***
     doAddMood = ({uuid, ...params}) => {
-        dbset(ref(this.db, 'moods/' + uuid), {
+        dbset(ref(this.db, `${MOODS_PATH}/` + uuid), {
             uuid,
             ...params
         }).then(() => {
@@ -34,7 +52,7 @@ class Firebase {
     };
 
     doUpdateMood = ({uuid, ...params}) => {
-        const moodRef = ref(this.db, 'moods/' + uuid);
+        const moodRef = ref(this.db, `${MOODS_PATH}/` + uuid);
         onValue(moodRef, (snapshot) => {
             if (snapshot.exists()){
                 const data = snapshot.val();
@@ -47,7 +65,7 @@ class Firebase {
 
     getGlobalMood = (callback) => {
 
-        const globalMoodRef = ref(this.db, 'moods');
+        const globalMoodRef = ref(this.db, MOODS_PATH);
         onValue(globalMoodRef, (snapshot) => {
             callback(snapshot.exists() ? snapshot.val() : null);
         });
