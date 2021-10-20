@@ -56,10 +56,10 @@ const App = () => {
             <GlobalStyle />
             <IntlProvider messages={messages} locale={locale}>
                 <Router>
-                    <select value = {locale} onChange={selectLanguage}>
+                    {/* <select value = {locale} onChange={selectLanguage}>
                         <option value='en'>English</option>
                         <option value='es'>Español</option>
-                    </select>
+                    </select> */}
                     <Route exact path={ROUTES.LANDING} component={LandingPage} />
                     <Route path={ROUTES.MOOD_CATEGORY_SELECTOR} component={MoodCategorySelector} />
                     <Route path={ROUTES.MOOD_USER} component={MoodUser} />

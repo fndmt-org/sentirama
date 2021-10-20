@@ -1,6 +1,8 @@
 {
   "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
-  }
+      "$moods": {
+        ".read": "true",
+        ".write": "auth.uid != null",
+      },
+    }
 }
