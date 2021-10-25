@@ -28,6 +28,8 @@ class Firebase {
 
     doSignOut = () => this.auth.signOut();
 
+    doAnonymosSignIn = () => this.auth.signInAnonymously()
+
     doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
     doPasswordUpdate = password =>
         this.auth.currentUser.updatePassword(password);
@@ -40,7 +42,7 @@ class Firebase {
             emoji,
             category,
             set,
-        });
+        })
     };
 
     // *** Message API ***

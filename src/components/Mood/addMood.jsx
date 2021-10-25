@@ -44,6 +44,10 @@ class AddMoodBase extends Component {
         this.onReset = this.onReset.bind(this);
     }
 
+    componentDidMount() {
+        this.props.firebase.doAnonymosSignIn();
+    }
+
     onSubmit = event => {
         const { name, message, emoji, category, set } = this.state;
         const date = Date.now();
