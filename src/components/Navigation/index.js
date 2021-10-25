@@ -32,15 +32,6 @@ const NavigationAuth = () => (
         </Toolbar>
         <SimpleMenu />
     </AppBar>
-    // <ul>
-    //     <li>
-    //         <SimpleMenu />
-    //     </li>
-    //     <li>
-    //         <Button component={RouterLink} to={ROUTES.SIGN_IN} color="inherit">Login</Button>
-    //         <SignOutButton />
-    //     </li>
-    // </ul>
 );
 
 export default Navigation;

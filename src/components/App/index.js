@@ -65,7 +65,7 @@ const App = () => {
                             <option value='en'>English</option>
                             <option value='es'>Español</option>
                         </select>
-                        <Navigation />
+                        {/* <Navigation /> */}
                         <Route exact path={ROUTES.LANDING} component={LandingPage} />
                         <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
                         <Route path={ROUTES.SIGN_IN} component={SignInPage} />
