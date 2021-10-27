@@ -39,17 +39,20 @@ export default function UseAutocomplete(
 
     return (
         <AutcompleteField>
-        <div {...getRootProps()}>
-            <label {...getInputLabelProps()}>{label}</label>
-            <AutcompleteInput placeholder={label} value={value} {...getInputProps()} />
-        </div>
-        {groupedOptions.length > 0 ? (
-            <AutcompleteList {...getListboxProps()}>
-            {groupedOptions.map((option, index) => (
-                <AutocompleteItemListBase {...getOptionProps({ option, index })}>{option.name}</AutocompleteItemListBase>
-            ))}
-            </AutcompleteList>
-        ) : null}
+            <div {...getRootProps()}>
+                <label {...getInputLabelProps()}>{label}</label>
+                <AutcompleteInput placeholder={label} value={value} {...getInputProps()} />
+            </div>
+            {groupedOptions.length > 0 ? (
+                <AutcompleteList {...getListboxProps()}>
+                    {groupedOptions.map((option, index) => (
+                        <AutocompleteItemListBase
+                            {...getOptionProps({ option, index })}>
+                            {option.name}
+                        </AutocompleteItemListBase>
+                    ))}
+                </AutcompleteList>
+            ) : null}
         </AutcompleteField>
     );
 }

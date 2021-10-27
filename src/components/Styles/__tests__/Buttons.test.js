@@ -1,5 +1,4 @@
 /* eslint-env node, jest */
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-expressions */
 
 import React from 'react';
@@ -25,7 +24,7 @@ describe('Buttons - Classic Theme:', () => {
                 <Button.Booking>Book</Button.Booking>,
             ).toJSON();
 
-            expect(wrapper).toHaveStyleRule('padding', '.9em 1.6em');
+            expect(wrapper).toHaveStyleRule('padding', '1.1em');
             expect(wrapper).toMatchSnapshot();
         });
 

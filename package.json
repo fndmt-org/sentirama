@@ -1,26 +1,32 @@
 {
-  "name": "corona-mood",
+  "name": "sentirama",
   "version": "0.0.0",
-  "description": "corona mood",
+  "description": "A serverless app to share your mood or feelings",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/pableco/corona-mood.git"
+    "url": "git+https://github.com/fndmt-org/sentirama"
   },
   "keywords": [
     "website",
     "firebase",
-    "redux",
     "react"
   ],
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:ci": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
+    "predeploy": "npm run check-master && npm run test:ci",
     "deploy": "react-scripts build && firebase deploy",
+    "check-master": "git symbolic-ref --short HEAD | grep ^master$ > /dev/null || (echo \"Not in 'master' branch. Aborting deploy\"; return 1)",
+    "deploy:branch": "react-scripts build && firebase hosting:channel:deploy $(git symbolic-ref --short HEAD)",
     "translate": "npm run extract -- 'src/**/*.js*' --out-file src/lang/en.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'",
-    "extract": "formatjs extract"
+    "extract": "formatjs extract",
+    "lint": "eslint ./src/",
+    "lint:fix": "eslint ./src/ --fix",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,35 +46,46 @@
   "author": "fundament",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/pableco/corona-mood/-/issues"
+    "url": "https://github.com/fndmt-org/sentirama/issues"
   },
   "homepage": "https://corona-mood.firebaseapp.com/",
   "dependencies": {
-    "@material-ui/core": "^4.11.2",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/lab": "^4.0.0-alpha.57",
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.3",
-    "@testing-library/user-event": "^12.6.2",
-    "babel-plugin-formatjs": "^9.0.1",
-    "firebase": "^8.2.4",
-    "formatjs": "^0.1.1",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "babel-plugin-formatjs": "^9.2.5",
+    "firebase": "^9.1.0",
     "moment": "^2.29.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-intl": "^5.10.16",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-intl": "^5.20.12",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "^4.0.3",
     "recompose": "^0.30.0",
-    "styled-components": "^5.2.1",
+    "styled-components": "^5.3.1",
+    "uuid": "^8.3.2",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@formatjs/cli": "^3.0.1",
-    "jest-styled-components": "^7.0.3",
+    "@formatjs/cli": "^3.2.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "babel-plugin-styled-components": "^1.13.2",
+    "eslint": "^7.32.0",
+    "formatjs": "^0.1.1",
+    "husky": "^7.0.2",
+    "jest-styled-components": "^7.0.5",
+    "lint-staged": "^11.1.2",
     "match-media-mock": "^0.1.1",
     "react-intl-cra": "^0.3.4",
     "react-intl-translations-manager": "^5.0.3",
-    "react-test-renderer": "^17.0.1"
+    "react-test-renderer": "^17.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "engines": {
+    "node": "12"
   }
 }
