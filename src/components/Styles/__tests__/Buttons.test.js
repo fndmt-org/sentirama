@@ -5,7 +5,7 @@ import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import 'jest-styled-components';
 
-import Button from '../Buttons.styles';
+import Button from '../buttons.styles';
 
 describe('Buttons - Classic Theme:', () => {
     describe('Buttons - first set:', () => {
