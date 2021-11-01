@@ -9,6 +9,10 @@ const iconSizes = {
         height: ${({ theme }) => theme.iconSizeThumb};
         width: ${({ theme }) => theme.iconSizeThumb};
     `,
+    extraBig: css`
+        height: ${({ theme }) => theme.iconSizeThumb};
+        width: ${({ theme }) => theme.iconsSizeXXL};
+    `,
 }
 
 export {

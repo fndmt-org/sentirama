@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 import themeDefaultImport from '../../Styles/basicVariables.styles';
+import mediaQueries from '../../Styles/mediaQueries.styles';
 
 const MoodResultsWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    align-self: flex-end;
     width: 100%;
+
+    @media ${mediaQueries.s} {
+        align-self: inherit;
+    }
 
     > div,
     > span,
@@ -14,10 +20,35 @@ const MoodResultsWrapper = styled.div`
 
     .results-user {
         background-color: ${props => props.color};
-        padding: ${themeDefaultImport.r200} 0;
+        padding: 0 ${themeDefaultImport.r150};
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
+        height: calc(100vh - 120px);
+
+        @media ${mediaQueries.xs} {
+            padding: 0 ${themeDefaultImport.r400};
+        }
+
+        @media ${mediaQueries.s} {
+            flex-direction: row;
+            height: 80px;
+        }
+    }
+
+    .results-message-wrapper {
+        display: inline-block;
+        font-size: ${themeDefaultImport.fontB};
+        margin-bottom: ${themeDefaultImport.r150};
+
+        @media ${mediaQueries.xs} {
+            font-size: ${themeDefaultImport.fontXXL};
+        }
+
+        @media ${mediaQueries.s} {
+            margin-bottom: inherit;
+        }
     }
 
     .results-user-message {
@@ -31,7 +62,15 @@ const MoodResultsWrapper = styled.div`
     }
 
     .results-average-message {
-        padding: 4px 0;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media ${mediaQueries.s} {
+            height: inherit;
+            display: block;
+        }
     }
 
     .results-average {
@@ -70,14 +109,18 @@ const CustomButton = styled.button`
     background-color: transparent;
     color: ${themeDefaultImport.neutral000};
     font-size: ${themeDefaultImport.fontB};
-    margin-left: ${themeDefaultImport.r200};
+    margin-right: ${themeDefaultImport.r150};
     display: flex;
     align-items: center;
     cursor: pointer;
 
+    @media ${mediaQueries.s} {
+        margin-left: ${themeDefaultImport.r200};
+        margin-right: inherit;
+    }
+
     > svg {
-        width: 14px;
-        margin-right: ${themeDefaultImport.r100};
+        width: 40px;
     }
 `;
 
