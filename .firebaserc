@@ -1,7 +1,14 @@
 {
   "projects": {
     "default": "corona-mood",
+<<<<<<< HEAD
     "production": "sentirama-app"
   },
   "targets": {}
 }
+=======
+    "staging": "sentirama-app"
+  },
+  "targets": {}
+}
+>>>>>>> develop
