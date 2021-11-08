@@ -1,7 +1,7 @@
 {
   "projects": {
     "default": "corona-mood",
-    "production": "sentirama-app"
+    "staging": "sentirama-app"
   },
   "targets": {}
 }

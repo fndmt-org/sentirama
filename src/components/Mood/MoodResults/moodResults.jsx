@@ -79,20 +79,22 @@ const MoodResultsBase = (props) => {
     }, [mood, username]);
 
     return (
-        <MoodWrapper>
+        <MoodWrapper top>
             <SentiramaLogo/>
             <MoodResultsWrapper
                 color={color}
             >
-                <h1 className="results-user">
-                    <span>{`${username.charAt(0).toUpperCase()}${username.slice(1)}`}</span>
-                    <span className="results-user-message">
-                        <FormattedMessage
-                            id="yourMood.form.resultsMessage"
-                            description=""
-                            defaultMessage=""/>
-                    </span>
-                    <span>{mood.toLowerCase()}</span>
+                <div className="results-user">
+                    <h1 className="results-message-wrapper">
+                        <span>{`${username.charAt(0).toUpperCase()}${username.slice(1)}`},</span>
+                        <span className="results-user-message">
+                            <FormattedMessage
+                                id="yourMood.form.resultsMessage"
+                                description=""
+                                defaultMessage=""/>
+                        </span>
+                        <span>{mood.toLowerCase()}</span>
+                    </h1>
                     <CustomButton onClick={handleClick}>
                         <PencilIcon></PencilIcon>
                         <FormattedMessage
@@ -100,7 +102,7 @@ const MoodResultsBase = (props) => {
                             description=""
                             defaultMessage=""/>
                     </CustomButton>
-                </h1>
+                </div>
                 <span className="results-average-message">
                     <FormattedMessage
                         id="yourMood.form.allAnswers"

@@ -27,6 +27,7 @@ export const lineHeight = {
     lineHeightB: '1.5', // default font body
     lineHeightM: '1.75',
     lineHeightL: '2',
+    lineHeightXL: '2.6',
 };
 
 export const letterSpacing = {
@@ -238,7 +239,9 @@ const rhythm = {
     r100: '1rem',
     r150: '1.5rem',
     r200: '2rem',
+    r250: '2.5rem',
     r300: '3rem',
+    r350: '3.5rem',
     r400: '4rem',
     r600: '6rem',
     r800: '8rem',
@@ -291,6 +294,7 @@ export const icons = {
     iconsSizeMM: '2.4rem',
     iconsSizeML: '2.8rem',
     iconsSizeL: '3.6rem',
+    iconsSizeXXL: '20.2rem',
     iconSizeThumb: defaultThumbSize,
 };
 

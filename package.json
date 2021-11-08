@@ -18,6 +18,7 @@
     "test": "react-scripts test",
     "test:ci": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
+    "predeploy": "npm run test:ci",
     "deploy": "react-scripts build && firebase deploy",
     "check-master": "git symbolic-ref --short HEAD | grep ^master$ > /dev/null || (echo \"Not in 'master' branch. Aborting deploy\"; return 1)",
     "deploy:branch": "react-scripts build && firebase hosting:channel:deploy $(git symbolic-ref --short HEAD)",

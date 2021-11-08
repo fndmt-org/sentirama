@@ -4,12 +4,36 @@ import mediaQueries from '../../Styles/mediaQueries.styles';
 
 const MoodWrapper = styled.div`
     ${({ theme }) => css`
-        padding: ${theme.r400} ${theme.r300};
         align-items: center;
         display: flex;
         justify-content: flex-start;
-        padding-left: ${theme.r300};
-        padding-right: ${theme.r300};
+        height: 100vh;
+        
+        @media ${mediaQueries.s} {
+            padding-left: ${theme.r300};
+            height: auto;
+        }
+
+        > svg,
+        > form > svg {
+            position: absolute;
+            top: 10px;
+            transform: translateX(-50%);
+            left: 50%;
+
+            @media ${mediaQueries.xs} {
+                top: 135px;
+                ${(props) => props.top ? `top: 20px` : `top: 135px`}
+            }
+
+            @media ${mediaQueries.s} {
+                position: inherit;
+                transform: none;
+                min-width: 102px;
+                height: 50px;
+                margin-right: 26px;
+            }
+        }
     `}
 `;
 
@@ -19,20 +43,27 @@ const TitleBase = css`
     `}
 `;
 
-const TitleFormStyles = styled.h4`
+const TitleFormStyles = styled.span`
     ${TitleBase}
     ${({ theme }) => css`
         font-weight: ${theme.fontRegular};
-        font-size: ${theme.fontXXL};
-        margin-right: ${theme.r1000};
-        margin-left: ${theme.r1000};
-        margin-bottom: ${theme.r100};
-    `}
+        font-size: ${theme.fontS};
+        margin-bottom: ${theme.r400};
 
-    @media ${mediaQueries.s} {
-        width: inherit;
-        margin-bottom: 0;
-    }
+        @media ${mediaQueries.xs} {
+            font-size: ${theme.fontXXL};
+            margin: ${theme.r400};
+        }
+
+        @media ${mediaQueries.s} {
+            width: inherit;
+            margin: 0 ${theme.r400};
+        }
+
+        @media ${mediaQueries.m} {
+            margin: 0 ${theme.r1000};
+        }
+    `}
 `;
 
 

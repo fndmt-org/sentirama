@@ -37,17 +37,19 @@ const MoodUserForm = (props) => {
 
     return (
         <Fragment>
-            <MoodWrapper>
+            <MoodWrapper top>
                 <SentiramaLogo />
                 <MoodUserFormWrapper
                     color={color}
                     onSubmit={(e) => submitUser(e)}
                 >
                     <h1>{mood}</h1>
-                    <input type="text" ref={usernameRef} placeholder={placeholder}></input>
-                    <button>
-                        <Arrow/>
-                    </button>
+                    <div>
+                        <input type="text" ref={usernameRef} placeholder={placeholder}></input>
+                        <button>
+                            <Arrow/>
+                        </button>
+                    </div>
                 </MoodUserFormWrapper>
             </MoodWrapper>
         </Fragment>
