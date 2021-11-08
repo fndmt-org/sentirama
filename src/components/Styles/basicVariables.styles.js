@@ -247,6 +247,7 @@ const rhythm = {
     r800: '8rem',
     r1000: '10rem',
     r1200: '12rem',
+    r1500: '15rem',
     r1600: '16rem',
     r2000: '20rem',
     r2500: '25rem',

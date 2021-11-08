@@ -17,13 +17,12 @@ const MoodWrapper = styled.div`
         > svg,
         > form > svg {
             position: absolute;
-            top: 10px;
+            top: ${theme.r100};
             transform: translateX(-50%);
             left: 50%;
 
             @media ${mediaQueries.xs} {
-                top: 135px;
-                ${(props) => props.top ? `top: 20px` : `top: 135px`}
+                ${(props) => props.top ? `top: ${theme.r200}` : `top: ${theme.r1200}`}
             }
 
             @media ${mediaQueries.s} {

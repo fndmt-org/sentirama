@@ -45,16 +45,14 @@ const EmojiSelect = styled.label`
         svg {
             box-shadow: ${theme.boxShadowBottom2};
             fill: ${theme.neutral000};
-            border-radius: 50%;
+            border-radius: ${theme.round};
             ${iconSizes.big}
             
             @media ${mediaQueries.xs} {
-                border-radius: 94px;
                 ${iconSizes.extraBig}
             }
             
             @media ${mediaQueries.s} {
-                border-radius: 50%;
                 ${iconSizes.big}
             }
 
@@ -72,15 +70,17 @@ const EmojiSelect = styled.label`
 `;
 
 const EmojiSet = styled.div`
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: 27px;
-    
-    @media ${mediaQueries.s} {
-        flex-direction: row;
-        gap: 58px;
-    }
+    ${({ theme }) => css`
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: ${theme.r300};
+        
+        @media ${mediaQueries.s} {
+            flex-direction: row;
+            gap: ${theme.r600};
+        }
+    `}
 `;
 
 export {
