@@ -8,7 +8,7 @@ const MoodWrapper = styled.div`
         display: flex;
         justify-content: flex-start;
         height: 100vh;
-        
+
         @media ${mediaQueries.s} {
             padding-left: ${theme.r300};
             height: auto;

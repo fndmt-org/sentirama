@@ -47,12 +47,12 @@ const EmojiSelect = styled.label`
             fill: ${theme.neutral000};
             border-radius: 50%;
             ${iconSizes.big}
-            
+
             @media ${mediaQueries.xs} {
                 border-radius: 94px;
                 ${iconSizes.extraBig}
             }
-            
+
             @media ${mediaQueries.s} {
                 border-radius: 50%;
                 ${iconSizes.big}
@@ -76,7 +76,7 @@ const EmojiSet = styled.div`
     display: flex;
     flex-direction: column;
     gap: 27px;
-    
+
     @media ${mediaQueries.s} {
         flex-direction: row;
         gap: 58px;

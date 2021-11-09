@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app"
 import { getAuth, signInAnonymously } from "firebase/auth";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { getDatabase, ref, query, set as dbset, onValue, equalTo } from "firebase/database";
 
 const config = {
@@ -19,8 +20,14 @@ const MOOD_PATH = "mood";
 class Firebase {
     constructor() {
         this.app = initializeApp(config);
+        this.dbFirestore = getFirestore();
+        this.docRef = doc(this.dbFirestore);
         this.db = getDatabase();
         this.auth = getAuth();
+    }
+
+    moodsFirestore = async () => {
+        console.log(await getDoc(this.docRef));
     }
 
     singIn = (callback) =>{

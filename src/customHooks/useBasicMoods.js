@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import moods from '../components/Mood/moods.grid';
-import { generateColorSteps } from './../components/Styles/colorSteps';
+import generateColorSteps from './../components/Styles/colorSteps';
 
 export const useBasicMoods = (need) => {
     const [filteredMoods, setFilteredMoods] = useState([])

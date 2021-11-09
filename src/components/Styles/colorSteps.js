@@ -20,8 +20,6 @@ function splitHLSA(hsla) {
     return [h,s,l,a]
 }
 
-
-
 // eslint-disable-next-line max-statements
 function generateColorSteps({
     colorStart,
@@ -44,6 +42,4 @@ function generateColorSteps({
     return colorArray
 }
 
-export {
-    generateColorSteps
-}
+module.exports = generateColorSteps;
