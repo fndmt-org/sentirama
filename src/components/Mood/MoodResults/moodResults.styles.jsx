@@ -25,7 +25,7 @@ const MoodResultsWrapper = styled.div`
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        height: calc(100vh - 120px);
+        height: calc(100vh - 143px);
 
         @media ${mediaQueries.xs} {
             padding: 0 ${themeDefaultImport.r400};
