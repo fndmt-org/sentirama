@@ -1,33 +1,26 @@
 import styled, { css } from 'styled-components';
 
 import mediaQueries from '../../Styles/mediaQueries.styles';
+import { SentiramaLogo }  from '../../Styles/common.styles';
 
 const MoodWrapper = styled.div`
     ${({ theme }) => css`
-        align-items: center;
-        display: flex;
-        justify-content: flex-start;
-        height: 100vh;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 
-        @media ${mediaQueries.s} {
-            height: auto;
-        }
+    @media ${mediaQueries.s} {
+        flex-direction: row;
+    }
+        /* @media ${mediaQueries.s} {
+            display: flex;
+            justify-content: flex-start;
+            height: 100vh;
+            align-items: center;
+            display: flex;
+            height: ${theme.r1200};
+        } */
 
-        > svg,
-        > form > svg {
-            position: absolute;
-            top: ${theme.r100};
-            transform: translateX(-50%);
-            left: 50%;
-
-            @media ${mediaQueries.s} {
-                position: inherit;
-                transform: none;
-                min-width: 102px;
-                height: 50px;
-                margin-right: 26px;
-            }
-        }
     `}
 `;
 
@@ -37,31 +30,41 @@ const TitleBase = css`
     `}
 `;
 
-const TitleFormStyles = styled.span`
-    ${TitleBase}
+const TitleFormStyles = styled.h1`
     ${({ theme }) => css`
+        ${TitleBase}
         font-weight: ${theme.fontRegular};
-        font-size: ${theme.fontS};
+        font-size: ${theme.fontXL};
         margin-bottom: ${theme.r400};
 
-        @media ${mediaQueries.xs} {
-            font-size: ${theme.fontXXL};
-            margin: ${theme.r400};
-        }
 
         @media ${mediaQueries.s} {
             width: inherit;
             margin: 0 ${theme.r400};
         }
 
-        @media ${mediaQueries.m} {
-            margin: 0 ${theme.r1000};
+    `}
+`;
+
+const TitleFormStylesLigth= styled(TitleFormStyles)`
+    ${({ theme }) => css`
+        color: ${theme.neutral000};
+    `}
+`;
+
+const SentiramaLogoWrapper = styled(SentiramaLogo)`
+    ${({ theme }) => css`
+        margin: ${theme.r200};
+        flex: 0 0 ${theme.r300};
+        @media ${mediaQueries.s} {
+            flex: 0 0 ${theme.r1000};
         }
     `}
 `;
 
-
 export {
     MoodWrapper,
+    SentiramaLogoWrapper,
     TitleFormStyles,
+    TitleFormStylesLigth,
 }

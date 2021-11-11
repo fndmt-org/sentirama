@@ -7,15 +7,10 @@ const MoodResultsWrapper = styled.div`
     flex-direction: column;
     align-self: flex-end;
     width: 100%;
+    text-align: center;
 
     @media ${mediaQueries.s} {
         align-self: inherit;
-    }
-
-    > div,
-    > span,
-    > h1 {
-        text-align: center;
     }
 
     .results-user {
@@ -25,7 +20,6 @@ const MoodResultsWrapper = styled.div`
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        height: calc(100vh - 120px);
 
         @media ${mediaQueries.xs} {
             padding: 0 ${themeDefaultImport.r400};

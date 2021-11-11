@@ -12,7 +12,7 @@ const AddMoodStyles = styled.form`
         justify-content: center;
         flex-direction: column;
         text-align: center;
-        width: 100vw;
+
         ${responsiveFonts.BtoL}
 
         @media ${mediaQueries.s} {

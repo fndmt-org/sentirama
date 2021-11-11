@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { compose } from 'recompose';
 import { withFirebase } from '../../Firebase';
 
-import { MoodWrapper } from '../LayoutStyles/moodLayout.styles'
+import { MoodWrapper, SentiramaLogoWrapper } from '../LayoutStyles/moodLayout.styles'
 import {
     MoodResultsWrapper,
     MoodResultAverageWrapper,
@@ -12,7 +12,6 @@ import {
     MoodResultUnMet,
     CustomButton
 } from './moodResults.styles'
-import { SentiramaLogo } from '../../Styles/common.styles';
 import { ReactComponent as PencilIcon }  from '../../../assets/icons/44/edit.svg';
 import * as ROUTES from '../../../constants/routes';
 
@@ -80,7 +79,7 @@ const MoodResultsBase = (props) => {
 
     return (
         <MoodWrapper top>
-            <SentiramaLogo/>
+            <SentiramaLogoWrapper/>
             <MoodResultsWrapper color={color}>
                 <div className="results-user">
                     <h1 className="results-message-wrapper">

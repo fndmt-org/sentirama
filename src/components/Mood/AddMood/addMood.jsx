@@ -10,6 +10,7 @@ import EmojiItem from '../emojis';
 
 import {
     MoodWrapper,
+    SentiramaLogoWrapper,
     TitleFormStyles
 } from '../LayoutStyles/moodLayout.styles'
 import {
@@ -18,7 +19,6 @@ import {
 } from './addMood.styles';
 
 import * as ROUTES from '../../../constants/routes';
-import { SentiramaLogo }  from '../../Styles/common.styles';
 
 const AddMoodBase = (props) => {
     const history = useHistory();
@@ -42,8 +42,8 @@ const AddMoodBase = (props) => {
 
     return (
         <MoodWrapper>
+            <SentiramaLogoWrapper />
             <AddMoodStyles>
-                <SentiramaLogo />
                 <TitleFormStyles>
                     <FormattedMessage
                         id="yourMood.form.title"

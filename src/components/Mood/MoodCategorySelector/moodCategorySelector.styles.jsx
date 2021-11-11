@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-import themeDefaultImport from '../../Styles/basicVariables.styles';
+import styled, { css } from 'styled-components';
 import mediaQueries from '../../Styles/mediaQueries.styles';
 
 const EmojiSelected = styled.div`
@@ -7,45 +6,37 @@ const EmojiSelected = styled.div`
 `;
 
 const MoodSelector = styled.ul`
+    align-items: stretch;
     display: flex;
-    align-items: center;
+    height: 100%;
     overflow-x: auto;
-    margin-top: 80px;
-
-    &::-webkit-scrollbar {
-        display: none;
-    }
-
-    & {
-        ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-    }
-
+    flex-direction: column;
     @media ${mediaQueries.s} {
-        margin-top: inherit;
+        flex-direction: row;
     }
 `;
 
 const MoodSelectorItem = styled.li`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 ${themeDefaultImport.r050};
-    height: ${themeDefaultImport.r2500};
-    cursor: pointer;
-    background-color: ${props => props.color};
-    color: ${themeDefaultImport.neutral050};
-    font-size: ${themeDefaultImport.fontB};
+    ${({ theme }) => css`
+        align-self: center;
+        justify-content: center;
+        padding: 0 ${theme.r050};
+        text-align: center;
+        cursor: pointer;
+        height: 100%;
+        background-color: ${props => props.color};
+        color: ${theme.neutral050};
+        min-width: ${theme.r1600};
+        font-size: ${theme.fontB};
 
-    @media ${mediaQueries.xs} {
-        padding: 0 ${themeDefaultImport.r200};
-    }
+        @media ${mediaQueries.xs} {
+            padding: 0 ${theme.r200};
+        }
 
-    @media ${mediaQueries.s} {
-        min-width: ${themeDefaultImport.r1600};
-        height: ${themeDefaultImport.r1200};
-        padding: 0;
-    }
+        @media ${mediaQueries.s} {
+            padding: 0;
+        }
+    `}
 `;
 
 export {

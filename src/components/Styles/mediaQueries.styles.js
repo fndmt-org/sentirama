@@ -31,7 +31,7 @@ export default {
     (device-height: 1024px) and (orientation:landscape)`,
 
     xxs: `only screen and (min-width: 120px)`,
-    
+
     xs: `only screen and (min-width: 320px)`,
 
     s: `only screen and (min-width: 600px)`,
