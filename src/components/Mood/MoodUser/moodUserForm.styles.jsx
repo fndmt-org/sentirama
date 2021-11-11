@@ -1,21 +1,20 @@
 import styled, { css } from 'styled-components';
-import themeDefaultImport from '../../Styles/basicVariables.styles';
 import mediaQueries from '../../Styles/mediaQueries.styles';
 
 const MoodUserFormWrapper = styled.form`
     ${({ theme }) => css`
         display: flex;
         align-items: center;
-        padding: 100px 4px 0;
+        padding: ${theme.r100} ${theme.r050} 0;
         width: 100%;
         height: 100%;
         flex-direction: column;
-        gap: 35px;
+        gap: ${theme.r300};
         margin-top: ${theme.r1500};
         background-color: ${props => props.color};
 
         @media ${mediaQueries.xs} {
-            padding: 64px 45px;
+            padding: ${theme.r075} ${theme.r050};
         }
 
         @media ${mediaQueries.s} {
@@ -24,19 +23,19 @@ const MoodUserFormWrapper = styled.form`
             gap: inherit;
             height: inherit;
             margin-top: inherit;
-            padding: 36px 80px;
+            padding: ${theme.r050} ${theme.r075};
         }
 
         > h1 {
-            color: ${themeDefaultImport.neutral000};
-            font-size: ${themeDefaultImport.r250};
+            color: ${theme.neutral000};
+            font-size: ${theme.r250};
 
             @media ${mediaQueries.xs} {
-                margin-bottom: ${themeDefaultImport.r400};
+                margin-bottom: ${theme.r400};
             }
 
             @media ${mediaQueries.s} {
-                font-size: ${themeDefaultImport.r300};
+                font-size: ${theme.r300};
                 margin-bottom: inherit;
             }
         }
@@ -54,49 +53,49 @@ const MoodUserFormWrapper = styled.form`
         }
 
         input {
-            border-radius: 38px;
-            border: 2px solid ${themeDefaultImport.neutral999};
-            padding: 12px;
+            border-radius: ${theme.formFieldBorderRadius};
+            border: 2px solid ${theme.neutral999};
+            padding: ${theme.r100};
             width: 100%;
-            color: #767676;
-            font-size: ${themeDefaultImport.fontS};
-            line-height: ${themeDefaultImport.lineHeightXS};
-            margin-bottom: ${themeDefaultImport.r350};
+            color: ${theme.neutral600};
+            font-size: ${theme.fontS};
+            line-height: ${theme.lineHeightXS};
+            margin-bottom: ${theme.r350};
 
             @media ${mediaQueries.s} {
                 width: inherit;
                 margin-bottom: inherit;
-                margin: 0 ${themeDefaultImport.r250};
+                margin: 0 ${theme.r250};
             }
 
             @media ${mediaQueries.m} {
-                max-width: 230px;
+                max-width: ${theme.r2500};
             }
-            
+
             @media ${mediaQueries.l} {
                 max-width: 60%;
             }
         }
 
         button {
-            width: 48px;
-            height: 48px;
+            width: ${theme.iconSizeThumb};
+            height: ${theme.iconSizeThumb};
             border-radius: ${theme.round};
-            color: ${themeDefaultImport.neutral000};
-            background: ${themeDefaultImport.neutral999};
+            color: ${theme.neutral000};
+            background: ${theme.neutral999};
             cursor: pointer;
 
             @media ${mediaQueries.xs} {
                 width: 100%;
-                border-radius: 38px;
+                border-radius: ${theme.round};
             }
 
             @media ${mediaQueries.s} {
-                width: 48px;
+                width: ${theme.iconSizeThumb};
             }
 
             > svg {
-                width: 48px;
+                width: ${theme.iconSizeThumb};
             }
         }
     `}

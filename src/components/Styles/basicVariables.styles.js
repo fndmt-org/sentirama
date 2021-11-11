@@ -276,7 +276,6 @@ export const formSettings = {
     formFieldBorderRadius: rhythm.r300,
     formFieldBorder: `${borders.borderWidthS} solid ${formColors.formFieldColor}`,
     formFieldBorderFocus: `${borders.borderWidthM} solid ${formColors.formFieldColorFocus}`,
-    formFieldRound: rhythm.r050,
 };
 
 export const form = {

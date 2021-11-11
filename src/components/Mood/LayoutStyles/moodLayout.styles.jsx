@@ -8,9 +8,8 @@ const MoodWrapper = styled.div`
         display: flex;
         justify-content: flex-start;
         height: 100vh;
-        
+
         @media ${mediaQueries.s} {
-            padding-left: ${theme.r300};
             height: auto;
         }
 
@@ -20,10 +19,6 @@ const MoodWrapper = styled.div`
             top: ${theme.r100};
             transform: translateX(-50%);
             left: 50%;
-
-            @media ${mediaQueries.xs} {
-                ${(props) => props.top ? `top: ${theme.r200}` : `top: ${theme.r1200}`}
-            }
 
             @media ${mediaQueries.s} {
                 position: inherit;

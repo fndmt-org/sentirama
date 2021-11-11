@@ -13,7 +13,7 @@ import {
     CustomButton
 } from './moodResults.styles'
 import { SentiramaLogo } from '../../Styles/common.styles';
-import { ReactComponent as PencilIcon }  from '../../../assets/icons/arrow.svg';
+import { ReactComponent as PencilIcon }  from '../../../assets/icons/44/edit.svg';
 import * as ROUTES from '../../../constants/routes';
 
 const MoodResultsBase = (props) => {
@@ -81,9 +81,7 @@ const MoodResultsBase = (props) => {
     return (
         <MoodWrapper top>
             <SentiramaLogo/>
-            <MoodResultsWrapper
-                color={color}
-            >
+            <MoodResultsWrapper color={color}>
                 <div className="results-user">
                     <h1 className="results-message-wrapper">
                         <span>{`${username.charAt(0).toUpperCase()}${username.slice(1)}`},</span>
@@ -96,7 +94,7 @@ const MoodResultsBase = (props) => {
                         <span>{mood.toLowerCase()}</span>
                     </h1>
                     <CustomButton onClick={handleClick}>
-                        <PencilIcon></PencilIcon>
+                        <PencilIcon />
                         <FormattedMessage
                             id="yourMood.form.edit"
                             description=""

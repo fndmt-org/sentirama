@@ -6,7 +6,7 @@ import { MoodWrapper } from '../LayoutStyles/moodLayout.styles'
 import { MoodUserFormWrapper } from './moodUserForm.styles'
 
 import { SentiramaLogo } from '../../Styles/common.styles';
-import { ReactComponent as Arrow }  from '../../../assets/icons/arrow.svg';
+import { ReactComponent as Arrow }  from '../../../assets/icons/44/arrow.svg';
 import * as ROUTES from '../../../constants/routes';
 
 const MoodUserForm = (props) => {

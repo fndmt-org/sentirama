@@ -20,7 +20,7 @@ const AddMoodStyles = styled.form`
             flex-wrap: wrap;
             text-align: left;
             width: inherit;
-            height: 120px;
+            height: ${theme.r1200};
         }
 
         button {
@@ -42,27 +42,23 @@ const AddMoodStyles = styled.form`
 const EmojiSelect = styled.label`
     ${({ theme }) => css`
         display: flex;
+
         svg {
             box-shadow: ${theme.boxShadowBottom2};
             fill: ${theme.neutral000};
             border-radius: ${theme.round};
             ${iconSizes.big}
-            
+
             @media ${mediaQueries.xs} {
                 ${iconSizes.extraBig}
             }
-            
+
             @media ${mediaQueries.s} {
                 ${iconSizes.big}
             }
-
-            ${(props) => props.className === 'active' && `fill: ${props.theme.colorMain}`}
-            ${(props) => {
-    return props.value === 'good'
-        ? `background: ${props.theme.colorGoodMoodIcon}`
-        : `background: ${props.theme.colorBadMoodIcon}`
-}}
+            background: ${({value}) => value === 'good' ? theme.colorGoodMoodIcon : theme.colorBadMoodIcon};
         }
+
         .emoji-radio{
             display: none;
         }
@@ -75,7 +71,7 @@ const EmojiSet = styled.div`
         display: flex;
         flex-direction: column;
         gap: ${theme.r300};
-        
+
         @media ${mediaQueries.s} {
             flex-direction: row;
             gap: ${theme.r600};
