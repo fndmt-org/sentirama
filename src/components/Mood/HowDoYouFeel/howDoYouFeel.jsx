@@ -16,11 +16,11 @@ import {
 import {
     AddMoodStyles,
     EmojiSet,
-} from './addMood.styles';
+} from './howDoYouFeel.styles';
 
 import * as ROUTES from '../../../constants/routes';
 
-const AddMoodBase = (props) => {
+const HowDoYouFeelBase = (props) => {
     const history = useHistory();
 
     const onChange = event => {
@@ -63,14 +63,14 @@ const AddMoodBase = (props) => {
     );
 }
 
-const AddMood = compose(
+const HowDoYouFeel = compose(
     withRouter,
     withFirebase,
-)(AddMoodBase);
+)(HowDoYouFeelBase);
 
 
-const AddMoodRef = React.forwardRef((props, ref) =>
-    <AddMood innerRef={ref} {...props}/>);
+const HowDoYouFeelRef = React.forwardRef((props, ref) =>
+    <HowDoYouFeel innerRef={ref} {...props}/>);
 
 
-export { AddMood, AddMoodRef };
+export { HowDoYouFeel, HowDoYouFeelRef };

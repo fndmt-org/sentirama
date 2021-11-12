@@ -1,16 +1,13 @@
 import styled, { css } from 'styled-components';
 import mediaQueries from '../../Styles/mediaQueries.styles';
 
-const EmojiSelected = styled.div`
-    margin-left: 18px;
-`;
-
 const MoodSelector = styled.ul`
-    align-items: stretch;
     display: flex;
+    flex-direction: column;
     height: 100%;
     overflow-x: auto;
-    flex-direction: column;
+    width: 100%;
+
     @media ${mediaQueries.s} {
         flex-direction: row;
     }
@@ -18,23 +15,26 @@ const MoodSelector = styled.ul`
 
 const MoodSelectorItem = styled.li`
     ${({ theme }) => css`
-        align-self: center;
-        justify-content: center;
-        padding: 0 ${theme.r050};
-        text-align: center;
-        cursor: pointer;
-        height: 100%;
-        background-color: ${props => props.color};
-        color: ${theme.neutral050};
-        min-width: ${theme.r1600};
-        font-size: ${theme.fontB};
-
-        @media ${mediaQueries.xs} {
-            padding: 0 ${theme.r200};
-        }
+        border-bottom: 1px solid ${theme.neutral050};
+        display: flex;
 
         @media ${mediaQueries.s} {
-            padding: 0;
+            border-left: 1px solid ${theme.neutral050};
+        }
+
+    `}
+`;
+
+const MoodSelectorButton = styled.button`
+    ${({ theme }) => css`
+        background-color: ${props => props.color};
+        color: ${theme.neutral050};
+        font-size: ${theme.fontB};
+        min-height: ${theme.r1200};
+        min-width: 100%;
+
+        @media ${mediaQueries.s} {
+            min-width: ${theme.r1600};
         }
     `}
 `;
@@ -42,5 +42,5 @@ const MoodSelectorItem = styled.li`
 export {
     MoodSelector,
     MoodSelectorItem,
-    EmojiSelected
+    MoodSelectorButton,
 };

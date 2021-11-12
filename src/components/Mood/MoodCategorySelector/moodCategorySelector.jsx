@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 
 import { useBasicMoods } from '../../../customHooks/useBasicMoods'
 import { MoodWrapper, SentiramaLogoWrapper } from '../LayoutStyles/moodLayout.styles'
-import { MoodSelector, MoodSelectorItem } from './moodCategorySelector.styles'
+import { MoodSelector, MoodSelectorItem, MoodSelectorButton } from './moodCategorySelector.styles'
 import * as ROUTES from '../../../constants/routes';
 
 const MoodCategorySelector = ({ uuid, category }) => {
@@ -26,16 +26,16 @@ const MoodCategorySelector = ({ uuid, category }) => {
         <MoodWrapper>
             <SentiramaLogoWrapper />
             <MoodSelector>
-                {filteredMoods.map(mood => {
-                    return (
-                        <MoodSelectorItem
+                {filteredMoods.map(mood => (
+                    <MoodSelectorItem
+                        key={mood.mood}>
+                        <MoodSelectorButton
                             color={mood.color}
-                            key={mood.mood}
-                            onClick={() => handleClickMood(mood)}
-                        >
+                            onClick={() => handleClickMood(mood)}>
                             {mood.mood}
-                        </MoodSelectorItem>
-                    )}
+                        </MoodSelectorButton>
+                    </MoodSelectorItem>
+                )
                 )}
             </MoodSelector>
         </MoodWrapper>

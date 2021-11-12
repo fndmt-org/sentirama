@@ -12,14 +12,6 @@ const MoodWrapper = styled.div`
     @media ${mediaQueries.s} {
         flex-direction: row;
     }
-        /* @media ${mediaQueries.s} {
-            display: flex;
-            justify-content: flex-start;
-            height: 100vh;
-            align-items: center;
-            display: flex;
-            height: ${theme.r1200};
-        } */
 
     `}
 `;
@@ -33,8 +25,8 @@ const TitleBase = css`
 const TitleFormStyles = styled.h1`
     ${({ theme }) => css`
         ${TitleBase}
-        font-weight: ${theme.fontRegular};
         font-size: ${theme.fontXL};
+        font-weight: ${theme.fontRegular};
         margin-bottom: ${theme.r400};
 
 
@@ -56,6 +48,7 @@ const SentiramaLogoWrapper = styled(SentiramaLogo)`
     ${({ theme }) => css`
         margin: ${theme.r200};
         flex: 0 0 ${theme.r300};
+
         @media ${mediaQueries.s} {
             flex: 0 0 ${theme.r1000};
         }
