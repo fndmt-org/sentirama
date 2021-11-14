@@ -4,7 +4,7 @@ import responsiveFonts from '../../Styles/responsiveFonts.styles';
 import mediaQueries from '../../Styles/mediaQueries.styles';
 import { iconSizes } from '../../Styles/iconSizes.styles';
 
-const AddMoodStyles = styled.form`
+const HowDoYouFeelStyles = styled.form`
     ${({ theme }) => css`
         padding: ${theme.r075};
         align-items: center;
@@ -80,7 +80,7 @@ const EmojiSet = styled.div`
 `;
 
 export {
-    AddMoodStyles,
+    HowDoYouFeelStyles,
     EmojiSelect,
     EmojiSet,
 }

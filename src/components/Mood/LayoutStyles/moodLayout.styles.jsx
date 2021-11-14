@@ -5,36 +5,29 @@ import { SentiramaLogo }  from '../../Styles/common.styles';
 
 const MoodWrapper = styled.div`
     ${({ theme }) => css`
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+        align-items: center;
+        background-color: ${props => props.color};
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        min-width: 100%;
 
-    @media ${mediaQueries.s} {
-        flex-direction: row;
-    }
-
-    `}
-`;
-
-const TitleBase = css`
-    ${({ theme }) => css`
-        font-weight: ${theme.fontBold};
+        @media ${mediaQueries.s} {
+            flex-direction: row;
+        }
     `}
 `;
 
 const TitleFormStyles = styled.h1`
     ${({ theme }) => css`
-        ${TitleBase}
         font-size: ${theme.fontXL};
         font-weight: ${theme.fontRegular};
-        margin-bottom: ${theme.r400};
-
+        text-align: center;
+        align-self: center;
 
         @media ${mediaQueries.s} {
             width: inherit;
-            margin: 0 ${theme.r400};
         }
-
     `}
 `;
 

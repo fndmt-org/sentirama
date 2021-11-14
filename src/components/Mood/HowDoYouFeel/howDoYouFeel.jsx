@@ -14,7 +14,7 @@ import {
     TitleFormStyles
 } from '../LayoutStyles/moodLayout.styles'
 import {
-    AddMoodStyles,
+    HowDoYouFeelStyles,
     EmojiSet,
 } from './howDoYouFeel.styles';
 
@@ -43,12 +43,12 @@ const HowDoYouFeelBase = (props) => {
     return (
         <MoodWrapper>
             <SentiramaLogoWrapper />
-            <AddMoodStyles>
+            <HowDoYouFeelStyles>
                 <TitleFormStyles>
                     <FormattedMessage
                         id="yourMood.form.title"
                         description="Add Sentirama first question"
-                        defaultMessage="¿Cómo te sientes hoy?"/>
+                        defaultMessage="¿Cómo te sientes?"/>
                 </TitleFormStyles>
                 <EmojiSet>
                     {emojis.map(item =>
@@ -58,7 +58,7 @@ const HowDoYouFeelBase = (props) => {
                             onChange={onChange}/>
                     )}
                 </EmojiSet>
-            </AddMoodStyles>
+            </HowDoYouFeelStyles>
         </MoodWrapper>
     );
 }

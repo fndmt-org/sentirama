@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import WebFont from 'webfontloader';
 import { ThemeProvider } from 'styled-components'
 import { IntlProvider } from 'react-intl';

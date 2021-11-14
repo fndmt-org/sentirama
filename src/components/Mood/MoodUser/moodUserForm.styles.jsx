@@ -1,106 +1,61 @@
 import styled, { css } from 'styled-components';
 import mediaQueries from '../../Styles/mediaQueries.styles';
+import { IconButton } from '../../Styles/buttons.styles';
 
-const MoodUserFormWrapper = styled.form`
+const UserFormWrapper = styled.form`
+    align-items: stretch;
+    background-color: ${props => props.color};
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+    width: 100%;
+
+    @media ${mediaQueries.s} {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+`;
+
+const FieldWrapper = styled.div`
     ${({ theme }) => css`
-        display: flex;
+        align-content: flex-start;
         align-items: center;
-        padding: ${theme.r100} ${theme.r050} 0;
-        width: 100%;
-        height: 100%;
+        display: flex;
         flex-direction: column;
-        gap: ${theme.r300};
-        margin-top: ${theme.r1500};
-        background-color: ${props => props.color};
+        justify-content: center;
+        padding: ${theme.r200};
+        width: 100%;
+    `}
+`;
 
-        @media ${mediaQueries.xs} {
-            padding: ${theme.r075} ${theme.r050};
-        }
+const FieldLabel = styled.label`
+    ${({ theme }) => css`
+        position: absolute;
+        font-size: ${theme.fontS};
+        transform: translate(0, -${theme.r350});
+        align-self: flex-start;
+        visibility: ${props => props.showLabel ? 'visible' : 'hidden'};
+    `}
+`;
+
+const IconButtonNext = styled(IconButton)`
+    ${({ theme }) => css`
+        margin: ${theme.r200};
 
         @media ${mediaQueries.s} {
-            flex-direction: row;
-            justify-content: space-between;
-            gap: inherit;
-            height: inherit;
-            margin-top: inherit;
-            padding: ${theme.r050} ${theme.r075};
-        }
-
-        > h1 {
-            color: ${theme.neutral000};
-            font-size: ${theme.r250};
-
-            @media ${mediaQueries.xs} {
-                margin-bottom: ${theme.r400};
-            }
-
-            @media ${mediaQueries.s} {
-                font-size: ${theme.r300};
-                margin-bottom: inherit;
-            }
-        }
-
-        > div {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: flex-end;
-            width: 100%;
-
-            @media ${mediaQueries.s} {
-                flex-direction: row;
-            }
-        }
-
-        input {
-            border-radius: ${theme.formFieldBorderRadius};
-            border: 2px solid ${theme.neutral999};
-            padding: ${theme.r100};
-            width: 100%;
-            color: ${theme.neutral600};
-            font-size: ${theme.fontS};
-            line-height: ${theme.lineHeightXS};
-            margin-bottom: ${theme.r350};
-
-            @media ${mediaQueries.s} {
-                width: inherit;
-                margin-bottom: inherit;
-                margin: 0 ${theme.r250};
-            }
-
-            @media ${mediaQueries.m} {
-                max-width: ${theme.r2500};
-            }
-
-            @media ${mediaQueries.l} {
-                max-width: 60%;
-            }
-        }
-
-        button {
-            width: ${theme.iconSizeThumb};
-            height: ${theme.iconSizeThumb};
-            border-radius: ${theme.round};
-            color: ${theme.neutral000};
-            background: ${theme.neutral999};
-            cursor: pointer;
-
-            @media ${mediaQueries.xs} {
-                width: 100%;
-                border-radius: ${theme.round};
-            }
-
-            @media ${mediaQueries.s} {
-                width: ${theme.iconSizeThumb};
-            }
-
-            > svg {
-                width: ${theme.iconSizeThumb};
-            }
+            align-self: center;
+            margin-left: 0;
+            margin-right: ${theme.r400};
+            max-height: ${theme.iconSizeThumb};
+            max-width: ${theme.iconSizeThumb};
         }
     `}
 `;
 
 export {
-    MoodUserFormWrapper
+    FieldLabel,
+    FieldWrapper,
+    IconButtonNext,
+    UserFormWrapper,
 };
