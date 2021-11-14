@@ -4,15 +4,21 @@ import { FormattedMessage } from 'react-intl';
 import { compose } from 'recompose';
 import { withFirebase } from '../../Firebase';
 
-import { MoodWrapper, SentiramaLogoWrapper } from '../LayoutStyles/moodLayout.styles'
 import {
-    MoodResultsWrapper,
+    MoodWrapper,
+    SentiramaLogoWrapper,
+    TitleFormStylesLigth,
+} from '../LayoutStyles/moodLayout.styles'
+import {
+    CustomButton,
+    MoodResultAverageTitle,
     MoodResultAverageWrapper,
     MoodResultMet,
+    MoodResultsUser,
+    MoodResultsWrapper,
     MoodResultUnMet,
-    CustomButton
+    PencilIconStyles,
 } from './moodResults.styles'
-import { ReactComponent as PencilIcon }  from '../../../assets/icons/44/edit.svg';
 import * as ROUTES from '../../../constants/routes';
 
 const MoodResultsBase = (props) => {
@@ -78,35 +84,38 @@ const MoodResultsBase = (props) => {
     }, [mood, username]);
 
     return (
-        <MoodWrapper top>
+        <MoodWrapper>
             <SentiramaLogoWrapper/>
-            <MoodResultsWrapper color={color}>
-                <div className="results-user">
-                    <h1 className="results-message-wrapper">
-                        <span>{`${username.charAt(0).toUpperCase()}${username.slice(1)}`},</span>
-                        <span className="results-user-message">
-                            <FormattedMessage
-                                id="yourMood.form.resultsMessage"
-                                description=""
-                                defaultMessage=""/>
-                        </span>
-                        <span>{mood.toLowerCase()}</span>
-                    </h1>
+            <MoodResultsWrapper>
+                <MoodResultsUser color={color}>
+                    <TitleFormStylesLigth>
+                        <FormattedMessage
+                            id="yourMood.form.resultsMessage"
+                            description="User name"
+                            defaultMessage="{name}, al {action} sientes {feeling}"
+                            values={
+                                {
+                                    action: "leer este artículo",
+                                    name: `${username.charAt(0).toUpperCase()}${username.slice(1)}`,
+                                    feeling: mood.toLowerCase(),
+                                }
+                            }/>
+                    </TitleFormStylesLigth>
                     <CustomButton onClick={handleClick}>
-                        <PencilIcon />
+                        <PencilIconStyles />
                         <FormattedMessage
                             id="yourMood.form.edit"
-                            description=""
-                            defaultMessage=""/>
+                            description="edit button"
+                            defaultMessage="edit"/>
                     </CustomButton>
-                </div>
-                <span className="results-average-message">
+                </MoodResultsUser>
+                <MoodResultAverageTitle>
                     <FormattedMessage
                         id="yourMood.form.allAnswers"
-                        description=""
-                        defaultMessage=""/>
-                </span>
-                <MoodResultAverageWrapper className="results-average">
+                        description="all results title"
+                        defaultMessage="All results"/>
+                </MoodResultAverageTitle>
+                <MoodResultAverageWrapper>
                     <MoodResultMet value={positiveNumberMoodsPercent}>
                         {positiveNumberMoodsPercent}%
                     </MoodResultMet>

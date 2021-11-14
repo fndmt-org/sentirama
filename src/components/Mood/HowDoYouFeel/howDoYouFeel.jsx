@@ -23,8 +23,8 @@ import * as ROUTES from '../../../constants/routes';
 const HowDoYouFeelBase = (props) => {
     const history = useHistory();
 
-    const onChange = event => {
-        const category = event.target.value;
+    const onClick = value => {
+        const category = value;
         // TODO move uuid to session storage
         const uuid = uuidv4();
         history.push({
@@ -55,7 +55,7 @@ const HowDoYouFeelBase = (props) => {
                         <EmojiItem
                             value={item}
                             key={item}
-                            onChange={onChange}/>
+                            onClick={onClick}/>
                     )}
                 </EmojiSet>
             </HowDoYouFeelStyles>

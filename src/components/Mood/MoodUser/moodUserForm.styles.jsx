@@ -31,10 +31,10 @@ const FieldWrapper = styled.div`
 
 const FieldLabel = styled.label`
     ${({ theme }) => css`
-        position: absolute;
-        font-size: ${theme.fontS};
-        transform: translate(0, -${theme.r350});
         align-self: flex-start;
+        font-size: ${theme.fontS};
+        position: absolute;
+        transform: translate(0, -${theme.r350});
         visibility: ${props => props.showLabel ? 'visible' : 'hidden'};
     `}
 `;

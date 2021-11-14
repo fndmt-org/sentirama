@@ -1,5 +1,5 @@
 // Font
-const fontSourceFamilies = ['Nunito+Sans:300,400,700'];
+const fontSourceFamilies = ['Nunito+Sans:300,400,800'];
 const fontSetBase = 'Nunito Sans';
 const fontSizeBase = '62.5%'; // default 10px
 const fontStyleBase = 'normal';
@@ -16,7 +16,7 @@ export const fontSizes = {
 };
 
 export const fontWeight = {
-    fontBold: '700',
+    fontBold: '800',
     fontRegular: '400',
     fontLight: '300',
 };

@@ -1,86 +1,85 @@
 import styled, { css } from 'styled-components';
 
-import responsiveFonts from '../../Styles/responsiveFonts.styles';
+import { ReactComponent as Met }  from '../../../assets/icons/44/smile.svg';
+import { ReactComponent as UnMet }  from '../../../assets/icons/44/frown.svg';
 import mediaQueries from '../../Styles/mediaQueries.styles';
 import { iconSizes } from '../../Styles/iconSizes.styles';
+import { IconButton } from '../../Styles/buttons.styles';
 
 const HowDoYouFeelStyles = styled.form`
     ${({ theme }) => css`
         padding: ${theme.r075};
+        background-color: ${theme.neutral050};
         align-items: center;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         flex-direction: column;
         text-align: center;
-
-        ${responsiveFonts.BtoL}
+        height: 100%;
+        width: 100%;
 
         @media ${mediaQueries.s} {
             flex-direction: row;
-            flex-wrap: wrap;
-            text-align: left;
-            width: inherit;
-            height: ${theme.r1200};
-        }
-
-        button {
-            @media ${mediaQueries.xs} {
-                width: ${theme.r2000};
-            }
-
-            @media ${mediaQueries.s} {
-                margin-left: ${theme.r100};
-            }
-        }
-
-        label {
-            color: ${theme.neutral600 };
         }
     `}
 `;
 
-const EmojiSelect = styled.label`
-    ${({ theme }) => css`
+const EmojiButton = styled(IconButton)`
+    ${({ theme, value }) => css`
+        background: none;
+        background: ${value === 'good' ? theme.colorGoodMoodIcon : theme.colorBadMoodIcon};
+        color: ${theme.neutral000};
         display: flex;
+        margin: ${theme.r200};
+        overflow: hidden;
 
-        svg {
-            box-shadow: ${theme.boxShadowBottom2};
-            fill: ${theme.neutral000};
-            border-radius: ${theme.round};
-            ${iconSizes.big}
-
-            @media ${mediaQueries.xs} {
-                ${iconSizes.extraBig}
-            }
-
-            @media ${mediaQueries.s} {
-                ${iconSizes.big}
-            }
-            background: ${({value}) => value === 'good' ? theme.colorGoodMoodIcon : theme.colorBadMoodIcon};
+        @media ${mediaQueries.s} {
+            align-self: center;
+            margin-left: 0;
+            margin: ${theme.r400};
+            /* max-height: ${theme.iconSizeThumb};
+            max-width: ${theme.iconSizeThumb}; */
         }
 
-        .emoji-radio{
-            display: none;
+        ${iconSizes.big}
+
+        @media ${mediaQueries.xs} {
+            ${iconSizes.extraBig}
+            justify-content: center;
+        }
+
+        @media ${mediaQueries.s} {
+            ${iconSizes.big}
         }
     `}
 `;
 
 const EmojiSet = styled.div`
-    ${({ theme }) => css`
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        gap: ${theme.r300};
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 
-        @media ${mediaQueries.s} {
-            flex-direction: row;
-            gap: ${theme.r600};
-        }
+    @media ${mediaQueries.s} {
+        flex-direction: row;
+    }
+`;
+
+const MetIcon = styled(Met)`
+    ${({ theme }) => css`
+        /* background: ${theme.colorGoodMoodIcon}; */
+    `}
+`;
+
+const UnMetIcon = styled(UnMet)`
+    ${({ theme }) => css`
+        /* background: ${theme.colorBadMoodIcon}; */
     `}
 `;
 
 export {
     HowDoYouFeelStyles,
-    EmojiSelect,
+    EmojiButton,
     EmojiSet,
+    MetIcon,
+    UnMetIcon,
 }
