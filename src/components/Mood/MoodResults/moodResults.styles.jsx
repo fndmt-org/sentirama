@@ -1,147 +1,131 @@
-import styled from 'styled-components';
-import themeDefaultImport from '../../Styles/basicVariables.styles';
+import styled, { css } from 'styled-components';
+
 import mediaQueries from '../../Styles/mediaQueries.styles';
+import { ReactComponent as PencilIcon }  from '../../../assets/icons/24/edit.svg';
+import { ReactComponent as Met }  from '../../../assets/icons/24/smile.svg';
+import { ReactComponent as UnMet }  from '../../../assets/icons/24/frown.svg';
+import { iconSizes } from '../../Styles/iconSizes.styles';
 
 const MoodResultsWrapper = styled.div`
+    height: 100%;
+    text-align: center;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-self: flex-end;
-    width: 100%;
+    justify-content: space-between;
+`;
 
-    @media ${mediaQueries.s} {
-        align-self: inherit;
-    }
-
-    > div,
-    > span,
-    > h1 {
-        text-align: center;
-    }
-
-    .results-user {
-        background-color: ${props => props.color};
-        padding: 0 ${themeDefaultImport.r150};
-        display: flex;
+const MoodResultsUser = styled.div`
+    ${({ theme }) => css`
         align-items: center;
-        justify-content: center;
+        background-color: ${props => props.color};
+        display: flex;
         flex-direction: column;
-        height: calc(100vh - 120px);
-
-        @media ${mediaQueries.xs} {
-            padding: 0 ${themeDefaultImport.r400};
-        }
+        justify-content: center;
+        height: 100%;
 
         @media ${mediaQueries.s} {
             flex-direction: row;
-            height: 80px;
         }
-    }
-
-    .results-message-wrapper {
-        display: inline-block;
-        font-size: ${themeDefaultImport.fontB};
-        margin-bottom: ${themeDefaultImport.r150};
-
-        @media ${mediaQueries.xs} {
-            font-size: ${themeDefaultImport.fontXXL};
-        }
-
-        @media ${mediaQueries.s} {
-            margin-bottom: inherit;
-        }
-    }
-
-    .results-user-message {
-        margin: 0 8px;
-    }
-
-    .results-average-message,
-    .results-average {
-        font-size: ${themeDefaultImport.fontB};
-        line-height: ${themeDefaultImport.lineHeightS};
-    }
-
-    .results-average-message {
-        height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        @media ${mediaQueries.s} {
-            height: inherit;
-            display: block;
-        }
-    }
-
-    .results-average {
-        display: flex;
-        justify-content: center;
-
-        > div {
-            flex-grow: 1;
-            padding: 0 8px;
-        }
-
-        .good-average {
-            text-align: right;
-        }
-
-        .bad-average {
-            text-align: left;
-        }
-    }
-
-    .results-user,
-    .results-average {
-        color: ${themeDefaultImport.neutral000}
-    }
-
-    .good-average{
-        background-color: #219653; // HARDCODED
-    }
-
-    .bad-average{
-        background-color: #B43F3D; // HARDCODED
-    }
+    `}
 `;
 
 const CustomButton = styled.button`
-    background-color: transparent;
-    color: ${themeDefaultImport.neutral000};
-    font-size: ${themeDefaultImport.fontB};
-    margin-right: ${themeDefaultImport.r150};
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+    ${({ theme }) => css`
+        background-color: transparent;
+        color: ${theme.neutral000};
+        font-size: ${theme.fontB};
+        margin-top: ${theme.r150};
+        display: flex;
+        align-items: center;
+        text-decoration: underline;
 
-    @media ${mediaQueries.s} {
-        margin-left: ${themeDefaultImport.r200};
-        margin-right: inherit;
-    }
+        :hover {
+            text-decoration: none;
+        }
 
-    > svg {
-        width: 40px;
-    }
+        @media ${mediaQueries.s} {
+            margin-top: inherit;
+            margin-left: ${theme.r200};
+            margin-right: inherit;
+        }
+    `}
+`;
+
+const MoodResultAverageTitle = styled.h2`
+    ${({ theme }) => css`
+        font-size: ${theme.fontS};
+        font-weight: ${theme.fontBold};
+        color: ${theme.neutral700};
+        padding: ${theme.r050};
+        text-transform: uppercase;
+    `}
 `;
 
 const MoodResultAverageWrapper = styled.div`
-    color: ${themeDefaultImport.neutral000};
+    ${({ theme }) => css`
+        display: flex;
+        justify-content: center;
+        font-size: ${theme.fontB};
+        font-weight: ${theme.fontBold};
+        color: ${theme.neutral000};
+    `}
+`;
+
+const moodRibbon = css`
+    ${({ theme }) => css`
+        display: flex;
+        gap: ${theme.r050};
+        align-items: center;
+        justify-content: center;
+        width: ${({value}) =>value}%;
+    `}
 `;
 
 const MoodResultMet = styled.div`
-    width: ${({value}) =>value}%;
-    background-color: #219653; // HARDCODED
+    ${({ theme }) => css`
+        ${moodRibbon}
+        background-color: ${theme.colorGoodMoodIcon};
+    `}
 `;
 
 const MoodResultUnMet = styled.div`
-    width: ${({value}) =>value}%;
-    background-color: #B43F3D; // HARDCODED
+    ${({ theme }) => css`
+        ${moodRibbon}
+        background-color: ${theme.colorBadMoodIcon};
+    `}
+`;
+
+const PencilIconStyles = styled(PencilIcon)`
+    ${({ theme }) => css`
+        ${iconSizes.M}
+        margin-right: ${theme.r050};
+    `}
+`;
+
+const IconsSize = css`
+    position: relative; // Shame
+    top: 1px; // Shame
+    ${iconSizes.default}
+`;
+
+const MetIcon = styled(Met)`
+    ${IconsSize}
+`;
+
+const UnMetIcon = styled(UnMet)`
+    ${IconsSize}
 `;
 
 export {
+    CustomButton,
+    MoodResultAverageTitle,
     MoodResultAverageWrapper,
     MoodResultMet,
-    MoodResultUnMet,
+    MoodResultsUser,
     MoodResultsWrapper,
-    CustomButton
+    MoodResultUnMet,
+    PencilIconStyles,
+    MetIcon,
+    UnMetIcon,
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import responsiveFonts from './responsiveFonts.styles';
 
-const IconButtonsMods = {
+const IconButtonMods = {
     enabled: css`
         ${({ theme }) => css`
             background-color: ${theme.buttonPrimaryBgColor
@@ -24,22 +24,31 @@ const IconButtonsMods = {
     `,
 }
 
-const IconButtons = styled.button`
+const IconButton = styled.button`
     ${({ theme }) => css`
+
+
         background-clip: padding-box;
         border: 0;
         border-radius: ${theme.buttonRounded || theme.round};
         display: inline-block;
         font-size: ${({ theme }) => theme.iconSizeThumb};
+        font-size: ${({ width }) => width};
         letter-spacing: inherit;
-        padding: ${theme.r050};
+        line-height: 0;
         text-align: center;
         text-decoration: none;
         text-transform: inherit;
         ${(props) => props.disabled
-    ? IconButtonsMods.disabled
-    : IconButtonsMods.enabled
+    ? IconButtonMods.disabled
+    : IconButtonMods.enabled
         }
+
+        &:focus {
+            outline: ${theme.outline};
+            outline-offset: 0;
+        }
+
         svg {
             height: 1em;
             width: 1em;
@@ -334,7 +343,7 @@ Button.defaultProps = {
 };
 
 export {
-    IconButtons,
+    IconButton,
     disabled,
     mods,
 };

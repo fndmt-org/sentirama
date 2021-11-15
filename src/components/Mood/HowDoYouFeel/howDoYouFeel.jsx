@@ -10,67 +10,67 @@ import EmojiItem from '../emojis';
 
 import {
     MoodWrapper,
+    SentiramaLogoWrapper,
     TitleFormStyles
 } from '../LayoutStyles/moodLayout.styles'
 import {
-    AddMoodStyles,
+    HowDoYouFeelStyles,
     EmojiSet,
-} from './addMood.styles';
+} from './howDoYouFeel.styles';
 
 import * as ROUTES from '../../../constants/routes';
-import { SentiramaLogo }  from '../../Styles/common.styles';
 
-const AddMoodBase = (props) => {
+const HowDoYouFeelBase = (props) => {
     const history = useHistory();
 
-    const onChange = event => {
-        const category = event.target.value;
+    const onClick = value => {
+        const set = value;
         // TODO move uuid to session storage
         const uuid = uuidv4();
         history.push({
             pathname: ROUTES.MOOD_CATEGORY_SELECTOR,
             state: {
-                category,
+                set,
                 uuid,
             }
         })
     };
     const emojis = [
-        'good',
-        'bad'
+        'met',
+        'unmet'
     ];
 
     return (
         <MoodWrapper>
-            <AddMoodStyles>
-                <SentiramaLogo />
+            <SentiramaLogoWrapper />
+            <HowDoYouFeelStyles>
                 <TitleFormStyles>
                     <FormattedMessage
                         id="yourMood.form.title"
                         description="Add Sentirama first question"
-                        defaultMessage="¿Cómo te sientes hoy?"/>
+                        defaultMessage="¿Cómo te sientes?"/>
                 </TitleFormStyles>
                 <EmojiSet>
                     {emojis.map(item =>
                         <EmojiItem
                             value={item}
                             key={item}
-                            onChange={onChange}/>
+                            onClick={onClick}/>
                     )}
                 </EmojiSet>
-            </AddMoodStyles>
+            </HowDoYouFeelStyles>
         </MoodWrapper>
     );
 }
 
-const AddMood = compose(
+const HowDoYouFeel = compose(
     withRouter,
     withFirebase,
-)(AddMoodBase);
+)(HowDoYouFeelBase);
 
 
-const AddMoodRef = React.forwardRef((props, ref) =>
-    <AddMood innerRef={ref} {...props}/>);
+const HowDoYouFeelRef = React.forwardRef((props, ref) =>
+    <HowDoYouFeel innerRef={ref} {...props}/>);
 
 
-export { AddMood, AddMoodRef };
+export { HowDoYouFeel, HowDoYouFeelRef };

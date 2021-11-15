@@ -1,6 +1,6 @@
 // Font
-const fontSourceFamilies = ['Nunito+Sans:300,400,700'];
-const fontSetBase = 'Nunito Sans';
+const fontSourceFamilies = ['Shippori+Antique+B1:400'];
+const fontSetBase = 'Shippori Antique B1';
 const fontSizeBase = '62.5%'; // default 10px
 const fontStyleBase = 'normal';
 
@@ -16,9 +16,9 @@ export const fontSizes = {
 };
 
 export const fontWeight = {
-    fontBold: '700',
+    fontBold: '400',
     fontRegular: '400',
-    fontLight: '300',
+    fontLight: '400',
 };
 
 export const lineHeight = {
@@ -72,23 +72,23 @@ export const neutrals = {
 };
 
 export const mainColors = {
-    colorMain: 'hsla(45, 37%, 54%, 1)',
-    colorMain025: 'hsla(45, 37%, 98%, 1)',
-    colorMain050: 'hsla(45, 37%, 95%, 1)',
-    colorMain100: 'hsla(45, 37%, 90%, 1)',
-    colorMain300: 'hsla(45, 37%, 70%, 1)',
-    colorMain500: 'hsla(45, 37%, 50%, 1)',
-    colorMain700: 'hsla(45, 37%, 30%, 1)',
-    colorMain900: 'hsla(45, 37%, 10%, 1)',
+    colorCustom: 'hsla(214, 96%, 36%, 1)',
+    colorCustom025: 'hsla(214, 96%, 98%, 1)',
+    colorCustom050: 'hsla(214, 96%, 95%, 1)',
+    colorCustom100: 'hsla(214, 96%, 90%, 1)',
+    colorCustom300: 'hsla(214, 96%, 70%, 1)',
+    colorCustom500: 'hsla(214, 96%, 50%, 1)',
+    colorCustom700: 'hsla(214, 96%, 30%, 1)',
+    colorCustom900: 'hsla(214, 96%, 10%, 1)',
 };
 
 export const customColors = {
-    colorCustom: 'hsla(230, 95%, 37%, 1)',
-    colorCustom100: 'hsla(230, 95%, 90%, 1)',
-    colorCustom300: 'hsla(230, 95%, 70%, 1)',
-    colorCustom500: 'hsla(230, 95%, 50%, 1)',
-    colorCustom700: 'hsla(230, 95%, 30%, 1)',
-    colorCustom900: 'hsla(230, 95%, 10%, 1)',
+    colorMain: 'hsla(0, 0%, 10%, 1)',
+    colorMain100: 'hsla(0, 0%, 90%, 1)',
+    colorMain300: 'hsla(0, 0%, 70%, 1)',
+    colorMain500: 'hsla(0, 0%, 50%, 1)',
+    colorMain700: 'hsla(0, 0%, 30%, 1)',
+    colorMain900: 'hsla(0, 0%, 10%, 1)',
 };
 
 export const successColors = {
@@ -127,8 +127,8 @@ export const colors = {
     ...errorColors,
     ...warningColors,
 
-    colorGoodMoodIcon: 'hsla(145, 63%, 35%, 1)',
-    colorBadMoodIcon: 'hsla(28, 86%, 61%, 1)',
+    colorGoodMoodIcon: 'hsla(80, 63%,45%, 1)',
+    colorBadMoodIcon: 'hsla(0, 86%, 61%, 1)',
 };
 
 const layers = {
@@ -276,7 +276,6 @@ export const formSettings = {
     formFieldBorderRadius: rhythm.r300,
     formFieldBorder: `${borders.borderWidthS} solid ${formColors.formFieldColor}`,
     formFieldBorderFocus: `${borders.borderWidthM} solid ${formColors.formFieldColorFocus}`,
-    formFieldRound: rhythm.r050,
 };
 
 export const form = {
@@ -344,11 +343,10 @@ const base = {
     // buttonPrimaryBorder: 0,
     // buttonSecondaryBorder: `1px solid ${colors.colorAlmostLight}`
     // buttonTextTransform: `1px solid ${colors.colorAlmostLight}`
-    // outline: `1px solid ${colors.neutral500}`,
+    outline: `2px solid ${colors.neutral900}`,
     // outlineDark: `1px solid ${colors.neutral200}`,
     // outlineLight: `1px solid ${colors.neutral200}`,
     /* DON'T DELETE  optional variables [end] */
-    outline: 'none',
     lineHeightField: defaultThumbSize,
 };
 

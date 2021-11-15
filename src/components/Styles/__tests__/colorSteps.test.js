@@ -29,8 +29,8 @@ describe('color steps functions:', () => {
 });
 
 test('color steps generate 3 steps', () => {
-    const colorStart = 'hsla(0, 100%, 50%, 1)';
-    const colorEnd = 'hsla(120, 100%, 50%, 1)';
+    const colorStart = 'hsla(0,100%,50%,1)';
+    const colorEnd = 'hsla(120,100%,50%,1)';
     const params = {
         colorStart,
         colorEnd,
@@ -38,7 +38,7 @@ test('color steps generate 3 steps', () => {
     };
     const colorGenerated = generateColorSteps(params);
 
-    const expected = [colorStart, 'hsla(40, 100%, 50%, 1)', 'hsla(80, 100%, 50%, 1)', colorEnd];
+    const expected = [colorStart, 'hsla(40,100%,50%,1)', 'hsla(80,100%,50%,1)', colorEnd];
 
     expect(colorGenerated).toStrictEqual(expected);
     //expect(colorGenerated).toBe(expected);

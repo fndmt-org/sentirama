@@ -1,9 +1,8 @@
 {
-  "yourMood.form.emoji": "Select a face:",
-  "yourMood.form.placeholder.mood": "Your mood in one word",
-  "yourMood.form.placeholder.name": "Your name/nikname",
+  "yourMood.userForm.placeholder.name": "Your name/nikname",
+  "yourMood.userForm.youFeel": "You feel {feeling}",
   "yourMood.form.title": "How do you feel?",
-  "yourMood.form.resultsMessage": "when reading this news you feel",
-  "yourMood.form.allAnswers": "all the answers",
+  "yourMood.form.resultsMessage": "you feel {feeling} when {var}",
+  "yourMood.form.allAnswers": "{allMoods} answers",
   "yourMood.form.edit": "edit"
 }

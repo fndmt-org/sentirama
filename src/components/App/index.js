@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import WebFont from 'webfontloader';
 import { ThemeProvider } from 'styled-components'
 import { IntlProvider } from 'react-intl';
@@ -12,7 +12,6 @@ import MoodCategorySelector from '../Mood/MoodCategorySelector';
 import MoodUser from '../Mood/MoodUser';
 import MoodResults from '../Mood/MoodResults';
 
-import English from '../../lang/en';
 import Spanish from '../../lang/es';
 
 import * as ROUTES from '../../constants/routes';
@@ -28,38 +27,13 @@ WebFont.load({
     },
 });
 
-const local = navigator.language;
-let lang;
-if (local==="es") {
-    lang = Spanish;
-} else {
-    lang = English;
-}
-
 
 const App = () => {
-    const [locale, setLocale] = useState(local);
-    const [messages, setMessages] = useState(lang);
-
-    function selectLanguage(e) {
-        const newLocale = e.target.value;
-        setLocale(newLocale);
-        if (newLocale === 'es') {
-            setMessages(Spanish);
-        } else {
-            setMessages(English);
-        }
-    }
-
     return (
         <ThemeProvider theme={theme}>
             <GlobalStyle />
-            <IntlProvider messages={messages} locale={locale}>
+            <IntlProvider messages={Spanish} locale={"es"}>
                 <Router>
-                    {/* <select value = {locale} onChange={selectLanguage}>
-                        <option value='en'>English</option>
-                        <option value='es'>Español</option>
-                    </select> */}
                     <Route exact path={ROUTES.LANDING} component={LandingPage} />
                     <Route path={ROUTES.MOOD_CATEGORY_SELECTOR} component={MoodCategorySelector} />
                     <Route path={ROUTES.MOOD_USER} component={MoodUser} />
