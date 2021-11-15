@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components';
+
 import mediaQueries from '../../Styles/mediaQueries.styles';
 import { ReactComponent as PencilIcon }  from '../../../assets/icons/24/edit.svg';
+import { ReactComponent as Met }  from '../../../assets/icons/24/smile.svg';
+import { ReactComponent as UnMet }  from '../../../assets/icons/24/frown.svg';
+import { iconSizes } from '../../Styles/iconSizes.styles';
 
 const MoodResultsWrapper = styled.div`
     height: 100%;
@@ -9,10 +13,6 @@ const MoodResultsWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    @media ${mediaQueries.s} {
-
-    }
 `;
 
 const MoodResultsUser = styled.div`
@@ -54,10 +54,10 @@ const CustomButton = styled.button`
 
 const MoodResultAverageTitle = styled.h2`
     ${({ theme }) => css`
-        font-size: ${theme.fontXS};
+        font-size: ${theme.fontS};
         font-weight: ${theme.fontBold};
         color: ${theme.neutral700};
-        padding: ${theme.r100};
+        padding: ${theme.r050};
         text-transform: uppercase;
     `}
 `;
@@ -66,32 +66,55 @@ const MoodResultAverageWrapper = styled.div`
     ${({ theme }) => css`
         display: flex;
         justify-content: center;
-        font-size: ${theme.fontS};
+        font-size: ${theme.fontB};
         font-weight: ${theme.fontBold};
         color: ${theme.neutral000};
     `}
 `;
 
+const moodRibbon = css`
+    ${({ theme }) => css`
+        display: flex;
+        gap: ${theme.r050};
+        align-items: center;
+        justify-content: center;
+        width: ${({value}) =>value}%;
+    `}
+`;
+
 const MoodResultMet = styled.div`
     ${({ theme }) => css`
-        width: ${({value}) =>value}%;
+        ${moodRibbon}
         background-color: ${theme.colorGoodMoodIcon};
     `}
 `;
 
 const MoodResultUnMet = styled.div`
     ${({ theme }) => css`
-        width: ${({value}) =>value}%;
+        ${moodRibbon}
         background-color: ${theme.colorBadMoodIcon};
     `}
 `;
 
 const PencilIconStyles = styled(PencilIcon)`
     ${({ theme }) => css`
-        width: ${theme.iconsSizeS};
-        height: ${theme.iconsSizeS};
+        ${iconSizes.M}
         margin-right: ${theme.r050};
     `}
+`;
+
+const IconsSize = css`
+    position: relative; // Shame
+    top: 1px; // Shame
+    ${iconSizes.default}
+`;
+
+const MetIcon = styled(Met)`
+    ${IconsSize}
+`;
+
+const UnMetIcon = styled(UnMet)`
+    ${IconsSize}
 `;
 
 export {
@@ -103,4 +126,6 @@ export {
     MoodResultsWrapper,
     MoodResultUnMet,
     PencilIconStyles,
+    MetIcon,
+    UnMetIcon,
 };

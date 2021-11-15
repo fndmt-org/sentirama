@@ -1,13 +1,12 @@
 import {
     EmojiButton,
-    UnMetIcon,
-    MetIcon,
 } from './HowDoYouFeel/howDoYouFeel.styles';
-
+import { ReactComponent as Met }  from '../../assets/icons/44/smile.svg';
+import { ReactComponent as UnMet }  from '../../assets/icons/44/frown.svg';
 
 const EMOJIS = {
-    bad: UnMetIcon,
-    good: MetIcon,
+    bad: UnMet,
+    good: Met,
 }
 
 const EmojiItem = ({value, onClick}) => {

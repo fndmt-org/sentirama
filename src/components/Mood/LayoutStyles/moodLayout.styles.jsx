@@ -25,7 +25,6 @@ const TitleFormStyles = styled.h1`
         font-weight: ${theme.fontRegular};
         height: max-content;
         text-align: center;
-        margin: ${theme.r350};
 
         @media ${mediaQueries.s} {
             width: max-content;

@@ -30,12 +30,17 @@ function generateColorSteps({
 }) {
     const colorArray = [];
     colorArray.push(colorStart);
-    const [init, s, l, a] = splitHLSA(colorStart);
-    const [end] = splitHLSA(colorEnd);
-    const stepRatio = (end - init) / (steps +1);
+    const [initH, initS, initL, initA] = splitHLSA(colorStart);
+    const [endH, endS, endL, endA] = splitHLSA(colorEnd);
+    const stepHRatio = (endH - initH) / (steps +1);
+    const stepSRatio = (endS - initS) / (steps +1);
+    const stepLRatio = (endL - initL) / (steps +1);
 
     for (let index = 1; index <= steps; index++) {
-        const h = Number(init) + (stepRatio*index);
+        const h = Number(initH) + (stepHRatio*index);
+        const s = Number(initS) + (stepSRatio*index);
+        const l = Number(initL) + (stepLRatio*index);
+        const a = 1;
         const colorToPush = `hsla(${h},${s}%,${l}%,${a})`;
         colorArray.push(colorToPush);
     }

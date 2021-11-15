@@ -19,6 +19,8 @@ import {
     MoodResultsWrapper,
     MoodResultUnMet,
     PencilIconStyles,
+    MetIcon,
+    UnMetIcon,
 } from './moodResults.styles'
 import * as ROUTES from '../../../constants/routes';
 
@@ -118,10 +120,10 @@ const MoodResultsBase = (props) => {
                 </MoodResultAverageTitle>
                 <MoodResultAverageWrapper>
                     <MoodResultMet value={positiveNumberMoodsPercent}>
-                        {positiveNumberMoodsPercent}%
+                        <MetIcon /> {positiveNumberMoodsPercent}%
                     </MoodResultMet>
                     <MoodResultUnMet value={negativeNumberMoodsPercent}>
-                        {negativeNumberMoodsPercent}%
+                        <UnMetIcon /> {negativeNumberMoodsPercent}%
                     </MoodResultUnMet>
                 </MoodResultAverageWrapper>
             </MoodResultsWrapper>

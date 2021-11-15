@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components';
 
-import { ReactComponent as Met }  from '../../../assets/icons/44/smile.svg';
-import { ReactComponent as UnMet }  from '../../../assets/icons/44/frown.svg';
 import mediaQueries from '../../Styles/mediaQueries.styles';
 import { iconSizes } from '../../Styles/iconSizes.styles';
 import { IconButton } from '../../Styles/buttons.styles';
@@ -62,22 +60,8 @@ const EmojiSet = styled.div`
     }
 `;
 
-const MetIcon = styled(Met)`
-    ${({ theme }) => css`
-        /* background: ${theme.colorGoodMoodIcon}; */
-    `}
-`;
-
-const UnMetIcon = styled(UnMet)`
-    ${({ theme }) => css`
-        /* background: ${theme.colorBadMoodIcon}; */
-    `}
-`;
-
 export {
     HowDoYouFeelStyles,
     EmojiButton,
     EmojiSet,
-    MetIcon,
-    UnMetIcon,
 }
