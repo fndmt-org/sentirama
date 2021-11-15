@@ -75,27 +75,25 @@ const MoodResultsBase = (props) => {
 
     const [positiveNumberMoodsPercent, setPositiveNumberMoodsPercent] = useState(0);
     const [negativeNumberMoodsPercent, setNegativeNumberMoodsPercent] = useState(0);
+    const [allMoods, setAllMoods] = useState(0);
 
     const extractNumberMoods = (moods) =>{
-        debugger
         const positive = moods ? Object.values(moods).filter(mood => mood.set === 'met') : null;
-        const allMoods = Object.values(moods).length
-        const positiveModsPercent = positive.length * 100 / allMoods;
-        setPositiveNumberMoodsPercent(Math.round(positiveModsPercent));
-        const negativeModPercent = (allMoods - positive.length) * 100 / allMoods;
-        setNegativeNumberMoodsPercent(Math.round(negativeModPercent))
-    }
-
-    const getPercent = () => {
-        props.firebase.getGlobalMood(
-            extractNumberMoods
+        const allMoods = Object.values(moods).length;
+        setAllMoods(allMoods);
+        setPositiveNumberMoodsPercent(
+            Math.round(positive.length * 100 / allMoods)
         );
+        setNegativeNumberMoodsPercent(
+            Math.round((allMoods - positive.length) * 100 / allMoods)
+        )
     }
-
 
     useEffect(() => {
         props.firebase.singIn(sendNewMood())
-        getPercent();
+        props.firebase.getGlobalMood(
+            extractNumberMoods
+        );
     }, [mood, username]);
 
     return (
@@ -128,7 +126,12 @@ const MoodResultsBase = (props) => {
                     <FormattedMessage
                         id="yourMood.form.allAnswers"
                         description="all results title"
-                        defaultMessage="All results"/>
+                        defaultMessage="{allMoods} results"
+                        values={
+                            {
+                                allMoods: allMoods,
+                            }
+                        }/>
                 </MoodResultAverageTitle>
                 <MoodResultAverageWrapper>
                     <MoodResultsAverge

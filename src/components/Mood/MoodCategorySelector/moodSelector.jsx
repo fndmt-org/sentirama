@@ -3,10 +3,10 @@ import { useHistory } from "react-router";
 
 import { useBasicMoods } from '../../../customHooks/useBasicMoods'
 import { MoodWrapper, SentiramaLogoWrapper } from '../LayoutStyles/moodLayout.styles'
-import { MoodSelector, MoodSelectorItem, MoodSelectorButton } from './moodCategorySelector.styles'
+import { MoodSelectorList, MoodSelectorItem, MoodSelectorButton } from './moodSelector.styles'
 import * as ROUTES from '../../../constants/routes';
 
-const MoodCategorySelector = ({ uuid, set }) => {
+const MoodSelector = ({ uuid, set }) => {
     const history = useHistory();
     const filteredMoods = useBasicMoods(set);
 
@@ -25,7 +25,7 @@ const MoodCategorySelector = ({ uuid, set }) => {
     return (
         <MoodWrapper>
             <SentiramaLogoWrapper />
-            <MoodSelector>
+            <MoodSelectorList>
                 {filteredMoods.map(mood => (
                     <MoodSelectorItem
                         key={mood.mood}>
@@ -37,9 +37,9 @@ const MoodCategorySelector = ({ uuid, set }) => {
                     </MoodSelectorItem>
                 )
                 )}
-            </MoodSelector>
+            </MoodSelectorList>
         </MoodWrapper>
     )
 }
 
-export { MoodCategorySelector };
+export { MoodSelector };

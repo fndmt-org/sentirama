@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import mediaQueries from '../../Styles/mediaQueries.styles';
 
-const MoodSelector = styled.ul`
+const MoodSelectorList = styled.ul`
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -40,7 +40,7 @@ const MoodSelectorButton = styled.button`
 `;
 
 export {
-    MoodSelector,
+    MoodSelectorList,
     MoodSelectorItem,
     MoodSelectorButton,
 };

@@ -3,6 +3,6 @@
   "yourMood.userForm.youFeel": "You feel {feeling}",
   "yourMood.form.title": "How do you feel?",
   "yourMood.form.resultsMessage": "you feel {feeling} when {var}",
-  "yourMood.form.allAnswers": "all the answers",
+  "yourMood.form.allAnswers": "{allMoods} answers",
   "yourMood.form.edit": "edit"
 }
