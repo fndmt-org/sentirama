@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router";
 import { FormattedMessage } from 'react-intl';
 import { compose } from 'recompose';
+
 import { withFirebase } from '../../Firebase';
 
 import {

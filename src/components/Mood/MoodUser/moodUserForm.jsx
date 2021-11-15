@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import { injectIntl } from 'react-intl';
+import { injectIntl, FormattedMessage } from 'react-intl';
+
 import { useHistory } from "react-router";
 
 import {
@@ -25,7 +26,7 @@ const MoodUserForm = (props) => {
         uuid,
         intl,
     } = props;
-    const placeholder = intl.formatMessage({id: 'yourMood.form.placeholder.name'});
+    const placeholder = intl.formatMessage({id: 'yourMood.userForm.placeholder.name'});
     const [showLabel, setShowLabel] = useState(false);
     const submitUser = (e) => {
         history.push({
@@ -53,7 +54,15 @@ const MoodUserForm = (props) => {
                 onSubmit={(e) => submitUser(e)}
             >
                 <TitleFormStylesLigth>
-                    {mood}
+                    <FormattedMessage
+                        id="yourMood.userForm.youFeel"
+                        description="Show the feeling to user"
+                        defaultMessage="Sientes {feeling}"
+                        values={
+                            {
+                                feeling: mood.toLowerCase(),
+                            }
+                        }/>
                 </TitleFormStylesLigth>
                 <FieldWrapper>
                     <FieldLabel showLabel={showLabel} htmlFor="name">{placeholder}</FieldLabel>

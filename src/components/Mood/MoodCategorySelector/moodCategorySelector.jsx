@@ -42,4 +42,4 @@ const MoodCategorySelector = ({ uuid, category }) => {
     )
 }
 
-export {MoodCategorySelector};
+export { MoodCategorySelector };

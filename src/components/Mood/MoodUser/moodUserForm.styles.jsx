@@ -13,7 +13,7 @@ const UserFormWrapper = styled.form`
 
     @media ${mediaQueries.s} {
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-evenly;
     }
 `;
 
@@ -25,7 +25,6 @@ const FieldWrapper = styled.div`
         flex-direction: column;
         justify-content: center;
         padding: ${theme.r200};
-        width: 100%;
     `}
 `;
 

@@ -20,13 +20,15 @@ const MoodWrapper = styled.div`
 
 const TitleFormStyles = styled.h1`
     ${({ theme }) => css`
+        align-self: center;
         font-size: ${theme.fontXL};
         font-weight: ${theme.fontRegular};
+        height: max-content;
         text-align: center;
-        align-self: center;
+        margin: ${theme.r350};
 
         @media ${mediaQueries.s} {
-            width: inherit;
+            width: max-content;
         }
     `}
 `;

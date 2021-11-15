@@ -12,7 +12,7 @@ const HowDoYouFeelStyles = styled.form`
         background-color: ${theme.neutral050};
         align-items: center;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         flex-direction: column;
         text-align: center;
         height: 100%;
@@ -37,8 +37,6 @@ const EmojiButton = styled(IconButton)`
             align-self: center;
             margin-left: 0;
             margin: ${theme.r400};
-            /* max-height: ${theme.iconSizeThumb};
-            max-width: ${theme.iconSizeThumb}; */
         }
 
         ${iconSizes.big}
