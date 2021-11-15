@@ -1,6 +1,6 @@
 // Font
-const fontSourceFamilies = ['Nunito+Sans:300,400,800'];
-const fontSetBase = 'Nunito Sans';
+const fontSourceFamilies = ['Shippori+Antique+B1:400'];
+const fontSetBase = 'Shippori Antique B1';
 const fontSizeBase = '62.5%'; // default 10px
 const fontStyleBase = 'normal';
 
@@ -16,9 +16,9 @@ export const fontSizes = {
 };
 
 export const fontWeight = {
-    fontBold: '800',
+    fontBold: '400',
     fontRegular: '400',
-    fontLight: '300',
+    fontLight: '400',
 };
 
 export const lineHeight = {
