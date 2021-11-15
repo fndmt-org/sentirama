@@ -20,7 +20,7 @@ const MoodUserForm = (props) => {
     const usernameRef = useRef('')
     const history = useHistory()
     const {
-        category,
+        set,
         mood,
         color,
         uuid,
@@ -32,7 +32,7 @@ const MoodUserForm = (props) => {
         history.push({
             pathname:  ROUTES.MOOD_RESULTS,
             state: {
-                category,
+                set,
                 mood,
                 color,
                 username: usernameRef.current.value,
@@ -86,7 +86,7 @@ const MoodUserForm = (props) => {
 
 MoodUserForm.propTypes = {
     intl: PropTypes.object.isRequired,
-    category: PropTypes.string.isRequired,
+    set: PropTypes.string.isRequired,
     mood: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     uuid: PropTypes.string.isRequired,

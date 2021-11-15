@@ -24,20 +24,20 @@ const HowDoYouFeelBase = (props) => {
     const history = useHistory();
 
     const onClick = value => {
-        const category = value;
+        const set = value;
         // TODO move uuid to session storage
         const uuid = uuidv4();
         history.push({
             pathname: ROUTES.MOOD_CATEGORY_SELECTOR,
             state: {
-                category,
+                set,
                 uuid,
             }
         })
     };
     const emojis = [
-        'good',
-        'bad'
+        'met',
+        'unmet'
     ];
 
     return (

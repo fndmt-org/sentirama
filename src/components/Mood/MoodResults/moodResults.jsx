@@ -24,6 +24,22 @@ import {
 } from './moodResults.styles'
 import * as ROUTES from '../../../constants/routes';
 
+
+const MoodResultsAverge = ({ positiveNumberMoodsPercent, negativeNumberMoodsPercent }) => {
+    return <>
+        {positiveNumberMoodsPercent
+            ? <MoodResultMet value={positiveNumberMoodsPercent}>
+                <MetIcon /> {positiveNumberMoodsPercent}%
+            </MoodResultMet>
+            : null}
+        {negativeNumberMoodsPercent
+            ? <MoodResultUnMet value={negativeNumberMoodsPercent}>
+                <UnMetIcon /> {negativeNumberMoodsPercent}%
+            </MoodResultUnMet>
+            : null}
+    </>
+}
+
 const MoodResultsBase = (props) => {
 
     const {
@@ -31,7 +47,7 @@ const MoodResultsBase = (props) => {
         mood,
         color,
         username,
-        category,
+        set,
     } = props;
     const history = useHistory()
 
@@ -43,18 +59,13 @@ const MoodResultsBase = (props) => {
 
     const sendNewMood = () => {
         const name = username;
-        const message = mood;
-        const set = '';
-        const emoji = '';
         const date = Date.now();
 
         props.firebase.doAddMood(
             {
                 name,
-                message,
-                emoji,
+                mood,
                 date,
-                category,
                 set,
                 color,
                 uuid,
@@ -66,7 +77,8 @@ const MoodResultsBase = (props) => {
     const [negativeNumberMoodsPercent, setNegativeNumberMoodsPercent] = useState(0);
 
     const extractNumberMoods = (moods) =>{
-        const positive = moods ? Object.values(moods).filter(mood => mood.category === 'good') : null;
+        debugger
+        const positive = moods ? Object.values(moods).filter(mood => mood.set === 'met') : null;
         const allMoods = Object.values(moods).length
         const positiveModsPercent = positive.length * 100 / allMoods;
         setPositiveNumberMoodsPercent(Math.round(positiveModsPercent));
@@ -119,12 +131,10 @@ const MoodResultsBase = (props) => {
                         defaultMessage="All results"/>
                 </MoodResultAverageTitle>
                 <MoodResultAverageWrapper>
-                    <MoodResultMet value={positiveNumberMoodsPercent}>
-                        <MetIcon /> {positiveNumberMoodsPercent}%
-                    </MoodResultMet>
-                    <MoodResultUnMet value={negativeNumberMoodsPercent}>
-                        <UnMetIcon /> {negativeNumberMoodsPercent}%
-                    </MoodResultUnMet>
+                    <MoodResultsAverge
+                        positiveNumberMoodsPercent={positiveNumberMoodsPercent}
+                        negativeNumberMoodsPercent={negativeNumberMoodsPercent}
+                    />
                 </MoodResultAverageWrapper>
             </MoodResultsWrapper>
         </MoodWrapper>

@@ -25,7 +25,7 @@ const HowDoYouFeelStyles = styled.form`
 const EmojiButton = styled(IconButton)`
     ${({ theme, value }) => css`
         background: none;
-        background: ${value === 'good' ? theme.colorGoodMoodIcon : theme.colorBadMoodIcon};
+        background: ${value === 'met' ? theme.colorGoodMoodIcon : theme.colorBadMoodIcon};
         color: ${theme.neutral000};
         display: flex;
         margin: ${theme.r200};

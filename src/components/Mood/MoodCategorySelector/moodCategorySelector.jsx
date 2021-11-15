@@ -6,15 +6,15 @@ import { MoodWrapper, SentiramaLogoWrapper } from '../LayoutStyles/moodLayout.st
 import { MoodSelector, MoodSelectorItem, MoodSelectorButton } from './moodCategorySelector.styles'
 import * as ROUTES from '../../../constants/routes';
 
-const MoodCategorySelector = ({ uuid, category }) => {
+const MoodCategorySelector = ({ uuid, set }) => {
     const history = useHistory();
-    const filteredMoods = useBasicMoods(category);
+    const filteredMoods = useBasicMoods(set);
 
     const handleClickMood = (mood) => {
         history.push({
             pathname: ROUTES.MOOD_USER,
             state: {
-                category,
+                set,
                 color: mood.color,
                 mood: mood.mood,
                 uuid,

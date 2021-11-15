@@ -6,8 +6,8 @@ export const useBasicMoods = (need) => {
     const [filteredMoods, setFilteredMoods] = useState([])
 
     const mappedMoods = {
-        good: 'met',
-        bad: 'unmet'
+        met: 'met',
+        unmet: 'unmet'
     }
 
     useEffect(() => {
@@ -19,8 +19,8 @@ export const useBasicMoods = (need) => {
             }
         })
         const colors = generateColorSteps({
-            colorStart: need === 'good' ? 'hsla(145, 63%, 35%, 1)' : 'hsla(28, 86%, 61%, 1)',
-            colorEnd: need === 'good' ? 'hsla(214, 84%, 55%, 1)' : 'hsla(1, 49%, 47%, 1)',
+            colorStart: need === mappedMoods.met ? 'hsla(145, 63%, 35%, 1)' : 'hsla(28, 86%, 61%, 1)',
+            colorEnd: need === mappedMoods.met ? 'hsla(214, 84%, 55%, 1)' : 'hsla(1, 49%, 47%, 1)',
             steps: moodsArray.length - 2
         });
         moodsArray.forEach((mood, index) => {
