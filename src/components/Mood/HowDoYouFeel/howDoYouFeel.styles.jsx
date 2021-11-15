@@ -25,28 +25,16 @@ const HowDoYouFeelStyles = styled.form`
 const EmojiButton = styled(IconButton)`
     ${({ theme, value }) => css`
         background: none;
-        background: ${value === 'met' ? theme.colorGoodMoodIcon : theme.colorBadMoodIcon};
-        color: ${theme.neutral000};
+        background: ${value === 'met' ? theme.colorMetMoodIcon : theme.colorUnMetMoodIcon};
+        color: ${theme.neutral900};
         display: flex;
+        font-size: ${theme.iconsSizeButtonBig};
+        justify-content: center;
         margin: ${theme.r200};
         overflow: hidden;
+        ${iconSizes.FW}
 
-        @media ${mediaQueries.s} {
-            align-self: center;
-            margin-left: 0;
-            margin: ${theme.r400};
-        }
-
-        ${iconSizes.big}
-
-        @media ${mediaQueries.xs} {
-            ${iconSizes.extraBig}
-            justify-content: center;
-        }
-
-        @media ${mediaQueries.s} {
-            ${iconSizes.big}
-        }
+        max-width: ${theme.r1200};
     `}
 `;
 
@@ -54,6 +42,8 @@ const EmojiSet = styled.div`
     align-items: center;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    padding: ${({ theme }) => theme.r200};
 
     @media ${mediaQueries.s} {
         flex-direction: row;

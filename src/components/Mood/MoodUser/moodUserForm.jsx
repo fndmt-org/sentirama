@@ -5,11 +5,16 @@ import { injectIntl, FormattedMessage } from 'react-intl';
 import { useHistory } from "react-router";
 
 import {
-    TitleFormStylesLigth,
+    TitleFormStylesOverColors,
     MoodWrapper,
     SentiramaLogoWrapper,
 } from '../LayoutStyles/moodLayout.styles'
-import { FieldLabel, FieldWrapper, UserFormWrapper, IconButtonNext } from './moodUserForm.styles'
+import {
+    FieldLabel,
+    FieldWrapper,
+    UserFormWrapper,
+    IconButtonNext,
+} from './moodUserForm.styles'
 
 import { InputStyleBase } from '../../Styles/form.styles';
 
@@ -53,7 +58,7 @@ const MoodUserForm = (props) => {
                 color={color}
                 onSubmit={(e) => submitUser(e)}
             >
-                <TitleFormStylesLigth>
+                <TitleFormStylesOverColors>
                     <FormattedMessage
                         id="yourMood.userForm.youFeel"
                         description="Show the feeling to user"
@@ -63,7 +68,7 @@ const MoodUserForm = (props) => {
                                 feeling: mood.toLowerCase(),
                             }
                         }/>
-                </TitleFormStylesLigth>
+                </TitleFormStylesOverColors>
                 <FieldWrapper>
                     <FieldLabel showLabel={showLabel} htmlFor="name">{placeholder}</FieldLabel>
                     <InputStyleBase

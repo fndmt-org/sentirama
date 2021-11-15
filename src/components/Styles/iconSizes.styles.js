@@ -17,6 +17,12 @@ const iconSizes = {
         height: ${({ theme }) => theme.iconsSizeL};
         width: ${({ theme }) => theme.iconsSizeL};
     `,
+    FW: css`
+        width: 100%;
+    `,
+    FH: css`
+        height: 100%;
+    `,
 }
 
 export {

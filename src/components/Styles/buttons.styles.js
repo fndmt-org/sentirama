@@ -26,14 +26,11 @@ const IconButtonMods = {
 
 const IconButton = styled.button`
     ${({ theme }) => css`
-
-
         background-clip: padding-box;
-        border: 0;
+        border: ${({ theme }) => theme.buttonPrimaryBorder};
         border-radius: ${theme.buttonRounded || theme.round};
         display: inline-block;
         font-size: ${({ theme }) => theme.iconSizeThumb};
-        font-size: ${({ width }) => width};
         letter-spacing: inherit;
         line-height: 0;
         text-align: center;

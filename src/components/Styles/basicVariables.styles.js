@@ -3,6 +3,7 @@ const fontSourceFamilies = ['Shippori+Antique+B1:400'];
 const fontSetBase = 'Shippori Antique B1';
 const fontSizeBase = '62.5%'; // default 10px
 const fontStyleBase = 'normal';
+const showLogo = true;
 
 export const fontSizes = {
     fontXXS: '1rem',
@@ -127,8 +128,12 @@ export const colors = {
     ...errorColors,
     ...warningColors,
 
-    colorGoodMoodIcon: 'hsla(80, 63%,45%, 1)',
-    colorBadMoodIcon: 'hsla(0, 86%, 61%, 1)',
+    colorMetMoodIcon: 'hsla(151, 22%, 72%, 1)',
+    colorUnMetMoodIcon: 'hsla(6, 71%, 65%, 1)',
+    colorMetStart:  'hsla(151, 22%, 72%, 1)',
+    colorMetEnd: 'hsla(270, 24%, 70%, 1)',
+    colorUnMetStart: 'hsla(6, 71%, 65%, 1)',
+    colorUnMetEnd: 'hsla(60, 71%, 85%, 1)',
 };
 
 const layers = {
@@ -251,6 +256,7 @@ const rhythm = {
     r1600: '16rem',
     r2000: '20rem',
     r2500: '25rem',
+    r3000: '30rem',
 };
 
 const animationTime = {
@@ -274,7 +280,7 @@ export const formColors = {
 
 export const formSettings = {
     formFieldBorderRadius: rhythm.r300,
-    formFieldBorder: `${borders.borderWidthS} solid ${formColors.formFieldColor}`,
+    formFieldBorder: `${borders.borderWidthM} solid ${formColors.formFieldColor}`,
     formFieldBorderFocus: `${borders.borderWidthM} solid ${formColors.formFieldColorFocus}`,
 };
 
@@ -294,6 +300,7 @@ export const icons = {
     iconsSizeMM: '2.4rem',
     iconsSizeML: '2.8rem',
     iconsSizeL: '3.6rem',
+    iconsSizeButtonBig: '6rem',
     iconsSizeXXL: '20.2rem',
     iconSizeThumb: defaultThumbSize,
 };
@@ -322,7 +329,7 @@ export const images = {
 
 const base = {
 
-    round: '2.5rem',
+    round: '3rem',
     roundedCard: '1rem',
     /* Icon in button defaut size */
     /* text shadow default fallback for tex over images */
@@ -340,7 +347,7 @@ const base = {
     // buttonSecondaryTextColor: colors.colorMid,
     // buttonPrimaryBgColor: colors.colorMain,
     // buttonSecondaryBgColor: colors.neutral000,
-    // buttonPrimaryBorder: 0,
+    buttonPrimaryBorder: `${borders.borderWidthM} solid ${colors.neutral900}`,
     // buttonSecondaryBorder: `1px solid ${colors.colorAlmostLight}`
     // buttonTextTransform: `1px solid ${colors.colorAlmostLight}`
     outline: `2px solid ${colors.neutral900}`,
@@ -363,6 +370,7 @@ const themeDefault = {
     ...icons,
     ...images,
     ...base,
+    showLogo,
 };
 
 export default themeDefault;

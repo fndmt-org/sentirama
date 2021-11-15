@@ -15,11 +15,11 @@ const MoodSelectorList = styled.ul`
 
 const MoodSelectorItem = styled.li`
     ${({ theme }) => css`
-        border-bottom: 1px solid ${theme.neutral050};
+        border-bottom: 1px solid ${theme.neutral900};
         display: flex;
 
         @media ${mediaQueries.s} {
-            border-left: 1px solid ${theme.neutral050};
+            border-left: 1px solid ${theme.neutral900};
         }
 
     `}
@@ -28,7 +28,7 @@ const MoodSelectorItem = styled.li`
 const MoodSelectorButton = styled.button`
     ${({ theme }) => css`
         background-color: ${props => props.color};
-        color: ${theme.neutral050};
+        color: ${theme.neutral900};
         font-size: ${theme.fontB};
         min-height: ${theme.r1200};
         min-width: 100%;

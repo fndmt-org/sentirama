@@ -27,24 +27,24 @@ const TitleFormStyles = styled.h1`
         text-align: center;
 
         @media ${mediaQueries.s} {
-            width: max-content;
+            width: inherit;
         }
     `}
 `;
 
-const TitleFormStylesLigth= styled(TitleFormStyles)`
+const TitleFormStylesOverColors= styled(TitleFormStyles)`
     ${({ theme }) => css`
-        color: ${theme.neutral000};
+        color: ${theme.neutral900};
     `}
 `;
 
 const SentiramaLogoWrapper = styled(SentiramaLogo)`
     ${({ theme }) => css`
-        margin: ${theme.r200};
-        flex: 0 0 ${theme.r300};
+        margin: ${theme.showLogo && theme.r200};
+        flex: 0 0 ${theme.showLogo &&theme.r200};
 
         @media ${mediaQueries.s} {
-            flex: 0 0 ${theme.r1000};
+            flex: 0 0 ${theme.showLogo &&theme.r1000};
         }
     `}
 `;
@@ -53,5 +53,5 @@ export {
     MoodWrapper,
     SentiramaLogoWrapper,
     TitleFormStyles,
-    TitleFormStylesLigth,
+    TitleFormStylesOverColors,
 }

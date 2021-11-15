@@ -33,7 +33,7 @@ const MoodResultsUser = styled.div`
 const CustomButton = styled.button`
     ${({ theme }) => css`
         background-color: transparent;
-        color: ${theme.neutral000};
+        color: ${theme.neutral900};
         font-size: ${theme.fontB};
         margin-top: ${theme.r150};
         display: flex;
@@ -68,7 +68,7 @@ const MoodResultAverageWrapper = styled.div`
         justify-content: center;
         font-size: ${theme.fontB};
         font-weight: ${theme.fontBold};
-        color: ${theme.neutral000};
+        color: ${theme.neutral900};
     `}
 `;
 
@@ -85,14 +85,14 @@ const moodRibbon = css`
 const MoodResultMet = styled.div`
     ${({ theme }) => css`
         ${moodRibbon}
-        background-color: ${theme.colorGoodMoodIcon};
+        background-color: ${theme.colorMetMoodIcon};
     `}
 `;
 
 const MoodResultUnMet = styled.div`
     ${({ theme }) => css`
         ${moodRibbon}
-        background-color: ${theme.colorBadMoodIcon};
+        background-color: ${theme.colorUnMetMoodIcon};
     `}
 `;
 

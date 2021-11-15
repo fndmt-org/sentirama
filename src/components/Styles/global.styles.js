@@ -69,7 +69,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         background-color: ${props => props.theme.colorBg};
         color: ${props => props.theme.colorText};
-        height: 100%;
+
         overscroll-behavior: none;
     }
 

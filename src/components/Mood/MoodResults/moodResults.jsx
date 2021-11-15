@@ -8,7 +8,7 @@ import { withFirebase } from '../../Firebase';
 import {
     MoodWrapper,
     SentiramaLogoWrapper,
-    TitleFormStylesLigth,
+    TitleFormStylesOverColors,
 } from '../LayoutStyles/moodLayout.styles'
 import {
     CustomButton,
@@ -101,7 +101,7 @@ const MoodResultsBase = (props) => {
             <SentiramaLogoWrapper/>
             <MoodResultsWrapper>
                 <MoodResultsUser color={color}>
-                    <TitleFormStylesLigth>
+                    <TitleFormStylesOverColors>
                         <FormattedMessage
                             id="yourMood.form.resultsMessage"
                             description="User name"
@@ -113,7 +113,7 @@ const MoodResultsBase = (props) => {
                                     feeling: mood.toLowerCase(),
                                 }
                             }/>
-                    </TitleFormStylesLigth>
+                    </TitleFormStylesOverColors>
                     <CustomButton onClick={handleClick}>
                         <PencilIconStyles />
                         <FormattedMessage
