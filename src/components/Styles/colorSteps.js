@@ -36,7 +36,7 @@ function generateColorSteps({
     const stepSRatio = (endS - initS) / (steps +1);
     const stepLRatio = (endL - initL) / (steps +1);
 
-    for (let index = 0; index <= steps; index++) {
+    for (let index = 1; index <= steps +1; index++) {
         const h = Number(initH) + (stepHRatio*index);
         const s = Number(initS) + (stepSRatio*index);
         const l = Number(initL) + (stepLRatio*index);
