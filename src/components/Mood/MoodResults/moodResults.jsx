@@ -21,6 +21,7 @@ import {
     PencilIconStyles,
     MetIcon,
     UnMetIcon,
+    InfoIconStyles
 } from './moodResults.styles'
 import * as ROUTES from '../../../constants/routes';
 
@@ -51,10 +52,24 @@ const MoodResultsBase = (props) => {
     } = props;
     const history = useHistory()
 
-    const handleClick = () => {
-        history.push({
-            pathname:  ROUTES.LANDING,
-        });
+    const handleClick = (button) => {
+        if(button === 'edit') {
+            history.push({
+                pathname:  ROUTES.LANDING,
+            });
+        }
+        else if(button === 'list') {
+            history.push({
+                pathname: ROUTES.MOOD_SELECTED_LIST,
+                state: {
+                    username,
+                    uuid,
+                    mood,
+                    color,
+                    set,
+                }
+            });
+        }
     }
 
     const sendNewMood = () => {
@@ -114,12 +129,19 @@ const MoodResultsBase = (props) => {
                                 }
                             }/>
                     </TitleFormStylesOverColors>
-                    <CustomButton onClick={handleClick}>
+                    <CustomButton onClick={() => handleClick('edit')}>
                         <PencilIconStyles />
                         <FormattedMessage
                             id="yourMood.form.edit"
                             description="edit button"
                             defaultMessage="edit"/>
+                    </CustomButton>
+                    <CustomButton onClick={() => handleClick('list')}>
+                        <InfoIconStyles />
+                        <FormattedMessage
+                            id="yourMood.form.list"
+                            description="list button"
+                            defaultMessage="list"/>
                     </CustomButton>
                 </MoodResultsUser>
                 <MoodResultAverageTitle>

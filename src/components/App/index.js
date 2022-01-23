@@ -11,6 +11,7 @@ import LandingPage from '../Mood';
 import MoodCategorySelector from '../Mood/MoodCategorySelector';
 import MoodUser from '../Mood/MoodUser';
 import MoodResults from '../Mood/MoodResults';
+import MoodSelectedList from '../Mood/MoodSelectedList';
 
 import Spanish from '../../lang/es';
 
@@ -38,6 +39,7 @@ const App = () => {
                     <Route path={ROUTES.MOOD_CATEGORY_SELECTOR} component={MoodCategorySelector} />
                     <Route path={ROUTES.MOOD_USER} component={MoodUser} />
                     <Route path={ROUTES.MOOD_RESULTS} component={MoodResults} />
+                    <Route path={ROUTES.MOOD_SELECTED_LIST} component={MoodSelectedList} />
                 </Router>
             </IntlProvider>
         </ThemeProvider>

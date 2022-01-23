@@ -68,9 +68,18 @@ class Firebase {
         onValue(globalMoodRef, (snapshot) => {
             callback(snapshot.exists() ? snapshot.val() : null);
         });
-
-
     }
 
+    fetchMoods = (callback = () => {}) => {
+        const moodsList = ref(this.db, MOODS_PATH);
+        onValue(moodsList, (snapshot) => {
+            let keys = []
+            snapshot.forEach(item => {
+                var itemVal = item.val();
+                keys.push(itemVal);
+            });
+            callback(snapshot.exists() ? keys : null);
+        })
+    }
 }
 export default Firebase;

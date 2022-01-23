@@ -240,6 +240,7 @@ const rhythm = {
     r010: '.1rem',
     r025: '.25rem',
     r050: '.5rem',
+    r060: '.6rem',
     r075: '.75rem',
     r100: '1rem',
     r150: '1.5rem',

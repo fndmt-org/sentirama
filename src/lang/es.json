@@ -4,5 +4,10 @@
     "yourMood.form.title": "¿Cómo te sientes?",
     "yourMood.form.resultsMessage": "{name}, al {action} sientes {feeling}",
     "yourMood.form.allAnswers": "{allMoods} respuestas",
-    "yourMood.form.edit": "editar"
+    "yourMood.form.edit": "editar",
+    "yourMood.form.list": "ver lista",
+    "yourMood.list.date": "Hoy",
+    "yourMood.list.role": "tú",
+    "yourMood.list.moment-ago": "hace un momento",
+    "yourMood.list.average": "Promedio de humor"
 }

@@ -4,5 +4,10 @@
   "yourMood.form.title": "How do you feel?",
   "yourMood.form.resultsMessage": "you feel {feeling} when {var}",
   "yourMood.form.allAnswers": "{allMoods} answers",
-  "yourMood.form.edit": "edit"
+  "yourMood.form.edit": "edit",
+  "yourMood.form.list": "view list",
+  "yourMood.list.date": "Today",
+  "yourMood.list.role": "you",
+  "yourMood.list.moment-ago": "a moment ago",
+  "yourMood.list.average": "Average mood"
 }

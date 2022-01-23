@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 import mediaQueries from '../../Styles/mediaQueries.styles';
 import { ReactComponent as PencilIcon }  from '../../../assets/icons/24/edit.svg';
+import { ReactComponent as InfoIcon }  from '../../../assets/icons/24/info.svg';
 import { ReactComponent as Met }  from '../../../assets/icons/24/smile.svg';
 import { ReactComponent as UnMet }  from '../../../assets/icons/24/frown.svg';
 import { iconSizes } from '../../Styles/iconSizes.styles';
@@ -103,6 +104,13 @@ const PencilIconStyles = styled(PencilIcon)`
     `}
 `;
 
+const InfoIconStyles = styled(InfoIcon)`
+    ${({ theme }) => css`
+        ${iconSizes.M}
+        margin-right: ${theme.r050};
+    `}
+`;
+
 const IconsSize = css`
     position: relative; // Shame
     top: 1px; // Shame
@@ -126,6 +134,7 @@ export {
     MoodResultsWrapper,
     MoodResultUnMet,
     PencilIconStyles,
+    InfoIconStyles,
     MetIcon,
     UnMetIcon,
 };
