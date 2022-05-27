@@ -1,4 +1,5 @@
 {
+  "yourMood.error.common": "Something went wrong.",
   "yourMood.userForm.placeholder.name": "Your name/nikname",
   "yourMood.userForm.youFeel": "You feel {feeling}",
   "yourMood.form.title": "How do you feel?",
@@ -9,5 +10,5 @@
   "yourMood.list.date": "Today",
   "yourMood.list.role": "you",
   "yourMood.list.moment-ago": "a moment ago",
-  "yourMood.list.average": "Average mood"
+  "yourMood.list.average": "Average mood",
 }

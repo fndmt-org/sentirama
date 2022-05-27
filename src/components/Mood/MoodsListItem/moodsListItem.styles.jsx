@@ -11,69 +11,58 @@ const MoodsListItemWrapper = styled.div`
         align-items: center;
         width: 100%;
         padding: ${theme.r150} ${theme.r075};
+    `}
+`;
 
-        .role {
-            margin-inline-start: ${theme.r050};
-        }
+const Mood = styled.div`
+    ${({ theme, isModeAverage }) => css`
+        display: flex;
+        align-items: center;
+        border-radius: ${theme.buttonRounded || theme.round};
+        position: relative;
+        padding: ${theme.r100};
+        padding-inline-end: ${theme.r200};
+        color: ${theme.neutral000};
+        margin-inline-start: ${theme.r150};
 
-        .mood {
-            display: flex;
-            align-items: center;
-            border-radius: ${theme.buttonRounded || theme.round};
-            position: relative;
-            padding: ${theme.r100};
-            padding-inline-end: ${theme.r200};
-            color: ${theme.neutral000};
-            margin-inline-start: ${theme.r150};
-            background-color: ${props => props.color};
-            border: 2px solid ${theme.neutralTransparent000};
+        ${isModeAverage ? css`
+        background: ${theme.neutralTransparent000};
+        border: 2px solid ${theme.neutral000};
+        `: css`
+        background-color: ${props => props.color};
+        border: 2px solid ${theme.neutralTransparent000};
+        `}
 
-            svg {
-                width: ${theme.r400};
-            }
-        }
-
-        button {
-            color: ${theme.colorCustom500};
-        }
-
-        .time-ago {
-            font-size: ${theme.fontXS};
-            color: ${theme.colorMain700};
-            margin-inline-start: ${theme.r050};
-        }
-
-        &.mode-average {
-            .username {
-                > span {
-                    color: ${theme.neutral000};
-                }
-            }
-
-            .mood {
-                border: 2px solid ${theme.neutral000};
-                background: ${theme.neutralTransparent000};
-            }
-
-            button {
-                color: ${theme.neutral000};
-            }
-
-            .time-ago {
-                color: ${theme.neutral000};
-            }
+        svg {
+            width: ${theme.r400};
         }
     `}
 `;
- 
-const EditButton = styled.button`
+
+const UserName = styled.span`
+    ${({ theme, isModeAverage }) => css`
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        color: ${ isModeAverage ? theme.neutral000 : theme.colorMain700};
+        margin-inline-start: ${theme.r100};
+    `}
+`;
+
+const DateTimeWrapper = styled.span`
     ${({ theme }) => css`
+        font-size: ${theme.fontXS};
+    `}
+`;
+
+const EditButton = styled.button`
+    ${({ theme, isModeAverage }) => css`
+        color: ${ isModeAverage ? theme.neutral000 : theme.colorCustom500};
         background-color: ${theme.neutralTransparent000};
         font-size: ${theme.fontB};
         display: flex;
         align-items: center;
         text-decoration: underline;
-        margin-inline-start: ${theme.r150};
 
         :hover {
             text-decoration: none;
@@ -95,7 +84,10 @@ const PencilIconStyles = styled(PencilIcon)`
 `;
 
 export {
-    MoodsListItemWrapper,
+    DateTimeWrapper,
     EditButton,
+    Mood,
+    MoodsListItemWrapper,
     PencilIconStyles,
+    UserName,
 };

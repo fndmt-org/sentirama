@@ -6,7 +6,7 @@ import { iconSizes } from '../../Styles/iconSizes.styles';
 import mediaQueries from '../../Styles/mediaQueries.styles';
 
 const MoodListWrapper = styled.div`
-    ${({ theme }) => css`
+    ${({ theme, isModeAverage }) => css`
         height: calc(100% - 55px);
         text-align: center;
         width: 100%;
@@ -14,10 +14,10 @@ const MoodListWrapper = styled.div`
         flex-direction: column;
         justify-content: space-between;
 
-        &.mode-average {
-            background-color: ${props => props.color};
-            color: ${theme.neutral000};
-        }
+        ${isModeAverage && css`
+        background-color: ${props => props.color};
+        color: ${theme.neutral000};
+        `}
     `}
 `;
 
@@ -31,22 +31,6 @@ const MoodListUser = styled.div`
         height: 100%;
         color: ${theme.neutral999};
         font-size: ${theme.fontB};
-
-        @media ${mediaQueries.s} {
-            flex-direction: row;
-        }
-    `}
-`;
-
-const ListDateStyles = styled.div`
-    ${({ theme }) => css`
-        border: 2px solid ${theme.neutral999};
-        border-radius: ${theme.buttonRounded || theme.round};
-        padding: 4px 10px 6px;
-        line-height: ${theme.lineHeightXS};
-        margin: 30px 0 15px;
-        color: ${theme.neutral999};
-        background: ${theme.neutral000};
     `}
 `;
 
@@ -82,7 +66,6 @@ const PencilIconStyles = styled(PencilIcon)`
 export {
     MoodListUser,
     MoodListWrapper,
-    ListDateStyles,
     CustomButton,
     PencilIconStyles,
 };

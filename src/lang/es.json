@@ -1,4 +1,5 @@
 {
+    "yourMood.error.common": "Algo salió mal.",
     "yourMood.userForm.placeholder.name": "Tu nombre",
     "yourMood.userForm.youFeel": "Sientes {feeling}",
     "yourMood.form.title": "¿Cómo te sientes?",

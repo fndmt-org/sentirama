@@ -6,68 +6,66 @@ import { useHistory } from "react-router";
 import * as ROUTES from '../../../constants/routes';
 
 import {
+    DateTimeWrapper,
     EditButton,
+    Mood,
+    MoodsListItemWrapper,
     PencilIconStyles,
-    MoodsListItemWrapper
+    UserName,
 } from './moodsListItem.styles';
 
 import { ReactComponent as SmileIcon }  from './../../../assets/icons/44/smile.svg';
 import { ReactComponent as FrownIcon }  from './../../../assets/icons/44/frown.svg';
 
-export function MoodsListItem(props) {
-    const {
-        mood,
-        color,
-        name,
-        set,
-        role,
-        modeAverage
-    } = props;
+export function MoodsListItem({
+    color,
+    date,
+    isModeAverage,
+    mood,
+    name,
+    currentUser,
+    set,
+}) {
+
     const history = useHistory()
 
-    const handleClick = () => {
+    const handleEdit = () => {
         history.push({
             pathname:  ROUTES.LANDING,
         });
     }
 
     return (
-        <MoodsListItemWrapper className={modeAverage ? 'mode-average': ''} color={color}>
-            <div className="username">
-                <span>{name}</span>
-                {role &&
-                    <span className="role">(
+        <MoodsListItemWrapper isModeAverage={isModeAverage}>
+            <Mood isModeAverage={isModeAverage} color={color}>
+                {set === 'met' ? <SmileIcon /> : <FrownIcon />}
+                {mood}
+            </Mood>
+            <UserName isModeAverage={isModeAverage}>
+                {name}
+                {currentUser &&
+                    <> (
                         <FormattedMessage
                             id="yourMood.list.role"
                             description="Show user role"
                             defaultMessage="You"/>
-                    )</span>
+                    )</>
                 }
-            </div>
-            <div className="mood">
-                {set === 'met' ? <SmileIcon></SmileIcon> : <FrownIcon></FrownIcon>}
-                <span>{mood}</span>
-            </div>
-            {role ? 
-                (
-                    <EditButton onClick={() => handleClick()}>
+                {currentUser ? (
+                    <EditButton isModeAverage={isModeAverage} onClick={() => handleEdit()}>
                         <PencilIconStyles />
                         <FormattedMessage
                             id="yourMood.form.edit"
                             description="edit button"
                             defaultMessage="edit"/>
                     </EditButton>
+                ):(
+                    <DateTimeWrapper isModeAverage={isModeAverage}>
+                        {new Date(date).toLocaleString()}
+                    </DateTimeWrapper>
                 )
-                :
-                (
-                    <span className="time-ago">
-                        <FormattedMessage
-                            id="yourMood.list.moment-ago"
-                            description="show mood timestamp"
-                            defaultMessage="a moment ago"/>
-                    </span>
-                )
-            }
+                }
+            </UserName>
         </MoodsListItemWrapper>
     )
 }

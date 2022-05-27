@@ -1,3 +1,4 @@
+/* eslint-disable max-statements */
 import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router";
 import { FormattedMessage } from 'react-intl';
@@ -50,26 +51,25 @@ const MoodResultsBase = (props) => {
         username,
         set,
     } = props;
-    const history = useHistory()
+    const history = useHistory();
 
-    const handleClick = (button) => {
-        if(button === 'edit') {
-            history.push({
-                pathname:  ROUTES.LANDING,
-            });
-        }
-        else if(button === 'list') {
-            history.push({
-                pathname: ROUTES.MOOD_SELECTED_LIST,
-                state: {
-                    username,
-                    uuid,
-                    mood,
-                    color,
-                    set,
-                }
-            });
-        }
+    const handleEdit = () => {
+        history.push({
+            pathname:  ROUTES.LANDING,
+        });
+    }
+
+    const handleList = () => {
+        history.push({
+            pathname: ROUTES.MOOD_SELECTED_LIST,
+            state: {
+                username,
+                uuid,
+                mood,
+                color,
+                set,
+            }
+        });
     }
 
     const sendNewMood = () => {
@@ -129,14 +129,14 @@ const MoodResultsBase = (props) => {
                                 }
                             }/>
                     </TitleFormStylesOverColors>
-                    <CustomButton onClick={() => handleClick('edit')}>
+                    <CustomButton onClick={() => handleEdit()}>
                         <PencilIconStyles />
                         <FormattedMessage
                             id="yourMood.form.edit"
                             description="edit button"
                             defaultMessage="edit"/>
                     </CustomButton>
-                    <CustomButton onClick={() => handleClick('list')}>
+                    <CustomButton onClick={() => handleList()}>
                         <InfoIconStyles />
                         <FormattedMessage
                             id="yourMood.form.list"

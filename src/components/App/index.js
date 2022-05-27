@@ -29,7 +29,7 @@ WebFont.load({
 });
 
 
-const App = () => {
+const App = (props) => {
     return (
         <ThemeProvider theme={theme}>
             <GlobalStyle />
