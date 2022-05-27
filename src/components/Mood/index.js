@@ -1,3 +1,3 @@
-import MoodPage from './moodPage';
+import HowDoYouFeelPage from './HowDoYouFeel/howDoYouFeelPage';
 
-export default MoodPage;
+export default HowDoYouFeelPage;

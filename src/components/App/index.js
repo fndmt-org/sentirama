@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import WebFont from 'webfontloader';
 import { ThemeProvider } from 'styled-components'
 import { IntlProvider } from 'react-intl';
@@ -7,17 +7,12 @@ import {
     Route
 } from 'react-router-dom';
 
-import Navigation from '../Navigation';
 import LandingPage from '../Mood';
-import SignUpPage from '../SignUp';
-import SignInPage from '../SignIn';
-import PasswordForgetPage from '../PasswordForget';
-import HomePage from '../Home';
-import AccountPage from '../Account';
-import AdminPage from '../Admin';
-import { withAuthentication } from '../Session';
+import MoodCategorySelector from '../Mood/MoodCategorySelector';
+import MoodUser from '../Mood/MoodUser';
+import MoodResults from '../Mood/MoodResults';
+import MoodSelectedList from '../Mood/MoodSelectedList';
 
-import English from '../../lang/en';
 import Spanish from '../../lang/es';
 
 import * as ROUTES from '../../constants/routes';
@@ -29,54 +24,26 @@ WebFont.load({
         families: theme.fontSourceFamilies,
     },
     active: function() {
-        console.log('load font active');
+        console.log(`load font/s ${theme.fontSourceFamilies} active`);
     },
 });
 
-const local = navigator.language;
-let lang;
-if (local==="es") {
-    lang = Spanish;
-    } else {
-    lang = English;
-}
 
-
-const App = () => {
-    const [locale, setLocale] = useState(local);
-    const [messages, setMessages] = useState(lang);
-
-    function selectLanguage(e) {
-        const newLocale = e.target.value;
-        setLocale(newLocale);
-        if (newLocale === 'es') {
-            setMessages(Spanish);
-        } else {
-            setMessages(English);
-        }
-    }
-
+const App = (props) => {
     return (
         <ThemeProvider theme={theme}>
             <GlobalStyle />
-                <IntlProvider messages={messages} locale={locale}>
-                    <Router>
-                        <select value = {locale} onChange={selectLanguage}>
-                            <option value='en'>English</option>
-                            <option value='es'>Español</option>
-                        </select>
-                        {/* <Navigation /> */}
-                        <Route exact path={ROUTES.LANDING} component={LandingPage} />
-                        <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
-                        <Route path={ROUTES.SIGN_IN} component={SignInPage} />
-                        <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-                        <Route path={ROUTES.HOME} component={HomePage} />
-                        <Route path={ROUTES.ACCOUNT} component={AccountPage} />
-                        <Route path={ROUTES.ADMIN} component={AdminPage} />
-                    </Router>
-                </IntlProvider>
+            <IntlProvider messages={Spanish} locale={"es"}>
+                <Router>
+                    <Route exact path={ROUTES.LANDING} component={LandingPage} />
+                    <Route path={ROUTES.MOOD_CATEGORY_SELECTOR} component={MoodCategorySelector} />
+                    <Route path={ROUTES.MOOD_USER} component={MoodUser} />
+                    <Route path={ROUTES.MOOD_RESULTS} component={MoodResults} />
+                    <Route path={ROUTES.MOOD_SELECTED_LIST} component={MoodSelectedList} />
+                </Router>
+            </IntlProvider>
         </ThemeProvider>
     );
 };
 
-export default withAuthentication(App);
+export default App;

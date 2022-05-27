@@ -1,0 +1,11 @@
+**/dist/**
+**/__dist__/**
+**/deploy/**
+**/node_modules/**
+**/mocks/**
+**/cypress/**
+**/coverage/**
+**/webpack.*.js
+**/example/**
+storybook-static/**
+storybook-public/**

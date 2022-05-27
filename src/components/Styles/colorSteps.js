@@ -8,7 +8,7 @@ function splitHLSA(hsla) {
         a = hsla[3];
     // Strip label and convert to degrees (if necessary)
     if (h.indexOf("deg") > -1)
-    h = h.substr(0, h.length - 3);
+        h = h.substr(0, h.length - 3);
     else if (h.indexOf("rad") > -1)
         h = Math.round(h.substr(0, h.length - 3) * (180 / Math.PI));
     else if (h.indexOf("turn") > -1)
@@ -22,23 +22,28 @@ function splitHLSA(hsla) {
 
 
 
+// eslint-disable-next-line max-statements
 function generateColorSteps({
     colorStart,
     colorEnd,
     steps
 }) {
-    const colorArray =[];
+    const colorArray = [];
     colorArray.push(colorStart);
-    const [init, s, l, a] = splitHLSA(colorStart);
-    const [end] = splitHLSA(colorEnd);
-    const stepRatio = (end - init) / (steps +1);
+    const [initH, initS, initL, initA] = splitHLSA(colorStart);
+    const [endH, endS, endL, endA] = splitHLSA(colorEnd);
+    const stepHRatio = (endH - initH) / (steps +1);
+    const stepSRatio = (endS - initS) / (steps +1);
+    const stepLRatio = (endL - initL) / (steps +1);
 
-    for (let index = 1; index <= steps; index++) {
-        const h = Number(init) + (stepRatio*index);
+    for (let index = 1; index <= steps +1; index++) {
+        const h = Number(initH) + (stepHRatio*index);
+        const s = Number(initS) + (stepSRatio*index);
+        const l = Number(initL) + (stepLRatio*index);
+        const a = 1;
         const colorToPush = `hsla(${h},${s}%,${l}%,${a})`;
         colorArray.push(colorToPush);
     }
-    colorArray.push(colorEnd)
 
     return colorArray
 }

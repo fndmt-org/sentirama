@@ -1,0 +1,51 @@
+{
+    "parser": "babel-eslint",
+
+    "env": {
+      "browser": true,
+      "node": true
+    },
+
+    "globals": {
+      "describe": false,
+      "it": false,
+      "before": false,
+      "beforeEach": false,
+      "after": false
+    },
+
+    "plugins": [
+      "react"
+    ],
+
+    "rules": {
+      // Override any settings from the "parent" configuration
+      "no-console": "off",
+      "max-len": ["error", 125],
+      "padded-blocks": "off",
+      "no-use-before-define": ["error", "nofunc"],
+        // Code quality
+        "complexity": ["error", 8],
+        "max-params": ["error", 3],
+        "max-statements": ["error", 10],
+      // Hacky information: Without this combination of template-curly-spacing and
+      // indent ignoring TemplateLiteral, babel 7 crash on files they are using process.env.XXXX
+      "template-curly-spacing" : "off",
+      "indent": ["error", 4, {
+        "ignoredNodes": ["TemplateLiteral"]
+      }],
+      "class-methods-use-this": ["off"],
+      "react/jsx-uses-react": 2, // Prevent React to be incorrectly marked as unused
+      "react/jsx-uses-vars": 2, // Prevent variables used in JSX to be incorrectly marked as unused
+      "import/named": 0,
+      "prefer-object-spread": 0
+    },
+
+    "settings": {
+      "import/resolver": {
+        "alias": [
+            ["@src", "./src/"]
+        ]
+      }
+    }
+  }

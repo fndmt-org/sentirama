@@ -1,5 +1,4 @@
 /* eslint-env node, jest */
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-expressions */
 
 import React from 'react';

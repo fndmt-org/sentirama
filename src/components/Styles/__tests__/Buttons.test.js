@@ -1,12 +1,11 @@
 /* eslint-env node, jest */
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-expressions */
 
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import 'jest-styled-components';
 
-import Button from '../Buttons.styles';
+import Button from '../buttons.styles';
 
 describe('Buttons - Classic Theme:', () => {
     describe('Buttons - first set:', () => {
@@ -25,7 +24,7 @@ describe('Buttons - Classic Theme:', () => {
                 <Button.Booking>Book</Button.Booking>,
             ).toJSON();
 
-            expect(wrapper).toHaveStyleRule('padding', '.9em 1.6em');
+            expect(wrapper).toHaveStyleRule('padding', '1.1em');
             expect(wrapper).toMatchSnapshot();
         });
 

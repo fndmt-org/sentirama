@@ -1,56 +1,85 @@
-import app from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
+import { initializeApp } from "firebase/app"
+import { getAuth, signInAnonymously } from "firebase/auth";
+import { getDatabase, ref, query, set as dbset, onValue, equalTo } from "firebase/database";
 
 const config = {
-    apiKey: "AIzaSyBz9WIj8SHoc9F2l9Uz2BipbTbM_iGRY4w",
-    authDomain: "corona-mood.firebaseapp.com",
-    databaseURL: "https://corona-mood.firebaseio.com",
-    projectId: "corona-mood",
-    storageBucket: "corona-mood.appspot.com",
-    messagingSenderId: "915912794570",
-    appId: "1:915912794570:web:ba18ea9f96b8ea0981af33",
-    measurementId: "G-PKF0ZEL622"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_FIREBASE_DB_URL,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
+    measurementId: process.env.REACT_APP_FIREBASE_MESUREMENT_ID,
 };
+
+const MOODS_PATH = "moods";
+const MOOD_PATH = "mood";
 
 class Firebase {
     constructor() {
-        app.initializeApp(config);
-        this.auth = app.auth();
-        this.db = app.database();
+        this.app = initializeApp(config);
+        this.db = getDatabase();
+        this.auth = getAuth();
     }
-    // *** Auth API ***
-    doCreateUserWithEmailAndPassword = (email, password) =>
-        this.auth.createUserWithEmailAndPassword(email, password);
 
-    doSignInWithEmailAndPassword = (email, password) =>
-        this.auth.signInWithEmailAndPassword(email, password);
+    singIn = (callback = () => {}) =>{
+        signInAnonymously(this.auth)
+            .then(() => {
+                callback();
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.error(errorCode)
+                console.error(errorMessage)
+            });
+    }
 
-    doSignOut = () => this.auth.signOut();
+    mood = uid => ref(this.db, `${MOOD_PATH}/${uid}`);
+    moods = () => ref(this.db, MOODS_PATH);
 
-    doAnonymosSignIn = () => this.auth.signInAnonymously()
-
-    doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
-    doPasswordUpdate = password =>
-        this.auth.currentUser.updatePassword(password);
-
-    doAddMood = (name, message, emoji, date, category, set) => {
-        return this.messages().push().set({
-            message,
-            name,
-            date,
-            emoji,
-            category,
-            set,
-        })
+    // *** API ***
+    doAddMood = ({uuid, ...params}) => {
+        dbset(ref(this.db, `${MOODS_PATH}/` + uuid), {
+            uuid,
+            ...params
+        }).then((data) => {
+            console.log(data ? data : "no data");
+        }).catch((error) => {
+            console.error(error);
+        });
     };
 
-    // *** Message API ***
-    message = uid => this.db.ref(`message/${uid}`);
-    messages = () => this.db.ref('messages');
+    doUpdateMood = ({uuid, ...params}) => {
+        const moodRef = ref(this.db, `${MOODS_PATH}/` + uuid);
+        onValue(moodRef, (snapshot) => {
+            if (snapshot.exists()){
+                const data = snapshot.val();
+                console.log(data);
+            } else{
+                doAddMood({uuid, ...params});
+            }
+        });
+    }
 
-    // *** User API ***
-    user = uid => this.db.ref(`users/${uid}`);
-    users = () => this.db.ref('users');
+    getGlobalMood = (callback = () => {}) => {
+        const globalMoodRef = ref(this.db, MOODS_PATH);
+        onValue(globalMoodRef, (snapshot) => {
+            callback(snapshot.exists() ? snapshot.val() : null);
+        });
+    }
+
+    fetchMoods = (callback = () => {}) => {
+        const moodsList = ref(this.db, MOODS_PATH);
+        onValue(moodsList, (snapshot) => {
+            let keys = []
+            snapshot.forEach(item => {
+                var itemVal = item.val();
+                keys.push(itemVal);
+            });
+            callback(snapshot.exists() ? keys : null);
+        })
+    }
 }
 export default Firebase;

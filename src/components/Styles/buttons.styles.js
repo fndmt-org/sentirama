@@ -2,9 +2,67 @@ import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 
 import responsiveFonts from './responsiveFonts.styles';
-import { iconSizes } from './iconSizes.styles';
 
-const SendMods = {
+const ToggleButton = styled.div`
+    ${({ theme }) => css`
+        display: flex;
+        align-items: center;
+        padding: ${theme.r150};
+        
+        input[type="checkbox"] {
+            width: 0;
+            height: 0;
+            visibility: hidden;
+        }
+        label {
+            padding: ${theme.r060};
+            width: 48px;
+            height: 24px;
+            display:block;
+            background-color: ${theme.colorCustom100};
+            border-radius: 100px;
+            position: relative;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        label::after {
+            content: "";
+            width: 12px;
+            height: 12px;
+            background-color: ${theme.neutral000};
+            position: absolute;
+            border-radius: 70px;
+            left: ${theme.r060};
+            transition: 0.5s;
+        }
+        svg {
+            opacity: ${theme.opacity000};
+            position: absolute;
+            z-index: ${theme.zBottom};
+            width: ${theme.r250};
+            color: ${theme.neutral000};
+            transition: 0.2s;
+        }
+        input:checked + label:after {
+            left: calc(100% - ${theme.r060});
+            transform: translateX(-100%);
+            background-color: ${theme.neutral000};
+        }
+        input:checked + label {
+            background-color: ${theme.colorCustom500};
+        }
+        input:checked ~ svg {
+            opacity: ${theme.opacity100};
+            z-index: ${theme.zBase};
+        }
+        span {
+            margin-inline-start: ${theme.r075};
+            font-size: ${theme.fontB};
+        }
+    `}
+`;
+
+const IconButtonMods = {
     enabled: css`
         ${({ theme }) => css`
             background-color: ${theme.buttonPrimaryBgColor
@@ -18,33 +76,38 @@ const SendMods = {
     `,
     disabled: css`
         ${({ theme }) => css`
-            background-color: ${({theme}) => theme.buttonDisabledBgColor
-                || theme.neutral400};
-            color: ${({theme}) => theme.buttonDisabledTextColor
-                || theme.neutral800};
+            background-color: ${theme.buttonDisabledBgColor || theme.neutral400};
+            color: ${theme.buttonDisabledTextColor ||theme.neutral800};
             opacity: 0.5;
         `}
     `,
 }
 
-const Send = styled.button`
+const IconButton = styled.button`
     ${({ theme }) => css`
         background-clip: padding-box;
-        border: 0;
+        border: ${({ theme }) => theme.buttonPrimaryBorder};
         border-radius: ${theme.buttonRounded || theme.round};
         display: inline-block;
-        font-size: 0;
+        font-size: ${({ theme }) => theme.iconSizeThumb};
         letter-spacing: inherit;
-        padding: ${theme.r050};
+        line-height: 0;
         text-align: center;
         text-decoration: none;
         text-transform: inherit;
         ${(props) => props.disabled
-            ? SendMods.disabled
-            : SendMods.enabled
+    ? IconButtonMods.disabled
+    : IconButtonMods.enabled
         }
+
+        &:focus {
+            outline: ${theme.outline};
+            outline-offset: 0;
+        }
+
         svg {
-            ${iconSizes.default}
+            height: 1em;
+            width: 1em;
         }
     `}
 
@@ -73,49 +136,6 @@ const focus = css`
         outline-offset: 0;
     }
 `;
-
-const full = {
-    default: css`
-        width: 100%;
-    `,
-    redesign: css`
-        margin: ${({ theme }) => `${theme.r150} ${theme.r200}`};
-        width: ${({ theme }) => `calc(100% - ${theme.r400})`};
-    `,
-};
-
-const largeSize = {
-    default: css`
-        ${responsiveFonts.BtoL}
-        padding: .9em 1.6em;
-    `,
-    redesign: css`
-        ${responsiveFonts.LtoLX}
-        padding: 1.1em;
-    `,
-};
-
-const baseSize = {
-    default: css`
-        ${responsiveFonts.StoB}
-        padding: .6em 1.2em;
-    `,
-    redesign: css`
-        ${responsiveFonts.BtoL}
-        padding: .8em;
-    `,
-};
-
-const smallSize = {
-    default: css`
-        ${responsiveFonts.XStoS}
-        padding: .5em 1em;
-    `,
-    redesign: css`
-        ${responsiveFonts.StoB}
-        padding: .6em;
-    `,
-};
 
 const mods = {
     default: css`
@@ -190,7 +210,8 @@ const mods = {
         ${focus}
     `,
     full: css`
-        ${({ version }) => (version === 'B' ? full.redesign : full.default)};
+        margin: ${({ theme }) => `${theme.r150} ${theme.r200}`};
+        width: ${({ theme }) => `calc(100% - ${theme.r400})`};
     `,
     rounded: css`
         border-radius: ${(props) => props.theme.buttonRounded || props.theme.round};
@@ -199,13 +220,16 @@ const mods = {
         border-radius: ${(props) => props.theme.buttonIconsRound || props.theme.round};
     `,
     large: css`
-        ${({ version }) => (version === 'B' ? largeSize.redesign : largeSize.default)};
+        ${responsiveFonts.LtoLX}
+        padding: 1.1em;
     `,
     base: css`
-        ${({ version }) => (version === 'B' ? baseSize.redesign : baseSize.default)};
+        ${responsiveFonts.BtoL}
+        padding: .8em;
     `,
     small: css`
-        ${({ version }) => (version === 'B' ? smallSize.redesign : smallSize.default)};
+        ${responsiveFonts.StoB}
+        padding: .6em;
     `,
     disabled: css`
         &,
@@ -253,13 +277,6 @@ const mods = {
     `,
 };
 
-const buttonRedisgn = css`
-    letter-spacing: inherit;
-    ${baseSize.redesign}
-    /* stylelint-disable-next-line order/properties-alphabetical-order */
-    ${mods.rounded}
-`;
-
 const ButtonBase = styled.button`
     background-clip: padding-box;
     border: 0;
@@ -276,7 +293,11 @@ const ButtonBase = styled.button`
     transition-property: all;
     transition-timing-function: ease-in-out;
     /* stylelint-disable-next-line order/properties-alphabetical-order */
-    ${({ version }) => (version === 'B' ? buttonRedisgn : baseSize.default)}
+    letter-spacing: inherit;
+    ${responsiveFonts.BtoL}
+    padding: .8em;
+    /* stylelint-disable-next-line order/properties-alphabetical-order */
+    ${mods.rounded}
 `;
 
 const Button = styled(ButtonBase)`
@@ -327,16 +348,18 @@ Button.Invert = styled(ButtonBase)`
 `;
 
 Button.ActionDefault = styled.button`
-    display: inline-block;
-    height: ${({ theme }) => theme.iconDefaultSize};
-    text-decoration: none;
-    /* stylelint-disable-next-line order/properties-alphabetical-order */
-    ${mods.actionRounded}
-    width: ${({ theme }) => theme.iconDefaultSize};
-    /* stylelint-disable-next-line no-descending-specificity */
-    & svg {
-        fill: currentColor;
-    }
+    ${({ theme }) => css`
+        display: inline-block;
+        height: ${theme.iconSizeThumb};
+        text-decoration: none;
+        /* stylelint-disable-next-line order/properties-alphabetical-order */
+        ${mods.actionRounded}
+        width: ${theme.iconSizeThumb};
+        /* stylelint-disable-next-line no-descending-specificity */
+        & svg {
+            fill: currentColor;
+        }
+    `}
 `;
 
 Button.Action = styled(Button.ActionDefault)`
@@ -376,7 +399,8 @@ Button.defaultProps = {
 };
 
 export {
-    Send,
+    ToggleButton,
+    IconButton,
     disabled,
     mods,
 };
