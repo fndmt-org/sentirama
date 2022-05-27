@@ -1,3 +1,3 @@
-import MoodCategorySelectorPage from './moodCategorySelectorPage';
+import MoodSelectorPage from './moodSelectorPage';
 
-export default MoodCategorySelectorPage;
+export default MoodSelectorPage;

@@ -1,20 +1,46 @@
+/* eslint-disable max-statements */
 import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router";
 import { FormattedMessage } from 'react-intl';
 import { compose } from 'recompose';
+
 import { withFirebase } from '../../Firebase';
 
-import { MoodWrapper } from '../LayoutStyles/moodLayout.styles'
 import {
-    MoodResultsWrapper,
+    MoodWrapper,
+    SentiramaLogoWrapper,
+    TitleFormStylesOverColors,
+} from '../LayoutStyles/moodLayout.styles'
+import {
+    CustomButton,
+    MoodResultAverageTitle,
     MoodResultAverageWrapper,
     MoodResultMet,
+    MoodResultsUser,
+    MoodResultsWrapper,
     MoodResultUnMet,
-    CustomButton
+    PencilIconStyles,
+    MetIcon,
+    UnMetIcon,
+    InfoIconStyles
 } from './moodResults.styles'
-import { SentiramaLogo } from '../../Styles/common.styles';
-import { ReactComponent as PencilIcon }  from '../../../assets/icons/arrow.svg';
 import * as ROUTES from '../../../constants/routes';
+
+
+const MoodResultsAverge = ({ positiveNumberMoodsPercent, negativeNumberMoodsPercent }) => {
+    return <>
+        {positiveNumberMoodsPercent
+            ? <MoodResultMet value={positiveNumberMoodsPercent}>
+                <MetIcon /> {positiveNumberMoodsPercent}%
+            </MoodResultMet>
+            : null}
+        {negativeNumberMoodsPercent
+            ? <MoodResultUnMet value={negativeNumberMoodsPercent}>
+                <UnMetIcon /> {negativeNumberMoodsPercent}%
+            </MoodResultUnMet>
+            : null}
+    </>
+}
 
 const MoodResultsBase = (props) => {
 
@@ -23,30 +49,38 @@ const MoodResultsBase = (props) => {
         mood,
         color,
         username,
-        category,
+        set,
     } = props;
-    const history = useHistory()
+    const history = useHistory();
 
-    const handleClick = () => {
+    const handleEdit = () => {
         history.push({
             pathname:  ROUTES.LANDING,
         });
     }
 
+    const handleList = () => {
+        history.push({
+            pathname: ROUTES.MOOD_SELECTED_LIST,
+            state: {
+                username,
+                uuid,
+                mood,
+                color,
+                set,
+            }
+        });
+    }
+
     const sendNewMood = () => {
         const name = username;
-        const message = mood;
-        const set = '';
-        const emoji = '';
         const date = Date.now();
 
         props.firebase.doAddMood(
             {
                 name,
-                message,
-                emoji,
+                mood,
                 date,
-                category,
                 set,
                 color,
                 uuid,
@@ -56,64 +90,76 @@ const MoodResultsBase = (props) => {
 
     const [positiveNumberMoodsPercent, setPositiveNumberMoodsPercent] = useState(0);
     const [negativeNumberMoodsPercent, setNegativeNumberMoodsPercent] = useState(0);
+    const [allMoods, setAllMoods] = useState(0);
 
     const extractNumberMoods = (moods) =>{
-        const positive = moods ? Object.values(moods).filter(mood => mood.category === 'good') : null;
-        const allMoods = Object.values(moods).length
-        const positiveModsPercent = positive.length * 100 / allMoods;
-        setPositiveNumberMoodsPercent(Math.round(positiveModsPercent));
-        const negativeModPercent = (allMoods - positive.length) * 100 / allMoods;
-        setNegativeNumberMoodsPercent(Math.round(negativeModPercent))
-    }
-
-    const getPercent = () => {
-        props.firebase.getGlobalMood(
-            extractNumberMoods
+        const positive = moods ? Object.values(moods).filter(mood => mood.set === 'met') : null;
+        const allMoods = Object.values(moods).length;
+        setAllMoods(allMoods);
+        setPositiveNumberMoodsPercent(
+            Math.round(positive.length * 100 / allMoods)
         );
+        setNegativeNumberMoodsPercent(
+            Math.round((allMoods - positive.length) * 100 / allMoods)
+        )
     }
-
 
     useEffect(() => {
         props.firebase.singIn(sendNewMood())
-        getPercent();
+        props.firebase.getGlobalMood(
+            extractNumberMoods
+        );
     }, [mood, username]);
 
     return (
         <MoodWrapper>
-            <SentiramaLogo/>
-            <MoodResultsWrapper
-                color={color}
-            >
-                <h1 className="results-user">
-                    <span>{`${username.charAt(0).toUpperCase()}${username.slice(1)}`}</span>
-                    <span className="results-user-message">
+            <SentiramaLogoWrapper/>
+            <MoodResultsWrapper>
+                <MoodResultsUser color={color}>
+                    <TitleFormStylesOverColors>
                         <FormattedMessage
                             id="yourMood.form.resultsMessage"
-                            description=""
-                            defaultMessage=""/>
-                    </span>
-                    <span>{mood.toLowerCase()}</span>
-                    <CustomButton onClick={handleClick}>
-                        <PencilIcon></PencilIcon>
+                            description="User name"
+                            defaultMessage="{name}, al {action} sientes {feeling}"
+                            values={
+                                {
+                                    action: "leer este artículo",
+                                    name: `${username.charAt(0).toUpperCase()}${username.slice(1)}`,
+                                    feeling: mood.toLowerCase(),
+                                }
+                            }/>
+                    </TitleFormStylesOverColors>
+                    <CustomButton onClick={() => handleEdit()}>
+                        <PencilIconStyles />
                         <FormattedMessage
                             id="yourMood.form.edit"
-                            description=""
-                            defaultMessage=""/>
+                            description="edit button"
+                            defaultMessage="edit"/>
                     </CustomButton>
-                </h1>
-                <span className="results-average-message">
+                    <CustomButton onClick={() => handleList()}>
+                        <InfoIconStyles />
+                        <FormattedMessage
+                            id="yourMood.form.list"
+                            description="list button"
+                            defaultMessage="list"/>
+                    </CustomButton>
+                </MoodResultsUser>
+                <MoodResultAverageTitle>
                     <FormattedMessage
                         id="yourMood.form.allAnswers"
-                        description=""
-                        defaultMessage=""/>
-                </span>
-                <MoodResultAverageWrapper className="results-average">
-                    <MoodResultMet value={positiveNumberMoodsPercent}>
-                        {positiveNumberMoodsPercent}%
-                    </MoodResultMet>
-                    <MoodResultUnMet value={negativeNumberMoodsPercent}>
-                        {negativeNumberMoodsPercent}%
-                    </MoodResultUnMet>
+                        description="all results title"
+                        defaultMessage="{allMoods} results"
+                        values={
+                            {
+                                allMoods: allMoods,
+                            }
+                        }/>
+                </MoodResultAverageTitle>
+                <MoodResultAverageWrapper>
+                    <MoodResultsAverge
+                        positiveNumberMoodsPercent={positiveNumberMoodsPercent}
+                        negativeNumberMoodsPercent={negativeNumberMoodsPercent}
+                    />
                 </MoodResultAverageWrapper>
             </MoodResultsWrapper>
         </MoodWrapper>

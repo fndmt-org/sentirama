@@ -1,8 +1,9 @@
 // Font
-const fontSourceFamilies = ['Nunito+Sans:300,400,700'];
-const fontSetBase = 'Nunito Sans';
+const fontSourceFamilies = ['Shippori+Antique+B1:400'];
+const fontSetBase = 'Shippori Antique B1';
 const fontSizeBase = '62.5%'; // default 10px
 const fontStyleBase = 'normal';
+const showLogo = true;
 
 export const fontSizes = {
     fontXXS: '1rem',
@@ -16,9 +17,9 @@ export const fontSizes = {
 };
 
 export const fontWeight = {
-    fontBold: '700',
+    fontBold: '400',
     fontRegular: '400',
-    fontLight: '300',
+    fontLight: '400',
 };
 
 export const lineHeight = {
@@ -27,6 +28,7 @@ export const lineHeight = {
     lineHeightB: '1.5', // default font body
     lineHeightM: '1.75',
     lineHeightL: '2',
+    lineHeightXL: '2.6',
 };
 
 export const letterSpacing = {
@@ -71,23 +73,23 @@ export const neutrals = {
 };
 
 export const mainColors = {
-    colorMain: 'hsla(45, 37%, 54%, 1)',
-    colorMain025: 'hsla(45, 37%, 98%, 1)',
-    colorMain050: 'hsla(45, 37%, 95%, 1)',
-    colorMain100: 'hsla(45, 37%, 90%, 1)',
-    colorMain300: 'hsla(45, 37%, 70%, 1)',
-    colorMain500: 'hsla(45, 37%, 50%, 1)',
-    colorMain700: 'hsla(45, 37%, 30%, 1)',
-    colorMain900: 'hsla(45, 37%, 10%, 1)',
+    colorCustom: 'hsla(214, 96%, 36%, 1)',
+    colorCustom025: 'hsla(214, 96%, 98%, 1)',
+    colorCustom050: 'hsla(214, 96%, 95%, 1)',
+    colorCustom100: 'hsla(214, 96%, 90%, 1)',
+    colorCustom300: 'hsla(214, 96%, 70%, 1)',
+    colorCustom500: 'hsla(214, 96%, 50%, 1)',
+    colorCustom700: 'hsla(214, 96%, 30%, 1)',
+    colorCustom900: 'hsla(214, 96%, 10%, 1)',
 };
 
 export const customColors = {
-    colorCustom: 'hsla(230, 95%, 37%, 1)',
-    colorCustom100: 'hsla(230, 95%, 90%, 1)',
-    colorCustom300: 'hsla(230, 95%, 70%, 1)',
-    colorCustom500: 'hsla(230, 95%, 50%, 1)',
-    colorCustom700: 'hsla(230, 95%, 30%, 1)',
-    colorCustom900: 'hsla(230, 95%, 10%, 1)',
+    colorMain: 'hsla(0, 0%, 10%, 1)',
+    colorMain100: 'hsla(0, 0%, 90%, 1)',
+    colorMain300: 'hsla(0, 0%, 70%, 1)',
+    colorMain500: 'hsla(0, 0%, 50%, 1)',
+    colorMain700: 'hsla(0, 0%, 30%, 1)',
+    colorMain900: 'hsla(0, 0%, 10%, 1)',
 };
 
 export const successColors = {
@@ -126,8 +128,12 @@ export const colors = {
     ...errorColors,
     ...warningColors,
 
-    colorGoodMoodIcon: 'hsla(145, 63%, 35%, 1)',
-    colorBadMoodIcon: 'hsla(28, 86%, 61%, 1)',
+    colorMetMoodIcon: 'hsla(151, 22%, 72%, 1)',
+    colorUnMetMoodIcon: 'hsla(6, 71%, 65%, 1)',
+    colorMetStart:  'hsla(151, 22%, 72%, 1)',
+    colorMetEnd: 'hsla(270, 24%, 70%, 1)',
+    colorUnMetStart: 'hsla(6, 71%, 65%, 1)',
+    colorUnMetEnd: 'hsla(60, 71%, 85%, 1)',
 };
 
 const layers = {
@@ -234,19 +240,24 @@ const rhythm = {
     r010: '.1rem',
     r025: '.25rem',
     r050: '.5rem',
+    r060: '.6rem',
     r075: '.75rem',
     r100: '1rem',
     r150: '1.5rem',
     r200: '2rem',
+    r250: '2.5rem',
     r300: '3rem',
+    r350: '3.5rem',
     r400: '4rem',
     r600: '6rem',
     r800: '8rem',
     r1000: '10rem',
     r1200: '12rem',
+    r1500: '15rem',
     r1600: '16rem',
     r2000: '20rem',
     r2500: '25rem',
+    r3000: '30rem',
 };
 
 const animationTime = {
@@ -270,9 +281,8 @@ export const formColors = {
 
 export const formSettings = {
     formFieldBorderRadius: rhythm.r300,
-    formFieldBorder: `${borders.borderWidthS} solid ${formColors.formFieldColor}`,
+    formFieldBorder: `${borders.borderWidthM} solid ${formColors.formFieldColor}`,
     formFieldBorderFocus: `${borders.borderWidthM} solid ${formColors.formFieldColorFocus}`,
-    formFieldRound: rhythm.r050,
 };
 
 export const form = {
@@ -291,6 +301,8 @@ export const icons = {
     iconsSizeMM: '2.4rem',
     iconsSizeML: '2.8rem',
     iconsSizeL: '3.6rem',
+    iconsSizeButtonBig: '6rem',
+    iconsSizeXXL: '20.2rem',
     iconSizeThumb: defaultThumbSize,
 };
 
@@ -318,7 +330,7 @@ export const images = {
 
 const base = {
 
-    round: '2.5rem',
+    round: '3rem',
     roundedCard: '1rem',
     /* Icon in button defaut size */
     /* text shadow default fallback for tex over images */
@@ -336,14 +348,13 @@ const base = {
     // buttonSecondaryTextColor: colors.colorMid,
     // buttonPrimaryBgColor: colors.colorMain,
     // buttonSecondaryBgColor: colors.neutral000,
-    // buttonPrimaryBorder: 0,
+    buttonPrimaryBorder: `${borders.borderWidthM} solid ${colors.neutral900}`,
     // buttonSecondaryBorder: `1px solid ${colors.colorAlmostLight}`
     // buttonTextTransform: `1px solid ${colors.colorAlmostLight}`
-    // outline: `1px solid ${colors.neutral500}`,
+    outline: `2px solid ${colors.neutral900}`,
     // outlineDark: `1px solid ${colors.neutral200}`,
     // outlineLight: `1px solid ${colors.neutral200}`,
     /* DON'T DELETE  optional variables [end] */
-    outline: 'none',
     lineHeightField: defaultThumbSize,
 };
 
@@ -360,6 +371,7 @@ const themeDefault = {
     ...icons,
     ...images,
     ...base,
+    showLogo,
 };
 
 export default themeDefault;

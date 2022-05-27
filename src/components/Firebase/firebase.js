@@ -23,7 +23,7 @@ class Firebase {
         this.auth = getAuth();
     }
 
-    singIn = (callback) =>{
+    singIn = (callback = () => {}) =>{
         signInAnonymously(this.auth)
             .then(() => {
                 callback();
@@ -44,10 +44,10 @@ class Firebase {
         dbset(ref(this.db, `${MOODS_PATH}/` + uuid), {
             uuid,
             ...params
-        }).then(() => {
-            // Data saved successfully!
+        }).then((data) => {
+            console.log(data ? data : "no data");
         }).catch((error) => {
-            // The write failed...
+            console.error(error);
         });
     };
 
@@ -63,15 +63,23 @@ class Firebase {
         });
     }
 
-    getGlobalMood = (callback) => {
-
+    getGlobalMood = (callback = () => {}) => {
         const globalMoodRef = ref(this.db, MOODS_PATH);
         onValue(globalMoodRef, (snapshot) => {
             callback(snapshot.exists() ? snapshot.val() : null);
         });
-
-
     }
 
+    fetchMoods = (callback = () => {}) => {
+        const moodsList = ref(this.db, MOODS_PATH);
+        onValue(moodsList, (snapshot) => {
+            let keys = []
+            snapshot.forEach(item => {
+                var itemVal = item.val();
+                keys.push(itemVal);
+            });
+            callback(snapshot.exists() ? keys : null);
+        })
+    }
 }
 export default Firebase;

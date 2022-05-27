@@ -30,7 +30,9 @@ export default {
     ipadLandscape: `all and (device-width: 768px) and
     (device-height: 1024px) and (orientation:landscape)`,
 
-    xs: `only screen and (max-width: 600px)`,
+    xxs: `only screen and (min-width: 120px)`,
+
+    xs: `only screen and (min-width: 320px)`,
 
     s: `only screen and (min-width: 600px)`,
 

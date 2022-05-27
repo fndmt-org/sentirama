@@ -1,9 +1,14 @@
 {
-    "yourMood.form.emoji": "Selecciona un emoji",
-    "yourMood.form.placeholder.mood": "Tu estado de animo",
-    "yourMood.form.placeholder.name": "Tu nombre",
+    "yourMood.error.common": "Algo salió mal.",
+    "yourMood.userForm.placeholder.name": "Tu nombre",
+    "yourMood.userForm.youFeel": "Sientes {feeling}",
     "yourMood.form.title": "¿Cómo te sientes?",
-    "yourMood.form.resultsMessage": "al leer esta noticia sientes",
-    "yourMood.form.allAnswers": "todas las respuestas",
-    "yourMood.form.edit": "editar"
+    "yourMood.form.resultsMessage": "{name}, al {action} sientes {feeling}",
+    "yourMood.form.allAnswers": "{allMoods} respuestas",
+    "yourMood.form.edit": "editar",
+    "yourMood.form.list": "ver lista",
+    "yourMood.list.date": "Hoy",
+    "yourMood.list.role": "tú",
+    "yourMood.list.moment-ago": "hace un momento",
+    "yourMood.list.average": "Promedio de humor"
 }

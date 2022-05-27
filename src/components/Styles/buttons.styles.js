@@ -3,7 +3,66 @@ import PropTypes from 'prop-types';
 
 import responsiveFonts from './responsiveFonts.styles';
 
-const IconButtonsMods = {
+const ToggleButton = styled.div`
+    ${({ theme }) => css`
+        display: flex;
+        align-items: center;
+        padding: ${theme.r150};
+        
+        input[type="checkbox"] {
+            width: 0;
+            height: 0;
+            visibility: hidden;
+        }
+        label {
+            padding: ${theme.r060};
+            width: 48px;
+            height: 24px;
+            display:block;
+            background-color: ${theme.colorCustom100};
+            border-radius: 100px;
+            position: relative;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        label::after {
+            content: "";
+            width: 12px;
+            height: 12px;
+            background-color: ${theme.neutral000};
+            position: absolute;
+            border-radius: 70px;
+            left: ${theme.r060};
+            transition: 0.5s;
+        }
+        svg {
+            opacity: ${theme.opacity000};
+            position: absolute;
+            z-index: ${theme.zBottom};
+            width: ${theme.r250};
+            color: ${theme.neutral000};
+            transition: 0.2s;
+        }
+        input:checked + label:after {
+            left: calc(100% - ${theme.r060});
+            transform: translateX(-100%);
+            background-color: ${theme.neutral000};
+        }
+        input:checked + label {
+            background-color: ${theme.colorCustom500};
+        }
+        input:checked ~ svg {
+            opacity: ${theme.opacity100};
+            z-index: ${theme.zBase};
+        }
+        span {
+            margin-inline-start: ${theme.r075};
+            font-size: ${theme.fontB};
+        }
+    `}
+`;
+
+const IconButtonMods = {
     enabled: css`
         ${({ theme }) => css`
             background-color: ${theme.buttonPrimaryBgColor
@@ -24,22 +83,28 @@ const IconButtonsMods = {
     `,
 }
 
-const IconButtons = styled.button`
+const IconButton = styled.button`
     ${({ theme }) => css`
         background-clip: padding-box;
-        border: 0;
+        border: ${({ theme }) => theme.buttonPrimaryBorder};
         border-radius: ${theme.buttonRounded || theme.round};
         display: inline-block;
         font-size: ${({ theme }) => theme.iconSizeThumb};
         letter-spacing: inherit;
-        padding: ${theme.r050};
+        line-height: 0;
         text-align: center;
         text-decoration: none;
         text-transform: inherit;
         ${(props) => props.disabled
-    ? IconButtonsMods.disabled
-    : IconButtonsMods.enabled
+    ? IconButtonMods.disabled
+    : IconButtonMods.enabled
         }
+
+        &:focus {
+            outline: ${theme.outline};
+            outline-offset: 0;
+        }
+
         svg {
             height: 1em;
             width: 1em;
@@ -334,7 +399,8 @@ Button.defaultProps = {
 };
 
 export {
-    IconButtons,
+    ToggleButton,
+    IconButton,
     disabled,
     mods,
 };

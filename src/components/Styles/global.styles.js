@@ -69,7 +69,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         background-color: ${props => props.theme.colorBg};
         color: ${props => props.theme.colorText};
-        height: 100%;
+
         overscroll-behavior: none;
     }
 
@@ -131,7 +131,11 @@ const GlobalStyle = createGlobalStyle`
     }
 
     #root{
+        display: flex;
         height: 100%;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 
 `;
