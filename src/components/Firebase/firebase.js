@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app"
 import { getAuth, signInAnonymously } from "firebase/auth";
+import { getAnalytics } from "firebase/analytics";
 import { getDatabase, ref, query, set as dbset, onValue, equalTo, orderByChild, serverTimestamp } from "firebase/database";
 import { getPerformance } from "firebase/performance";
 
@@ -25,6 +26,7 @@ class Firebase {
         this.auth = getAuth();
         // Initialize Performance Monitoring and get a reference to the service
         this.perf = getPerformance(this.app);
+        this.analytics = getAnalytics(this.app);
     }
 
     sessions = () => ref(this.db, SESSION_PATH);
