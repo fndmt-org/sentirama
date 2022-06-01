@@ -19,7 +19,7 @@ import { ReactComponent as FrownIcon }  from './../../../assets/icons/44/frown.s
 
 export function MoodsListItem({
     color,
-    date,
+    createdAt,
     isModeAverage,
     mood,
     name,
@@ -61,7 +61,7 @@ export function MoodsListItem({
                     </EditButton>
                 ):(
                     <DateTimeWrapper isModeAverage={isModeAverage}>
-                        {new Date(date).toLocaleString()}
+                        {new Date(createdAt).toLocaleString()}
                     </DateTimeWrapper>
                 )
                 }

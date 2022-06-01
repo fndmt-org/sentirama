@@ -18,7 +18,6 @@ import {MoodsListItem} from '../MoodsListItem/moodsListItem';
 
 const MoodSelectedList = (props) => {
     const {
-        uuid,
         mood,
         color,
         username,
@@ -27,12 +26,10 @@ const MoodSelectedList = (props) => {
 
     const [moodsList, setMoodsList] = useState([])
 
-    const setMoods = (moodList) =>{
-        setMoodsList(moodList)
-    }
-
     useEffect(() => {
-        props.firebase.fetchMoods(setMoods);
+        props.firebase.fetchMoods(
+            setMoodsList
+        );
     }, []);
 
     const [averageChecked, setAverageChecked] = useState(false);
@@ -54,11 +51,7 @@ const MoodSelectedList = (props) => {
                         return (
                             <MoodsListItem
                                 key={mood.uuid}
-                                color={mood.color}
-                                mood={mood.mood}
-                                name={mood.name}
-                                date={mood.date}
-                                set={mood.set}
+                                {...mood}
                                 currentUser={false}
                                 isModeAverage={averageChecked}
                             />
