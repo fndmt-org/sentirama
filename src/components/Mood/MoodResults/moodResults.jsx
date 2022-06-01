@@ -74,13 +74,11 @@ const MoodResultsBase = (props) => {
 
     const sendNewMood = () => {
         const name = username;
-        const date = Date.now();
 
         props.firebase.doAddMood(
             {
                 name,
                 mood,
-                date,
                 set,
                 color,
                 uuid,
