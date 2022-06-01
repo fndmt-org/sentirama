@@ -51,11 +51,7 @@ const MoodSelectedList = (props) => {
                         return (
                             <MoodsListItem
                                 key={mood.uuid}
-                                color={mood.color}
-                                mood={mood.mood}
-                                name={mood.name}
-                                date={mood.date}
-                                set={mood.set}
+                                {...mood}
                                 currentUser={false}
                                 isModeAverage={averageChecked}
                             />
