@@ -51,7 +51,7 @@
   "homepage": "https://corona-mood.firebaseapp.com/",
   "dependencies": {
     "babel-plugin-formatjs": "^9.2.5",
-    "firebase": "^9.8.2",
+    "firebase": "^12.17.1",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -60,7 +60,7 @@
     "react-scripts": "^5.0.1",
     "recompose": "^0.30.0",
     "styled-components": "^5.3.5",
-    "uuid": "^8.3.2",
+    "uuid": "^11.1.1",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
@@ -75,7 +75,6 @@
     "jest-styled-components": "^7.0.8",
     "lint-staged": "^11.2.6",
     "match-media-mock": "^0.1.1",
-    "react-intl-cra": "^0.3.4",
     "react-intl-translations-manager": "^5.0.3",
     "react-test-renderer": "^17.0.2"
   },
