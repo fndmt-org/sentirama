@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import moods from '../components/Mood/moods.grid';
 import { generateColorSteps } from './../components/Styles/colorSteps';
 
+const mappedMoods = {
+    met: 'met',
+    unmet: 'unmet'
+}
+
 export const useBasicMoods = (need) => {
     const [filteredMoods, setFilteredMoods] = useState([])
-
-    const mappedMoods = {
-        met: 'met',
-        unmet: 'unmet'
-    }
 
     useEffect(() => {
         let moodsArray = []
@@ -27,7 +27,7 @@ export const useBasicMoods = (need) => {
             mood.color = colors[index]
         })
         setFilteredMoods([...moodsArray])
-    }, [])
+    }, [need])
 
     return filteredMoods
 }

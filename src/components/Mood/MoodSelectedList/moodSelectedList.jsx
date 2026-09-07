@@ -30,7 +30,7 @@ const MoodSelectedList = (props) => {
         props.firebase.fetchMoods(
             setMoodsList
         );
-    }, []);
+    }, [props.firebase]);
 
     const [averageChecked, setAverageChecked] = useState(false);
 
