@@ -42,10 +42,6 @@ exports[`Buttons - Classic Theme: Buttons - first set: check default 1`] = `
   outline-offset: 0;
 }
 
-@media only screen and (min-width:400px) {
-
-}
-
 <button
   className="c0 c1"
 >
@@ -109,10 +105,6 @@ exports[`Buttons - Classic Theme: Buttons - first set: checks Rounded Button\`s 
 
 .c2:focus {
   outline-offset: 0;
-}
-
-@media only screen and (min-width:400px) {
-
 }
 
 <button
@@ -280,10 +272,6 @@ exports[`Buttons - Classic Theme: Buttons - first set: checks screenshot of Book
   width: calc(100% - undefined);
 }
 
-@media only screen and (min-width:400px) {
-
-}
-
 <button
   className="c0 c1 c2 c3"
 >
@@ -353,10 +341,6 @@ exports[`Buttons - Classic Theme: Buttons - first set: checks screenshot of Comm
 
 .c2:focus {
   outline-offset: 0;
-}
-
-@media only screen and (min-width:400px) {
-
 }
 
 <button
@@ -430,10 +414,6 @@ exports[`Buttons - Classic Theme: Buttons - first set: checks screenshot of Comm
   outline-offset: 0;
 }
 
-@media only screen and (min-width:400px) {
-
-}
-
 <button
   className="c0 c1 c2"
 >
@@ -471,10 +451,6 @@ exports[`Buttons - Classic Theme: Buttons - second set: checks disabled Button\`
 .c1:visited,
 .c1:active {
   border: 1px solid undefined;
-}
-
-@media only screen and (min-width:400px) {
-
 }
 
 <button

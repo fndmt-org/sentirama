@@ -1,4 +1,4 @@
-export default {
+const mediaQueries = {
     phones: 'only screen and (max-width: 479px)',
     phonesLargeW: 'only screen and (min-width: 400px)',
     phonesLargeH: 'only screen and (min-height: 668px)', // one pixel more than iphone6
@@ -42,3 +42,5 @@ export default {
 
     xl: `only screen and (min-width: 1200px)`,
 };
+
+export default mediaQueries;

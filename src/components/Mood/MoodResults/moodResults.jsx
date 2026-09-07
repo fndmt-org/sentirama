@@ -1,5 +1,5 @@
 /* eslint-disable max-statements */
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from "react-router";
 import { FormattedMessage } from 'react-intl';
 import { compose } from 'recompose';
@@ -72,7 +72,7 @@ const MoodResultsBase = (props) => {
         });
     }
 
-    const sendNewMood = () => {
+    const sendNewMood = useCallback(() => {
         const name = username;
 
         props.firebase.doAddMood(
@@ -84,7 +84,7 @@ const MoodResultsBase = (props) => {
                 uuid,
             }
         )
-    };
+    }, [username, mood, set, color, uuid, props.firebase]);
 
     const [positiveNumberMoodsPercent, setPositiveNumberMoodsPercent] = useState(0);
     const [negativeNumberMoodsPercent, setNegativeNumberMoodsPercent] = useState(0);
@@ -107,7 +107,7 @@ const MoodResultsBase = (props) => {
         props.firebase.getGlobalMood(
             extractNumberMoods
         );
-    }, [mood, username]);
+    }, [props.firebase, sendNewMood]);
 
     return (
         <MoodWrapper>
