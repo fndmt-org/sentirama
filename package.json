@@ -70,6 +70,7 @@
     "@testing-library/user-event": "^12.8.3",
     "babel-plugin-styled-components": "^1.13.3",
     "eslint": "^7.32.0",
+    "eslint-config-react-app": "^7.0.1",
     "formatjs": "^0.1.1",
     "husky": "^7.0.4",
     "jest-styled-components": "^7.0.8",
@@ -81,6 +82,14 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint"
+    }
+  },
+  "overrides": {
+    "recompose": {
+      "react": "$react"
+    },
+    "eslint-config-react-app": {
+      "eslint": "$eslint"
     }
   },
   "engines": {
