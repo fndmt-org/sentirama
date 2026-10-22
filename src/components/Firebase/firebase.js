@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app"
 import { getAuth, signInAnonymously } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
-import { getDatabase, ref, query, set as dbset, onValue, equalTo, orderByChild, serverTimestamp } from "firebase/database";
+import { getDatabase, ref, query, set as dbset, onValue, orderByChild, serverTimestamp } from "firebase/database";
 import { getPerformance } from "firebase/performance";
 
 const config = {
@@ -36,7 +36,7 @@ class Firebase {
     singIn = (callback = () => {}) =>{
         signInAnonymously(this.auth)
             .then(() => {
-                var sessionsRef = sessions;
+                const sessionsRef = this.sessions();
                 sessionsRef.push({
                     startedAt: serverTimestamp(),
                 });
@@ -73,7 +73,7 @@ class Firebase {
                 const data = snapshot.val();
                 console.log(data);
             } else{
-                doAddMood({uuid, ...params});
+                this.doAddMood({uuid, ...params});
             }
         });
     }

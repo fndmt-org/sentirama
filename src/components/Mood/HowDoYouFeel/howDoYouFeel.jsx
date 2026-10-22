@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { useHistory } from "react-router";
 import { v4 as uuidv4 } from 'uuid';
